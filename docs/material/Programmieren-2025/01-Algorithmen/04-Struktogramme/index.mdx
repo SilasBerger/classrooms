@@ -1,0 +1,245 @@
+---
+sidebar_custom_props:
+  source:
+    name: inf.gbsl.website
+    ref: https://inf.gbsl.website/28Gb/Programmieren-1/Algorithmen/Struktogramme
+page_id: 2a7d2aa2-f6fa-466e-a9cd-22aaf95a3007
+---
+
+import Struktogramm from "@tdev-components/Struktogramm";
+import Restricted from '@tdev-components/documents/Restricted';
+
+# Struktogramme
+Struktogramme sind eine weitere Möglichkeit, Programme und Algorithmen grafisch darzustellen. Diese Dartstellungsform wurde 1973 von Isaac Nassi und Ben Shneiderman vorgeschlagen und heisst deshalb auch Nassi-Shneiderman-Diagramm.[^1]
+
+:::tip[Farben]
+Die hier verwendeten Farben nur eine optische Hilfe. Sie haben keine besondere Bedeutung.
+:::
+
+## Sequenz 👣
+In einem Struktogramm wird jeder Befehl in einen rechteckigen Kasten geschrieben. Befehle müssen nicht in einer Programmiersprache geschrieben werden.
+
+<Struktogramm program={[
+  {type: 'step', code: <span>Mache zuerst das, ...</span>},
+  {type: 'step', code: <span>...dann das hier...</span>},
+  {type: 'step', code: <span>...und nun noch das da.</span>},
+]} />
+
+
+## Schleife 🔁
+Eine Schleife («Wiederholung») wird wie folgt dargestellt.
+
+<Struktogramm program={[
+  {type: 'repeat', code: <span>Tue Folgendes solange...</span>, block: [
+      {type: 'step', code: <span>Mach das...</span>},
+      {type: 'step', code: <span>...und nun noch das da.</span>},
+    ]},
+]} />
+
+:::tip[Bemerke]
+- Beim Struktogramm wird der wiederholte Teil durch die **Einrückung** ersichtlich. Auch in Python werden wiederholte Sequenzen (Zeilen 4-5) visuell mit einem Tabulator eingerückt.
+- Der Doppelpunkt am Zeilenende zeigt an, dass eine eingerückte Sequenz (beim Programmieren spricht man von einem *Codeblock*) folgt.
+:::
+
+## Bedingte Ausführung (Verzweigung) ☑️
+Wenn ein Befehl nur unter bestimmten Bedingungen ausgeführt werden soll, stellen wir dies folgendermassen dar:
+<Struktogramm program={[
+  {type: 'if', code: <span>Wenn...</span>, block: [
+      {type: 'step', code: <span>Tue dies...</span>}
+    ]},
+  {type: 'else', code: <span>Sonst...</span>, block: [
+      {type: 'step', code: <span>Tue jenes...</span>}
+    ]},
+  ]} />
+
+:::tip[Bemerke]
+Für die bedingte Ausführung (auch _Verzweigung_ genannt) gibt es auch andere Darstellungsformen, welche wir hier nicht behandeln.
+:::
+
+Nicht bei jedem Algorithmus braucht es einen _Sonst_-Block zu einem _Wenn_-Block. Das zeigt folgendes Beispiel:
+
+<Struktogramm program={[
+  {type: 'repeat', code: <span>Solange die Aufgabe nicht gelöst ist:</span>, block: [
+      {type: 'step', code: <span>Bearbeiten Sie die Aufgabe</span>},
+      {type: 'if', code: <span>Wenn Sie Unterstützung brauchen:</span>, block: [
+          {type: 'step', code: <span>Rufen Sie die Lehrperson</span>}
+        ]},
+    ]},
+]} />
+
+Eine Verzweigung kann auch mehr als nur einen oder zwei "Ausgänge" haben. Das können wir mit _Sonst, wenn_-Blöcken ausdrücken:
+
+<Struktogramm program={[
+  {type: 'if', code: <span>Wenn es regnet:</span>, block: [
+      {type: 'step', code: <span>Ziehe eine Regenjacke an.</span>}
+    ]},
+  {type: 'elif', code: <span>Sonst, wenn die Sonne scheint:</span>, block: [
+      {type: 'step', code: <span>Trage eine Sonnenbrille.</span>}
+    ]},
+  {type: 'elif', code: <span>Sonst, wenn es kalt ist:</span>, block: [
+      {type: 'step', code: <span>Ziehe einen Pullover an.</span>}
+    ]},
+  {type: 'else', code: <span>Sonst:</span>, block: [
+      {type: 'step', code: <span>Ziehe an, was du möchtest.</span>}
+    ]},
+]} />
+
+:::tip[Bemerke]
+- Wir prüfen nur so lange die jeweils nächste Bedingung, **bis eine davon erfüllt ist**.
+  - Wenn also die Sonne scheint, prüft der obige Algorithmus nicht mehr, ob es allenfalls trotzdem auch kalt ist.
+  - Ein neues _Wenn_ (kein _Sonst, wenn_) würde allerdings eine neue Verzweigung starten: ab da prüfen wir wieder die Bedingungen.
+- Der _Sonst_-Block hat **keine Bedingung**. Er wird immer dann ausgeführt, wenn keine der Bedingungen erfüllt ist.
+:::
+
+## Unterprogramm 🏷
+Wenn wir bereits ein Programm haben, das ein bestimmtes Problem löst, können wir dieses in einem anderen Programm als **Unterprogramm** aufrufen:
+
+<Struktogramm program={[
+  {type: 'subprogram', code: <span>Spaghetti(<span className="var">n</span>)</span>},
+]} />
+
+Gehen wir davon aus, dass wir bereits zwei Programme `Spaghetti(n)` und `Tomatensauce(n)` haben, die jeweils `n` Portionen Spaghetti, respektive `n` Portionen Tomatensauce kochen. Dann können wir diese beiden Programme in einem neuen Programm `Spaghetti Napoletana(n)` aufrufen, um `n` Portionen Spaghetti Napoletana zu kochen:
+
+<Struktogramm program={[
+  {type: 'input', code: <span>Eingabe: <span className="var">n</span></span>},
+  {type: 'subprogram', code: <span>Spaghetti(<span className="var">n</span>)</span>},
+  {type: 'subprogram', code: <span>Tomatensauce(<span className="var">n</span>)</span>},
+  {type: 'step', code: <span>Spaghetti und Tomatensauce vermischen</span>},
+  {type: 'output', code: <span>Ausgabe: <span className="var">n</span> Portionen Spaghetti Napoletana</span>}
+]} />
+
+Mit den vertikalen Balken zeigen wir, dass es sich um einen Unterprogramm-Aufruf handelt. Nur so dürfen wir die Befehle `Spaghetti(…)` und `Tomatensauce(…)` verwenden. Wir können sie nicht einfach so in einem Struktogramm schreiben, sondern müssen sie immer in einem Unterprogramm-Aufruf verwenden – denn sonst wäre nicht klar, was dort genau gemacht werden soll.
+
+### Rückgabewerte
+Programme können auch Werte **zurückgeben**, statt sie einfach auszugeben. Das ist immer dann nützlich, wenn wir ein solches Programm als Unterprogramm verwenden und auf einen von ihm berechneten Wert zugreifen wollen.
+
+Das folgende Programm `Addieren(a, b)` addiert zwei Zahlen und gibt das Ergebnis zurück:
+
+<Struktogramm program={[
+  {type: 'input', code: <span>Eingabe: <span className="var">a</span></span>},
+  {type: 'input', code: <span>Eingabe: <span className="var">b</span></span>},
+  {type: 'step', code: <span><span className="var">c</span> = <span className="var">a</span> + <span className="var">b</span></span>},
+  {type: 'output', code: <span>Rückgabe: <span className="var">c</span></span>}
+]} />
+
+Wir können seinen **Rückgabewert** nun in einem anderen Programm, z.B. `Mittelwert(a, b)`, verwenden:
+
+<Struktogramm program={[
+  {type: 'input', code: <span>Eingabe: <span className="var">a</span></span>},
+  {type: 'input', code: <span>Eingabe: <span className="var">b</span></span>},
+  {type: 'subprogram', code: <span><span className="var">summe</span> = Addieren(<span className="var">a</span>, <span className="var">b</span>)</span>},
+  {type: 'step', code: <span><span className="var">mittelwert</span> = <span className="var">summe</span> / 2</span>},
+  {type: 'output', code: <span>Ausgabe: <span className="var">mittelwert</span></span>}
+]} />
+
+## EVA (Eingabe ‣ Verarbeitung ‣ Ausgabe)
+Die meisten Algorithmen **v**erarbeiten eine **E**ingabe und produzieren eine **A**usgabe.
+
+![--width=400px](img/eva.png)
+
+In einem Struktogramm stellen wir dies folgendermassen dar:
+<Struktogramm program={[
+  {type: 'input', code: <span>Eingabe: </span>},
+  {type: 'step', code: <span style={{color: '#00000000'}}>xxxxxxxxxxxxxxxxxx</span>},
+  {type: 'step', code: <span style={{color: '#00000000'}}>x</span>},
+  {type: 'repeat', code: <span style={{color: '#00000000'}}>x</span>, block: [
+      {type: 'step', code: <span style={{color: '#00000000'}}>x</span>},
+      {type: 'step', code: <span style={{color: '#00000000'}}>x</span>},
+    ]},
+  {type: 'output', code: <span>Ausgabe: </span>},
+]} />
+
+## Variablen und Parameter
+Eine **Variable** ist wie eine **Box**, die einen **Wert enthält**, der sich **verändern** kann.
+
+Variablen (hier: <span className="var">Schafe</span>) kennzeichnen wir in einem Struktogramm deshalb auch mit einer "Box", um sie visuell hervorzuheben:
+<Struktogramm program={[
+  {type: 'step', code: <span>Ich gehe ins Bett</span>},
+  {type: 'step', code: <span><span className="var">Schafe</span> = 0</span>},
+  {type: 'repeat', code: <span>Solange ich wach bin...</span>, block: [
+      {type: 'step', code: <span><span className="var">Schafe</span> = <span className='var'>Schafe</span> + 1</span>}
+    ]},
+  {type: 'output', code: <span>Ausgabe: 💤😴💤</span>},
+]} />
+
+:::insight[Zuweisung, keine Gleichung]
+Betrachten Sie nochmal den folgeden Block:
+
+<Struktogramm program={[
+  {type: 'step', code: <span><span className="var">Schafe</span> = <span className='var'>Schafe</span> + 1</span>}
+]} />
+
+Aus der Mathematik sind wir uns gewohnt, das als _Gleichung_ zu lesen: Wir _fragen_ ob `Schafe`gleich `Schafe + 1` sei, oder wir behaupten, dass dies so ist. Das ist hier aber nicht der Fall!
+
+In der Informatik (bei Algorithmen und beim Programmieren) ist das aber **keine Gleichung**, sondern eine **Zuweisung**. Wir _weisen_ der Variable `Schafe` den Wert von `Schafe + 1` zu. Es ist also ein **Befehl**, keine **Frage**. Wir _befehlen_ dem Computer, dass er den Wert der Variable `Schafe` auf den Wert _Schafe + 1_ setzen soll.
+
+Die **Richtung** der Zuweisung ist immer **von rechts nach links**: Rechts steht der Wert und Links steht die «Box» (also die Variable), in der dieser Wert gespeichert werden soll.
+
+Um zu prüfen, ob zwei Werte gleich sind (z.B. in der Bedingung einer Schleife oder einer Verzweigung) verwenden wir deshalb meistens **zwei Gleichheitszeichen** (`==`), um zu zeigen, dass es sich in dem Fall tatsächlich um eine Frage statt um einen Befehl handelt. Dieser Block würde also fragen, ob `Schafe` gleich `0` ist:
+
+<Struktogramm program={[
+  {type: 'if', code: <span>Wenn <span className="var">Schafe</span> == 0</span>, block: [
+      {type: 'step', code: <span>...</span>}
+    ]} 
+]} />
+:::
+
+Variablen werden von Algorithmus bei der Ausführung mit Werten gefüllt, um diese bei der Berechnung zu verwenden oder um sie später auszugeben. Bei einigen Variablen können wir den Wert aber auch von aussen vorgeben – nämlich immer bei einem solchen Block:
+
+<Struktogramm program={[
+  {type: 'input', code: <span>Eingabe: <span className="var">x</span></span>}
+]} />
+
+Dieser Block erlaubt uns, den Wert eine Variable – in diesem Fall `x` – von aussen vorzugeben. Eine solche Variable nennem wir einen **Parameter**. _Parameter_ sind die **E**ingabe im **EVA**-Prinzip. Wir können damit steuern, mit welchem Wert (oder welchen Werten) der Algorithmus ausgeführt werden soll.
+
+Im folgenden Struktogramm haben wir zwei Parameter, `a` und `b`, die wir von aussen vorgeben können. Der Algorithmus addiert diese beiden Zahlen und speichert das Ergebnis in der Variable `c`. Anschliessend gibt er den Wert von `c` aus:
+
+<Struktogramm program={[
+  {type: 'input', code: <span>Eingabe: <span className="var">a</span></span>},
+  {type: 'input', code: <span>Eingabe: <span className="var">b</span></span>},
+  {type: 'step', code: <span><span className="var">c</span> = <span className="var">a</span> + <span className="var">b</span></span>},
+  {type: 'output', code: <span>Ausgabe: <span className="var">c</span></span>}
+]} />
+
+Hier sprechen wir bei `a` und `b` von Parametern, weil wir sie von aussen vorgeben können. Schliesslich müssen wir dem Algorithmus ja sagen, welche Zahlen er addieren soll. Der Wert von `c` hingegen wird im Algorithmus berechnet und ist deshalb keine Variable, die wir von aussen vorgeben können. Wir können den Wert vo `c` also nicht selbst festlegen.
+
+## Struktogramme in Aktion
+### Addition zweier Zahlen
+> Nimm zwei Zahlen als Eingabe. Addiere diese Zahlen. Gib die Summe als Ausgabe aus.
+
+![](img/addieren.gif)
+
+### Zahl dekrementieren
+> Nimm eine Zahl als Eingabe. Dekrementiere diese Zahl in Einerschritten, solange sie grösser ist als 0. Gib nach jedem Dekrementierungsschritt die aktuelle Zahl aus. Gib am Schluss aus, dass du fertig bist.
+
+![](img/dekrementieren.gif)
+
+## Übungen
+:::aufgabe[Quiz]
+<TaskState id='e0442c76-ac4e-4a5d-83be-70994477fdb2' />
+
+Testen Sie Ihr Wissen mit diesem Quiz.
+
+Geben Sie hier das Lösungswort ein, das Ihnen am Ende des Quiz angezeigt wird, und überprüfen Sie Ihre Antwort:
+<String id="562e305b-bef1-4c27-b267-5d80948e8d62" solution="4TKE89BYP" />
+
+::learningapps[https://learningapps.org/p2uuvbnq525]
+:::
+
+:::aufgabe[Struktogramme analysieren 1]{scroll}
+<TaskState id='aca15e4a-86da-4842-ab6b-232c9c054675' />
+::pdf[./pdf/ab_struktogramme_analysieren_1.pdf]{scroll}
+<Solution id='45abefd3-10e5-4b86-92ad-f709d0c563bd'>
+  Die Musterlösungen finden Sie [hier](https://erzbe-my.sharepoint.com/:b:/g/personal/silas_berger_gbsl_ch/EbUHxMCo8HtPisGXoY10mK0BeehbVm-dbaHObSEPtVpQ0Q?e=SigseJ).
+</Solution>
+:::
+
+:::aufgabe[Struktogramme analysieren 2]
+<TaskState id='69ba9a39-1a58-4052-8dce-dad60daf44c5' />
+::pdf[./pdf/ab_struktogramme_analysieren_2.pdf]{scroll}
+<Solution id='38118731-0dd8-49ab-8221-74672ed3b8c0'>
+  Die Musterlösungen finden Sie [hier](https://erzbe-my.sharepoint.com/:b:/g/personal/silas_berger_gbsl_ch/EXepdPmXRUNGtHkzIEwuaUkBcgKzA5kNuOzeEX1BUDD9pw?e=VrKrdp).
+</Solution>
+:::
+
+[^1]: Quelle: [rothe.io](https://rothe.io/?b=prog1&p=905106)

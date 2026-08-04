@@ -1,0 +1,53 @@
+---
+page_id: d026f313-ac4f-4eed-a813-bb9e123e4c56
+sidebar_position: 0
+---
+import einzellektion from './einzellektion.json';
+import praktikum from './praktikum.json';
+import Semesterplan from "@tdev-components/Semesterplan";
+import Directory from '@tdev-components/documents/FileSystem/Directory';
+import termine_fs25 from './termine_fs25.json';
+import termine_hs25 from './termine_hs25.json';
+import termine_fs26 from './termine_fs26.json';
+import ZeugnisnotenTable from '@tdev-components/ZeugnisnotenTable';
+
+# Informatik 28Gh
+<Semesterplan termine={termine_fs26} />
+
+<details>
+    <summary>1. Semester GYM2</summary>
+    <Semesterplan termine={termine_hs25} />
+</details>
+
+<details>
+    <summary>2. Semester GYM1</summary>
+    <Semesterplan termine={termine_fs25} />
+</details>
+
+<details>
+    <summary>1. Semester GYM1</summary>
+    <Semesterplan einzellektion={einzellektion} praktikum={praktikum} />
+</details>
+
+<Directory name='Notizen' id='1fb5d117-914d-4b65-a1f9-fd8cc3320e2c' />
+
+## Grundsätze
+Für den Informatikunterricht haben wir uns in der Klasse auf folgende Grundsätze geeinigt, an die wir uns halten wollen:
+1. **Essen und Trinken: Nur wenn nötig, und mit Vorsicht.** Essen und Trinken gefährden elektronische Geräte. Wenn sich Essen und Trinken nicht vermeiden lassen, lassen wir die nötige Vorsicht walten. Ausserdem konsumieren wir im Unterricht nichts, was andere stören könnte (laut, stark riechend etc.).
+2. **Selbstkontrolle: Nicht ablenken lassen.** Die Arbeit am Laptop lädt zur Ablenkung ein. Um unsere Zeit im Unterricht sinnvoll zu nutzen, verzichten wir auf nicht-unterrichtsbezogene Aktivitäten.
+3. **Smartphone im Rucksack, ausser Reichweite.** Das Smartphone wird im Informatikunterricht nur selten benötigt ᠆ seine Benachrichtigungen lenken uns aber oft ab. Deshalb liegt das Gerät nicht auf dem Tisch, sondern wird ausser Reichweite in der Schultasche aufbewahrt.
+4. **Zum Stundenbeginn: Laptop einschalten und beim Klingeln schliessen.** So ist der Laptop schon einsatzbereit, und wir können gemeinsam starten.
+
+## Zeugnisnoten
+<ZeugnisnotenTable entries={{
+    'FS25': {
+        descriptor: 'GYM1, 2. Semester',
+        gradeCmsTextId: '9be6d4d7-0a4a-41bc-beec-d96da9e22548'
+    },
+    'FS26': {
+        descriptor: 'Jahresnote GYM2',
+        gradeCmsTextId: '3784766d-a96a-43c8-9fc6-c26994261b46'
+    }
+}} />
+
+---

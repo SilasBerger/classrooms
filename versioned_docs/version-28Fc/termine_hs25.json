@@ -1,0 +1,82 @@
+[
+  {
+    "cells": ["22.08.2025", "Einstieg, BYOD Basics", "Einstieg, Einführung BYOD"]
+  },
+  {
+    "cells": ["29.08.2025", "BYOD Basics", "Ziel: Modul 1 fertig"]
+  },
+  {
+    "cells": ["05.09.2025", "BYOD Basics", "Ziel: Modul 2 fertig"]
+  },
+  {
+    "cells": ["12.09.2025", "BYOD Basics", "Ziel: Module 3-5 fertig"]
+  },
+  {
+    "cells": ["19.09.2025", "BYOD Basics (Ausfall, brr abwesend)", "Auftrag: Module abschliessen, Arbeit Szenarienbibliothek"]
+  },
+  {
+    "cells": ["26.09.2025", "BYOD Basics", "Szenarienbibliothek abschliessen"]
+  },
+  {
+    "cells": ["03.10.2025", "Sonderwoche", "Klassenlager"],
+    "type": "event"
+  },
+  {
+    "cells": ["10.10.2025", "Herbstferien", ""],
+    "type": "holiday"
+  },
+  {
+    "cells": ["17.10.2025", "Herbstferien", ""],
+    "type": "holiday"
+  },
+  {
+    "cells": ["24.10.2025", "BYOD Basics", "Lerncheck + Feedback zur Szenarienbibliothek (🚨 Abgabe vor der Lektion)"],
+    "type": "test"
+  },
+  {
+    "cells": ["31.10.2025", "Algorithmen", ""]
+  },
+  {
+    "cells": ["07.11.2025", "Algorithmen", ""]
+  },
+  {
+    "cells": ["14.11.2025", "IN-Biber 🦫", "Wettbewerb"],
+    "type": "event"
+  },
+  {
+    "cells": ["21.11.2025", "Algorithmen / Programmieren", ""]
+  },
+  {
+    "cells": ["28.11.2025", "Algorithmen / Programmieren", ""]
+  },
+  {
+    "cells": ["05.12.2025", "Programmieren", ""],
+    "type": "holiday"
+  },
+  {
+    "cells": ["12.12.2025", "Programmieren", ""]
+  },
+  {
+    "cells": ["19.12.2025", "Programmieren", ""]
+  },
+  {
+    "cells": ["26.12.2025", "Winterferien", ""],
+    "type": "holiday"
+  },
+  {
+    "cells": ["02.01.2026", "Winterferien", ""],
+    "type": "holiday"
+  },
+  {
+    "cells": ["09.01.2026", "Programmieren", ""]
+  },
+  {
+    "cells": ["16.01.2026", "Programmieren", ""]
+  },
+  {
+    "cells": ["23.01.2026", "Programmieren", ""]
+  },
+  {
+    "cells": ["30.01.2026", "Programmieren", ""]
+  }
+]

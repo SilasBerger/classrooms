@@ -27,6 +27,9 @@ jobs:
           BACKEND_URL: ${{ vars.BACKEND_URL }}
           GH_OAUTH_CLIENT_ID: ${{ vars.GH_OAUTH_CLIENT_ID}}
           SITE_CONFIG_PATH: ${{ vars.SITE_CONFIG_PATH }}
+          UMAMI_ID: ${{ secrets.UMAMI_ID }}
+          SCAVENGER_API_BASE_URL: ${{ vars.SCAVENGER_API_BASE_URL }}
+          DIRECTUS_URL: ${{ vars.DIRECTUS_URL }}
         run: yarn build
         working-directory: .
       - name: Upload Build Artifact

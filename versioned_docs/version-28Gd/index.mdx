@@ -1,0 +1,54 @@
+---
+page_id: 3f97c157-206f-4979-8744-44adf40ee30d
+sidebar_position: 0
+---
+import einzellektion from './einzellektion.json';
+import praktikum from './praktikum.json';
+import Semesterplan from "@tdev-components/Semesterplan";
+import Directory from '@tdev-components/documents/FileSystem/Directory';
+import termine_fs25 from './termine_fs25.json';
+import termine_hs25 from './termine_hs25.json';
+import termine_fs26 from './termine_fs26.json';
+import ZeugnisnotenTable from '@tdev-components/ZeugnisnotenTable';
+
+# Informatik 28Gd
+<Semesterplan termine={termine_fs26} />
+
+<details>
+    <summary>1. Semester GYM2</summary>
+    <Semesterplan termine={termine_hs25} />
+</details>
+
+<details>
+    <summary>2. Semester GYM1</summary>
+    <Semesterplan termine={termine_fs25} />
+</details>
+
+<details>
+    <summary>1. Semester GYM1</summary>
+    <Semesterplan einzellektion={einzellektion} praktikum={praktikum} />
+</details>
+
+<Directory name='Notizen' id='fcf76982-09b8-4696-a30f-6bb292164e21' />
+
+## Grundsätze
+Für den Informatikunterricht haben wir uns in der Klasse auf folgende Grundsätze geeinigt, an die wir uns halten wollen:
+1. **Selbstdisziplin: Ablenkung vermeiden.** Nicht benötigte Tabs schliessen, keine ablenkenden Apps installiert haben, im Unterricht an den Aufträgen arbeiten.
+2. **Sorgfältiger Umgang mit dem Gerät.** Sorgfältige Handhabung und Bedienung; Vorsicht beim Essen und Trinken.
+3. **Digitale Sicherheit beachten.** Passwörter sorgfältig behandeln, dubiose Webseiten und Programme meiden, allenfalls Virenschutz verwenden.
+4. **Keine Ablenkung durch das Smartphone.** Das Smartphone wird im Informatikunterricht nur selten benötigt ᠆ seine Benachrichtigungen lenken uns aber oft ab. Deshalb liegt das Gerät nicht auf dem Tisch, sondern wird ausser Reichweite in der Schultasche aufbewahrt.
+5. **Zum Stundenbeginn: Laptop einschalten und beim Klingeln schliessen.** So ist der Laptop schon einsatzbereit, und wir können gemeinsam starten.
+
+## Zeugnisnoten
+<ZeugnisnotenTable entries={{
+    'FS25': {
+        descriptor: 'GYM1, 2. Semester',
+        gradeCmsTextId: '9be6d4d7-0a4a-41bc-beec-d96da9e22548'
+    },
+    'FS26': {
+        descriptor: 'Jahresnote GYM2',
+        gradeCmsTextId: '3784766d-a96a-43c8-9fc6-c26994261b46'
+    }
+}} />
+
+---

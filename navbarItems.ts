@@ -30,7 +30,7 @@ export const LoginProfileNavItem: NavbarItem = {
 
 export const DevDocsNavbarItem: NavbarItem | null = isDev
     ? {
-          to: 'docs/material',
+          to: 'Material',
           label: '📄 Material',
           position: 'right'
       }
@@ -40,22 +40,6 @@ export const DevDraftNavbarItem: NavbarItem | null = isDev
     ? {
           to: 'draft',
           label: '🚧 Draft',
-          position: 'right'
-      }
-    : null;
-
-export const DevComponentGalleryNavbarItem: NavbarItem | null = isDev
-    ? {
-          to: 'docs/tdev/gallery',
-          label: '🔧 Tdev',
-          position: 'right'
-      }
-    : null;
-
-export const DevDevDocsNavbarItem: NavbarItem | null = isDev
-    ? {
-          to: 'docs/material/Technical/Dev-Docs/VSCode-Cheatsheet',
-          label: '📓 Dev Docs',
           position: 'right'
       }
     : null;

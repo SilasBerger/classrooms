@@ -5,6 +5,7 @@
         }
     }
 }
+
 :global(.alert) {
     p:has(+ ol),
     p:has(+ ul),
@@ -16,21 +17,47 @@
         margin-bottom: 0;
     }
 }
+
 .aufgabe {
-    --ifm-alert-background-color: var(--tdev-admonition-aufgabe-background-color); // Light Teal
-    --ifm-alert-background-color-highlight: var(
-        --tdev-admonition-aufgabe-background-color-highlight
-    ); // Slightly Darker Teal
-    --ifm-alert-foreground-color: var(--tdev-admonition-aufgabe-foreground-color); // Darker Teal for Text
-    --ifm-alert-border-color: var(--tdev-admonition-aufgabe-border-color); // Medium Teal Border
+    --ifm-alert-background-color: #f8f3ff;
+    --ifm-alert-background-color-highlight: #ebe3ff;
+    --ifm-alert-foreground-color: #003100ff;
+    --ifm-alert-border-color: #8162a4;
 }
+
 .definition {
-    --ifm-alert-background-color: var(--tdev-admonition-definition-background-color); // Light Brownish
-    --ifm-alert-background-color-highlight: var(
-        --tdev-admonition-definition-background-color-highlight
-    ); // Slightly Darker Brownish
-    --ifm-alert-foreground-color: var(
-        --tdev-admonition-definition-foreground-color
-    ); // Dark Brownish for Text
-    --ifm-alert-border-color: var(--tdev-admonition-definition-border-color); // Medium Brown
+    --ifm-alert-background-color: #faefe7;
+    --ifm-alert-background-color-highlight: #eaded7;
+    --ifm-alert-foreground-color: #003100ff;
+    --ifm-alert-border-color: #988c8a;
+}
+
+.key {
+    --ifm-alert-background-color: #faefe7;
+    --ifm-alert-background-color-highlight: #eaded7;
+    --ifm-alert-foreground-color: #003100ff;
+    --ifm-alert-border-color: #988c8a;
+}
+
+html[data-theme='dark'] {
+    .definition {
+        --ifm-alert-background-color: #3e3532;
+        --ifm-alert-background-color-highlight: #4e4542;
+        --ifm-alert-foreground-color: #b8e6b8;
+        --ifm-alert-border-color: #6a5f5d;
+    }
+
+    .aufgabe {
+        --ifm-alert-background-color: #2a2438;
+        --ifm-alert-background-color-highlight: #3a3448;
+        --ifm-alert-foreground-color: #c8e6c8;
+        --ifm-alert-border-color: #8162a4;
+    }
+
+    .key {
+        --ifm-alert-background-color: #3e3532;
+        --ifm-alert-background-color-highlight: #4e4542;
+        --ifm-alert-foreground-color: #b8e6b8;
+        --ifm-alert-border-color: #6a5f5d;
+    }
 }

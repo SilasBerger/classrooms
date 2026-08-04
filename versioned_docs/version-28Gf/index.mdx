@@ -1,0 +1,55 @@
+---
+page_id: 4917f795-f894-4e44-a50c-32b8e8d7409e
+sidebar_position: 0
+---
+import einzellektion from './einzellektion.json';
+import praktikum from './praktikum.json';
+import Semesterplan from "@tdev-components/Semesterplan";
+import Directory from '@tdev-components/documents/FileSystem/Directory';
+import termine_fs25 from './termine_fs25.json';
+import termine_hs25 from './termine_hs25.json';
+import termine_fs26 from './termine_fs26.json';
+import ZeugnisnotenTable from '@tdev-components/ZeugnisnotenTable';
+
+# Informatik 28Gf
+<Semesterplan termine={termine_fs26} />
+
+<details>
+    <summary>1. Semester GYM2</summary>
+    <Semesterplan termine={termine_hs25} />
+</details>
+
+<details>
+    <summary>2. Semester GYM1</summary>
+    <Semesterplan termine={termine_fs25} />
+</details>
+
+<details>
+    <summary>1. Semester GYM1</summary>
+    <Semesterplan einzellektion={einzellektion} praktikum={praktikum} />
+</details>
+
+<Directory name='Notizen' id='f7076ab8-746d-42cb-a735-c3b2690d40ad' />
+
+## Grundsätze
+Für den Informatikunterricht haben wir uns in der Klasse auf folgende Grundsätze geeinigt, an die wir uns halten wollen:
+
+1. **Selbstdisziplin: Ablenkung vermeiden.** Einstellungen wie _Focus Modes_ können dabei helfen, Ablenkung durch Benachrichtigungen zu minimieren.
+2. **Ein geladenes Gerät gehört zum Unterrichtsmaterial.** Den Laptop am Abend aufladen und in der Schule immer ein Ladekabel dabei haben (in den Pausen laden).
+3. **Keine Ablenkung durch das Smartphone.** Das Smartphone wird im Informatikunterricht nur selten benötigt ᠆ seine Benachrichtigungen lenken uns aber oft ab. Deshalb liegt das Gerät nicht auf dem Tisch, sondern wird ausser Reichweite in der Schultasche aufbewahrt.
+4. **Zum Stundenbeginn: Laptop einschalten und beim Klingeln schliessen.** So ist der Laptop schon einsatzbereit, und wir können gemeinsam starten.
+5. **Unterschiedliche Tippgeschwindigkeiten berücksichtigen.** Nicht alle können gleich schnell tippen. Das sollte im Unterricht so gut wie möglich berücksichtigt werden.
+
+## Zeugnisnoten
+<ZeugnisnotenTable entries={{
+    'FS25': {
+        descriptor: 'GYM1, 2. Semester',
+        gradeCmsTextId: '9be6d4d7-0a4a-41bc-beec-d96da9e22548'
+    },
+    'FS26': {
+        descriptor: 'Jahresnote GYM2',
+        gradeCmsTextId: '3784766d-a96a-43c8-9fc6-c26994261b46'
+    }
+}} />
+
+---
