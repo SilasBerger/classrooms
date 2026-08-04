@@ -1,0 +1,30 @@
+---
+page_id: 73476134-24d4-42e1-b93b-5a984859cd2b
+---
+
+
+# Pyodide Playground
+```py live_pyo id=d5240fb9-2aab-4e02-8e88-770a117b2068 title=Beispiel
+from time import sleep
+for i in range(10):
+    print(i, i*i, i**3)
+    sleep(1)
+```
+
+```py live_pyo id=97d2f8ba-4d19-4481-8460-87ee7ec826fc title=Notenrechner
+user_input = input("Note eingeben oder 'ende' zum Beenden: ")
+noten = []
+while user_input.lower() != "ende":
+    try:
+        note = float(user_input)
+        if 1.0 <= note <= 6.0:
+            noten.append(note)
+        else:
+            print("Ungültige Note. Bitte eine Zahl zwischen 1.0 und 6.0 eingeben.")
+    except ValueError:
+        print("Ungültige Eingabe. Bitte eine Zahl eingeben.")
+    user_input = input("Note eingeben oder 'ende' zum Beenden: ")
+
+durchschnitt = sum(noten) / len(noten) if noten else 0
+print(f"Durchschnittsnote: {durchschnitt:.2f}")
+```
