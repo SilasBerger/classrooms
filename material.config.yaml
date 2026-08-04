@@ -3,249 +3,249 @@ docs:
   - from: packages/tdev/material-sync/README.mdx
     to: tdev-website/docs/intro/03-class-management/index.mdx
 28Ga:
-  - material: material/Onboarding-2024
+  - material: Onboarding-2024
     as: 01-Onboarding
-  - material: material/Erste-Hilfe
+  - material: Erste-Hilfe
     as: 02-Erste-Hilfe
-  - material: material/BYOD-Basics
+  - material: BYOD-Basics
     as: 03-BYOD-Basics
-  - material: material/Programmieren-1
+  - material: Programmieren-1
     as: 04-Programmieren-1
-  - material: material/IN-Biber/2024
+  - material: IN-Biber/2024
     as: 05-IN-Biber-2024
-  - material: material/Information-Daten
+  - material: Information-Daten
     as: 06-Information-Daten
-  - material: material/Textverarbeitung-Style
+  - material: Textverarbeitung-Style
     as: 07-Textverarbeitung-und-Style
-  - material: material/Repetition-2025/Repetition-GYM28-Lang.mdx
+  - material: Repetition-2025/Repetition-GYM28-Lang.mdx
     as: 08-Repetition-IN-GYM1/index.mdx
-  - material: material/Kryptologie
+  - material: Kryptologie
     as: 09-Kryptologie
-  - material: material/Data-Management-2025
+  - material: Data-Management-2025
     as: 10-Data-Management
-  - material: material/Netzwerke-2026
+  - material: Netzwerke-2026
     as: 11-Netzwerke
     ignore:
       - 07-Routing
       - 51-Networking-the-Nerds.mdx
       - 60-Repetition.mdx
       - 70-Ausblicke
-  - material: material/Abschlussprojekt-GYM28
+  - material: Abschlussprojekt-GYM28
     as: 12-Abschlussprojekt
-  - material: material/Schnitzeljagd-GYM28
+  - material: Schnitzeljagd-GYM28
     as: 13-Schnitzeljagd
 28Gd:
-  - material: material/Onboarding-2024
+  - material: Onboarding-2024
     as: 01-Onboarding
-  - material: material/Erste-Hilfe
+  - material: Erste-Hilfe
     as: 02-Erste-Hilfe
-  - material: material/BYOD-Basics
+  - material: BYOD-Basics
     as: 03-BYOD-Basics
-  - material: material/Programmieren-1
+  - material: Programmieren-1
     as: 04-Programmieren-1
-  - material: material/IN-Biber/2024
+  - material: IN-Biber/2024
     as: 05-IN-Biber-2024
-  - material: material/Information-Daten
+  - material: Information-Daten
     as: 06-Information-Daten
-  - material: material/Textverarbeitung-Style
+  - material: Textverarbeitung-Style
     as: 07-Textverarbeitung-und-Style
-  - material: material/Repetition-2025/Repetition-GYM28-Lang.mdx
+  - material: Repetition-2025/Repetition-GYM28-Lang.mdx
     as: 08-Repetition-IN-GYM1/index.mdx
-  - material: material/Kryptologie
+  - material: Kryptologie
     as: 09-Kryptologie
-  - material: material/Data-Management-2025
+  - material: Data-Management-2025
     as: 10-Data-Management
-  - material: material/Netzwerke-2026
+  - material: Netzwerke-2026
     as: 11-Netzwerke
     ignore:
       - 07-Routing
       - 51-Networking-the-Nerds.mdx
       - 60-Repetition.mdx
       - 70-Ausblicke
-  - material: material/Abschlussprojekt-GYM28
+  - material: Abschlussprojekt-GYM28
     as: 12-Abschlussprojekt
-  - material: material/Schnitzeljagd-GYM28
+  - material: Schnitzeljagd-GYM28
     as: 13-Schnitzeljagd
 28Gf:
-  - material: material/Onboarding-2024
+  - material: Onboarding-2024
     as: 01-Onboarding
-  - material: material/Erste-Hilfe
+  - material: Erste-Hilfe
     as: 02-Erste-Hilfe
-  - material: material/BYOD-Basics
+  - material: BYOD-Basics
     as: 03-BYOD-Basics
-  - material: material/Programmieren-1
+  - material: Programmieren-1
     as: 04-Programmieren-1
-  - material: material/IN-Biber/2024
+  - material: IN-Biber/2024
     as: 05-IN-Biber-2024
-  - material: material/Information-Daten
+  - material: Information-Daten
     as: 06-Information-Daten
-  - material: material/Textverarbeitung-Style
+  - material: Textverarbeitung-Style
     as: 07-Textverarbeitung-und-Style
-  - material: material/Repetition-2025/Repetition-GYM28-Kurz.mdx
+  - material: Repetition-2025/Repetition-GYM28-Kurz.mdx
     as: 08-Repetition-IN-GYM1/index.mdx
-  - material: material/Kryptologie
+  - material: Kryptologie
     as: 09-Kryptologie
-  - material: material/Data-Management-2025
+  - material: Data-Management-2025
     as: 10-Data-Management
-  - material: material/Netzwerke-2026
+  - material: Netzwerke-2026
     as: 11-Netzwerke
     ignore:
       - 07-Routing
       - 51-Networking-the-Nerds.mdx
       - 60-Repetition.mdx
       - 70-Ausblicke
-  - material: material/Abschlussprojekt-GYM28
+  - material: Abschlussprojekt-GYM28
     as: Abschlussprojekt
-  - material: material/Schnitzeljagd-GYM28
+  - material: Schnitzeljagd-GYM28
     as: 13-Schnitzeljagd
 28Gh:
-  - material: material/Onboarding-2024
+  - material: Onboarding-2024
     as: 01-Onboarding
-  - material: material/Erste-Hilfe
+  - material: Erste-Hilfe
     as: 02-Erste-Hilfe
-  - material: material/BYOD-Basics
+  - material: BYOD-Basics
     as: 03-BYOD-Basics
-  - material: material/Programmieren-1
+  - material: Programmieren-1
     as: 04-Programmieren-1
-  - material: material/IN-Biber/2024
+  - material: IN-Biber/2024
     as: 05-IN-Biber-2024
-  - material: material/Information-Daten
+  - material: Information-Daten
     as: 06-Information-Daten
-  - material: material/Textverarbeitung-Style
+  - material: Textverarbeitung-Style
     as: 07-Textverarbeitung-und-Style
-  - material: material/Repetition-2025/Repetition-GYM28-Kurz.mdx
+  - material: Repetition-2025/Repetition-GYM28-Kurz.mdx
     as: 08-Repetition-IN-GYM1/index.mdx
-  - material: material/Kryptologie
+  - material: Kryptologie
     as: 09-Kryptologie
-  - material: material/Data-Management-2025
+  - material: Data-Management-2025
     as: 10-Data-Management
-  - material: material/Netzwerke-2026
+  - material: Netzwerke-2026
     as: 11-Netzwerke
     ignore:
       - 07-Routing
       - 60-Repetition.mdx
       - 70-Ausblicke
-  - material: material/Abschlussprojekt-GYM28
+  - material: Abschlussprojekt-GYM28
     as: 12-Abschlussprojekt
-  - material: material/Schnitzeljagd-GYM28
+  - material: Schnitzeljagd-GYM28
     as: 13-Schnitzeljagd
-  - material: material/tw-confidential-material/HackLab
+  - material: confidential/HackLab
     as: 14-HackLab
 28mU:
-  - material: material/Onboarding-2024
+  - material: Onboarding-2024
     as: 01-Onboarding
-  - material: material/Erste-Hilfe
+  - material: Erste-Hilfe
     as: 02-Erste-Hilfe
-  - material: material/BYOD-Basics
+  - material: BYOD-Basics
     as: 03-BYOD-Basics
-  - material: material/Programmieren-1
+  - material: Programmieren-1
     as: 04-Programmieren-1
-  - material: material/IN-Biber/2024
+  - material: IN-Biber/2024
     as: 05-IN-Biber-2024
-  - material: material/Information-Daten
+  - material: Information-Daten
     as: 06-Information-Daten
-  - material: material/Textverarbeitung-Style
+  - material: Textverarbeitung-Style
     as: 07-Textverarbeitung-und-Style
-  - material: material/Repetition-2025/Repetition-GYM28-Kurz.mdx
+  - material: Repetition-2025/Repetition-GYM28-Kurz.mdx
     as: 08-Repetition-IN-GYM1/index.mdx
-  - material: material/Kryptologie
+  - material: Kryptologie
     as: 09-Kryptologie
-  - material: material/Data-Management-2025
+  - material: Data-Management-2025
     as: 10-Data-Management
-  - material: material/Netzwerke-2026
+  - material: Netzwerke-2026
     as: 11-Netzwerke
     ignore:
       - 07-Routing
       - 51-Networking-the-Nerds.mdx
       - 60-Repetition.mdx
       - 70-Ausblicke
-  - material: material/Abschlussprojekt-GYM28
+  - material: Abschlussprojekt-GYM28
     as: 12-Abschlussprojekt
-  - material: material/Schnitzeljagd-GYM28
+  - material: Schnitzeljagd-GYM28
     as: 13-Schnitzeljagd
 29Ge:
-  - material: material/MyGBSL
+  - material: MyGBSL
     as: 00-MyGBSL
-  - material: material/Onboarding-2025
+  - material: Onboarding-2025
     as: 02-Onboarding
-  - material: material/Erste-Hilfe
+  - material: Erste-Hilfe
     as: 03-Erste-Hilfe
-  - material: material/BYOD-Basics-2025
+  - material: BYOD-Basics-2025
     as: 04-BYOD-Basics
     ignore:
       - 99-Interviews-Repetition.mdx
-  - material: material/Programmieren-2025
+  - material: Programmieren-2025
     as: 05-Programmieren
     ignore:
       - 04-Advent-of-Code
-  - material: material/IN-Biber/2025
+  - material: IN-Biber/2025
     as: 06-IN-Biber-2025
-  - material: material/SOL-Text-Adventure-29Ge
+  - material: SOL-Text-Adventure-29Ge
     as: 07-SOL-Projekt-GYM1
-  - material: material/Information-Daten-29Ge
+  - material: Information-Daten-29Ge
     as: 08-Information-Daten
-  - material: material/Textverarbeitung-Style-29Ge
+  - material: Textverarbeitung-Style-29Ge
     as: 08-Textverarbeitung-und-Style
 28Fa:
-  - material: material/Onboarding-2025
+  - material: Onboarding-2025
     as: 01-Onboarding
-  - material: material/Erste-Hilfe
+  - material: Erste-Hilfe
     as: 02-Erste-Hilfe
-  - material: material/BYOD-Basics-2025
+  - material: BYOD-Basics-2025
     as: 03-BYOD-Basics
     ignore:
       - 01-Probe.mdx
       - 99-Interviews-Repetition.mdx
-  - material: material/Programmieren-2025
+  - material: Programmieren-2025
     as: 04-Programmieren
     ignore:
       - 04-Advent-of-Code
-  - material: material/IN-Biber/2025
+  - material: IN-Biber/2025
     as: 05-IN-Biber-2025
-  - material: material/Word-FMS28
+  - material: Word-FMS28
     as: 06-Word
 28Fb:
-  - material: material/Onboarding-2025
+  - material: Onboarding-2025
     as: 01-Onboarding
-  - material: material/Erste-Hilfe
+  - material: Erste-Hilfe
     as: 02-Erste-Hilfe
-  - material: material/BYOD-Basics-2025
+  - material: BYOD-Basics-2025
     as: 03-BYOD-Basics
     ignore:
       - 01-Probe.mdx
       - 99-Interviews-Repetition.mdx
-  - material: material/Programmieren-2025
+  - material: Programmieren-2025
     as: 04-Programmieren
     ignore:
       - 04-Advent-of-Code
-  - material: material/IN-Biber/2025
+  - material: IN-Biber/2025
     as: 05-IN-Biber-2025
-  - material: material/Word-FMS28
+  - material: Word-FMS28
     as: 06-Word
 28Fc:
-  - material: material/Onboarding-2025
+  - material: Onboarding-2025
     as: 01-Onboarding
-  - material: material/Erste-Hilfe
+  - material: Erste-Hilfe
     as: 02-Erste-Hilfe
-  - material: material/BYOD-Basics-2025
+  - material: BYOD-Basics-2025
     as: 03-BYOD-Basics
     ignore:
       - 01-Probe.mdx
-  - material: material/Programmieren-2025
+  - material: Programmieren-2025
     as: 04-Programmieren
     ignore:
       - 04-Advent-of-Code
-  - material: material/IN-Biber/2025
+  - material: IN-Biber/2025
     as: 05-IN-Biber-2025
-  - material: material/Word-FMS28
+  - material: Word-FMS28
     as: 06-Word
 draft:
-  - material: material/tw-confidential-material/Probe-Data-Management-GYM28
+  - material: confidential/Probe-Data-Management-GYM28
     as: 99-Probe-Data-Management
-  - material: material/tw-confidential-material/Probe-Data-Management-GYM28-NP1
+  - material: confidential/Probe-Data-Management-GYM28-NP1
     as: 100-Probe-Data-Management-NP1
-  - material: material/tw-confidential-material/HackLab
+  - material: confidential/HackLab
     as: 101-HackLab
 demo-probe:
-  - material: material/tw-confidential-material/ExamNet-Demo-Probe/index.mdx
+  - material: confidential/ExamNet-Demo-Probe/index.mdx
     as: /index.mdx
