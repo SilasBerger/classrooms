@@ -5,6 +5,10 @@ trackedElements:
       dst: docusaurus.config.ts
     - src: src/
       dst: src
+      ignore:
+        - MDXComponents.tsx
+        - Admonition
+        - DocItem/Footer
     - src: packages/tdev/
       dst: packages/tdev
       ignore:
@@ -35,3 +39,6 @@ watchedElements:
     - .babel.config.js
     - package.json
     - .env.example
+    - src/theme/MDXComponents.tsx
+    - src/theme/Admonition
+    - src/theme/DocItem/Footer
