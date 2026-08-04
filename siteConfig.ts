@@ -45,7 +45,8 @@ if (!process.env.DOCS_ONLY) {
     versions.forEach((version) => {
         VERSIONS[version] = {
             label: version,
-            banner: 'none'
+            banner: 'none',
+            badge: false
         };
     });
 }
