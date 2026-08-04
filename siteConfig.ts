@@ -38,6 +38,7 @@ export const brythonCodePluginConfig: PluginConfig = [
 const VERSIONS: { [version: string]: VersionOptions } = {
     current: {
         label: 'Material',
+        path: 'Material',
         banner: 'none'
     }
 };
@@ -169,7 +170,7 @@ const getSiteConfig: SiteConfigProvider = () => {
             routeBasePath: '/',
             exclude: process.env.NODE_ENV === 'production' ? ['tdev/**'] : [],
             showLastUpdateTime: true,
-            includeCurrentVersion: true,
+            // includeCurrentVersion: true,
             sidebarCollapsible: true
         },
         pages: ADMONITION_CONFIG,
