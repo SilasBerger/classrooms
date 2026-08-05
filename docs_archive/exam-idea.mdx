@@ -1,0 +1,51 @@
+<Quiz scoring={points(1)} id="36f3b59d-0ec1-44ae-912c-d81f5648cb39">
+    <ChoiceAnswer correct={[3]} scoring={points(2)}>
+        Wie viele Seiten hat ein Würfel?
+
+        1. 2
+        2. 4
+        3. 6
+        4. 8
+    </ChoiceAnswer>
+    
+    <TrueFalseAnswer correct={false}>
+        Zürich ist die Hauptstadt der Schweiz.
+    </TrueFalseAnswer>
+
+    <TrueFalseAnswer correct={true} scoring={noPoints()}>
+        Es kann auch Aufgaben geben, für die es keine Punkte
+    </TrueFalseAnswer>
+
+    <ChoiceAnswer multiple correct={[1, 2, 5]} scoring={multipleChoicePoints(3, 1, true)}>
+        Finden Sie heraus, wie genau diese Frage bewertet wird. Kreuzen Sie anschliessend alle korrekten Antworten an.
+
+        1. Diese Aufgabe gibt bis zu 4 Punkte.
+        2. Pro falscher Antwort (zu wenig oder zu viel angekreuzt) gibt es 1 Punkt Abzug.
+        3. Bei mehr als einer falschen Antwort (zu wenig oder zu viel angekreuzt) gibt es 0 Punkte.
+        4. Wenn man alles richtig beantwortet, gibt es 6 Punkte.
+        5. Wenn man zu viel falsch beantwortet, gibt es Negativpunkte.
+        6. Wenn man keine der Antworten auswählt, hat man mindestens noch die Hälfte der Punkte.
+    </ChoiceAnswer>
+
+    <MultiTrueFalseAnswer correct={[1, 2, 4]} scoring={multiTrueFalseScoring(pointsPerCorrect, deductionPerIncorrect, allowNegativePoints)}>
+        1. Im Sommer ist es heiss.
+        2. Im Winter ist es kalt.
+        3. Die Erde ist eine Scheibe.
+        4. Die Erbse ist eine Kugel.
+        5. Montag schreibt man mit tz.
+    </MultiTrueFalseAnswer>
+
+    <ManualAssessable maxPoints={10} correctionKey="Viele Punkte wenn gut, 1 Punkt Abzug pro Schlecht.">
+        Schreiben Sie einen Aufsatz zum Thema Informatik, 500 Wörter. Die Lehrperson wird dies manuell korrigieren, eine Rückmeldung erfassen und Punkte vergeben.
+
+        <QuillV2 />
+    </ManualAssessable>
+
+    <ManualAssessable maxPoints={4} correctionKey="Binäre Korrektur.">
+        Schreiben Sie ein Programm, das alle Probleme dieser Welt löst. Es erfolgt eine manuelle Beurteilung.
+
+        ```py live_pyo versioned
+        # Your solution goes here.
+        ```
+    </ManualAssessable>
+</Quiz>
