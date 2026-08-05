@@ -1,0 +1,255 @@
+---
+page_id: b81f2719-8cd6-41c0-acfb-2e3090178e0e
+---
+
+import { mdiContentSaveCheckOutline, mdiContentSaveOffOutline, mdiTrashCan } from '@mdi/js';
+import Quiz from "@tdev-components/documents/Assessable/Quiz"
+import ChoiceAnswer from "@tdev-components/documents/Assessable/ChoiceAnswer"
+import TrueFalseAnswer from "@tdev-components/documents/Assessable/TrueFalseAnswer"
+import Steps from "@tdev-components/Steps"
+import Button from "@tdev-components/shared/Button"
+import { mdiCheckboxMarkedCircleAutoOutline, mdiRestore, mdiCheckCircleOutline, mdiCloseCircleOutline, mdiProgressCheck, mdiProgressQuestion, mdiTrashCanOutline, mdiInformationOutline } from '@mdi/js';
+import { IfmColors } from '@tdev-components/shared/Colors';
+import { points, multipleChoicePoints, noPoints } from '@tdev-components/documents/Assessable/helpers/scoring';
+
+
+# Antworten
+Im Verlauf des Unterrichts werden Sie regelmässig Übungen und teilweise auch Prüfungen direkt auf Classrooms bearbeiten. Die Plattform bietet dabei viele verschiedene Antwortformate, von welchen Sie hier nun einige kennenlernen werden.
+
+:::tip[Gut zu wissen…]
+Ihre **Antworten** sind für **Sie selbst** und für die **Lehrperson** sichtbar.
+:::
+
+## Textantworten
+Bei vielen Aufgaben werden Sie Ihre Lösung oder Antwort als Text eingeben. Hier finden Sie zwei Möglichkeiten dazu.
+
+:::aufgabe[Text schreiben]
+<TaskState id='5f91ac6b-85de-4460-9cba-830455664109' />
+Unten finden Sie einen einfachen kleinen Text-Editor. Er funktioniert wie eine Mini-Version von _Microsoft Word_ oder _Google Docs_.
+
+Schreiben Sie einen **kurzen Text über Ihre Sommerferien (ca. 5 Sätze)** und setzen Sie in der obersten Zeile einen **Titel** (z.B. «Meine Sommerferien»). Formatieren Sie Ihren Text nach folgenden Anforderungen:
+- Ihr Text ist vermutlich standardmässig mit der Formatvorlage __Normal__ formatiert. Formatieren Sie die Titelzeile mit Formatvorlage __Heading 1__.
+- Mindestens ein Untertitel / Kapitelüberschrift (Formatvorlage __Heading 2__ auswählen)
+- Mindestens ein Wort **fett**
+- Mindestens ein Wort _kursiv_
+- Mindestens ein Wort <u>unterstrichen</u>
+
+<QuillV2 id='05289e4f-2b51-458e-b8d0-eb244f6c2607' />
+
+Am Schluss nicht vergessen, die Aufgabe als **erledigt** zu **markieren**.
+:::
+
+:::warning[Gespeichert?]
+Classrooms **speichert automatisch**, solange Sie mit dem Internet und mit dem Classrooms-Server verbunden sind. Es kann aber vorkommen (z.B. bei kurzen Netzwerk-Unterbrüchen oder bei sonstigen Systemproblemen), dass das **automatische Speichern nicht funktioniert**.
+
+Sie können gleich testen, ob bei Ihnen gespeichert wird: Wenn Sie oben im Text Editor nochmal etwas eintippen (oder löschen) und dann kurz warten, sollten Sie in der unteren rechten Ecke des Text-Editors folgendes Symbol sehen: <Icon path={mdiContentSaveCheckOutline} color="var(--tdev-sync-status-success-color)" size={1} />.
+
+Falls dieses Symbol nicht erscheint, oder falls Sie das Symbol <Icon path={mdiContentSaveOffOutline} color="var(--tdev-sync-status-error-color)" size={1} /> sehen, werden Ihre Änderungen **nicht gespeichert** und gehen **verloren, sobald Sie Seite verlassen oder neu laden.**.
+
+**Kontrollieren Sie bei Übungen und Prüfungen regelmässig**, ob das automatische Speichern funktioniert! 
+
+**Es gilt: Was nicht gespeichert wurde, ist nicht gemacht.**
+:::
+
+::::aufgabe[Alphabet]
+<TaskState id='ddc22724-904b-4235-8361-0da75a9a9e2d' />
+
+Wie lauten die ersten drei Buchstaben unseres Alphabets? Schreiben Sie sie jeweils als Grossbuchstaben hin.
+
+<String id="194b229a-4f3c-4ffe-9fec-97fa2ee74589" label='1. Buchstabe' solution="A" />
+<String id="5a5535ee-813e-4ee3-9554-19f8e08d55f1" label='2. Buchstabe' solution="B"/>
+<String id="68798c11-f7bd-4181-8e10-2ac33aef0a79" label='3. Buchstabe' solution="C"/>
+
+Achten Sie auch hier wieder darauf, dass in **jedem Textfeld** das **Speichersymbol** <Icon path={mdiContentSaveCheckOutline} color="var(--tdev-sync-status-success-color)" size={1} /> angezeigt wird.
+
+Sobald Sie Ihre Lösungen eingegeben haben, können Sie sie selbstständig kontrollieren, indem Sie auf den __:mdi[help-circle-outline]{.black}__-Knopf drücken. Ist Ihre Antwort korrekt, wird der Prüfknopf zu einem grünen Gutzeichen __:mdi[check-circle]{.green}__.
+
+Wenn Sie alle drei Fragen richtig beantwortet haben (also drei grüne Prüfknöpfe sehen), können Sie diese Aufgabe als erledigt markieren.
+::::
+
+## Weitere Antworten und Lösungen
+Einige Aufgaben bestehen aus mehreren Schritten. Solche Aufgaben haben keine Checkbox, sondern einen Fortschrittsbalken.
+
+So können Sie einen Schritt als erledigt markieren und zum nächsten Schritt weitergehen:
+::video[./img/check-progress-state.mp4]{controls=false autoplay=true loop=true muted=true}
+
+<div style={{marginTop: "1em"}} />
+
+:::aufgabe[Kacheln reflektieren]
+Arbeiten Sie alle Schritte durch, um diese Aufgabe als erledigt zu markieren.
+
+<ProgressState id="0259615f-08e2-4ed7-9c0c-8c8b1db67154" confirm preventTogglingFutureSteps>
+1. Lesen Sie den Abschnitt [Informationen](./02-Informationen.mdx) (nochmal) durch.
+2. Überlegen Sie sich, was für Informationen Sie wohl in den «Warnung»- und «Gefahr»-Kacheln finden werden.
+3. Tauschen Sie sich kurz mit Ihrer Nachbar:in darüber aus.
+4. Fassen Sie Ihre Erkenntnisse unten im Textfeld in 1-2 Sätzen zusammen.
+5. Sobald Sie mit Ihrer Antwort zufrieden sind, können Sie ganz unten die Lösung aufklappen und Ihre Antwort überprüfen.
+6. Sobald Sie den letzten Schritt (also diesen hier) als erledigt markieren, ist die gesamte Aufgabe als erledigt markiert. Das sehen Sie auch in der Übersicht am oberen Seitenrand.
+</ProgressState>
+
+<QuillV2 id="1d4723b4-dcea-44d0-8a10-c7927cee9081" />
+
+<Solution id="e3711a07-69c8-4890-8d0c-c2051df1f5b6">
+Die «Warnung»- und «Gefahr»-Kacheln enthalten Hinweise auf mögliche Probleme oder Fehler, die auftreten können, wenn Sie die Anweisungen nicht genau befolgen. Sie enthalten allenfalls auch Erinnerungen an wichtige Termine oder Anforderungen, die Sie beachten müssen.
+</Solution>
+:::
+
+:::warning[Der richtige Umgang mit Lösungen]
+In der letzten Aufgabe haben Sie eine Lösung aufklappen können. Das ist eine **Lösungshilfe**. Sie hilft Ihnen, Ihre Antwort zu überprüfen. Je nach Aufgabe enthält sie die korrekte Antwort, oder einfach eine mögliche Lösung, die Sie mit Ihrer vergleichen können.
+
+Folgende Dinge müssen Sie beachten:
+- Meistens stehen die Lösungen nicht von Anfang an zur Verfügung. Die Lehrperson gibt sie erst frei, nachdem Sie die Aufgabe bearbeitet haben.
+- Die Lösungen sind dazu da, dass Sie Ihre eigenen Antworten **überprüfen** und **verbessern** können. Sie sollten sie also nicht nur kurz anschauen oder einfach abschreiben, sondern damit Ihre eigene Lösung überarbeiten, wenn sie noch nicht ganz korrekt ist.
+:::
+
+## Ankreuz-Aufgaben
+In diesem Abschnitt lernen Sie verschiedene Formen von Ankreuz-Aufgaben kennen. Dies sind die wichtigsten Steuerelemente und Symbole solcher Fragen:
+
+<Button icon={mdiCheckboxMarkedCircleAutoOutline} color="success" iconSide="left" size={0.7}>Prüfen</Button>
+: Antwort überprüfen
+<Button icon={mdiRestore} color="secondary" iconSide="left" size={0.7}>Zurücksetzen</Button>
+: Antwort zurücksetzen, um die Frage erneut zu beantworten
+<Icon size={1} path={mdiTrashCanOutline} color={IfmColors.red} /> 
+: Antwort entfernen
+: Erscheint bei Richtig-Falsch- und Single-Choice Fragen, wenn der Mauszeiger über die zu löschende Antwortmöglichkeit bewegt wird
+<Icon size={1} path={mdiCheckCircleOutline} color={IfmColors.green} /> 
+: Die Frage wurde richtig beantwortet.
+<Icon size={1} path={mdiProgressCheck} color={IfmColors.orange} /> 
+: Die Frage wurde teilweise richtig beantwortet (bei Multiple-Choice-Fragen).
+<Icon size={1} path={mdiCloseCircleOutline} color={IfmColors.red} /> 
+: Die Frage wurde falsch beantwortet.
+<Icon size={1} path={mdiProgressQuestion} color={IfmColors.lightBlue} /> 
+: Die Antwort wurde geprüft, aber die Frage wurde nicht beantwortet.
+
+:::tip[Aufgabenübersicht]
+Alle Ankreuz-Fragen werden oben in der Aufgabenübersicht individuell dargestellt:
+
+![--width=400px](img/choice-answer/task-states.png)
+
+Die Farbe bezieht sich auf die Überprüfung der Antwort (grau wenn noch nicht geprüft, grün wenn richtig, etc.).
+:::
+
+**Gehen Sie bei jeder der folgenden Fragen wie folgt vor:**
+<Steps>
+1. Beantworten Sie die Frage.
+2. Prüfen Sie Ihre Antwort mit dem __Prüfen__-Button im Titel der Frage.
+3. Wird die Frage grün umrandet, war Ihre Antwort korrekt. Wenn Sie eine Frage beim ersten Mal nicht richtig beantwortet haben, klicken Sie auf __Zurücksetzen__ und versuchen Sie es erneut. 
+</Steps>
+
+Bei **Richtig-Falsch-Fragen** gibt es nur zwei Antwortmöglichkeiten. Wählen Sie die korrekte Antwort aus und prüfen Sie Ihre Antwort anschliessend mit den Button.
+
+<TrueFalseAnswer correct={true} id="02865748-0b50-4101-9eb8-af311efdf0d5">
+    Sie lernen gerade eine Plattform namens «Classrooms» kennen.
+</TrueFalseAnswer>
+
+Bei Single-Choice-Aufgaben kann es mehr als zwei Antwortmöglichkeiten geben, Sie können jedoch nur eine davon auswählen.
+
+<ChoiceAnswer correct={[3]} id="930cb3d3-cd8a-46ed-862a-cc6c65ad1cf4">
+In welchem Monat beginnt bei uns jeweils das neue Schuljahr?
+
+1. Januar
+2. Mai
+3. August
+4. September
+5. Dezember
+</ChoiceAnswer>
+
+**Gut zu wissen:** Es kann auch Single-Choice-Aufgaben geben, bei denen mehr als eine Antwort richtig ist. Sie müssen in dem Fall einfach eine der richtigen Antworten auswählen.
+
+Bei **Multiple-Choice-Aufgaben** (erkennbar an den eckigen statt runden Auswahl-Kästchen) können mehrere Antworten korrekt sein.
+
+<ChoiceAnswer multiple correct={[3, 4]} id="c43faff7-6218-48e7-bac6-0ce67f16e99c">
+Welche Monate gehören zum Sommer?
+
+1. Januar
+2. März
+3. Juli
+4. August
+5. November
+</ChoiceAnswer>
+
+:::tip[Teilweise richtig?]
+Multiple-Choice-Fragen können als «teilweise richtig» bewertet werden. Das heisst: Einige Entscheidungen (auswählen oder nicht auswählen) waren korrekt, andere nicht. Sie haben also **mindestens eine korrekte** Antwortmöglichkeit **ausgewählt** oder **mindestens eine nicht korrekte** Antwortmöglichkeit **nicht ausgewählt**.
+:::
+
+## Quizzes
+Ein Quiz besteht aus mehreren Ankreuz-Fragen (und kann theoretisch auch andere Antwort-Typen enthalten) die zusammen bewertet werden.
+
+Bei Quizzes können die beantworteten Fragen nicht einzeln überprüft werden. Stattdessen können Sie am Schluss auf __Quiz beenden__ klicken, um das Quiz abzuschliessen und Ihre Antworten zu überprüfen. Danach sehen Sie, wie viele Punkte Sie erreicht haben. Sie können Ihre Antworten nun **nicht mehr anpassen**. Wenn Sie noch nicht alle Fragen korrekt beantwortet haben, müssen Sie das Quiz zurücksetzen und neu beginnen.
+
+<Quiz scoring={points(1)} id="bff1d745-0342-402a-937a-b8e4723a7951" randomizeQuestions randomizeOptions>
+    <ChoiceAnswer correct={[1]}>
+        In welchem Jahr war 2024?
+
+        1. 2024
+        2. 1991
+        3. 2000
+        4. 1983
+        5. 1965
+    </ChoiceAnswer>
+
+    <ChoiceAnswer correct={[4]}>
+        Wie heisst ein berühmter Schweizer Tennisspieler?
+
+        1. Max Mustermann
+        2. Barbara Beispiel
+        3. Ezard Exempel
+        4. Roger Federer
+        5. Damian Demo
+    </ChoiceAnswer>
+
+    <TrueFalseAnswer correct={false}>
+        Unsere Atemluft besteht zum grössten Teil aus Sauerstoff.
+    </TrueFalseAnswer>
+
+    <ChoiceAnswer multiple correct={[3, 5]}>
+        Welche Wochentage gibt es **nicht**?
+
+        1. Dienstag
+        2. Freitag
+        3. Zahltag
+        4. Donnerstag
+        5. Jahrestag
+    </ChoiceAnswer>
+</Quiz>
+
+:::tip[Gut zu wissen…]
+Die Fragen und die Antwortmöglichkeiten innerhalb der Fragen erscheinen bei diesem Quiz in zufälliger Reihenfolge. Bei Ihrem Nachbarn / Ihrer Nachbarin wird es also womöglich anders dargestellt.
+:::
+
+Bei einem Quiz gibt es nicht zwingend für jede Frage gleich viele Punkte. Schauen Sie jeweils im Kopf der Frage auf die angegebene Punktzahl. Klicken Sie auf die Punktzahl-Angabe, um mehr darüber zu erfahren, wie die entsprechende Frage bewertet wird.
+
+<Quiz scoring={points(1)} id="36f3b59d-0ec1-44ae-912c-d81f5648cb39">
+    <ChoiceAnswer correct={[3]} scoring={points(2)}>
+        Wie viele Seiten hat ein Würfel?
+
+        1. 2
+        2. 4
+        3. 6
+        4. 8
+    </ChoiceAnswer>
+    
+    <TrueFalseAnswer correct={false}>
+        Zürich ist die Hauptstadt der Schweiz.
+    </TrueFalseAnswer>
+
+    <TrueFalseAnswer correct={true} scoring={noPoints()}>
+        Es kann auch Aufgaben geben, für die es keine Punkte
+    </TrueFalseAnswer>
+
+    <ChoiceAnswer multiple correct={[1, 2, 5]} scoring={multipleChoicePoints(3, 1, true)}>
+        Finden Sie heraus, wie genau diese Frage bewertet wird. Kreuzen Sie anschliessend alle korrekten Antworten an.
+
+        1. Diese Aufgabe gibt bis zu 4 Punkte.
+        2. Pro falscher Antwort (zu wenig oder zu viel angekreuzt) gibt es 1 Punkt Abzug.
+        3. Bei mehr als einer falschen Antwort (zu wenig oder zu viel angekreuzt) gibt es 0 Punkte.
+        4. Wenn man alles richtig beantwortet, gibt es 6 Punkte.
+        5. Wenn man zu viel falsch beantwortet, gibt es Negativpunkte.
+        6. Wenn man keine der Antworten auswählt, hat man mindestens noch die Hälfte der Punkte.
+    </ChoiceAnswer>
+</Quiz>
+
+## Fertig?
+Haben Sie alle Aufgaben erledigt? Haben Sie auch daran gedacht, die **Aufgaben als erledigt zu markieren?**
+
+Dann klicken Sie jetzt auf __Weiter__, um zur nächsten Seite zu gelangen.

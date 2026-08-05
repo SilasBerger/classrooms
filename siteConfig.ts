@@ -178,7 +178,8 @@ const getSiteConfig: SiteConfigProvider = () => {
             require.resolve('@tdev/netpbm-graphic/register'),
             require.resolve('@tdev/text-message/register'),
             require.resolve('@tdev/pyodide-code/register'),
-            require.resolve('@tdev/brython-code/register')
+            require.resolve('@tdev/brython-code/register'),
+            require.resolve('@tdev/page-read-check/register')
         ]
     };
 };

@@ -1,0 +1,64 @@
+---
+page_id: 18381238-cfb9-4a38-9cd1-78626441693f
+sidebar_label: Willkommen 👋
+---
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import Steps from "@tdev-components/Steps";
+
+export const ClassStartPage = () => {
+  return (
+    <BrowserOnly fallback={<a href='../'>👉 Klassen-Startseite</a>}>
+      {() => {
+        const className = window.location.pathname.split('/')[1];
+        return (
+          <a href='../'>👉 Klassen-Startseite (Informatik {className})</a>
+        )
+      }}
+    </BrowserOnly>
+  );
+}
+
+export const ClassStartPageTitle = () => {
+  return (
+    <BrowserOnly fallback={<a href='../'>👉 Klassen-Startseite</a>}>
+      {() => {
+        const className = window.location.pathname.split('/')[1];
+        return (
+          <span>👉 Informatik {className}</span>
+        )
+      }}
+    </BrowserOnly>
+  );
+}
+
+# Willkommen 👋
+Willkommen auf _Classrooms_! Auf dieser Plattform finden Sie alle Informationen und Übungen für den Informatikunterricht.
+
+Auf der <ClassStartPage /> finden Sie den Terminplan, wichtige Abmachungen und weiteren organisatorischen Informationen. Zu den inhaltlichen Themen gelangen Sie links über die Navigationsleiste. Das Thema, das wir gerade behandeln, ist immer zuunterst aufgelistet.
+
+:::aufgabe[Vorbereitung auf den Unterricht]
+<TaskState id="c3f418f5-2289-4771-941a-39d9d42ac744" />
+Damit Sie zu Beginn der Informatiklektionen keine wertvolle Zeit verlieren, wird erwartet, dass Sie **Classrooms beim Läuten bereits geöffnet haben und eingeloggt sind**.
+
+Speichern Sie sich die <ClassStartPage /> deshalb gleich als Lesezeichen ab. **Gehen Sie dazu wie folgt vor:**
+
+<Steps>
+1. Suchen Sie bei Bedarf nach einer Anleitung, wie man in Ihrem Browser (Edge, Safari, Google Chrome, Firefox, …) ein Lesezeichen erstellt. Geben Sie dazu bei Google «Lesezeichen erstellen in [Ihr Browser]» ein.
+2. Öffnen Sie die <ClassStartPage /> in einem neuen Tab (am einfachsten: Rechtsklick auf diesen Link und «In neuem Tab öffnen» auswählen).
+3. Wechseln Sie zum Tab mit der Klassen-Startseite. Kontrollieren Sie nochmal, ob am oberen Seitenrand «<ClassStartPageTitle />» steht. Erstellen Sie dort dann ein Lesezeichen **in der Lesezeichen-Leiste**.
+4. Überprüfen Sie das neue Lesezeichen: Öffnen Sie einen neuen Tab, gehen Sie zur Lesezeichen-Leiste und klicken Sie auf das Classrooms-Lesezeichen. Falls die Lesezeichen-Leiste nicht sichtbar ist, suchen Sie online nach einer Anleitung, wie man die Lesezeichen-Leiste in Ihrem Browser einblendet.
+</Steps>
+:::
+
+:::insight[Aufgabe erledigt?]
+Haben Sie die obige Aufgabe erledigt? Dann können Sie sie jetzt **als erledigt markieren**, indem Sie oben links auf das Kästchen klicken. Mehr dazu später.
+
+Danach können Sie weiterfahren.
+:::
+
+## Und jetzt?
+Nun sollen Sie _Classrooms_ etwas besser kennenlernen. Dazu werden Sie einige Einführungsaufgaben bearbeiten. Viele Funktionen sollten Ihnen aus dem ICT-Onboarding bereits bekannt vorkommen 😉.
+
+Klicken Sie unten rechts auf __Weiter__, um zur nächsten Seite zu gelangen. **Lesen Sie bitte alles genau durch und bearbeiten Sie alle Aufgaben**, bis Sie das Ende dieser Einführung erreicht haben.
+
