@@ -47,12 +47,14 @@ Die Farbe bezieht sich auf die Überprüfung der Antwort (grau wenn noch nicht g
 3. Wird die Frage grün umrandet, war Ihre Antwort korrekt. Wenn Sie eine Frage beim ersten Mal nicht richtig beantwortet haben, klicken Sie auf __Zurücksetzen__ und versuchen Sie es erneut. 
 </Steps>
 
+## Richtig-Falsch
 Bei **Richtig-Falsch-Fragen** gibt es nur zwei Antwortmöglichkeiten. Wählen Sie die korrekte Antwort aus und prüfen Sie Ihre Antwort anschliessend mit den Button.
 
 <TrueFalseAnswer correct={true} id="02865748-0b50-4101-9eb8-af311efdf0d5">
     Sie lernen gerade eine Plattform namens «Classrooms» kennen.
 </TrueFalseAnswer>
 
+## Single Choice
 Bei Single-Choice-Aufgaben kann es mehr als zwei Antwortmöglichkeiten geben, Sie können jedoch nur eine davon auswählen.
 
 <ChoiceAnswer correct={[3]} id="930cb3d3-cd8a-46ed-862a-cc6c65ad1cf4">
@@ -65,8 +67,11 @@ In welchem Monat beginnt bei uns jeweils das neue Schuljahr?
 5. Dezember
 </ChoiceAnswer>
 
-**Gut zu wissen:** Es kann auch Single-Choice-Aufgaben geben, bei denen mehr als eine Antwort richtig ist. Sie müssen in dem Fall einfach eine der richtigen Antworten auswählen.
+:::tip[Gut zu wissen…]
+Es kann auch Single-Choice-Aufgaben geben, bei denen mehr als eine Antwort richtig ist. Sie müssen in dem Fall einfach eine der richtigen Antworten auswählen.
+:::
 
+## Multiple Choice
 Bei **Multiple-Choice-Aufgaben** (erkennbar an den eckigen statt runden Auswahl-Kästchen) können mehrere Antworten korrekt sein.
 
 <ChoiceAnswer multiple correct={[3, 4]} id="c43faff7-6218-48e7-bac6-0ce67f16e99c">
@@ -86,7 +91,7 @@ Multiple-Choice-Fragen können als «teilweise richtig» bewertet werden. Das he
 ## Quizzes
 Ein Quiz besteht aus mehreren Ankreuz-Fragen (und kann theoretisch auch andere Antwort-Typen enthalten) die zusammen bewertet werden.
 
-Bei Quizzes können die beantworteten Fragen nicht einzeln überprüft werden. Stattdessen können Sie am Schluss auf __Quiz beenden__ klicken, um das Quiz abzuschliessen und Ihre Antworten zu überprüfen. Danach sehen Sie, wie viele Punkte Sie erreicht haben. Sie können Ihre Antworten nun **nicht mehr anpassen**. Wenn Sie noch nicht alle Fragen korrekt beantwortet haben, müssen Sie das Quiz zurücksetzen und neu beginnen.
+Bei Quizzes können die beantworteten Fragen nicht einzeln überprüft werden. Stattdessen können Sie am Schluss auf __Quiz beenden__ klicken, um das Quiz abzuschliessen und Ihre Antworten zu überprüfen. Danach sehen Sie, wie viele Punkte Sie erreicht haben. Sie können Ihre Antworten ab dann **nicht mehr anpassen**. Wenn Sie noch nicht alle Fragen korrekt beantwortet haben, müssen Sie das Quiz zurücksetzen und neu beginnen.
 
 <Quiz scoring={points(1)} id="bff1d745-0342-402a-937a-b8e4723a7951" randomizeQuestions randomizeOptions>
     <ChoiceAnswer correct={[1]}>
@@ -125,7 +130,7 @@ Bei Quizzes können die beantworteten Fragen nicht einzeln überprüft werden. S
 </Quiz>
 
 :::tip[Gut zu wissen…]
-Die Fragen und die Antwortmöglichkeiten innerhalb der Fragen erscheinen bei diesem Quiz in zufälliger Reihenfolge. Bei Ihrem Nachbarn / Ihrer Nachbarin wird es also womöglich anders dargestellt.
+Die Fragen und die Antwortmöglichkeiten innerhalb der Fragen erscheinen bei diesem Quiz in zufälliger Reihenfolge. Bei Ihnen selbst bleibt die Reihenfolge zwar auch beim Neuladen der Seite immer gleich, aber bei Ihrem Nachbarn / Ihrer Nachbarin ist sie womöglich anders.
 :::
 
 Bei einem Quiz gibt es nicht zwingend für jede Frage gleich viele Punkte. Schauen Sie jeweils im Kopf der Frage auf die angegebene Punktzahl. Klicken Sie auf die Punktzahl-Angabe, um mehr darüber zu erfahren, wie die entsprechende Frage bewertet wird.
@@ -145,11 +150,11 @@ Bei einem Quiz gibt es nicht zwingend für jede Frage gleich viele Punkte. Schau
     </TrueFalseAnswer>
 
     <TrueFalseAnswer correct={true} scoring={noPoints()}>
-        Es kann auch Aufgaben geben, für die es keine Punkte
+        Es kann auch Aufgaben geben, für die es keine Punkte gibt.
     </TrueFalseAnswer>
 
     <ChoiceAnswer multiple correct={[1, 2, 5]} scoring={multipleChoicePoints(3, 1, true)}>
-        Finden Sie heraus, wie genau diese Frage bewertet wird. Kreuzen Sie anschliessend alle korrekten Antworten an.
+        Finden Sie heraus, wie genau diese Frage bewertet wird. Kreuzen Sie anschliessend alle korrekten Aussagen an.
 
         1. Diese Aufgabe gibt bis zu 4 Punkte.
         2. Pro falscher Antwort (zu wenig oder zu viel angekreuzt) gibt es 1 Punkt Abzug.
