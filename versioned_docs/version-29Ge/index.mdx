@@ -1,6 +1,6 @@
 ---
 page_id: 61621e66-7183-4d6f-83b5-e844b0dec767
-sidebar_position: 1
+sidebar_position: 0.1
 sidebar_custom_props:
     taskable_state: hide
 ---
@@ -9,13 +9,19 @@ import Semesterplan from "@tdev-components/Semesterplan";
 import einzellektion from './einzellektion.json';
 import praktikum from './praktikum.json';
 import termine_fs26 from './termine_fs26.json';
+import termine_hs26 from './termine_hs26.json';
 
 import Directory from '@tdev-components/documents/FileSystem/Directory';
 import Restricted from '@tdev-components/documents/Restricted';
 import ZeugnisnotenTable from '@tdev-components/ZeugnisnotenTable';
 
 # Informatik 29Ge
-<Semesterplan termine={termine_fs26} />
+<Semesterplan termine={termine_hs26} />
+
+<details>
+    <summary>2. Semester GYM1</summary>
+    <Semesterplan termine={termine_fs26} />
+</details>
 
 <details>
     <summary>1. Semester GYM1</summary>
