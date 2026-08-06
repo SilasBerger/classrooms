@@ -1,0 +1,40 @@
+---
+sidebar_position: 0.1
+page_id: 5755342a-27de-41fc-a917-edd16dd7945a
+---
+
+import Semesterplan from "@tdev-components/Semesterplan";
+import einzellektion from './einzellektion.json';
+import praktikum from './praktikum.json';
+
+import Directory from '@tdev-components/documents/FileSystem/Directory';
+import Restricted from '@tdev-components/documents/Restricted';
+import ZeugnisnotenTable from '@tdev-components/ZeugnisnotenTable';
+
+# Informatik 30Gm
+<Semesterplan einzellektion={einzellektion} praktikum={praktikum} />
+
+<Directory name='Notizen' id='ef6ccd32-6639-4d20-ba9c-16f84498eed8' />
+
+## Grundsätze
+- Im **Schulzimmer** bleibt das **Handy (auch während der Pause)** immer im **Rucksack** (nicht Hosentasche, Stuhl, …). **Alternativ** wird es **vor Unterrichtsbeginn** bei der Lehrperson **abgegeben**.
+- Beim **Läuten**…
+   - …sitze ich bereits **an meinem Platz**.
+   - …liegt mein **Handy** im **Rucksack**.
+   - …habe ich **Classrooms** bereits auf dieser Seite oder auf der aktuellen Arbeitsseite **geöffnet**.
+   - …**schliesse** ich direkt den **Laptop**.
+   - …konzentriere ich mich auf den **Unterricht** und stelle **Gespräche** ein.
+- **Während des Unterrichts** nutze ich meinen **Laptop** ausschliesslich für den **Informatikunterricht**.
+- Bei **individuellen** Arbeitsphasen ist das **Musikhören erlaubt** – mit **Kopfhörern** und **ohne Handy**. Sobald die individuelle Arbeitsphase endet oder ich mit jemandem spreche, lege ich meine **Kopfhörer weg**.
+- **Aufträge** und **Hausaufgaben** erledige ich zuverlässig.
+- Ich trage zu einem **angenehmen**, **wohlwollenden**, **ruhigen** und **lernfördernden Arbeitsklima** bei.
+
+## Zeugnisnoten
+<Restricted id="298f0c64-f85d-47f9-8eaa-3a0e8952243e">
+    <ZeugnisnotenTable entries={{
+        'Zwischenbericht': {
+            descriptor: 'Zwischenbericht Herbst GYM1',
+            gradeCmsTextId: '4e574c70-72c9-4a3a-bc02-77ed9888ce3a'
+        }
+    }} />
+</Restricted>

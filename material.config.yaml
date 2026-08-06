@@ -30,3 +30,38 @@ draft:
 demo-probe:
   - material: confidential/ExamNet-Demo-Probe/index.mdx
     as: /index.mdx
+29Fb:
+  - material: Onboarding-2026
+    as: 01-Onboarding
+  - material: Erste-Hilfe
+    as: 02-Erste-Hilfe
+29Fc:
+  - material: Onboarding-2026
+    as: 01-Onboarding
+  - material: Erste-Hilfe
+    as: 02-Erste-Hilfe
+30Gg:
+  - material: Onboarding-2026
+    as: 01-Onboarding
+  - material: Erste-Hilfe
+    as: 02-Erste-Hilfe
+30Gh:
+  - material: Onboarding-2026
+    as: 01-Onboarding
+  - material: Erste-Hilfe
+    as: 02-Erste-Hilfe
+30Gm:
+  - material: Onboarding-2026
+    as: 01-Onboarding
+  - material: Erste-Hilfe
+    as: 02-Erste-Hilfe
+30Gw:
+  - material: Onboarding-2026
+    as: 01-Onboarding
+  - material: Erste-Hilfe
+    as: 02-Erste-Hilfe
+30mT:
+  - material: Onboarding-2026
+    as: 01-Onboarding
+  - material: Erste-Hilfe
+    as: 02-Erste-Hilfe
