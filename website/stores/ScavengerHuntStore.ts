@@ -1,4 +1,4 @@
-import { action, computed, observable } from 'mobx';
+import { action, computed, observable, observableRef } from 'mobx';
 import iStore from '@tdev-stores/iStore';
 import { RootStore } from '@site/src/stores/rootStore';
 import * as ExcelJS from 'exceljs';
@@ -90,25 +90,25 @@ function getCellSubmissionTimeMs(cell: ExcelJS.Cell) {
 export class ScavengerHuntStore extends iStore<'load-stations' | 'check-answer' | 'load-settings'> {
     readonly root: RootStore;
 
-    @observable.ref accessor gameId: string | null = null;
-    @observable.ref accessor stationId: string | null = null;
-    @observable.ref accessor settingsId: string | null = null;
-    @observable.ref accessor settings: ScavengerHuntSettings | null = null;
+    @observableRef accessor gameId: string | null = null;
+    @observableRef accessor stationId: string | null = null;
+    @observableRef accessor settingsId: string | null = null;
+    @observableRef accessor settings: ScavengerHuntSettings | null = null;
     stationDescriptions = observable.array<StationDescription>([]);
-    @observable.ref accessor answerInput = '';
-    @observable.ref accessor lastCheckResult: CheckAnswerResponse | null = null;
-    @observable.ref accessor loadError: string | null = null;
-    @observable.ref accessor checkError: string | null = null;
-    @observable.ref accessor importedConfig: ScavengerHuntImportData | null = null;
-    @observable.ref accessor importedConfigFileName: string | null = null;
-    @observable.ref accessor importError: string | null = null;
-    @observable.ref accessor selectedImportedGameId: string | null = null;
-    @observable.ref accessor importedExcelFileName: string | null = null;
-    @observable.ref accessor importedExcelError: string | null = null;
-    @observable.ref accessor importedExcelRows: ScavengerHuntExcelRow[] = [];
-    @observable.ref accessor exportedCsvFileName: string | null = null;
-    @observable.ref accessor exportedCsvText: string | null = null;
-    @observable.ref accessor exportedCsvError: string | null = null;
+    @observableRef accessor answerInput = '';
+    @observableRef accessor lastCheckResult: CheckAnswerResponse | null = null;
+    @observableRef accessor loadError: string | null = null;
+    @observableRef accessor checkError: string | null = null;
+    @observableRef accessor importedConfig: ScavengerHuntImportData | null = null;
+    @observableRef accessor importedConfigFileName: string | null = null;
+    @observableRef accessor importError: string | null = null;
+    @observableRef accessor selectedImportedGameId: string | null = null;
+    @observableRef accessor importedExcelFileName: string | null = null;
+    @observableRef accessor importedExcelError: string | null = null;
+    @observableRef accessor importedExcelRows: ScavengerHuntExcelRow[] = [];
+    @observableRef accessor exportedCsvFileName: string | null = null;
+    @observableRef accessor exportedCsvText: string | null = null;
+    @observableRef accessor exportedCsvError: string | null = null;
 
     constructor(root: RootStore) {
         super();

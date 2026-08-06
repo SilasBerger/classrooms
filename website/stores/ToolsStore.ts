@@ -1,10 +1,10 @@
 import { RootStore } from '@site/src/stores/rootStore';
-import { observable } from 'mobx';
+import { observable, observableRef } from 'mobx';
 
 type Source = 'text' | 'cipher';
 
 export class ToolsStore {
-    @observable.ref accessor caesar: {
+    @observableRef accessor caesar: {
         text: string;
         cipher: string;
         key: string;
@@ -16,7 +16,7 @@ export class ToolsStore {
         source: 'text'
     };
 
-    @observable.ref accessor frequencyAnalysis: {
+    @observableRef accessor frequencyAnalysis: {
         text: string;
         sortAlphabetic: boolean;
         onlyLetters: boolean;
@@ -28,11 +28,11 @@ export class ToolsStore {
         indicateUnusedChars: true
     };
 
-    @observable.ref accessor hashSha256: { text: string } = {
+    @observableRef accessor hashSha256: { text: string } = {
         text: ''
     };
 
-    @observable.ref accessor imageEncryption: {
+    @observableRef accessor imageEncryption: {
         imageDataUrl: string;
         srcImageLoaded: boolean;
         resultReady: boolean;
@@ -48,13 +48,13 @@ export class ToolsStore {
         iv: ''
     };
 
-    @observable.ref accessor polybios: { text: string; cipherText: string; source: 'text' | 'cipher' } = {
+    @observableRef accessor polybios: { text: string; cipherText: string; source: 'text' | 'cipher' } = {
         text: '',
         cipherText: '',
         source: 'text'
     };
 
-    @observable.ref accessor primeFactorizationTiming: {
+    @observableRef accessor primeFactorizationTiming: {
         digits: number;
         range: number[];
         stage: number;
@@ -82,14 +82,14 @@ export class ToolsStore {
         factPrime2: 0
     };
 
-    @observable.ref accessor skytale: { text: string; cipherText: string; key: number; source: Source } = {
+    @observableRef accessor skytale: { text: string; cipherText: string; key: number; source: Source } = {
         text: '',
         cipherText: '',
         key: 2,
         source: 'text'
     };
 
-    @observable.ref accessor substitution: {
+    @observableRef accessor substitution: {
         text: string;
         key: string;
         missingChars: string[];
@@ -105,7 +105,7 @@ export class ToolsStore {
         source: 'text'
     };
 
-    @observable.ref accessor xorBlockCipher: {
+    @observableRef accessor xorBlockCipher: {
         text: string;
         cipherText: string;
         key: string;
@@ -121,18 +121,18 @@ export class ToolsStore {
         source: 'text'
     };
 
-    @observable.ref accessor pentacode: { text: string; penta: string; source: 'text' | 'penta' } = {
+    @observableRef accessor pentacode: { text: string; penta: string; source: 'text' | 'penta' } = {
         text: '',
         penta: '',
         source: 'text'
     };
 
-    @observable.ref accessor pentacodePixelEditor: { penta: string; source: 'cell' | 'editor' | '' } = {
+    @observableRef accessor pentacodePixelEditor: { penta: string; source: 'cell' | 'editor' | '' } = {
         penta: '00000 00000 00000 00000 00000',
         source: 'editor'
     };
 
-    @observable.ref accessor colorExchange: {
+    @observableRef accessor colorExchange: {
         colorA: number;
         colorB: number;
         colorS: number;
@@ -142,7 +142,7 @@ export class ToolsStore {
         colorS: 100
     };
 
-    @observable.ref accessor textFieldPlaygrounds: { [key: string]: string } = {};
+    @observableRef accessor textFieldPlaygrounds: { [key: string]: string } = {};
 
     constructor(private root: RootStore) {}
 }
