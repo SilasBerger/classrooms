@@ -1,44 +1,46 @@
 tdevPath: ../teaching-dev
 expectedTdevBranch: main
 trackedElements:
-    - src: docusaurus.config.ts
-      dst: docusaurus.config.ts
-    - src: src/
-      dst: src
-      ignore:
-        - MDXComponents.tsx
-        - Admonition
-        - DocItem/Footer
-    - src: packages/tdev/
-      dst: packages/tdev
-      ignore:
-        - material-sync/src/migrate_tdev/migrations
-    - src: updateSync/
-      dst: updateSync
-    - src: tsconfig.tdev.json
-      dst: tsconfig.json
-    - src: tsconfig.package.json
-      dst: tsconfig.package.json
-    - src: tsconfig.docusaurus.json
-      dst: tsconfig.docusaurus.json
-    - src: .prettierrc
-      dst: .prettierrc
-    - src: .prettierignore
-      dst: .prettierignore
-    - src: vitest.config.ts
-      dst: vitest.config.ts
-    - src: static/bry-libs/
-      dst: static/bry-libs
-    - src: static/pyodide.sw.js
-      dst: static/pyodide.sw.js
-    - src: static/tdev-artifacts/
-      dst: static/tdev-artifacts/
-      ignore:
-          - '*/**'
+  - src: docusaurus.config.ts
+    dst: docusaurus.config.ts
+  - src: src/
+    dst: src
+    ignore:
+      - MDXComponents.tsx
+      - Admonition
+      - DocItem/Footer
+  - src: packages/tdev/
+    dst: packages/tdev
+    ignore:
+      - material-sync/src/migrate_tdev/migrations
+  - src: updateSync/
+    dst: updateSync
+  - src: tsconfig.tdev.json
+    dst: tsconfig.json
+  - src: tsconfig.package.json
+    dst: tsconfig.package.json
+  - src: tsconfig.docusaurus.json
+    dst: tsconfig.docusaurus.json
+  - src: .prettierrc
+    dst: .prettierrc
+  - src: .prettierignore
+    dst: .prettierignore
+  - src: vitest.config.ts
+    dst: vitest.config.ts
+  - src: static/bry-libs/
+    dst: static/bry-libs
+  - src: static/pyodide.sw.js
+    dst: static/pyodide.sw.js
+  - src: static/tdev-artifacts/
+    dst: static/tdev-artifacts/
+    ignore:
+      - '*/**'
+  - src: src/theme/AnnouncementBar/
+    dst: src/theme/AnnouncementBar/
 watchedElements:
-    - .babel.config.js
-    - package.json
-    - .env.example
-    - src/theme/MDXComponents.tsx
-    - src/theme/Admonition
-    - src/theme/DocItem/Footer
+  - .babel.config.js
+  - package.json
+  - .env.example
+  - src/theme/MDXComponents.tsx
+  - src/theme/Admonition
+  - src/theme/DocItem/Footer
