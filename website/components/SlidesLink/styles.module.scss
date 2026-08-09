@@ -1,0 +1,35 @@
+.link {
+    display: flex;
+    max-width: 20rem;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: var(--custom-global-shadow-md);
+    color: inherit;
+    position: relative;
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+
+        .logoContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 2px solid #ddd;
+        }
+
+        .textContainer {
+            font-style: italic;
+        }
+    }
+
+    .linkIcon {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+}
