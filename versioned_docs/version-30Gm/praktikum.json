@@ -2,7 +2,7 @@
   {
     "cells": [
       "11.08.2026",
-      "A",
+      "B",
       "Programmieren",
       "Algorithmen"
     ]
@@ -10,7 +10,7 @@
   {
     "cells": [
       "18.08.2026",
-      "B",
+      "A",
       "Programmieren",
       "Algorithmen"
     ]
@@ -18,14 +18,6 @@
   {
     "cells": [
       "25.08.2026",
-      "A",
-      "Programmieren",
-      "Algorithmen & Einstieg Turtle"
-    ]
-  },
-  {
-    "cells": [
-      "01.09.2026",
       "B",
       "Programmieren",
       "Algorithmen & Einstieg Turtle"
@@ -33,8 +25,16 @@
   },
   {
     "cells": [
-      "08.09.2026",
+      "01.09.2026",
       "A",
+      "Programmieren",
+      "Algorithmen & Einstieg Turtle"
+    ]
+  },
+  {
+    "cells": [
+      "08.09.2026",
+      "B",
       "Programmieren",
       "Wiederholte Ausführung"
     ]
@@ -78,7 +78,7 @@
   {
     "cells": [
       "13.10.2026",
-      "B",
+      "A",
       "Programmieren",
       "Wiederholte Ausführung"
     ]
@@ -86,7 +86,7 @@
   {
     "cells": [
       "20.10.2026",
-      "A",
+      "B",
       "Programmieren",
       "Variablen, Eingabe, Ausgabe"
     ]
@@ -94,7 +94,7 @@
   {
     "cells": [
       "27.10.2026",
-      "B",
+      "A",
       "Programmieren",
       "Variablen, Eingabe, Ausgabe"
     ]
@@ -102,7 +102,7 @@
   {
     "cells": [
       "03.11.2026",
-      "A",
+      "B",
       "Programmieren",
       "Unterprogramme und Fehler"
     ]
@@ -110,7 +110,7 @@
   {
     "cells": [
       "10.11.2026",
-      "B",
+      "A",
       "Programmieren",
       "Unterprogramme und Fehler"
     ]
@@ -118,7 +118,7 @@
   {
     "cells": [
       "17.11.2026",
-      "A",
+      "B",
       "Programmieren",
       "Verzweigung"
     ]
@@ -126,7 +126,7 @@
   {
     "cells": [
       "24.11.2026",
-      "B",
+      "A",
       "Programmieren",
       "Verzweigung"
     ]
@@ -143,14 +143,6 @@
   {
     "cells": [
       "08.12.2026",
-      "A",
-      "Programmieren",
-      "Parameter"
-    ]
-  },
-  {
-    "cells": [
-      "15.12.2026",
       "B",
       "Programmieren",
       "Parameter"
@@ -158,8 +150,16 @@
   },
   {
     "cells": [
-      "22.12.2026",
+      "15.12.2026",
       "A",
+      "Programmieren",
+      "Parameter"
+    ]
+  },
+  {
+    "cells": [
+      "22.12.2026",
+      "B",
       "Programmieren",
       "While"
     ]
@@ -185,7 +185,7 @@
   {
     "cells": [
       "12.01.2027",
-      "B",
+      "A",
       "Programmieren",
       "While"
     ]
@@ -193,7 +193,7 @@
   {
     "cells": [
       "19.01.2027",
-      "A",
+      "B",
       "Programmieren",
       "Rückgabewerte"
     ]
@@ -201,7 +201,7 @@
   {
     "cells": [
       "26.01.2027",
-      "B",
+      "A",
       "Programmieren",
       "Rückgabewerte"
     ]
