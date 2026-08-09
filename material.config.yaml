@@ -45,23 +45,33 @@ demo-probe:
     as: 01-Onboarding
   - material: Erste-Hilfe
     as: 02-Erste-Hilfe
+  - material: Programmieren-2026
+    as: 03-Programmieren
 30Gh:
   - material: Onboarding-2026
     as: 01-Onboarding
   - material: Erste-Hilfe
     as: 02-Erste-Hilfe
+  - material: Programmieren-2026
+    as: 03-Programmieren
 30Gm:
   - material: Onboarding-2026
     as: 01-Onboarding
   - material: Erste-Hilfe
     as: 02-Erste-Hilfe
+  - material: Programmieren-2026
+    as: 03-Programmieren
 30Gw:
   - material: Onboarding-2026
     as: 01-Onboarding
   - material: Erste-Hilfe
     as: 02-Erste-Hilfe
+  - material: Programmieren-2026
+    as: 03-Programmieren
 30mT:
   - material: Onboarding-2026
     as: 01-Onboarding
   - material: Erste-Hilfe
     as: 02-Erste-Hilfe
+  - material: Programmieren-2026
+    as: 03-Programmieren
