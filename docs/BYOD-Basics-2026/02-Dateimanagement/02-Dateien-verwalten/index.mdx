@@ -1,6 +1,5 @@
 ---
 page_id: 0d5da69d-84de-4798-b7d8-101c285b60ed
-draft: true
 ---
 
 import TabItem from "@theme/TabItem";
@@ -13,7 +12,7 @@ import Video from '@tdev-components/Video'
 <TabItem value="win">
 Der Zugang zum Dateisystem erfolgt über einen sogenannten **Dateiexplorer**. Unter Windows heisst dieser **«Explorer»** und sieht wie folgt aus:
 
-![Windows Explorer --width=100px](../img/win_explorer.svg)
+![Windows Explorer --width=100px](img/win_explorer.svg)
 
 Wenn wir ein neues Explorer-Fenster öffnen, sehen wir folgende Ansicht:
 
@@ -38,16 +37,33 @@ In der **Seitenleiste** werden die wichgisten Ordner auf dem Gerät angezeigt. D
 `Dieser PC`
 : Zugang zum Root-Verzeichnis.
 
+<ChoiceAnswer multiple randomizeOptions correct={[1, 2, 3, 4]} id="982e5409-4b17-40e1-b7b7-6f10f1dc5c14">
+    Welche Ordner sehen Sie oben sonst in der Seitenleiste?
+
+    1. `Musik`
+    2. `Videos`
+    3. `Netzwerk`
+    4. `Bilder`
+    5. `Notizen`
+    6. `Programme`
+    7. `Schule`
+    8. `Diverses`
+</ChoiceAnswer>
+
 Im **Anzeigebereich** wird der Ihnhalt des Ordners angezeigt, den Sie gerade geöffnet haben. Hier wird beispielsweise der Inhalt des Ordners `BYOD_Übung` angezeigt:
 
 ![Neues Explorer-Fenster](img/win_explorer_byod_folder.png)
 
 In welchem Ordner Sie sich gerade befinden, sehen Sie in der **Pfadleiste**: Sie sind im Ordner `OneDrive` → `OneDrive – EDUBERN` → `Informatik` → `BYOD_Übung`. Sie können auch direkt in einen übergeordneten Ordner wechseln, indem Sie auf den entsprechenden Eintrag in der Pfadleiste klicken. Die einzelnen Einträge werden als **Pfadsegmente** bezeichnet.
+
+<TrueFalseAnswer correct={false} id="6d42d70e-b58b-466b-8a07-0ac886b116af">
+    Oben im Screenshot sehen wir: Eine Datei namens `orcas.txt` liegt direkt im Ordner `Informatik`.
+</TrueFalseAnswer>
 </TabItem>
 <TabItem value="mac">
 Der Zugang zum Dateisystem erfolgt über einen sogenannten **Dateiexplorer**. Unter Windows heisst dieser **«Finder»** und sieht wie folgt aus:
 
-![Finder --width=100px](../img/macos_finder.svg)
+![Finder --width=100px](img/macos_finder.svg)
 
 Das Finder-Fenster ist wie folgt gegliedert:
 
@@ -73,9 +89,26 @@ In der **Seitenleiste** werden die wichgisten Ordner auf dem Gerät angezeigt. D
 `Dieser PC`
 : Zugang zum Root-Verzeichnis.
 
-Im **Anzeigebereich** wird der Ihnhalt des Ordners angezeigt, den man gerade geöffnet hat.
+<ChoiceAnswer multiple randomizeOptions correct={[1, 2, 3, 4]} id="982e5409-4b17-40e1-b7b7-6f10f1dc5c14">
+    Welche Ordner sehen Sie oben sonst in der Seitenleiste?
+
+    1. `Bilder`
+    2. `AirDrop`
+    3. `Zuletzt benutzt`
+    4. `material`
+    5. `Notizen`
+    6. `Programme`
+    7. `Schule`
+    8. `Diverses`
+</ChoiceAnswer>
+
+Im **Anzeigebereich** wird der Inhalt des Ordners angezeigt, den man gerade geöffnet hat.
 
 In welchem Ordner Sie sich gerade befinden, sehen Sie in der **Pfadleiste**: Sie sind im Ordner `OneDrive – EDUBERN` → `Informatik` → `BYOD_Übung`. Sie können auch direkt in einen übergeordneten Ordner wechseln, indem Sie auf den entsprechenden Eintrag in der Pfadleiste klicken. Die einzelnen Einträge werden **Pfadsegmente** als  bezeichnet. **Achtung:** Die Pfadleiste ist im Finder standardmässig ausgeblendet. Sie können sie aber über das Menü «Darstellung» → «Pfadleiste einblenden» aktivieren.
+
+<TrueFalseAnswer correct={false} id="6d42d70e-b58b-466b-8a07-0ac886b116af">
+    Oben im Screenshot sehen wir: Eine Datei namens `orcas.txt` liegt direkt im Ordner `Informatik`.
+</TrueFalseAnswer>
 </TabItem>
 </OsTabs>
 
@@ -94,7 +127,7 @@ In welchem Ordner Sie sich gerade befinden, sehen Sie in der **Pfadleiste**: Sie
         ::youtube[https://www.youtube.com/embed/lfe3r43u7kI?si=ThcCXZjsUN7r1bXl]
 
         ::::aufgabe[Navigation üben]
-        <TaskState id="3cb59ace-9490-4529-8cc0-a137ac8faba0" />        
+        <TaskState id="5a6b8d94-f4f9-42aa-86cc-bf9b8247c2c3" />        
         1. Erstellen Sie in Ihrer **Schul-OneDrive** in einem sinnvollen Ordner (z.B. `Informatik`) einen Ordner namens `Übung Navigation Explorer`.
         2. Erstellen Sie ein neues Word-Dokument (der Inhalt ist egal) und speichern Sie es in diesem Ordner unter dem Namen `Demo-Dokument.docx`. **Achtung:** Stellen Sie sicher, dass Sie das Dokument von Anfang an am richtigen Ort speichern, statt es irgendwo zu speichern und dann zu verschieben.
         3. Öffnen Sie den Ordner `Übung Navigation Explorer` im Explorer. Erstellen Sie eine Kopie des Dokuments und nennen Sie sie `Demo-Dokument Backup 1.docx`.
@@ -219,7 +252,7 @@ In welchem Ordner Sie sich gerade befinden, sehen Sie in der **Pfadleiste**: Sie
 
         **Löschen** Sie nun den Ordner `Übung Navigation Finder`, um die Aufgabe abzuschliessen, und markieren Sie diese als erledigt.
 
-        <Solution id="aa3ceaae-a045-42e0-97cd-e56a7a16d8b5">
+        <Solution id="6107ca0e-f6bf-4937-89fc-d93c5ae72f3c">
         Der Pfad des Ordners könnte ungefähr so aussehen:
 
         ```
@@ -286,5 +319,3 @@ Wenn Sie mit einem MacBook arbeiten, sind die Dateinamenerweiterungen bei Ihnen 
         <Video src={useBaseUrl('/img/byod-basics/osx/delete_restore.mov')}/>
     </TabItem>
 </OsTabs>
-
----

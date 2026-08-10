@@ -1,6 +1,5 @@
 ---
 page_id: 0411e8a5-7182-4fab-9b09-20bb1f0f5b26
-draft: true
 ---
 
 import TabItem from "@theme/TabItem";
@@ -110,11 +109,50 @@ C:\Users\Max\Documents\Text.docx
 Mit dem _Pfad_ kann man eine Datei eindeutig identifizieren. Es könnte auf dem obigen Computer beispielsweise mehrere Dateien mit dem Namen `Text.docx` geben. Innerhalb eines Ordners dürfen aber nie mehrere Dateien denselben Namen haben. Deshalb kann es nur eine Datei geben, die den Pfad `C:\Users\Max\Documents\Text.docx`. Sie können sich den Pfad als auch eine Art **«Wegbeschreibung»** vorstellen: Er gibt an, wie man sich durch das Dateisystem durchklicken muss, um vom Root-Verzeichnis (`C:\`) zur Datei `Text.docx` zu gelangen.
 
 :::aufgabe[Pfad bestimmen]
-<TaskState id="2acef534-193a-487c-b095-b5eca89959ab" />
-Bestimmen Sie im obigen Baum den Pfad zur Datei `chrome.exe`. Achten Sie auf die Gross- und Kleinschreibung sowie die korrekte Verwendung von Backslashes (`\`) und nicht Slashes (`/`).
+<TaskState id="a5760dac-c91e-49ac-b545-950b1d504c93" />
+Bestimmen Sie im unten stehenden Dateibaum den jeweiligen Pfad zur angegebenen Datei. Achten Sie auf die Gross- und Kleinschreibung sowie die korrekte Verwendung von Backslashes (`\`) und nicht Slashes (`/`). Geben Sie Ihre Lösung im Textfeld ein und überprüfen Sie jeweils sie mit dem Button.
 
-Geben Sie Ihre Lösung hier ein und überprüfen Sie sie mit dem Button. Markieren Sie die Aufgabe als erledigt, wenn dieser anzeigt, dass Ihre Lösung korrekt ist.
-<String id="57aeb69a-1027-46d3-b786-9b7475fa3784" inputWidth="25em" solution="C:\Program Files\Google\Chrome\chrome.exe" />
+Markieren Sie die Aufgabe als erledigt, sobald **alle** Antworten als korrekt angezeigt werden.
+
+<details>
+<summary>Dateibaum anzeigen</summary>
+<div>
+```
+C:
+├── Users
+│   └── Max
+│       ├── Desktop
+│       ├── Downloads
+│       └── Documents
+│           └── Text.docx
+├── Program Files
+│   ├── Google
+│   │   └── Chrome
+│   │       ├── chrome.exe
+│   │       └── manifest.json
+│   └── Microsoft
+│       └── Office
+│           ├── Word.exe
+│           └── Excel.exe
+└── Windows
+    ├── System32
+    │   ├── cmd.exe
+    │   ├── notepad.exe
+    │   └── drivers
+    │       └── etc
+    │           └── hosts
+    └── explorer.exe
+```
+</div>
+</details>
+
+| Datei | Pfade |
+| - | - |
+| `chrome.exe` | <String id="57aeb69a-1027-46d3-b786-9b7475fa3784" inputWidth="25em" solution="C:\Program Files\Google\Chrome\chrome.exe" /> |
+| `Text.docx` | <String id="969cea75-4ce7-4710-ade5-085b04d68932" inputWidth="25em" solution="C:\Users\Max\Documents\Text.docx" /> |
+| `Word.exe` | <String id="80d2c507-165d-45c8-b32a-b07267aae29d" inputWidth="25em" solution="C:\Program Files\Microsoft\Office\Word.exe" /> |
+| `cmd.exe` | <String id="917933ed-87e8-4e1a-a22a-9c1599b99dbd" inputWidth="25em" solution="C:\Windows\System32\cmd.exe" /> |
+| `explorer.exe` | <String id="d453d7a4-bf70-4c3a-ba9a-35459b648695" inputWidth="25em" solution="C:\Windows\explorer.exe" /> |
 :::
 </TabItem>
 
@@ -131,10 +169,38 @@ Mit dem _Pfad_ kann man eine Datei eindeutig identifizieren. Es könnte auf dem 
 
 :::aufgabe[Pfad bestimmen]
 <TaskState id="a5760dac-c91e-49ac-b545-950b1d504c93" />
-Bestimmen Sie im obigen Baum den Pfad zur Datei `Finder.app`. Achten Sie auf die Gross- und Kleinschreibung.
+Bestimmen Sie im unten stehenden Dateibaum den jeweiligen Pfad zur angegebenen Datei. Achten Sie auf die Gross- und Kleinschreibung. Geben Sie Ihre Lösung im Textfeld ein und überprüfen Sie jeweils sie mit dem Button.
 
-Geben Sie Ihre Lösung hier ein und überprüfen Sie sie mit dem Button. Markieren Sie die Aufgabe als erledigt, wenn dieser anzeigt, dass Ihre Lösung korrekt ist.
-<String id="0f5af8ff-83eb-4328-a129-26af68f4b7cd" inputWidth="25em" solution="/System/Library/CoreServices/Finder.app" />
+Markieren Sie die Aufgabe als erledigt, sobald **alle** Antworten als korrekt angezeigt werden.
+
+<details>
+<summary>Dateibaum anzeigen</summary>
+<div>
+```
+/
+├── Applications
+│   ├── Google Chrome.app
+│   └── Microsoft Word.app
+├── System
+│   └── Library
+│       └── CoreServices
+│           └── Finder.app
+└── Users
+    └── Max
+        ├── Desktop
+        ├── Downloads
+        └── Documents
+            └── Text.docx
+```
+</div>
+</details>
+
+| Datei | Pfade |
+| - | - |
+| `Finder.app` | <String id="0f5af8ff-83eb-4328-a129-26af68f4b7cd" inputWidth="25em" solution="/System/Library/CoreServices/Finder.app" /> |
+| `Google Chrome.app` | <String id="58e97f0a-f39b-4f2b-9377-8f09a6879de1" inputWidth="25em" solution="/Applications/Google Chrome.app" /> |
+| `Text.docx` | <String id="9f916d6b-b5bb-4ddc-bae2-ed4660fa90d8" inputWidth="25em" solution="/Users/Max/Documents/Text.docx" /> |
+| `Microsoft Word.app` | <String id="5d4ea69f-0c5e-4bec-9680-f9c1765b3e8c" inputWidth="25em" solution="/Applications/Microsoft Word.app" /> |
 :::
 </TabItem>
 </OsTabs>
