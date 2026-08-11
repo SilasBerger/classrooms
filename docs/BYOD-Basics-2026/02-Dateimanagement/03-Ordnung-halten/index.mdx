@@ -2,6 +2,8 @@
 page_id: ac7e8e6f-0baf-46a8-bd57-4f43b9cd672a
 ---
 
+import { points, multipleChoicePoints } from '@tdev-components/documents/Assessable/helpers/scoring'
+
 # Ordnung halten auf dem Computer
 Sie sind vermutlich gewohnt, mit Ihrem Smartphone oder Tablet zu arbeiten. Auf mobilen Geräten Ordnung zu halten ist relativ einfach, denn Sie müssen sich in der Regel keine Gedanken machen, wo Sie etwas abspeichern:
 - Ein Foto wird automatisch in der Foto-App gespeichert.
@@ -139,14 +141,14 @@ Sie müssen sich also bewusst überlegen, wo genau Sie eine Datei abspeichern wo
 </details>
 
 ## Testen Sie Ihr Wissen
-<Quiz randomizeQuestions randomizeOptions id="aa0b981e-c5af-4113-a5d1-b5cd3b06d743">
+<Quiz randomizeQuestions randomizeOptions scoring={points(1)} id="aa0b981e-c5af-4113-a5d1-b5cd3b06d743">
     <TrueFalseAnswer correct={false}>
         Wenn ich eine Datei aus versehen einfach irgendwo abspeichere, dann speichere ich sie halt noch ein zweites Mal an einem sinnvollen Ort ab. Das wird schon kein Problem sein.
     </TrueFalseAnswer>
     <TrueFalseAnswer correct={true}>
         Fehlende digitale Ordnung oder nicht sinnvolles Abspeichern von Dateien kann im Schulalltag im schlimmsten Fall zu disziplinarischen Konsequenzen oder schlechteren Prüfungsergebnissen führen.
     </TrueFalseAnswer>
-    <ChoiceAnswer multiple correct={[2, 7, 8]}>
+    <ChoiceAnswer multiple correct={[2, 7, 8]} scoring={multipleChoicePoints(1, 1, false)}>
         Welche der folgenden Dateinamen sind grundsätzlich sinnvoll?
 
         1. `Dokument.docx`
@@ -158,7 +160,7 @@ Sie müssen sich also bewusst überlegen, wo genau Sie eine Datei abspeichern wo
         7. `2027-01-07_Abschlusspräsentation_Bio_Praktikum_Projekt_Januar_2027.pptx`
         8. `turtle_bewegen_aufgabe_2.py`
     </ChoiceAnswer>
-    <ChoiceAnswer multiple correct={[1, 2, 5, 6]}>
+    <ChoiceAnswer multiple correct={[1, 2, 5, 6]} scoring={multipleChoicePoints(1, 1, false)}>
         Welche der folgenden Datei-**Speicherorte** sind (mindestens einigermassen) sinnvoll? \
         _Sie können bei dieser Frage davon ausgehen, dass die **Dateinamen sinnvoll** sind._
 

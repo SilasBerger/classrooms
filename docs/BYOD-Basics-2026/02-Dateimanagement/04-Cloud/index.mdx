@@ -11,6 +11,7 @@ import OsTabs from '@tdev-components/OsTabs'
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Video from '@tdev-components/Video';
 import ProgressState from '@tdev-components/documents/ProgressState';
+import { points, multipleChoicePoints } from '@tdev-components/documents/Assessable/helpers/scoring'
 
 # Cloud
 Ein Cloud-Dienst ist ein Online-Speicher, mit dem man Dateien online speichern und teilen kann. Der Cloud-Dienst, den wir an unserer Schule nutzen, heisst **OneDrive**.
@@ -321,7 +322,7 @@ OneDrive ist ein Cloud-Dienst, der Ihnen hilft, Ihre Dateien online zu speichern
 Es ist also empfehlenswert, nebst der Nutzung von OneDrive auch noch andere Backup-Methoden zu verwenden. Speichern Sie beispielsweise 1x pro Monat all Ihre wichtigsten Dateien und Schulsachen auf einer externen Festplatte. 
 
 ## Abschlussquiz
-<Quiz randomizeQuestions randomizeOptions id="6f18777e-425f-4d41-9ced-42c3151b8fed">
+<Quiz randomizeQuestions randomizeOptions id="6f18777e-425f-4d41-9ced-42c3151b8fed" scoring={points(1)}>
     <TrueFalseAnswer correct={false}>
         Wenn man seine Dateien auf OneDrive ablegt, speichern alle Programme automatisch.
     </TrueFalseAnswer>

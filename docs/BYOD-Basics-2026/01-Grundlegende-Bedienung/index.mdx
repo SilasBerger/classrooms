@@ -10,6 +10,7 @@ import ClickTest from '@tdev-components/ClickTest';
 import TabItem from "@theme/TabItem";
 import OsTabs from '@tdev-components/OsTabs';
 import TextBoxPlayground from "@tdev-components/TextBoxPlayground";
+import { points, multipleChoicePoints } from '@tdev-components/documents/Assessable/helpers/scoring'
 
 # Modul 1: Grundlegende Bedienung
 :::info[Lernziele]
@@ -196,14 +197,14 @@ Ab und zu braucht es zusätzlich zum Klick noch eine Taste – nämlich beim Öf
 </OsTabs>
 
 ### Abschnittsquiz
-<Quiz id="fd6b7583-ca93-4b5c-9fe6-3e569b7ac87c" randomizeQuestions randomizeOptions>
+<Quiz id="fd6b7583-ca93-4b5c-9fe6-3e569b7ac87c" randomizeQuestions randomizeOptions scoring={points(1)}>
   <TrueFalseAnswer correct={false}>
     Tablets, Smartphones und Laptops gehören zur Kategorie der Mobilgeräte.
   </TrueFalseAnswer>
   <TrueFalseAnswer correct={true}>
     Software wird auf mobilen Geräten grundsätzlich als «Apps» und auf vollwertigen Betriebssystemen eher als «Programme» bezeichnet.
   </TrueFalseAnswer>
-  <ChoiceAnswer multiple correct={[2, 4, 5, 6]}>
+  <ChoiceAnswer multiple correct={[2, 4, 5, 6]} scoring={multipleChoicePoints(1, 1, false)}>
     Kreuzen Sie alle **korrekten** Aussagen über mobile und vollwertige Betriebssysteme an.
 
     1. Multitasking (das gleichzeitige Nutzen mehrerer Programme) ist auf mobilen Betriebssystemen viel besser unterstützt.
@@ -214,7 +215,7 @@ Ab und zu braucht es zusätzlich zum Klick noch eine Taste – nämlich beim Öf
     6. Wenn jede App einen isolierten Speicherbereich hat, erhöht das die Sicherheit.
     7. Wenn jede App einen isolierten Speicherbereich hat, wird das System flexibler und es sind komplexere Datenverarbeitungsprozesse möglich.
   </ChoiceAnswer>
-  <ChoiceAnswer multiple correct={[1, 2, 3]}>
+  <ChoiceAnswer multiple correct={[1, 2, 3]} scoring={multipleChoicePoints(1, 1, false)}>
     Welches sind **vollwertige Betriebssysteme***?
     
     1. Windows
@@ -224,7 +225,7 @@ Ab und zu braucht es zusätzlich zum Klick noch eine Taste – nämlich beim Öf
     5. iPadOS
     6. iOS
   </ChoiceAnswer>
-  <ChoiceAnswer multiple correct={[1, 2, 3]}>
+  <ChoiceAnswer multiple correct={[1, 2, 3]} scoring={multipleChoicePoints(1, 1, false)}>
     Welche Geräte gehören zur Kategorie der **Zeigegeräte**?
     
     1. Maus
@@ -232,7 +233,7 @@ Ab und zu braucht es zusätzlich zum Klick noch eine Taste – nämlich beim Öf
     3. Touchscreen
     4. Tastatur
   </ChoiceAnswer>
-  <ChoiceAnswer multiple correct={[1, 3, 6]}>
+  <ChoiceAnswer multiple correct={[1, 3, 6]} scoring={multipleChoicePoints(1, 1, false)}>
     Welche Aussagen über Klicks sind korrekt?
     
     1. Der Linksklick heisst auch _Standardklick_, _Einzelklick_, oder einfach _Klick_.
