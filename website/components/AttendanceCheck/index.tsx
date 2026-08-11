@@ -85,7 +85,7 @@ const getScheduleInfo = (termine: Termin[], terminePraktikum: Termin[]): Schedul
     }
 };
 
-const StudentBadge = ({ user }: { user: User }) => {
+const StudentBadge = observer(({ user }: { user: User }) => {
     return (
         <div className={styles.studentBadge} key={user.id}>
             <LiveStatusIndicator userId={user.id} size={0.3} className={styles.liveIndicator} />
@@ -95,9 +95,9 @@ const StudentBadge = ({ user }: { user: User }) => {
             </span>
         </div>
     );
-};
+});
 
-const AttendanceList = ({ title, students }: { title: string; students: User[] }) => {
+const AttendanceList = observer(({ title, students }: { title: string; students: User[] }) => {
     return (
         <div>
             <h2 className={styles.title}>{title}</h2>
@@ -113,7 +113,7 @@ const AttendanceList = ({ title, students }: { title: string; students: User[] }
             </div>
         </div>
     );
-};
+});
 
 const AttendanceCheck = observer(({ termine, terminePraktikum }: Props) => {
     const isBrowser = useIsBrowser();
