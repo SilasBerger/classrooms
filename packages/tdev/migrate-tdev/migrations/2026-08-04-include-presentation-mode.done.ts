@@ -60,7 +60,7 @@ const migrate: MigrationRunner = async (root, name): Promise<void> => {
 
     const hasChanges = await hasUncommittedChanges();
     if (hasChanges) {
-        await $`git commit -am ${'[tdev] migrate imports to mobx@7 (using @observableRef instead of @observableRef).'}`;
+        await $`git commit -am ${'[tdev] migrate imports to mobx@7 (using @observableRef instead of @observable.ref).'}`;
     }
 
     await $`git checkout main`;
