@@ -14,6 +14,7 @@ import termine_hs26 from './termine_hs26.json';
 import Directory from '@tdev-components/documents/FileSystem/Directory';
 import Restricted from '@tdev-components/documents/Restricted';
 import ZeugnisnotenTable from '@tdev-components/ZeugnisnotenTable';
+import AttendanceCheck from '@tdev-components/AttendanceCheck';
 
 # Informatik 29Ge
 <Semesterplan termine={termine_hs26} />
@@ -29,6 +30,8 @@ import ZeugnisnotenTable from '@tdev-components/ZeugnisnotenTable';
 </details>
 
 <Directory name='Notizen' id='bc8c690b-17d7-44be-bff6-ab76b5c08ebd' />
+
+<AttendanceCheck termine={termine_hs26} />
 
 ## Zeugnisnoten
 <Restricted id="a75f8401-79b4-44c5-af35-9c734230740a">

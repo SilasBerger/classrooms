@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border-radius: var(--ifm-global-radius);
+    box-shadow: var(--ifm-global-shadow-lw);
+    padding: 1em;
+    margin-top: 1em;
+}
+
+.noLesson {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.studentList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5em;
+
+    .studentBadge {
+        border-radius: var(--ifm-global-radius);
+        border: 1px solid var(--ifm-color-primary);
+        padding: 0 0.75em;
+        position: relative;
+
+        .liveIndicator {
+            position: absolute;
+            top: 0.15em;
+            left: 0.15em;
+        }
+    }
+}
+
+.studentCount {
+    margin-top: 0.5em;
+    display: flex;
+    justify-content: flex-end;
+}

@@ -10,11 +10,14 @@ import praktikum from './praktikum.json';
 import Directory from '@tdev-components/documents/FileSystem/Directory';
 import Restricted from '@tdev-components/documents/Restricted';
 import ZeugnisnotenTable from '@tdev-components/ZeugnisnotenTable';
+import AttendanceCheck from '@tdev-components/AttendanceCheck';
 
 # Informatik 30mT
 <Semesterplan einzellektion={einzellektion} praktikum={praktikum} />
 
 <Directory name='Notizen' id='ef6ccd32-6639-4d20-ba9c-16f84498eed8' />
+
+<AttendanceCheck termine={einzellektion} terminePraktikum={praktikum} />
 
 ## Grundsätze
 - Während der **Unterrichtszeit** bleibt das **Handy (auch wenn ausserhalb des Schulzimmers gearbeitet wird)** immer im **Rucksack** (nicht Hosentasche, Stuhl, …). **Alternativ** wird es **vor Unterrichtsbeginn** bei der Lehrperson **abgegeben**. In der **Pause** darf das Handy **ausserhalb des Schulzimmers** verwendet werden.

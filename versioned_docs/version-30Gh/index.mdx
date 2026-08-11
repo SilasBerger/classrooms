@@ -10,6 +10,7 @@ import praktikum from './praktikum.json';
 import Directory from '@tdev-components/documents/FileSystem/Directory';
 import Restricted from '@tdev-components/documents/Restricted';
 import ZeugnisnotenTable from '@tdev-components/ZeugnisnotenTable';
+import AttendanceCheck from '@tdev-components/AttendanceCheck';
 
 # Informatik 30Gh
 <Semesterplan einzellektion={einzellektion} praktikum={praktikum} />
@@ -28,6 +29,8 @@ import ZeugnisnotenTable from '@tdev-components/ZeugnisnotenTable';
 - Bei **individuellen** Arbeitsphasen ist das **Musikhören erlaubt** – mit **Kopfhörern** und **ohne Handy**. Sobald die individuelle Arbeitsphase endet oder ich mit jemandem spreche, lege ich meine **Kopfhörer weg**.
 - **Aufträge** und **Hausaufgaben** erledige ich zuverlässig.
 - Ich trage zu einem **angenehmen**, **wohlwollenden**, **ruhigen** und **lernfördernden Arbeitsklima** bei.
+
+<AttendanceCheck termine={einzellektion} terminePraktikum={praktikum} />
 
 ## Zeugnisnoten
 <Restricted id="298f0c64-f85d-47f9-8eaa-3a0e8952243e">
