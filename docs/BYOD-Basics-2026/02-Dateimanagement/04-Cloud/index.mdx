@@ -4,7 +4,6 @@ sidebar_custom_props:
   source:
     name: mit Inhalten von inf.gbsl.website
     ref: https://inf.gbsl.website/28Gb/BYOD/software#onedrive
-draft: true
 ---
 
 import TabItem from "@theme/TabItem";
@@ -232,13 +231,16 @@ Den freigegebenen Ordner sollten Sie auf keinen Fall verschieben oder umbenennen
 :::
 
 ### Übungen
-:::aufgabe[Abgabe-Link erstellen]
+::::aufgabe[Abgabe-Link erstellen]
 <TaskState id="21900918-b49a-4991-af86-bb9737b824f2" />
+
+:::info[Gut zu wissen]
 In Classrooms laufen Abgaben häufig so ab:
 1. Sie speichern Ihre Arbeit in der **Schul-OneDrive**.
 2. Sie erstellen einen **Freigabelink** für die Datei oder den Ordner (**achten Sie jeweils genau auf die Anweisungen**).
 3. Sie **kopieren** den Link, **ohne ihn per Mail zu versenden** (vgl. Punkt __5__ in der ersten Grafik).
 4. Sie fügen den Link in ein entsprechendes Textfeld in Classrooms ein oder geben ihn via Teams oder Microsoft Forms ab.
+:::
 
 Das wollen wir jetzt üben. **Suchen Sie sich dazu als erstes eine:n Partner:in**, damit Sie die Aufgabe zu zweit erledigen können.
 
@@ -255,32 +257,44 @@ Prüfen Sie sich danach gegenseitig:
 - ✅ Können Sie beide die Datei der anderen Person öffnen?
 - ✅ Haben Sie beide **kein** E-Mail erhalten?
 
+:::warning[Kein E-Mail versenden]
+Grundsätzlich ist nichts falsch daran, Freigabelinks per E-Mail zu versenden. Bei Abgaben über Classrooms müssen Sie aber häufig einen Freigabelink direkt in Classrooms einfügen. Die Lehrperson möchte dabei nicht für jede Abgabe auch noch ein E-Mail erhalten.
+:::
+
 Falls Sie einen dieser Punkte nicht erfüllen konnten, dann wiederholen Sie diese Aufgabe, bis es klappt.
 
 Die nächste Aufgabe können Sie auch gleich zusammen erledigen.
-:::
+::::
 
 :::aufgabe[Gruppenordner einrichten]
 <TaskState id="f132bfaf-25f5-47a4-9588-4beae17e246c" />
 Bei Gruppenarbeiten ist es sinnvoll, einen gemeinsamen Ordner zu erstellen, in dem alle Gruppenmitglieder ihre Dateien ablegen können.
 
-Erledigt diese Aufgabe wieder zuzweit.
+Erledigt diese Aufgabe wieder zu zweit. Legen Sie zuerst fest, wer Person _A_ und wer person _B_ ist. Befolgen Sie anschliessend die entsprechende Anleitung.
 
-Person __A__ macht folgendes:
-1. Erstellen Sie in der Schul-OneDrive einen neuen Ordner namens `BYOD Übung Gruppenarbeit`.
-2. Erstellen Sie einen Freigabelink für diesen Ordner:
-   - Geben Sie Ihre:n Partner:in als Empfänger:in an.
-   - Sichtbarkeit (also _Empfängergruppe_): ausgewählte Personen
-   - Berechtigungen: kann bearbeiten
-3. Versenden Sie den Freigabelink direkt aus dem Freigabefenster via E-Mail
-
-Sobald Person __B__ den Freigabelink per E-Mail erhalten hat, macht sie folgendes:
-1. Klicken Sie auf den Link in der E-Mail. Es öffnet sich OneDrive Web.
-2. Klicken Sie oben (oder im Menü) die Option __Zu meinem OneDrive hinzufügen__.
-3. Öffnen Sie den Schul-OneDrive-Ordner in Ihrem Dateiexplorer und prüfen Sie, ob der geteilte Ordner dort erscheint.
-4. Kopieren Sie eine beliebige Datei in diesen Ordner. Geben Sie Person __A__ Bescheid, wenn Sie fertig sind.
-
-Sobald die andere Person __A__ die von Person __B__ abgelegte Datei sieht, können Sie beide die Aufgabe als erledigt markieren.
+<Tabs groupId="person">
+    <TabItem value="person-a" label="Person A">
+        <Steps>
+            1. Erstellen Sie in der Schul-OneDrive einen neuen Ordner namens `BYOD Übung Gruppenarbeit`.
+            2. Erstellen Sie einen Freigabelink für diesen Ordner:
+                - Geben Sie Ihre:n Partner:in als Empfänger:in an.
+                - Sichtbarkeit (also _Empfängergruppe_): ausgewählte Personen
+                - Berechtigungen: kann bearbeiten
+            3. Versenden Sie den Freigabelink direkt aus dem Freigabefenster via E-Mail
+            4. Warten Sie, bis Person __B__ Ihnen mitteilt, dass er/sie eine Datei im geteilten Ordner abgelegt hat.
+            5. Wenn Sie die von Person __B__ im geteilten Ordner abgelegte Datei in Ihrem Dateiexplorer sehen können, können Sie beide die Aufgabe als erledigt markieren.
+        </Steps>
+    </TabItem>
+    <TabItem value="person-b" label="Person B">
+        <Steps>
+            1. Warten Sie, bis Sie von Person __A__ eine E-Mail mit einem Freigabelink erhalten haben.
+            2. Klicken Sie auf den Link in der E-Mail. Es öffnet sich OneDrive Web.
+            3. Fügen Sie den freigegebenen Ordner zu «Meine Dateien» hinzu (zur Erinnerung: [Freigegebenen Ordner synchronisieren](#freigegebenen-ordner-synchronisieren)).
+            4. Öffnen Sie den Schul-OneDrive-Ordner in Ihrem Dateiexplorer und prüfen Sie, ob der geteilte Ordner dort erscheint.
+            5. Kopieren Sie eine beliebige Datei in diesen Ordner. Geben Sie Person __A__ Bescheid, wenn Sie fertig sind.
+        </Steps>
+    </TabItem>
+</Tabs>
 :::
 
 <OsTabs>
@@ -312,9 +326,39 @@ Es ist also empfehlenswert, nebst der Nutzung von OneDrive auch noch andere Back
         Wenn man seine Dateien auf OneDrive ablegt, speichern alle Programme automatisch.
     </TrueFalseAnswer>
     <TrueFalseAnswer correct={true}>
-        Seine Dateien «in der Cloud» abzuspeichern bedeutet, dass die Dateien auf einem anderen Computer (einen sog. _Server_) gespeichert werden. Je nach Einstellung sind sie auf dem eigenen Computer aber auch noch verfügbar.
+        Seine Dateien «in der Cloud» abzuspeichern bedeutet, dass die Dateien auf einem anderen Computer (einem sog. _Server_) gespeichert werden. Je nach Einstellung sind sie auf dem eigenen Computer aber auch noch verfügbar.
     </TrueFalseAnswer>
     <TrueFalseAnswer correct={false}>
         Die Dateien, die ich in OneDrive Web sehe, sind auch auf meinem Computer verfügbar.
+    </TrueFalseAnswer>
+    <ChoiceAnswer correct={[1]}>
+        **Szenario:** Sie haben von einer Kollegin einen OneDrive-Ordner-Freigabelink erhalten und wollen nun dafür sorgen, dass die der Ordner auf Ihrem Computer verfügbar ist.
+
+        1. Dazu brauche ich OneDrive Web.
+        2. Das geht nur direkt im Dateiexplorer.
+        3. Das kann ich entweder in OneDrive Web oder im Dateiexplorer machen.
+    </ChoiceAnswer>
+    <ChoiceAnswer correct={[3]}>
+        Wenn mir jemand einen OneDrive-Ordner freigegeben hat, und ich diesen mit meinem Computer synchronisiert habe…
+
+        1. …dann darf ich den Ordner zwar verschieben, aber nicht umbenennen.
+        2. …dann darf ich den Ordner zwar umbenennen, aber nicht verschieben.
+        3. …dann darf ich den Ordner weder umbenennen, noch verschieben.
+    </ChoiceAnswer>
+    <ChoiceAnswer correct={[2]}>
+        **Szenario:** Ich will mit einem beliebigen Programm eine Datei aus meiner OneDrive öffnen.
+
+        1. Es reicht, wenn ich die Datei in OneDrive Web sehe.
+        2. Ich muss sicherstellen, dass die Datei auf meinem Computer synchronisiert und in der OneDrive im Dateiexplorer ersichtlich ist.
+        3. Es ist am besten, wenn die Datei nicht in der OneDrive im Dateiexplorer verfügbar ist, um Sicherheitsrisiken zu vermeiden.
+    </ChoiceAnswer>
+    <TrueFalseAnswer correct={false}>
+        Der einfachste Weg, einen mir freigegebenen Ordner mit meinem Computer zu synchronisieren, ist es, diesen Ordner über OneDrive Web herunterzuladen.
+    </TrueFalseAnswer>
+    <TrueFalseAnswer correct={false}>
+        OneDrive-Freigabelinks werden immer per E-Mail versendet.
+    </TrueFalseAnswer>
+    <TrueFalseAnswer correct={true}>
+        OneDrive ist keine vollwertige Backup-Lösung, denn Dateien können auch dort gelöscht oder überschrieben werden.
     </TrueFalseAnswer>
 </Quiz>
