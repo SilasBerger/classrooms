@@ -8,6 +8,7 @@ import { useLocation } from '@docusaurus/router';
 import { observer } from 'mobx-react-lite';
 import User from '@tdev-models/User';
 import LiveStatusIndicator from '@tdev-components/LiveStatusIndicator';
+import { Role } from '@tdev-api/user';
 
 interface Termin {
     cells: string[];
@@ -138,15 +139,17 @@ const AttendanceCheck = observer(({ termine, terminePraktikum }: Props) => {
     }
 
     const klass = location.pathname.split('/')[1];
-    const informatikStudents: User[] = userStore.managedUsers.filter((u) =>
-        u.studentGroups.some((g) => g.name === klass)
-    );
+    const informatikStudents: User[] = userStore.managedUsers
+        .filter((u) => u.studentGroups.some((g) => g.name === klass))
+        .filter((u) => u.role === Role.STUDENT);
     const praktikumStudents: User[] = scheduleInfo.praktikumGroup
-        ? userStore.managedUsers.filter((u) =>
-              u.studentGroups.some((g) =>
-                  PRAKTIKUM_GROUP_NAME_PATTERNS(klass, scheduleInfo.praktikumGroup!).includes(g.name)
+        ? userStore.managedUsers
+              .filter((u) =>
+                  u.studentGroups.some((g) =>
+                      PRAKTIKUM_GROUP_NAME_PATTERNS(klass, scheduleInfo.praktikumGroup!).includes(g.name)
+                  )
               )
-          )
+              .filter((u) => u.role === Role.STUDENT)
         : [];
 
     return (
