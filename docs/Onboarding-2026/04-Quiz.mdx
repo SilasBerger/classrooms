@@ -93,7 +93,7 @@ Ein Quiz besteht aus mehreren Ankreuz-Fragen (und kann theoretisch auch andere A
 
 Bei Quizzes können die beantworteten Fragen nicht einzeln überprüft werden. Stattdessen können Sie am Schluss auf __Quiz beenden__ klicken, um das Quiz abzuschliessen und Ihre Antworten zu überprüfen. Danach sehen Sie, wie viele Punkte Sie erreicht haben. Sie können Ihre Antworten ab dann **nicht mehr anpassen**. Wenn Sie noch nicht alle Fragen korrekt beantwortet haben, müssen Sie das Quiz zurücksetzen und neu beginnen.
 
-<Quiz scoring={points(1)} id="bff1d745-0342-402a-937a-b8e4723a7951" randomizeQuestions randomizeOptions>
+<Quiz scoring={multipleChoicePoints(1)} id="bff1d745-0342-402a-937a-b8e4723a7951" randomizeQuestions randomizeOptions>
     <ChoiceAnswer correct={[1]}>
         In welchem Jahr war 2024?
 
@@ -135,7 +135,7 @@ Die Fragen und die Antwortmöglichkeiten innerhalb der Fragen erscheinen bei die
 
 Bei einem Quiz gibt es nicht zwingend für jede Frage gleich viele Punkte. Schauen Sie jeweils im Kopf der Frage auf die angegebene Punktzahl. Klicken Sie auf die Punktzahl-Angabe, um mehr darüber zu erfahren, wie die entsprechende Frage bewertet wird.
 
-<Quiz scoring={points(1)} id="36f3b59d-0ec1-44ae-912c-d81f5648cb39">
+<Quiz scoring={multipleChoicePoints(1)} id="36f3b59d-0ec1-44ae-912c-d81f5648cb39">
     <ChoiceAnswer correct={[3]} scoring={points(2)}>
         Wie viele Seiten hat ein Würfel?
 
