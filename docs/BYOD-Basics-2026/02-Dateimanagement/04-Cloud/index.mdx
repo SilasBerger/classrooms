@@ -84,9 +84,9 @@ So können Sie den Synchronisations-Zustand einer Datei ändern:
 OneDrive ist auch als Web-Applikation verfügbar. Die Web-Version der **Schul**-OneDrive finden Sie unter https://erzbe-my.sharepoint.com.
 
 :::warning[OneDrive Web nur in Ausnahmefällen]
-OneDrive Web ist eine nützliche Ergänzung, aber Sie sollten Ihre Dateien grundsätzlich immer im **Dateiexplorer** (also nicht in der Web-Version) verwalten.
+Dateien, die Sie in OneDrive Web sehen, sind nicht zwingend auch auf Ihrem Computer verfügbar. Dies ist z.B. dann der Fall, wenn Ihnen jemand einen Ordner freigibt, Sie diesen aber noch nicht zu Ihren eigenen Dateien hinzugefügt haben (vgl. [Freigegebenen Ordner synchronisieren](#freigegebenen-ordner-synchronisieren)). Die Programme auf Ihrem Computer können in dem Fall nicht auf diese Dateien zugreifen.
 
-So können Sie sicher sein, dass alle Programme (z.B. Word, PowerPoint, Excel, Programmier-Umgebungen, etc.) darauf zugreifen können.
+OneDrive Web ist eine nützliche Ergänzung, aber Sie sollten Ihre Dateien grundsätzlich immer im **Dateiexplorer** (also nicht in der Web-Version) verwalten.
 :::
 
 :::aufgabe[Schul-OneDrive synchronisieren]
@@ -210,6 +210,28 @@ Oft reicht es, nur eine einzelne Datei freizugeben. Bei Gruppenprojekten oder be
 - Bei Abgaben, die mehrere Dateien enthalten, müssen Sie nur einen Link erstellen und abgeben, und die Lehrperson muss nur eine Datei herunterladen.
 :::
 
+### Freigegebenen Ordner synchronisieren
+Wenn Ihnen jemand einen Ordner freigibt, dann müssen Sie diesen in der Regel auf Ihrem Computer synchronisieren, denn nur so können die Programme auf Ihrem Computer auch auf die Dateien in diesem Ordner zugreifen.
+
+Wenn Sie auf den erhaltenen Freigabelink klicken, kommen Sie auf OneDrive Web. Damit der freigegebene Ordner auch mit Ihrer OneDrive synchronisiert wird, müssen Sie dort auf __Verknüpfung zu "Meine Dateien" hinzufügen_ klicken.
+
+![--width=500px](img/onedrive-add-shortcut-to-my-files.png)
+
+Je nach Bildschirmgrösse versteckt sich diese Option auch hinter den drei Punkten:
+
+![--width=500px](img/onedrive-add-shortcut-hidden.png)
+
+Anschliessend ist der freigegebene Ordner im OneDrive-Ordner (z.B. `OneDrive – EDUBERN`) auf Ihrem Computer verfügbar. Je nach dem liegt er entweder direkt auf der obersten Ebene des OneDrive-Ordners, oder «versteckt» unter einem Ordner mit einem Namen wie `Freigegebene Dateien von (Name der Person, die den Ordner geteilt hat)`.
+
+:::danger[Herunterladen ≠ synchronisieren]
+Sie können in OneDrive Web auch Ordner herunterladen. Das ist aber **nicht** dasselbe wie synchronisieren. Wenn Sie einen Ordner herunterladen, dann wir er in Ihrem `Downloads`-Ordner platziert. Dort haben Sie zwar Zugriff auf dessen Inhalt, aber Ihre Änderungen werden nicht synchronisiert und somit nicht mit der Person geteilt, die den Ordner erstellt hat.
+:::
+
+:::danger[Nicht umbenennen oder verschieben]
+Den freigegebenen Ordner sollten Sie auf keinen Fall verschieben oder umbenennen! Ansonsten funktioniert die Synchronisation womöglich nicht mehr.
+:::
+
+### Übungen
 :::aufgabe[Abgabe-Link erstellen]
 <TaskState id="21900918-b49a-4991-af86-bb9737b824f2" />
 In Classrooms laufen Abgaben häufig so ab:
@@ -284,4 +306,15 @@ OneDrive ist ein Cloud-Dienst, der Ihnen hilft, Ihre Dateien online zu speichern
 
 Es ist also empfehlenswert, nebst der Nutzung von OneDrive auch noch andere Backup-Methoden zu verwenden. Speichern Sie beispielsweise 1x pro Monat all Ihre wichtigsten Dateien und Schulsachen auf einer externen Festplatte. 
 
----
+## Abschlussquiz
+<Quiz randomizeQuestions randomizeOptions id="1d36f1f4-0e29-4b9d-9856-b058ee476846">
+    <TrueFalseAnswer correct={false}>
+        Wenn man seine Dateien auf OneDrive ablegt, speichern alle Programme automatisch.
+    </TrueFalseAnswer>
+    <TrueFalseAnswer correct={true}>
+        Seine Dateien «in der Cloud» abzuspeichern bedeutet, dass die Dateien auf einem anderen Computer (einen sog. _Server_) gespeichert werden. Je nach Einstellung sind sie auf dem eigenen Computer aber auch noch verfügbar.
+    </TrueFalseAnswer>
+    <TrueFalseAnswer correct={false}>
+        Die Dateien, die ich in OneDrive Web sehe, sind auch auf meinem Computer verfügbar.
+    </TrueFalseAnswer>
+</Quiz>
