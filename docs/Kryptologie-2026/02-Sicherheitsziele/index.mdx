@@ -2,6 +2,8 @@
 page_id: 13c98bb5-707d-41a7-bd80-5ef9b010cc52
 ---
 
+import { points } from '@tdev-components/documents/Assessable/helpers/scoring'
+
 # Sicherheitsziele
 ## Wozu brauchen wir Kryptographie?
 Bei der Entwicklung und Verwendung kryptographischer Verfahren verfolgen wir **vier primäre Sicherheitsziele**:
@@ -65,7 +67,7 @@ Wieso ist das Thema des Misstrauens in der Informatik und der Informationswissen
 :::
 
 ## Fallbeispiele
-<Quiz keepExpanded="correct" id="a9d0c9d5-ac63-4023-a3ee-d2d94c49e1dc">
+<Quiz keepExpanded="correct" scoring={points(1)} id="a9d0c9d5-ac63-4023-a3ee-d2d94c49e1dc">
     <ChoiceAnswer title="Fallbeispiel 1" correct={[3]}>
         > Wenn sie ihrem Mitarbeiter Bob einen Auftrag geben will, dann schreibt Alice den Auftrag jeweils auf einen Zettel und legt ihn auf Bobs Schreibtisch. Wenn Bob wieder am Schreibtisch ist, sieht er den Auftrag und bearbeitet ihn. Eva nutzt diesen Ablauf gerne aus, um sich ihre Arbeit zu erleichtern: sie legt ihre eigenen Aufträge auch einfach auf Bobs Schreibtisch, und schon werden sie erledigt. Als Bob und Alice dies bemerken, überlegen sie sich einen Plan: Von nun an wird Alice in jedem Auftrag irgendwo das geheime Codewort «Melone» verwenden. Wenn er dieses Wort liest, weiss Bob, dass der Auftrag wirklich von Alice stammt. Wenn das Wort jedoch fehlt, dann kam der Auftrag vermutlich von Eva. Welche Sicherheitsziel verfolgen Bob und Alice mit ihrem Plan?
 

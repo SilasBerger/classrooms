@@ -1,0 +1,63 @@
+---
+sidebar_label: Substitution
+sidebar_custom_props:
+  source:
+    name: rothe.io
+    ref: 'https://rothe.io/?b=crypto&p=481987'
+page_id: 99a90fcc-2e1e-4c50-be77-28a8af6a65d4
+---
+
+import Substitution from "@tdev-components/visualization-tools/cryptology/Substitution";
+
+# Monoalphabetische Substitution
+
+Allgemein wird ein Verschlüsselungsverfahren, bei welchem jedes Zeichen durch ein festgelegtes anderes Zeichen ersetzt wird, eine **monoalphabetische Substitution** genannt.
+
+Das Verfahren wird _monoalphabetisch_ genannt, weil zum Verschlüsseln eines Textes nur **ein Geheimtextalphabet** zum Einsatz kommt. Im Gegensatz dazu werden bei _polyalphabetischen_ Verfahren für die Verschlüsselung eines einzigen Textes mehrere verschiedene Alphabete verwendet (siehe z.B. Vigenère).
+
+| Monoalphabetische Substitution |                                                                                                         |
+|:-------------------------------|:--------------------------------------------------------------------------------------------------------|
+| Klartextalphabet               | `A` `B` `C` `D` `E` `F` `G` `H` `I` `J` `K` `L` `M` `N` `O` `P` `Q` `R` `S` `T` `U` `V` `W` `X` `Y` `Z` |
+| Geheimtextalphabet             | `M` `B` `T` `C` `H` `J` `F` `S` `A` `E` `Y` `O` `R` `D` `N` `Z` `W` `I` `U` `P` `G` `X` `Q` `K` `L` `V` |
+
+Es ist ersichtlich, dass eine Entschlüsselung nun viel aufwändiger ist, da keine Alphabet-Verschiebung mehr stattfindet, sondern eine wilde Vertauschung (=Substitution) der Buchstaben.
+
+Die Nachricht `EIN KLEINER RABE FLIEGT AM TAGE` wird verschlüsselt zu `HAD YOHADHI IMBH JOAHFP MR PMFH`.
+
+:::insight["nicht verschlüsselte" Buchstaben]
+Die Tatsache, dass der Buchstabe `B` im obigen Beispiel "nicht" verschlüsselt wird (also auch im Geheimtext ein `B` ist), stellt überhaupt kein Problem dar – im Gegenteil, es würde die Anzahl Möglichkeiten einschränken, wenn es verboten wäre, dass einzelne Buchstaben auch unverändert bleiben dürfen.
+:::
+
+Bei dieser Substitution hängt die Anzahl möglicher Verschlüsselungen von der Grösse des zugrundeliegenden Zeichensatzes ab. Wenn $n$ Zeichen verwendet werden, gibt es $n!$ unterschiedliche Verschlüsselungen.
+
+:::tip[Fakultät]
+$n!$ bedeutet "n Fakultät" und ist das Produkt aller natürlicher Zahlen bis zur angegebenen Zahl. Beispiel: $4! = 4 \cdot 3 \cdot 2 \cdot 1 = 24$.
+:::
+
+## Substitutions-Chiffre ausprobieren
+
+<Substitution/>
+
+## Übungen
+::::aufgabe[Ver- und entschlüsseln mit Substitution]
+<TaskState id="4aba7b78-faf1-4526-b191-cfe523070a8b" />
+Füllen Sie die folgende Tabelle aus, indem Sie mit der Substitutionschiffre und dem angegebenen Schlüssel ver-, resp. entschlüsseln.
+
+Achten Sie auf Grossschreibung und Leerzeichen. Kontrollieren Sie Ihre Lösungen mit den :mdi[help-circle-outline]-Buttons.
+
+:::warning[Substitutions-Tool]
+Auch hier sollten Sie das obige Tool für die Aufgaben nicht verwenden.
+:::
+
+Schlüssel
+: HTOIFPKGMABUZRLWNDESYCJVXQ
+
+| Klartext                                                                                                             | Geheimtext                                                                        |
+|----------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| <String solution="CHIFFRE" id="d24a0d3c-44ee-43b3-a3f5-394808564aec" />                                              | OGMPPDF                                                                           |
+| GEHEIMNIS                                                                                                            | <String solution="KFGFMZRME" id="83dd2c8b-f24f-48c3-9f33-f1bfcc67dce3" />         |
+| <String solution="DOPPELAGENT" id="eee01390-42cf-416f-a395-9c087f1dd032" />                                          | ILWWFUHKFRS                                                                       |
+| BEREICH ABSICHERN                                                                                                    | <String solution="TFDFMOG HTEMOGFDR" id="3e1d0d7b-e8da-4045-8df5-40f5f25ea34e" /> |
+| <String solution="AGENT X MELDET SICH UM MITTERNACHT" id="5996cbf6-9ab7-4659-8a92-5190c6874160" inputWidth="22em" /> | HKFRS V ZFUIFS EMOG YZ ZMSSFDRHOGS                                                |
+
+::::
