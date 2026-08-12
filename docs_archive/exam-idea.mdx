@@ -1,5 +1,7 @@
 <Quiz scoring={points(1)} id="36f3b59d-0ec1-44ae-912c-d81f5648cb39" teacherGraded>
-    <ChoiceAnswer correct={[3]} scoring={points(2)}>
+    <QuizGradingTool />
+
+    <ChoiceAnswer correct={[3]} scoring={points(2)} grading={swissLinearGrading()}>
         Wie viele Seiten hat ein Würfel?
 
         1. 2
@@ -49,3 +51,39 @@
         ```
     </ManualAssessable>
 </Quiz>
+
+## Manual Assessable
+Das Manual Assessable ist in erster Instanz ein Container für arbiträre Aufgaben, ggf. mit einem Hinweis-Popup, das den Korrekturschlüssel anzeigt, sowie einer Punktzahl. In zweiter Instanz kreiert es aber auch ein Child Document mit einem DocType, der in etwa so aussieht:
+
+```typescript
+interface ManualAssessable {
+    pointsAchieved: string;
+}
+```
+
+Zudem fügt das Manual Assessable einen Quill Editor ein (entweder Default oder auf Knopfdruck), dessen Document er dem Manual Assessable Document als Child anhängt. Dieser Editor ist für das Erfassen eines schriftlichen Feedbacks zu dieser Frage.
+
+## Quiz Grading Tool
+Das Quiz Grading Tool hat einen eigenen DocType und erstellt ein Document davon als Child Document des Parent Quiz. Es hat folgende Funktionen:
+- Das Quiz gibt ihm einen `QuizParams`-handle, in dem das Settings Tool z.B. einen `maxPointsOverride` definieren kann. Wenn das Quiz einen solchen sieht, dann wird es zur Errechnung der Note diese Maximalpunktzahl verwenden. Der Grading-Funktion `swissLinearGrading()` auf dem Quiz muss dementsprechend keine Max-Punktzahl mitgegeben werden, denn entweder verwendet das Quiz die aus den Scoring-Functions errechnete Zahl, oder eben diesen Override.
+- Das Quiz Grading kennt die Quiz ID. Es holt sich also alle Quizzes und lässt sie durch die Scoring- und Grading-Logik, die auch von der Quiz-Komponente verwendet wird. Damit erstellt es einen Notenspiegel mit einer Übersicht, sowie den relevanten statistischen Kennzahlen. Diese Übersicht reagiert Live auf Veränderungen des `maxPointsOverride` im Quiz Grading Tool.
+
+## Handhabung von Seiten und Accounts
+- Multi Account Creation direkt in der Learning Group: Kreiere $n$ Accounts innerhalb einer Learning Gruop. Gib ein E-Mail-Muster an (z.B. `@`__exam.classrooms.app__), dann generiert es die Accounts mit zufälliger Email und Passwort. Direkt nach der Erstellung kann ein Blatt mit Passwortkärtchen (inkl. Platzhalter für Name, Vorname, Klasse), sowie ein CSV für einen CMS-Import heruntergeladen werden.
+- Multi Account Deletion: `Alle Accounts in dieser Gruppe löschen` -> Hinweis: Löscht nicht die Gruppe, sondern die Accounts -> als Confirmation den Gruppennamen und die Zahl der zu löschenden Accounts eintippen
+- Data Export: Existiert bereits; vor dem Löschen der Prüfungsaccounts (z.B. kurz vor der nächsten Prüfung) können die Daten zur Sicherheit noch exportiert werden.
+- Prüfungs-Version: Reguläres Versioning System um nur die Prüfungsseite und z.B. das Turtle Cheat Sheet aufzuschalten -> aufpassen, ob Such nicht problematisch ist -> diese Seite und ihre Unterseiten im Exam.net whitelisten
+
+## Veröffentlichung der Ergebnisse
+Idee:
+- Assessable + alle Implementatoren bieten eine hübsche Druck-Ansicht (inkl. der Auto- und manuellen Assessments, Gesamtpunktzahl, Note, ohne Grading Tool)
+- Grading Tool (?) bietet einen Download Button. Es wird für jedes Quiz Document ein PDF erstellt.
+- Grading Tool erlaubt ggf. die Zuordnung von E-Mail (random) und Name / Vorname, um das PDF sinnvoller zu benennen
+- PDF wird entweder per Teams oder per OneNote Class Notebook Distribution-Mechanismus an die SuS verteilt
+- PDF Export bietet ggf. die Option, gewisse Elemente auszublenden (wobei das gerade beim Manual Assessable noch tricky wäre, denn die SuS Antwort möchte man vermutlich haben, aber den Rest der Aufgabe eher nicht)
+
+## Offene Fragen
+- Wie machbar ist so ein PDF Export?
+- Wie verhält sich das Assessable, wenn seine Children in Aufgabe-Admonitions mit Task States gewrapped sind?
+- Gibt es in OneNote Class Notebook eine Verteil-Funktion, mit der man ein Set von individuellen Dokumenten anhand deren Dateinamen korrekt auf die SuS verteilen kann? => scheinbar nein, aber machbar mit Microsoft 365 / Graph API
+  - Scheinbar gibt es bei Office 365 eine `sendMail`-API, mit der man so etwas machen könnte, evtl. sogar via Teams; es braucht aber eine App Registration
