@@ -20,6 +20,8 @@ pages: []
     as: 07-Information-Daten
   - material: Textverarbeitung-Style-29Ge
     as: 08-Textverarbeitung-und-Style
+  - material: Kryptologie-2026
+    as: 09-Kryptologie
 draft:
   - material: confidential/Probe-Data-Management-GYM28
     as: 99-Probe-Data-Management
