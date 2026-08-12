@@ -57,7 +57,7 @@ Bei **Richtig-Falsch-Fragen** gibt es nur zwei Antwortmöglichkeiten. Wählen Si
 ## Single Choice
 Bei Single-Choice-Aufgaben kann es mehr als zwei Antwortmöglichkeiten geben, Sie können jedoch nur eine davon auswählen.
 
-<ChoiceAnswer correct={[3]} id="930cb3d3-cd8a-46ed-862a-cc6c65ad1cf4">
+<ChoiceAnswer correct={[3]} keepExpanded={"correct"} id="930cb3d3-cd8a-46ed-862a-cc6c65ad1cf4">
 In welchem Monat beginnt bei uns jeweils das neue Schuljahr?
 
 1. Januar
@@ -67,6 +67,12 @@ In welchem Monat beginnt bei uns jeweils das neue Schuljahr?
 5. Dezember
 </ChoiceAnswer>
 
+:::insight[Fragen werden aufgeräumt]
+Die meisten Fragen sind so eingerichtet, dass alle falschen Antworten verschwinden, sobald Sie die Frage richtig beantwortet haben. Das hilft, den Überblick zu bewahren.
+
+Die ausgeblendeten Antwortmöglichkeiten können mit dem dem __:mdi[expand-all]__-Button wieder angezeigt werden. Nachdem Sie die obige Frage richtig beantwortet haben, können Sie es dort gleich ausprobieren.
+:::
+
 :::tip[Gut zu wissen…]
 Es kann auch Single-Choice-Aufgaben geben, bei denen mehr als eine Antwort richtig ist. Sie müssen in dem Fall einfach eine der richtigen Antworten auswählen.
 :::
@@ -74,7 +80,7 @@ Es kann auch Single-Choice-Aufgaben geben, bei denen mehr als eine Antwort richt
 ## Multiple Choice
 Bei **Multiple-Choice-Aufgaben** (erkennbar an den eckigen statt runden Auswahl-Kästchen) können mehrere Antworten korrekt sein.
 
-<ChoiceAnswer multiple correct={[3, 4]} id="c43faff7-6218-48e7-bac6-0ce67f16e99c">
+<ChoiceAnswer multiple correct={[3, 4]} keepExpanded={"correct"} id="c43faff7-6218-48e7-bac6-0ce67f16e99c">
 Welche Monate gehören zum Sommer?
 
 1. Januar
@@ -93,7 +99,7 @@ Ein Quiz besteht aus mehreren Ankreuz-Fragen (und kann theoretisch auch andere A
 
 Bei Quizzes können die beantworteten Fragen nicht einzeln überprüft werden. Stattdessen können Sie am Schluss auf __Quiz beenden__ klicken, um das Quiz abzuschliessen und Ihre Antworten zu überprüfen. Danach sehen Sie, wie viele Punkte Sie erreicht haben. Sie können Ihre Antworten ab dann **nicht mehr anpassen**. Wenn Sie noch nicht alle Fragen korrekt beantwortet haben, müssen Sie das Quiz zurücksetzen und neu beginnen.
 
-<Quiz scoring={points(1)} id="84e83d0e-e380-434c-bdae-f1e022f9e261" randomizeQuestions randomizeOptions>
+<Quiz scoring={points(1)} randomizeQuestions randomizeOptions keepExpanded={"correct"} id="84e83d0e-e380-434c-bdae-f1e022f9e261">
     <ChoiceAnswer correct={[1]}>
         In welchem Jahr war 2024?
 
@@ -135,7 +141,7 @@ Die Fragen und die Antwortmöglichkeiten innerhalb der Fragen erscheinen bei die
 
 Bei einem Quiz gibt es nicht zwingend für jede Frage gleich viele Punkte. Schauen Sie jeweils im Kopf der Frage auf die angegebene Punktzahl. Klicken Sie auf die Punktzahl-Angabe, um mehr darüber zu erfahren, wie die entsprechende Frage bewertet wird.
 
-<Quiz scoring={points(1)} id="561650d8-8b11-4267-836a-d859a15ab580">
+<Quiz scoring={points(1)} keepExpanded={"correct"} id="561650d8-8b11-4267-836a-d859a15ab580">
     <ChoiceAnswer correct={[3]} scoring={points(2)}>
         Wie viele Seiten hat ein Würfel?
 
