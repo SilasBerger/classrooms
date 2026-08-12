@@ -1,6 +1,5 @@
 ---
 page_id: ec8ca762-c73d-4ba9-a441-742915dc2f63
-draft: true
 ---
 
 import TabItem from "@theme/TabItem";
@@ -8,6 +7,7 @@ import OsTabs from '@tdev-components/OsTabs'
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Video from '@tdev-components/Video';
 import Tabs from '@theme/Tabs';
+import { points, multipleChoicePoints } from '@tdev-components/documents/Assessable/helpers/scoring';
 
 # Modul 3: Web
 :::info[Lernziele]
@@ -59,20 +59,38 @@ Die verschiedenen Browser sehen alle etwas unterschiedlich aus. Einige Funktione
 
 ### Webseiten öffnen
 Es gibt mehrere Möglichkeiten, um eine Webseite zu öffnen:
-1. Die URL (Web-Adresse) direkt in die Adressleiste des Browsers eingeben
-2. nur den Namen der Webseite in die Adressleiste eingeben, um mit einer [Suchmaschine](#suchmaschinen) danach zu suchen
-3. auf einen Link klicken (z.B. https://gbsl.ch)
-4. über ein [Bookmark](#bookmarks)
-
-Wenn Sie die sogenannte **URL** (also die _Web-Adresse_) einer Webseite nicht kennen, dann geben Sie in der Suchleiste Ihres Browsers den Namen der Webseite ein, z.B. __gbsl__, wenn Sie die GBSL-Seite öffnen wollen. Wenn Sie dann [[Enter]] drücken, wird mit Ihrer Standard-Suchmaschine (in der Regel Google oder Bing) nach dieser Webseite gesucht. **Der Nachteil:** Sie müssen in den Suchergebnissen dann die **richtige** Webseite auswählen, was lange dauern kann, und in jedem Fall mindestens einen Extra-Klick in Anspruch nimmt.
-
-Wenn Sie stattdessen wissen, dass z.B. die GBSL-Webseite unter der URL `gbsl.ch` erreichbar ist (das `.ch` am Ende ist die sogenannte Domain-Endung, damit erkennt es der Browser als eine «vollständige»[^1] URL), dann können Sie diese URL direkt in die Adressleiste eingeben. Das ist schneller und einfacher, weil Sie dann direkt auf der GBSL-Seite landen, ohne erst eine Suchmaschine zu verwenden.
+URL (Web-Adresse)
+: Die URL (Web-Adresse, z.B. `gbsl.ch`) direkt in die Adressleiste des Browsers eingeben und man landet direkt auf der richtigen Seite
+Suche in der Adressleiste
+: der Name der Webseite nur den Namen der Webseite (z.B. `gbsl`) in die Adressleiste eingeben, um mit einer [Suchmaschine](#suchmaschinen) danach zu suchen
+Suche in der Suchleiste
+: Browser zeigen oft einen Suchleiste an. Das Verhalten ist gleich wie bei der Suche in der Adressleiste.
+Link
+: auf einen Link klicken (z.B. https://gbsl.ch)
+Bookmark
+: die Seite ist also [Bookmark (Favorit, Lesezeichen, …)](#bookmarks) gespeichert, um sie schnell wieder zu finden
 
 Hier der Vergleich für `classrooms.app`:
 <Video title='Suchen vs. URL verwenden' src={useBaseUrl('/img/docs/material/BYOD-Basics-2025/05-Web/search_vs_direct_url.mov')} />
 
-:::tip[Besser die URL eigeben]
-Von vielen Webseiten wissen Sie die URL vermutlich auswendig: classrooms.app, gbsl.ch, youtube.com, instagram.com, etc. Geben Sie diese URLs immer gleich direkt in die Adressleiste ein. Das spart Zeit und Klicks.
+:::key[Verschiedene Verhaltensweisen]
+Ihr Browser wird sich unterschiedlich verhalten, je nach dem ob Sie eine URL oder einen Suchbegriff verwenden, und je nach dem, ob Sie die Adresszeile oder die Suchzeile verwenden. Hier ein Beispiel für die GBSL-Webseite, die unter der URL `gbsl.ch` erreichbar ist:
+
+![](img/edge_search.png)
+
+| Aktion | Effekt | Konsequenz |
+| - | - | - |
+| **Direkt via URL:**<br />`gbsl.ch` in der Adressleiste __1__ eingeben | Der Browser erkennt dies als URL und öffnet **direkt die richtige Seite** | ✅ Sie landen direkt auf der richtigen Seite. |
+| **Suche in der Adressleiste:**<br />`gbsl ch` (ohne Punkt) in der Adressleiste __1__ eingeben | Der Browser erkennt dies **nicht** als URL (fehlender Punkt) und leitet die Anfrage an Ihre Standard-**Suchmaschine** (Google, Bing, …) weiter. | ⚠️ Sie müssen Sie in den Suchergebnissen (bei Google, Bing, …) nach der richtigen Seite **suchen** und drauf **klicken**<br /><br />Das **kostet Zeit**, und es besteht die **Gefahr**, dass Sie auf ein **falsches (ggf. bösartiges) Ergebnis** klicken. |
+| **Suche in der Suchleiste:**<br />`gbsl.ch` oder `gbsl ch` in der Suchleiste __2__ eingeben | In der Suchleiste prüft der Browser nicht, ob es sich um eine URL handelt. Die Anfrage wird **in jedem Fall** an Ihre Standard-**Suchmaschine** (Google, Bing, …) weitergeleitet. | ⚠️ Sie müssen Sie in den Suchergebnissen (bei Google, Bing, …) nach der richtigen Seite **suchen** und drauf **klicken**<br /><br />Das **kostet Zeit**, und es besteht die **Gefahr**, dass Sie auf ein **falsches (ggf. bösartiges) Ergebnis** klicken. |
+
+Bei **Suchmaschinen** (egal, ob in der Adresszeile, der Suchleiste, oder direkt auf der Such-Webseite von Google, Bing, etc.) werden aus verschiedenen Gründen «falsche» Ergebnisse angezeigt:
+- **Werbung:** Wenn Sie die Webseite eines Unternehmens oder eines Produkts öffnen wollen, erscheinen Ergebnisse von der Konkurrenz, weil die dafür bezahlt haben.
+- **Fehlende Bekanntheit:** Wenn sie nach einer wenig bekannten Webseite suchen (z.B. Classrooms), erscheint diese erst weit unten in den Suchergebnissen. Zuerst werden bekanntere Ergebnisse angezeigt, die zu Ihrer Suche passen könnten.
+- **Ungenauigkeit:** Suchmaschinen suchen nicht nach genau dem, was Sie eintippen, sondern nach dem, was sie denken, wonach Sie eigentlich suchen.
+- **Scams:** Betrüger können eine Webseite imitieren und auf einer ähnlichen URL veröffentlichen (z.B. `instagrum.com`), um z.B. Passwörter zu stehlen.
+
+**Take Home Message:** Suchmaschinen sind nicht schlecht. Wenn Sie aber die URL Ihrer gewünschten Seite kennen (z.B. `classrooms.app`, `instagram.com`, etc.), dann geben Sie immer am besten diese direkt in der Adresszeile __1__ ein, um schnell und sicher zur richtigen Seite zu gelangen.
 :::
 
 :::warning[Auto-Vervollständigung]
@@ -126,9 +144,13 @@ Bookmarks (auch _Lesezeichen_ oder _Favoriten_) sind eine Möglichkeit, um Webse
 
 :::aufgabe[Bookmark für classrooms.app erstellen]
 <TaskState id="f2ecb28f-96de-4360-a523-023077c653ee" />
-1. Öffnen Sie mit Ihrem Browser (in einem neuen Tab) Ihre Classrooms-Klassen-Startseite (dort, wo Sie den Terminplan sehen).
-2. Erstellen Sie ein Bookmark für diese Seite, damit Sie sie jeweils zum Unterrichtsbeginn schnell öffnen können.
-3. Öffnen Sie einen neuen Tab und überprüfen Sie, ob das Bookmark funktioniert. Klicken Sie dazu auf das Bookmark und prüfen Sie, ob Sie die Seite mit dem Terminplan Ihrer Klasse sehen.
+
+_**Hinweis:** Nachdem Sie die Classrooms-Einführung abgeschlossen haben, sollte Sie bereits ein Bookmark für die Seite erstellt haben. Prüfen Sie, ob Sie eines haben und ob es funktioniert. Wenn ja, können Sie diese Aufgabe direkt als erledigt markieren._
+<Steps>
+    1. Öffnen Sie mit Ihrem Browser (in einem neuen Tab) Ihre Classrooms-Klassen-Startseite (dort, wo Sie den Terminplan sehen).
+    2. Erstellen Sie ein Bookmark für diese Seite, damit Sie sie jeweils zum Unterrichtsbeginn schnell öffnen können.
+    3. Öffnen Sie einen neuen Tab und überprüfen Sie, ob das Bookmark funktioniert. Klicken Sie dazu auf das Bookmark und prüfen Sie, ob Sie die Seite mit dem Terminplan Ihrer Klasse sehen.
+</Steps>
 :::
 
 ### Browser-Zugriff auf das Dateiesystem
@@ -198,5 +220,68 @@ Im Gegensatz zum Installieren einer App oder eines Programms aus einem Store ver
         3. Das Programm in den Papierkorb ziehen (allfällige Abfragen bestätigen)
     </TabItem>
 </OsTabs>
+
+## Abschlussquiz
+<Quiz randomizeQuestions randomizeOptions scoring={points(1)} id="1505be43-31b7-4c2b-a372-f44b2c6e17a1">
+    <ChoiceAnswer correct={[3]}>
+        ![](img/edge_search.png)
+
+        Wenn Sie die Webseite _Classrooms_ öffnen wollen, dann…
+
+        1. Geben Sie am besten `classrooms app` bei __1__ ein.
+        2. Geben Sie am besten `classrooms.app` bei __2__ ein.
+        3. Geben Sie am besten `classrooms.app` bei __1__ ein.
+        4. Geben Sie am besten `classrooms app` bei __2__ ein.
+    </ChoiceAnswer>
+    <ChoiceAnswer multiple correct={[2, 3]} scoring={multipleChoicePoints(2, 1, false)}>
+        ![](img/edge_search.png)
+
+        Wenn Sie `swissdox.ch`…
+
+        1. …bei __1__ eingeben, dann wird mit einer Suchmaschine danach gesucht.
+        2. …bei __1__ eingeben, dann wird die Webseite direkt geöffnet.
+        3. …bei __2__ eingeben, dann wird mit einer Suchmaschine danach gesucht.
+        4. …bei __2__ eingeben, dann wird die Webseite direkt geöffnet.
+    </ChoiceAnswer>
+    <ChoiceAnswer correct={[2]}>
+        Wenn wir sagen, dass wir «etwas bei Google eingeben», dann meinen wir am ehesten, dass…
+
+        1. …wir es im Google Chrome Browser eingeben.
+        2. …wir es in der Google Suche eingeben.
+    </ChoiceAnswer>
+    <ChoiceAnswer multiple correct={[1, 2, 3, 4, 5]} scoring={multipleChoicePoints(2, 1, false)}>
+        Welche Risiken gehen wir ein, wenn wir eine Webseite über eine Suchmaschine (Adresszeile, Suchzeile) zu öffnen versuchen, statt sie direkt aufzurufen?
+
+        1. Aufgrund von Werbung landen wir evtl. auf der Webseite der Konkurrenz.
+        2. Wir landen evtl. auf einer betrügerischen Webseite.
+        3. Wir verlieren Zeit.
+        4. Wir landen evtl. auf einer anderen, ähnlich klingenden Webseite, weil die bekannter ist.
+        5. Wir geben beim Suchen etwas über uns preis (nämlich unser Interesse an einer bestimmten Webseite), was der Betreiber der Suchmaschine z.B. zu Werbezwecken «gegen uns» verwenden kann.
+        6. Die aufgerufene Webseite lädt danach langsamer.
+        7. Wenn wir zuvor ein Lesezeichen für die gesuchte Webseite hatten, wird dieses entfernt, weil der Browser denkt, dass wir es nicht mehr brauchen (oder dass es nicht mehr aktuell ist).
+        8. Wir verlieren wertvolle Such-Credits, die uns später vielleicht für eine wichtige Recherche fehlen.
+    </ChoiceAnswer>
+    <ChoiceAnswer multiple correct={[1, 3]} scoring={multipleChoicePoints(2, 1, false)}>
+        In welchen Fällen ist eine Suchmaschine das richtige Werkzeug?
+
+        1. Zu Recherchezwecken, wenn Sie noch nicht genau wissen, welche Webseite Sie eigentlich öffnen wollen («Ich brauche eine Webseite, auf der ich Informationen zur prokaryotischen Zelle finde…»)
+        2. Wenn Sie die genaue URL einer Webseite kennen, und somit sehr genau suchen können
+        3. Wenn Sie den Namen einer Webseite kennen, jedoch nicht deren URL («Ist es `.ch` oder `.com`, oder `.app`…?»)
+        4. Wenn die Suchleiste näher bei meinem Mauszeiger ist, als die Adressleiste – denn so spare ich Zeit
+    </ChoiceAnswer>
+    <TrueFalseAnswer correct={false}>
+        In modernen Browsern haben Webseiten praktisch immer vollen Zugriff auf das Dateisystem meines Computers.
+    </TrueFalseAnswer>
+    <ChoiceAnswer multiple correct={[2, 3, 5, 6]} scoring={multipleChoicePoints(2, 1, false)}>
+        Welche Aussagen zur Installation und Deinstallation von Programmen sind korrekt?
+
+        1. Auf vollwertigen Betriebssystemen (Windows, macOS) installieren wir Programme meistens über einen Store, wie auf dem Smartphone.
+        2. Zur Installation eines Programms auf Windows / macOS brauchen wir in der Regel eine Installationsdatei, die wir uns von der Webseite des Programm-Herstellers herunterladen.
+        3. Die heruntergeladene Installationsdatei können wir nach abgeschlossener Installation löschen, denn die brauchen wir nicht wieder.
+        4. Nach abgeschlossener Installation verändert die Installationsdatei ihr verhalten: Wenn man sie ausführt (Doppelklick), startet sie nicht mehr das Installationsprogramm, sondern das installierte Programm selbst.
+        5. Um ein Programm zu deinstallieren, geht man bei Windows auf `Einstellungen` → `Apps` → `Installierte Apps`. Bei macOS sucht man das entsprechende Programm im `Programme`-Ordner und zieht es in den Papierkorb.
+        6. Beim Herunterladen einer Installationsdatei müssen wir darauf achten, dass wir uns wirklich auf der Webseite des Programm-Herstellers befinden, weil wir uns sonst ggf. einen Virus herunterladen und installieren.
+    </ChoiceAnswer>
+</Quiz>
 
 [^1]: Aus technischer Sicht bräuchte es für eine vollständige URL noch mehr Angaben, z.B. das `https://`. Mit einer Domain-Endung wie `.ch` oder `.com` am Ende erkennt der Browser es aber in der Regel auch so als vollständige URL an. Wenn Sie also nur `gbsl.ch` eingeben, dann wird der Browser das automatisch zu `https://gbsl.ch` erweitern.
