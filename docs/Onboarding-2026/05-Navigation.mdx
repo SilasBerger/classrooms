@@ -3,9 +3,7 @@ page_id: fa43c0ca-fdd9-4c59-834d-0fcb8e509157
 ---
 
 import PageReadCheck from '@tdev/page-read-check/PageReadCheck';
-import Quiz from "@tdev-components/documents/Assessable/Quiz"
-import ChoiceAnswer from "@tdev-components/documents/Assessable/ChoiceAnswer"
-import TrueFalseAnswer from "@tdev-components/documents/Assessable/TrueFalseAnswer"
+import { points, multipleChoicePoints } from '@tdev-components/documents/Assessable/helpers/scoring'
 
 # Navigation
 Um sich auf _Classrooms_ zu bewegen, haben Sie folgende Möglichkeiten:
@@ -47,7 +45,7 @@ Nutzen Sie jetzt die Suchfunktion, um herauszufinden, wie Sie bei IT-Problemen v
 
 Danach können Sie das folgende Quiz bearbeiten:
 
-<Quiz keepExpanded={"correct"} id="b82a1450-e446-4a8a-b395-62b82eb40a96">
+<Quiz keepExpanded={"correct"} scoring={points(1)} id="b82a1450-e446-4a8a-b395-62b82eb40a96">
     <TrueFalseAnswer correct={false} title="Erster Schritt?">
         Wenn ich ein IT-Problem habe, dann wende ich mich als erstes an den IT-Support.
     </TrueFalseAnswer>
@@ -61,7 +59,7 @@ Danach können Sie das folgende Quiz bearbeiten:
         4. [servicedesk@edubern.ch](#)
     </ChoiceAnswer>
 
-    <ChoiceAnswer multiple correct={[1, 4, 5]} title="Was stimmt?">
+    <ChoiceAnswer multiple scoring={multipleChoicePoints(2, 1, false)} correct={[1, 4, 5]} title="Was stimmt?">
         Wählen Sie alle korrekten Aussagen an.
 
         1. Wenn ich bei der Lösung eines Problems Hilfe brauche, muss ich das Problem zuerst sorgfältig analysieren und genau beschreiben können.
