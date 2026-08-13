@@ -26,6 +26,10 @@
         padding: 0 0.75em;
         position: relative;
 
+        &.offline {
+            opacity: 0.5;
+        }
+
         .liveIndicator {
             position: absolute;
             top: 0.15em;

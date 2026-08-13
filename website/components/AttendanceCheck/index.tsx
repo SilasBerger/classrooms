@@ -9,6 +9,7 @@ import { observer } from 'mobx-react-lite';
 import User from '@tdev-models/User';
 import LiveStatusIndicator from '@tdev-components/LiveStatusIndicator';
 import { Role } from '@tdev-api/user';
+import clsx from 'clsx';
 
 interface Termin {
     cells: string[];
@@ -87,7 +88,10 @@ const getScheduleInfo = (termine: Termin[], terminePraktikum: Termin[]): Schedul
 
 const StudentBadge = observer(({ user }: { user: User }) => {
     return (
-        <div className={styles.studentBadge} key={user.id}>
+        <div
+            className={clsx(styles.studentBadge, { [styles.offline]: user.connectedClients === 0 })}
+            key={user.id}
+        >
             <LiveStatusIndicator userId={user.id} size={0.3} className={styles.liveIndicator} />
 
             <span>
