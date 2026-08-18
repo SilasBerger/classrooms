@@ -1,6 +1,6 @@
 import Icon from '@mdi/react';
 import styles from './styles.module.scss';
-import { mdiCalendarRemove } from '@mdi/js';
+import { mdiAccountCheck, mdiCalendarRemove, mdiCheckAll } from '@mdi/js';
 import { IfmColors } from '@tdev-components/shared/Colors';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import { useStore } from '@tdev-hooks/useStore';
@@ -86,13 +86,22 @@ const getScheduleInfo = (termine: Termin[], terminePraktikum: Termin[]): Schedul
     }
 };
 
-const StudentBadge = observer(({ user }: { user: User }) => {
+const StudentBadge = observer(({ user, seen }: { user: User; seen: boolean }) => {
     return (
         <div
             className={clsx(styles.studentBadge, { [styles.offline]: user.connectedClients === 0 })}
             key={user.id}
         >
             <LiveStatusIndicator userId={user.id} size={0.3} className={styles.liveIndicator} />
+
+            {seen && (
+                <Icon
+                    path={mdiAccountCheck}
+                    size={0.4}
+                    className={styles.seenIndicator}
+                    color={IfmColors.primary}
+                />
+            )}
 
             <span>
                 {user.firstName} {user.lastName}
@@ -111,15 +120,25 @@ const AttendanceList = observer(
         onlineStudents: User[];
         offlineStudents: User[];
     }) => {
+        const attendanceCheckStore = useStore('siteStore').attendanceCheckStore;
+
         return (
             <div>
                 <h2 className={styles.title}>{title}</h2>
                 <div className={styles.studentList}>
                     {(onlineStudents || []).map((user) => (
-                        <StudentBadge key={user.id} user={user} />
+                        <StudentBadge
+                            key={user.id}
+                            user={user}
+                            seen={attendanceCheckStore.wasSeen(user.id)}
+                        />
                     ))}
                     {(offlineStudents || []).map((user) => (
-                        <StudentBadge key={user.id} user={user} />
+                        <StudentBadge
+                            key={user.id}
+                            user={user}
+                            seen={attendanceCheckStore.wasSeen(user.id)}
+                        />
                     ))}
                 </div>
                 <div className={styles.studentCount}>
@@ -135,6 +154,7 @@ const AttendanceList = observer(
 const AttendanceCheck = observer(({ termine, terminePraktikum }: Props) => {
     const isBrowser = useIsBrowser();
     const userStore = useStore('userStore');
+    const attendanceCheckStore = useStore('siteStore').attendanceCheckStore;
     const location = useLocation();
 
     if (!isBrowser || !userStore.current?.hasElevatedAccess) {
@@ -184,6 +204,10 @@ const AttendanceCheck = observer(({ termine, terminePraktikum }: Props) => {
     const offlinePraktikumStudents: User[] = praktikumStudents.filter(
         (student) => student.connectedClients === 0
     );
+
+    [...onlineInformatikStudents, ...onlinePraktikumStudents].forEach((student) => {
+        attendanceCheckStore.markAsSeen(student.id);
+    });
 
     return (
         <div className={styles.container}>
