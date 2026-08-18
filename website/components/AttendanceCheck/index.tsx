@@ -101,23 +101,36 @@ const StudentBadge = observer(({ user }: { user: User }) => {
     );
 });
 
-const AttendanceList = observer(({ title, students }: { title: string; students: User[] }) => {
-    return (
-        <div>
-            <h2 className={styles.title}>{title}</h2>
-            <div className={styles.studentList}>
-                {(students || []).map((user) => (
-                    <StudentBadge key={user.id} user={user} />
-                ))}
+const AttendanceList = observer(
+    ({
+        title,
+        onlineStudents,
+        offlineStudents
+    }: {
+        title: string;
+        onlineStudents: User[];
+        offlineStudents: User[];
+    }) => {
+        return (
+            <div>
+                <h2 className={styles.title}>{title}</h2>
+                <div className={styles.studentList}>
+                    {(onlineStudents || []).map((user) => (
+                        <StudentBadge key={user.id} user={user} />
+                    ))}
+                    {(offlineStudents || []).map((user) => (
+                        <StudentBadge key={user.id} user={user} />
+                    ))}
+                </div>
+                <div className={styles.studentCount}>
+                    <span className="badge badge--info">
+                        {onlineStudents.length}/{onlineStudents.length + offlineStudents.length}
+                    </span>
+                </div>
             </div>
-            <div className={styles.studentCount}>
-                <span className="badge badge--info">
-                    {students.filter((student) => student.connectedClients > 0).length}/{students.length}
-                </span>
-            </div>
-        </div>
-    );
-});
+        );
+    }
+);
 
 const AttendanceCheck = observer(({ termine, terminePraktikum }: Props) => {
     const isBrowser = useIsBrowser();
@@ -143,9 +156,18 @@ const AttendanceCheck = observer(({ termine, terminePraktikum }: Props) => {
     }
 
     const klass = location.pathname.split('/')[1];
+
     const informatikStudents: User[] = userStore.managedUsers
         .filter((u) => u.studentGroups.some((g) => g.name === klass))
-        .filter((u) => u.role === Role.STUDENT);
+        .filter((u) => u.role === Role.STUDENT)
+        .sort((a, b) => a.firstName.localeCompare(b.firstName));
+    const onlineInformatikStudents: User[] = informatikStudents.filter(
+        (student) => student.connectedClients > 0
+    );
+    const offlineInformatikStudents: User[] = informatikStudents.filter(
+        (student) => student.connectedClients === 0
+    );
+
     const praktikumStudents: User[] = scheduleInfo.praktikumGroup
         ? userStore.managedUsers
               .filter((u) =>
@@ -154,15 +176,30 @@ const AttendanceCheck = observer(({ termine, terminePraktikum }: Props) => {
                   )
               )
               .filter((u) => u.role === Role.STUDENT)
+              .sort((a, b) => a.firstName.localeCompare(b.firstName))
         : [];
+    const onlinePraktikumStudents: User[] = praktikumStudents.filter(
+        (student) => student.connectedClients > 0
+    );
+    const offlinePraktikumStudents: User[] = praktikumStudents.filter(
+        (student) => student.connectedClients === 0
+    );
 
     return (
         <div className={styles.container}>
             {(scheduleInfo.type === ScheduleType.Informatik || scheduleInfo.type === ScheduleType.Both) && (
-                <AttendanceList title="Anwesenheitskontrolle Informatik" students={informatikStudents} />
+                <AttendanceList
+                    title="Anwesenheitskontrolle Informatik"
+                    onlineStudents={onlineInformatikStudents}
+                    offlineStudents={offlineInformatikStudents}
+                />
             )}
             {(scheduleInfo.type === ScheduleType.Praktikum || scheduleInfo.type === ScheduleType.Both) && (
-                <AttendanceList title="Anwesenheitskontrolle Praktikum" students={praktikumStudents} />
+                <AttendanceList
+                    title="Anwesenheitskontrolle Praktikum"
+                    onlineStudents={onlinePraktikumStudents}
+                    offlineStudents={offlinePraktikumStudents}
+                />
             )}
         </div>
     );
