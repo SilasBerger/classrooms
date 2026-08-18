@@ -14,12 +14,14 @@ export class AttendanceCheckStore {
     @action
     markAsSeen(id: string) {
         if (this.timerRunning) {
-            if (!this.getComeOnlineTime(id)) {
+            if (this.getComeOnlineTime(id) === undefined) {
                 const secondsSinceStart = (Date.now() - (this.startTime ?? 0)) / 1000;
                 this.studentTimings.set(id, { seenAfterSeconds: secondsSinceStart });
             }
         } else {
-            this.studentTimings.set(id, { seenAfterSeconds: undefined });
+            if (!this.studentTimings.has(id)) {
+                this.studentTimings.set(id, { seenAfterSeconds: undefined });
+            }
         }
     }
 

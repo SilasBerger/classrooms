@@ -4,6 +4,7 @@ import {
     mdiAccountCheck,
     mdiCalendarRemove,
     mdiCheckAll,
+    mdiFileDownloadOutline,
     mdiTimerPlayOutline,
     mdiTimerStop,
     mdiTimerStopOutline,
@@ -19,6 +20,7 @@ import LiveStatusIndicator from '@tdev-components/LiveStatusIndicator';
 import { Role } from '@tdev-api/user';
 import clsx from 'clsx';
 import Button from '@tdev-components/shared/Button';
+import { AttendanceCheckStore } from '@tdev-stores/AttendanceCheckStore';
 
 interface Termin {
     cells: string[];
@@ -95,6 +97,32 @@ const getScheduleInfo = (termine: Termin[], terminePraktikum: Termin[]): Schedul
     }
 };
 
+const downloadReport = (students: User[], klass: string, attendanceCheckStore: AttendanceCheckStore) => {
+    const reportData: { [key: string]: any } = {};
+    students.forEach((student) => {
+        reportData[student.id] = {
+            firstName: student.firstName,
+            lastName: student.lastName,
+            seen: attendanceCheckStore.wasSeen(student.id),
+            comeOnlineTime: attendanceCheckStore.getComeOnlineTime(student.id)
+        };
+    });
+
+    const report = {
+        timestamp: new Date().toISOString(),
+        class: klass,
+        data: reportData
+    };
+
+    const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `attendance_report_${klass}_${new Date().toISOString()}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+};
+
 const StudentBadge = observer(
     ({ user, seen, comeOnlineTime }: { user: User; seen: boolean; comeOnlineTime: number | undefined }) => {
         return (
@@ -132,11 +160,13 @@ const AttendanceList = observer(
     ({
         title,
         onlineStudents,
-        offlineStudents
+        offlineStudents,
+        klass: klass
     }: {
         title: string;
         onlineStudents: User[];
         offlineStudents: User[];
+        klass: string;
     }) => {
         const attendanceCheckStore = useStore('siteStore').attendanceCheckStore;
 
@@ -163,15 +193,38 @@ const AttendanceList = observer(
                 </div>
                 <div className={styles.tools}>
                     <Button
-                        onClick={() => attendanceCheckStore.reset()}
-                        icon={mdiTrashCanOutline}
-                        color={IfmColors.danger}
+                        onClick={() =>
+                            downloadReport(
+                                [...onlineStudents, ...offlineStudents],
+                                klass,
+                                attendanceCheckStore
+                            )
+                        }
+                        icon={mdiFileDownloadOutline}
+                        color={IfmColors.info}
+                        title="Report herunterladen"
                     />
 
                     <Button
-                        onClick={() => attendanceCheckStore.toggleTimer()}
+                        onClick={() => attendanceCheckStore.reset()}
+                        icon={mdiTrashCanOutline}
+                        color={IfmColors.danger}
+                        title="Tracking zurücksetzen"
+                    />
+
+                    <Button
+                        onClick={() => {
+                            attendanceCheckStore.toggleTimer();
+                            onlineStudents.forEach((student) => {
+                                attendanceCheckStore.markAsSeen(student.id);
+                            });
+                        }}
+                        className={clsx(styles.timerButton, {
+                            [styles.running]: attendanceCheckStore.timerRunning
+                        })}
                         icon={attendanceCheckStore.timerRunning ? mdiTimerStopOutline : mdiTimerPlayOutline}
                         color={attendanceCheckStore.timerRunning ? IfmColors.warning : IfmColors.success}
+                        title={attendanceCheckStore.timerRunning ? 'Timer anhalten' : 'Timer starten'}
                     />
 
                     <span className="badge badge--info">
@@ -248,6 +301,7 @@ const AttendanceCheck = observer(({ termine, terminePraktikum }: Props) => {
                     title="Anwesenheitskontrolle Informatik"
                     onlineStudents={onlineInformatikStudents}
                     offlineStudents={offlineInformatikStudents}
+                    klass={klass}
                 />
             )}
             {(scheduleInfo.type === ScheduleType.Praktikum || scheduleInfo.type === ScheduleType.Both) && (
@@ -255,6 +309,7 @@ const AttendanceCheck = observer(({ termine, terminePraktikum }: Props) => {
                     title="Anwesenheitskontrolle Praktikum"
                     onlineStudents={onlinePraktikumStudents}
                     offlineStudents={offlinePraktikumStudents}
+                    klass={klass}
                 />
             )}
         </div>
