@@ -25,6 +25,14 @@
         border: 1px solid var(--ifm-color-primary);
         padding: 0 0.75em;
         position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.2em;
+
+        &.withTiming {
+            padding-right: 0.25em;
+        }
 
         &.offline {
             opacity: 0.5;
@@ -44,8 +52,10 @@
     }
 }
 
-.studentCount {
+.tools {
     margin-top: 0.5em;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    gap: 0.25em;
 }

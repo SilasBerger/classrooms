@@ -1,6 +1,14 @@
 import Icon from '@mdi/react';
 import styles from './styles.module.scss';
-import { mdiAccountCheck, mdiCalendarRemove, mdiCheckAll } from '@mdi/js';
+import {
+    mdiAccountCheck,
+    mdiCalendarRemove,
+    mdiCheckAll,
+    mdiTimerPlayOutline,
+    mdiTimerStop,
+    mdiTimerStopOutline,
+    mdiTrashCanOutline
+} from '@mdi/js';
 import { IfmColors } from '@tdev-components/shared/Colors';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import { useStore } from '@tdev-hooks/useStore';
@@ -10,6 +18,7 @@ import User from '@tdev-models/User';
 import LiveStatusIndicator from '@tdev-components/LiveStatusIndicator';
 import { Role } from '@tdev-api/user';
 import clsx from 'clsx';
+import Button from '@tdev-components/shared/Button';
 
 interface Termin {
     cells: string[];
@@ -86,29 +95,38 @@ const getScheduleInfo = (termine: Termin[], terminePraktikum: Termin[]): Schedul
     }
 };
 
-const StudentBadge = observer(({ user, seen }: { user: User; seen: boolean }) => {
-    return (
-        <div
-            className={clsx(styles.studentBadge, { [styles.offline]: user.connectedClients === 0 })}
-            key={user.id}
-        >
-            <LiveStatusIndicator userId={user.id} size={0.3} className={styles.liveIndicator} />
+const StudentBadge = observer(
+    ({ user, seen, comeOnlineTime }: { user: User; seen: boolean; comeOnlineTime: number | undefined }) => {
+        return (
+            <div
+                className={clsx(styles.studentBadge, {
+                    [styles.offline]: user.connectedClients === 0,
+                    [styles.withTiming]: comeOnlineTime !== undefined
+                })}
+                key={user.id}
+            >
+                <LiveStatusIndicator userId={user.id} size={0.3} className={styles.liveIndicator} />
 
-            {seen && (
-                <Icon
-                    path={mdiAccountCheck}
-                    size={0.4}
-                    className={styles.seenIndicator}
-                    color={IfmColors.primary}
-                />
-            )}
+                {seen && (
+                    <Icon
+                        path={mdiAccountCheck}
+                        size={0.4}
+                        className={styles.seenIndicator}
+                        color={IfmColors.primary}
+                    />
+                )}
 
-            <span>
-                {user.firstName} {user.lastName}
-            </span>
-        </div>
-    );
-});
+                <span>
+                    {user.firstName} {user.lastName}
+                </span>
+
+                {comeOnlineTime !== undefined && (
+                    <span className={clsx('badge', 'badge--info')}>{Math.round(comeOnlineTime)}s</span>
+                )}
+            </div>
+        );
+    }
+);
 
 const AttendanceList = observer(
     ({
@@ -131,6 +149,7 @@ const AttendanceList = observer(
                             key={user.id}
                             user={user}
                             seen={attendanceCheckStore.wasSeen(user.id)}
+                            comeOnlineTime={attendanceCheckStore.getComeOnlineTime(user.id)}
                         />
                     ))}
                     {(offlineStudents || []).map((user) => (
@@ -138,10 +157,23 @@ const AttendanceList = observer(
                             key={user.id}
                             user={user}
                             seen={attendanceCheckStore.wasSeen(user.id)}
+                            comeOnlineTime={attendanceCheckStore.getComeOnlineTime(user.id)}
                         />
                     ))}
                 </div>
-                <div className={styles.studentCount}>
+                <div className={styles.tools}>
+                    <Button
+                        onClick={() => attendanceCheckStore.reset()}
+                        icon={mdiTrashCanOutline}
+                        color={IfmColors.danger}
+                    />
+
+                    <Button
+                        onClick={() => attendanceCheckStore.toggleTimer()}
+                        icon={attendanceCheckStore.timerRunning ? mdiTimerStopOutline : mdiTimerPlayOutline}
+                        color={attendanceCheckStore.timerRunning ? IfmColors.warning : IfmColors.success}
+                    />
+
                     <span className="badge badge--info">
                         {onlineStudents.length}/{onlineStudents.length + offlineStudents.length}
                     </span>
