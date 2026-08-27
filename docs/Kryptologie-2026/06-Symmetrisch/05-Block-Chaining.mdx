@@ -1,0 +1,273 @@
+---
+sidebar_custom_props:
+  source:
+    name: ofi.gbsl.website
+    ref: 'https://ofi.gbsl.website/26e/Kryptologie/Symmetrisch/block-chaining'
+page_id: b3a529e4-cd6d-4d09-94d6-04f801b639c3
+---
+
+import DefinitionList from "@tdev-components/DefinitionList";
+import XORBlockCipher from "@tdev-components/visualization-tools/cryptology/XORBlockCipher";
+
+# Verkettung von Blöcken
+Im letzten Kapitel wurde der Geheimtext zur Ver- bzw. Entschlüsselung in Blöcke aufgeteilt, die exakt so lang sind wie der Schlüssel. Die Blöcke werden anschliessend einzeln durch die XOR-Funktion mit dem Schlüssel ver- bzw. entschlüsselt.
+
+:::insight[Allgemeine Blockchiffre]
+Prinzipiell kann anstelle der XOR-Funktion jede beliebige mathematische Funktion (resp. Verkettung von Funktionen) zur Verschlüsselung verwendet werden (in den unten aufgeführten Grafiken daher mit dem allgemeinen Begriff *block cipher encryption* bezeichnet). Wir beschränken uns hier allerdings auf die einfache und gut verständliche XOR-Verschlüsselung.
+:::
+
+## Der Betriebsmodus «Electronic Code Book» (ECB)
+
+Falls jeder Block mit dem immer gleichen Schlüssel verschlüsselt wird, spricht man vom «Electronic Code Book» (**ECB**) Betriebsmodus. Schematisch dargestellt sieht dieser wie folgt aus:
+
+![](img/ECB_encryption.svg)
+
+In der Abbildung wird deutlich, dass ECB kein eigenes Verschlüsselungsverfahren ist, sondern nur ein **Modus** ist. Er definiert, wie die einzelnen Blöcke verwendet werden. Die konkrete Verschlüsselungsfunktion ist in dieser Darstellung nicht genauer angegeben – wir verwenden der Einfachheit halber hier die XOR-Funktion.
+
+Die Entschlüsselung funktioniert analog: Der Geheimtext wird wiederum in Blöcke aufgeteilt, welche separat mit dem Schlüssel entschlüsselt werden. Die dabei entstandenen Klartext-Blöcke ergeben aneinander gereiht den gesamten Klartext.
+
+![](img/ECB_decryption.svg)
+
+## Der Betriebsmodus «Cipher Block Chaining» (CBC)
+Im CBC-Modus werden die Blöcke nicht mehr getrennt voneinander verarbeitet. Wie in der folgenden Abbildung ersichtlich ist, dient jeder Geheimtext-Block (ausser der letzte) im nachfolgenden Schritt zusätzlich als Input. So werden gleiche Klartext-Blöcke trotz identischem Schlüssel zu unterschiedlichen Geheimtextblöcken verschlüsselt.
+
+Das Plus-Zeichen im Kreis steht hier ebenfalls für die XOR-Operation. Diese ist gegeben, während die Verschlüsselung im grossen Rechteck mit der Bezeichnung *block cipher encryption* frei gewählt werden kann (also bspw. auch ein aktuell sicheres Verfahren). Da wir in unseren Beispielen allerdings jeweils die XOR-Verschlüsselung als _block cipher encryption_ verwenden, wird bei uns sowohl für die Verrechnung des Klartextblocks mit dem vorherigen Geheimtextblock, wie auch für die eigentliche Verschlüsselung die XOR-Operation verwendet.
+
+Da bei der Verarbeitung des ersten Blocks noch kein Geheimtext-Block zur Verfügung steht, wird als eine Art _Platzhalter_ ein sogenannter **Initialisierungsvektor (IV)** verwendet.
+
+![](img/CBC_encryption.svg)
+
+Ändert man 1 Bit im IV, führt dies zu Änderungen im gesamten Geheimtext. Ändert man 1 Bit im Klartext, so ändern sich auch sämtliche darauffolgenden Blöcke im Geheimtext.
+
+Ein Nachteil des CBC-Modus ist allerdings, dass die **Verschlüsselung** der verschiedenen Blöcke nicht gleichzeitig (also parallel) berechnet werden können, da das Resultat des vorherigen Blocks für die Verschlüsselung des aktuellen Blocks benötigt wird. D.h. ein bestimmter Klartext-Block kann erst verschlüsselt werden, wenn sämtliche vorherigen Blöcke bereits verschlüsselt sind.
+
+Bei der **Entschlüsselung** sieht es anders aus. Da sofort sämtliche Geheimtextblöcke vorliegen, kann die Entschlüsselung problemlos parallelisiert werden, wie Sie in der folgenden Abbildung nachvollziehen können:
+
+![](img/CBC_decryption.svg)
+
+:::insight[XOR-Blockchiffre]
+Selbstverständlich ist XOR als Verschlüsselungsfunktion aus kryptologischer Sicht nicht ideal – dafür aber für uns gut verständlich, überschaubar und einfach anzuwenden.
+
+In der Realität ist es besonders wichtig, dass die Verschlüsselungsfunktion sämtliche Bits des aktuellen Blocks stark «vermischt». Damit ist gemeint, dass eine winzige Änderung an einer bestimmten Stelle im Klartextblock nicht nur zu einer kleinen Änderung an derselben Stelle im Geheimtextblock führt (wie dies bei XOR wegen der bitweisen Verarbeitung der Fall), sondern dass durch die kleine Änderung viele Bits überall im Block verändert werden.
+
+Aus diesem Grund arbeiten aktuelle Verschlüsselungsfunktionen von Blockchiffren in **mehreren Runden**.
+:::
+
+## Rechenbeispiel
+In diesem Rechenbeispiel sehen Sie den ECB- und den CBC-Modus im Vergleich.
+
+<DefinitionList>
+  <dt>Klartext</dt>
+  <dd>`RAMIRA`</dd>
+  <dt>Schlüssel</dt>
+  <dd>`AB`</dd>
+  <dt>Initialvektor (für CBC)</dt>
+  <dd>`XY`</dd>
+</DefinitionList>
+![](img/rechenbeispiel-ecb-cbc.png)
+
+:::insight[Unterschiedliche Resultate]
+Dieses Beispiel zeigt, was die Verkettung von Blöcken ausmachen kann. Bei beiden Modu werden zwei identische Klartextblöcke `RA` mit dem Schlüssel `AB` verschlüsselt.
+
+Beim ECB-Modus weist dementsprechend auch der Geheimtext zwei identische Blöcke `SC` auf. Durch das Verketten der Blöcke kann diese unschöne Regelmässigkeit mit dem CBC-Modus vermieden werden.
+:::
+
+## XOR-Blockchiffre ausprobieren
+<XORBlockCipher />
+
+## Übungen
+### ECB-Modus
+:::warning[Übungen von Hand lösen]
+Lösen Sie diese Übungen **von Hand**! Sie dürfen einzig den [Pentacode Text-Editor](Pentacode#pentacode-text-editor) als Hilfsmittel verwenden.
+:::
+
+::::aufgabe[Aufgabe 1]
+<TaskState id="56642e3c-c65b-497e-9a79-d1012fa2cc65" />
+Verschlüsseln Sie den folgenden Text mit der XOR-Blockchiffre im ECB-Modus.
+
+Text
+: `PAKET ZUGESTELLT`
+Schlüssel
+: `BETA`
+
+1. Codieren Sie zuerst den Text mit Pentacode (Sie dürfen dazu den Pentacode Text-Editor verwenden).
+2. Codieren Sie den Schlüssel ebenfalls mit Pentacode.
+3. Verschlüsseln Sie den binär dargestellten Text anschliessend mit dem binär dargestellten Schlüssel mittels XOR-Blockchiffre.
+4. Decodieren Sie die Pentacode-codierte Geheimtext-Bitfolge zu einer Zeichenfolge.
+
+Geben Sie das Resultat hier ein und überprüfen Sie es:
+<String id="4dbc8080-79b5-46e5-b341-27fe93b535f5" solution="RD@DVENTE GUGIXU" inputWidth="15em" />
+::::
+
+:::aufgabe[Aufabe 2]
+<TaskState id="ce638bf6-3f97-4a5a-b687-095288ad8240" />
+Verschlüsseln Sie den Text `BUCHSTABENSPIELE` mit dem Schlüssel `AKRONYM`. Wie lautet der Geheimtext?
+
+<String id="fe5e2e5a-c8b0-424d-bf52-1c4e17717c77" solution="C?QG.MLCN--?PHMN" inputWidth="15em" />
+:::
+
+:::aufgabe[Aufgabe 3]
+<TaskState id="3d5a9615-b3af-4165-b86b-e3d17a3d6146" />
+Entschlüssen Sie den Geheimtext `XWVJZWEKK,XWVJIK` mit dem Schlüssel `VVXKZ`. Wie lautet der Klartext?
+
+<String id="d0b65178-acab-4308-ab75-4f309338581a" solution="NANA ASS ANANAS." inputWidth="15em" />
+:::
+
+### CBC-Modus
+:::warning[Übungen von Hand lösen]
+Lösen Sie diese Übungen **von Hand**! Sie dürfen einzig den [Pentacode Text-Editor](Pentacode#pentacode-text-editor) als Hilfsmittel verwenden.
+:::
+
+:::aufgabe[Aufgabe 1]
+<TaskState id="10691ab2-4079-4267-87b2-29c9f466ba6c" />
+Verschlüsseln Sie den Text `WINTER` mit dem Schlüssel `NY` und dem IV `AZ`. Wie lautet der Pentacode-decodierte Geheimtext?
+
+<String id="4ba3f7bb-13b6-4b75-a713-51d3f38d9980" solution="XJXGSL" />
+
+<Solution id="b72d4714-31eb-4698-8216-3113259d1d44">
+**Block 1:**
+- p: `10111 01001`
+- IV: `00001 11010`
+- nach XOR mit IV: `10110 10011`
+- k: `01110 11001`
+- c: `11000 01010`
+
+**Block 2:**
+- p: `01110 10100`
+- IV: `11000 01010`
+- nach XOR mit IV: `10110 11110`
+- c: `11000 00111`
+
+**Block 3:**
+- p: `00101 10010`
+- IV: `11000 00111`
+- nach XOR mit IV: `11101 10101`
+- c: `10011 01100`
+
+**Resultat:**<br/>
+`XJXGSL`
+</Solution>
+:::
+
+::::aufgabe[Aufgabe 2]
+<TaskState id="0923c25c-877f-46ef-a1ed-242454f45556" />
+Entschlüsseln Sie den Text `NNHDFBA` mit dem Schlüssel `BE` und beliebigem IV.
+
+Geben Sie Ihre Lösung hier ein und kontrollieren Sie anschliessend mit der Musterlösung.
+
+<QuillV2 id="6f8cbb9c-9383-4e85-b3f0-1f8de003b669" />
+
+<Solution id="3682d042-3ce7-4df8-a860-43f750b2226d">
+**Block 1:**
+- c: `01110 01110`
+- k: `00010 00101`
+- nach XOR mit Schlüssel: `01100 01011`
+- IV: beliebig...
+- p: abhängig von IV
+
+**Block 2:**
+- c: `01000 00100`
+- nach XOR mit Schlüssel: `01010 00001`
+- IV: `01110 01110`
+- p: `00100 01111`
+
+**Block 3:**
+- c: `00110 00010`
+- nach XOR mit Schlüssel: `00100 00111`
+- IV: `01000 00100`
+- p: `01100 00011`
+
+**Block 4:**
+- c: `00001`
+- nach XOR mit Schlüssel: `00011`
+- IV: `00110`
+- p: `00101`
+
+**Resultat:**<br/>
+`??DOLCE` (die ersten beiden Zeichen sind unbekannt)
+</Solution>
+::::
+
+### Vertiefungsaufgaben
+:::aufgabe[ECB und CBC im Vergleich]
+<TaskState id="eec47e36-a54c-441a-b657-0aae6ee69d5e" />
+Verschlüsseln Sie den Klartext `BORABORA` mit dem Schlüssel `RABE`. Verwenden Sie dazu die [XOR-Blockchiffre](Block-Chaining#xor-blockchiffre-ausprobieren), und zwar zuerst im **ECB-Modus** und dann im **CBC-Modus**. Verwenden Sie beim CBC-Modus der Vergleichbarkeit halber den Initialvektor `ABCD`.
+
+Beantworten Sie anschliessend der Reihe nach die unten stehenden Fragen. Notieren Sie zuerst Ihre Antwort und klappen Sie anschliessend die Frage auf, um den Lösungsvorschlag anzusehen.
+
+<details>
+  <summary>Frage 1: Hier passieren einige interessante Dinge. Was fällt Ihnen auf?</summary>
+  <div>
+    **Beobachtung 1:** Im ECB-Modus erhalten wir den Geheimtext `PNPDPNPD` - also zweimal hintereinander die Buchstabenfolge `PNPD`. Auch im Klartext `BORABORA` finden wir zweimal hintereinander die Buchstabenfolge `BORA`. Im CBC-Modus sehen wir diese Symmetrie nicht mehr.
+
+     **Beobachtung 2:** Dafür taucht beim CBC-Modus im zweiten Block plötzlich der Initialvektor wieder auf - und zwar egal, mit welchen Initialvektor wir es versuchen.
+  </div>
+</details>
+<QuillV2 id="ed0a35a6-2773-438d-8baf-e9d816cbf443" />
+
+---
+
+<details>
+  <summary>Frage 2: Wie erklären Sie sich die **Beobachtung 1** aus der Antwort zur ersten Frage?</summary>
+  <div>
+    Im ECB-Modus wird jeder Block mit den gleichen Schlüssel verschlüsselt. Wenn also zwei Klartextblöcke identisch sind, dann werden auch die resultierenden Geheimtextblöcke identisch sein. Da der Schlüssel `RABE` genau halb so lang ist wie der Klartext `BORABORA` verschlüsseln wir also zweimal den Klartextblock `BORA` mit dem Schlüssel `RABE` und erhalten somit zweimal den Geheimtextblock `PNPD`.
+
+    Beim CBC-Modus sehen wir dieses Verhalten nicht mehr, weil wir dort für jeden Block $n$ den Output des vorangehenden Blocks $n-1$ als zusätzlichen Input verwenden. Tatsächlich ist dies genau die Idee hinter diesem Verknüpfen von Blöcken.
+  </div>
+</details>
+<QuillV2 id="a4d6f113-6cf1-4321-8884-251cf28fcf3c" />
+
+---
+
+<details>
+  <summary>⭐️ Frage 3: Wie erklären Sie sich die **Beobachtung 2** aus der Antwort zur ersten Frage?</summary>
+  <div>
+    Für diese Erklärung verwenden wir für die XOR-Operation das mathematische Symbol $\oplus$. Der Leserlichkeit halber verzichten wir zudem darauf, den Text jeweils explizit ins Binärformat umzuwandeln. Tatsächlich ist die XOR-Funktion aber natürlich nicht für Buchstaben, sonder nur für Binärzahlen definiert!
+
+    Mithilfe der [Wahrheitstabelle für die XOR-Verschlüsselung](XOR) können Sie sich leicht davon überzeugen, dass folgende Gesetze gelten:
+
+    - $x \oplus x = 0$
+    - $x \oplus 0 = 0 \oplus x = x$
+
+    Wenn wir nun das Resultat für den ersten Block berechnen wollen, so nehmen wir zuerst den Klartextblock `BORA` und den Initialvektor `ABCD` und rechnen $\text{ BORA } \oplus \text{ ABCD }$. Diesen Input verschlüsseln wir mit der XOR-Verschlüsselung mit dem Schlüsse `RABE` und erhalten somit insgesamt
+
+    $$\text{ BORA } \oplus \text{ ABCD } \oplus \text{ RABE }$$
+
+    Für den zweiten Block verwenden wir diesen Output des ersten Blocks nun aber auch wieder als Input. Auch hier ist der Klartextblock wieder `BORA` und der Schlüssel wieder `RABE`. Also erhalten wir für den zweiten Block folgenden Geheimtext:
+
+    $$\text{ BORA } \oplus (\text{ BORA } \oplus \text{ ABCD } \oplus \text{ RABE }) \oplus \text{ RABE }$$
+
+    Wenn wir die Klammern entfernen (die dienen lediglich der Übersicht), so erhalten wir folgende Berechnung:
+
+    $$\text{ BORA } \oplus \text{ BORA } \oplus \text{ ABCD } \oplus \text{ RABE } \oplus \text{ RABE }$$
+
+    Weil aber $x \oplus x = 0$ gilt, können wir diese Berechnung wie folgt kürzen:
+
+    $$0 \oplus \text{ ABCD } \oplus 0$$
+
+    Und weil wir wissen, dass $x \oplus 0 = 0 \oplus x = x$ gilt, so ergibt sich:
+
+    $$0 \oplus \text{ ABCD } \oplus 0 = \text{ ABCD }$$
+
+    Dieses Phänomen tritt also nur deshalb auf, weil wir als Verschlüsselungsmechanismus die XOR-Verschlüsselung verwenden, die "zufällig" auch für die Verkettung verwendet wird. Bei echten Anwendungen von CBC verwenden wir andere, sicherere Verschlüsselungsmechanismen und werden diese Regelmässigkeit deshalb dort nicht antreffen.
+  </div>
+</details>
+<QuillV2 id="ff898077-4c04-4da1-a560-96e43c843fbd" />
+:::
+
+:::aufgabe[CBC: Initialvektor bei der Entschlüsselung]
+<TaskState id="7ddc8671-5667-4a36-b97c-ac53c77a1920" />
+Auf den ersten Blick erstaunlich ist die Tatsache, dass die **Ent**schlüsselung mit falschem Initialvektor (IV) nur dazu führt, dass der erste Klartext-Block unleserlich ist, während die restlichen Blöcke korrekt entschlüsselt werden. Weshalb ist das so?
+
+Notieren Sie zuerst Ihre Antwort und vergleichen Sie anschliessend mit der Musterlösung.
+
+<QuillV2 id="74e55ba9-4e5b-44f7-b064-18452aaac07d" />
+
+<Solution id="d83adc1f-b9d4-4114-b9db-2eb1bda2c9cd">
+Bei der **ver**schlüsselung verwenden wir den IV als zusätzlichen Input, wenn wir den ersten Block verschlüsseln. Da wir für jeden weiteren Block $n$ den Output des vorangehenden Blocks $n-1$ als zusätzlichen Input verwenden, zieht sich bei der Verschlüsselung jede Veränderung am IV durch die gesamte Kette hindurch.
+<br/>
+Bei der **ent**schlüsselung passiert alles in umgekehrter Reihenfolge. Den Klartext eines Blocks $n$ erhalten wir, indem wir den Geheimtext dieses Blocks zuerst mit dem Schlüssel entschlüsseln und das Resultat anschliessend mit dem **Geheimtext des vorangehenden Blocks** $n-1$ (und nicht etwa mit dem Resultat seiner Entschlüsselung) XOR-verrechnen. Der ursprünglich verwendete IV ist in den beiden Geheimtexten bei der Verschlüsselung "hineingerechnet" worden und wir müssen ihn in diesem Moment für die Entschlüsselung nicht kennen.
+<br/>
+Lediglich für den ersten Block haben wir keinen solchen vorangehenden Block $n-1$. Hier müssen wir den ursprünglich verwendeten IV kennen und anwenden. Wenn wir hier den falschen IV verwenden, dann wir der erste Block unleserlich - jedoch hat dies eben keinen Einfluss auf alle anderen Blocks.
+</Solution>
+:::
