@@ -145,7 +145,7 @@ const getSiteConfig: SiteConfigProvider = () => {
         ],
         gitHub: {
             orgName: 'SilasBerger',
-            projectName: 'teaching-website'
+            projectName: 'classrooms'
         },
         tdevConfig: {
             taskStateOverview: {
