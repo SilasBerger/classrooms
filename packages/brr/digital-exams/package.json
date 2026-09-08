@@ -1,0 +1,11 @@
+{
+    "name": "@brr/digital-exams",
+    "version": "1.0.0",
+    "main": "index.ts",
+    "types": "index.ts",
+    "dependencies": {},
+    "devDependencies": {},
+    "peerDependencies": {
+        "@tdev/core": "1.0.0"
+    }
+}

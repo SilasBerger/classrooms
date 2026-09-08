@@ -47,7 +47,7 @@ export interface StringData {
     text: string;
 }
 
-interface AssessableData {
+export interface AssessableData {
     assessed: boolean;
     qid?: string;
 }
