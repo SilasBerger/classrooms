@@ -3,7 +3,7 @@ import { Source } from '@tdev-models/iDocument';
 import { TeacherAssessableData } from '..';
 import iAssessable from '@tdev-models/documents/Assessable/iAssessable';
 import { mdiSchool } from '@mdi/js';
-import { observable } from 'mobx';
+import { action, observable } from 'mobx';
 import DocumentStore from '@tdev-stores/DocumentStore';
 
 export const createModel: Factory = (data, store) => {
@@ -57,6 +57,11 @@ class TeacherAssessable
         if (updatedAt) {
             this.updatedAt = new Date(updatedAt);
         }
+    }
+
+    @action
+    setPoints(points: number): void {
+        this.points = points;
     }
 }
 

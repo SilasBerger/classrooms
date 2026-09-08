@@ -1,16 +1,25 @@
 import { observer } from 'mobx-react-lite';
 import styles from './styles.module.scss';
-import QuestionCard from '@tdev-components/documents/Assessable/QuestionCard';
+import questionCardStyles from '@tdev-components/documents/Assessable/QuestionCard/styles.module.scss';
 import { useStore } from '@tdev-hooks/useStore';
 import TeacherAssessableModel, { createModel as createTeacherAssessable } from '@brr/digital-exams/model';
+import clsx from 'clsx';
+import Card from '@tdev-components/shared/Card';
+import Button from '@tdev-components/shared/Button';
+import { mdiCommentEyeOutline, mdiNewspaperCheck } from '@mdi/js';
+import { IfmColors } from '@tdev-components/shared/Colors';
+import TeacherAssessablePoints from './PointsInput';
 
 interface Props {
     children?: React.ReactNode[];
+    allowSelection?: boolean;
+    maxPoints: number;
 }
 
 const TeacherAssessable = observer((props: Props) => {
     const documentStore = useStore('documentStore');
-    const fakeDoc: TeacherAssessableModel = createTeacherAssessable(
+
+    const doc: TeacherAssessableModel = createTeacherAssessable(
         {
             id: '365e872c-91f8-4019-9c8b-6aa0e20736c8',
             type: 'teacher_assessable',
@@ -21,15 +30,48 @@ const TeacherAssessable = observer((props: Props) => {
             parentId: undefined,
 
             data: {
-                points: 0.2,
+                points: 1,
                 assessed: true,
-                qud: 2
+                qid: 2
             }
         },
         documentStore
     ) as TeacherAssessableModel;
 
-    return <QuestionCard doc={fakeDoc}>{props.children}</QuestionCard>;
+    return (
+        <Card
+            classNames={{
+                card: clsx(
+                    questionCardStyles.questionCard,
+                    props.allowSelection && questionCardStyles.allowSelection
+                ),
+                header: clsx(questionCardStyles.header)
+            }}
+            style={{
+                order: doc.questionIndex
+            }}
+            header={
+                <>
+                    <h3 className={clsx(questionCardStyles.questionTitle)}>{doc.displayTitle}</h3>
+                    <div className={clsx(questionCardStyles.controlsAndFeedback)}>
+                        <Button
+                            icon={mdiCommentEyeOutline}
+                            color={IfmColors.success}
+                            onClick={() => {
+                                console.log('Assess button clicked');
+                            }}
+                        />
+                        <span className={'badge badge--secondary'}>
+                            <TeacherAssessablePoints doc={doc} /> / {props.maxPoints}{' '}
+                            {doc.points === 1 ? 'Punkt' : 'Punkte'}
+                        </span>
+                    </div>
+                </>
+            }
+        >
+            {props.children}
+        </Card>
+    );
 });
 
 export default TeacherAssessable;
