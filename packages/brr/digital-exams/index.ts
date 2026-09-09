@@ -1,4 +1,4 @@
-import { AssessableData } from '@tdev-api/document';
+import { AssessableData, registerAdminEditableDocument } from '@tdev-api/document';
 import TeacherAssessable from './model';
 
 // This interface defines the structure of the document we want to store in the DB.
@@ -21,3 +21,5 @@ declare module '@tdev-api/document' {
         ['teacher_assessable']: TeacherAssessableData;
     }
 }
+
+registerAdminEditableDocument('teacher_assessable');

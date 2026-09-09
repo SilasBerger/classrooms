@@ -10,10 +10,10 @@ import {
     remove as apiDelete,
     TypeModelMapping,
     update as apiUpdate,
-    ADMIN_EDITABLE_DOCUMENTS,
     linkTo as apiLinkTo,
     Factory,
-    Access
+    Access,
+    isAdminEditableDocument
 } from '@tdev-api/document';
 import iStore from '@tdev-stores/iStore';
 import axios from 'axios';
@@ -278,8 +278,7 @@ class DocumentStore extends iStore<`delete-${string}`> {
             const { id } = model;
             const hasAdminAccess =
                 !!this.root.userStore.current?.hasElevatedAccess &&
-                (model.authorId === this.root.userStore.current.id ||
-                    ADMIN_EDITABLE_DOCUMENTS.includes(model.type));
+                (model.authorId === this.root.userStore.current.id || isAdminEditableDocument(model.type));
             if (!model.canEdit && !hasAdminAccess) {
                 return Promise.resolve('error');
             }
@@ -342,8 +341,7 @@ class DocumentStore extends iStore<`delete-${string}`> {
             );
         }
         const onBehalfOf =
-            model.authorId !== this.root.userStore.current?.id &&
-            ADMIN_EDITABLE_DOCUMENTS.includes(model.type);
+            model.authorId !== this.root.userStore.current?.id && isAdminEditableDocument(model.type);
         return Promise.all(preTasks)
             .then(() =>
                 this.withAbortController(`create-${model.id || uuidv4()}`, (sig) => {

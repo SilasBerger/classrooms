@@ -223,7 +223,11 @@ export type DocumentModelType = TypeModelMapping[DocumentType];
  * This should not be the default case for most documents - but things like CMS texts
  * should be editeable by admins only.
  */
-export const ADMIN_EDITABLE_DOCUMENTS: DocumentType[] = ['cms_text'] as const;
+const adminEditableDocuments = new Set('cms_text');
+
+export const registerAdminEditableDocument = (type: DocumentType) => adminEditableDocuments.add(type);
+export const isAdminEditableDocument = (type: DocumentType) => adminEditableDocuments.has(type);
+
 export interface Document<Type extends DocumentType> {
     id: string;
     type: Type;
