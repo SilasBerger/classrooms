@@ -40,5 +40,54 @@
 			"</Quiz>"
 		],
 		"description": "Add an empty quiz",
-	}
+	},
+	"Add ChoiceAnswer": {
+		"scope": "mdx",
+		"prefix": "choiceAnswer",
+		"body": [
+			"<ChoiceAnswer correct={[$1]}>",
+      		"  $2",
+    		"</ChoiceAnswer>"
+		],
+		"description": "Add an empty ChoiceAnswer",
+	},
+	"Add Multiple-ChoiceAnswer": {
+		"scope": "mdx",
+		"prefix": "multipleChoiceAnswer",
+		"body": [
+			"<ChoiceAnswer multiple correct={[$1]} scoring={multipleChoicePoints(2, 1, false)}>",
+      		"  $2",
+    		"</ChoiceAnswer>"
+		],
+		"description": "Add an empty multi-ChoiceAnswer",
+	},
+	"Add TrueFalseAnswer": {
+		"scope": "mdx",
+		"prefix": "trueFalseAnswer",
+		"body": [
+			"<TrueFalseAnswer correct={$1}>",
+      		"  $2",
+    		"</TrueFalseAnswer>"
+		],
+		"description": "Add an empty TrueFalseAnswer",
+	},
+	"Add Hint when correct": {
+		"scope": "mdx",
+		"prefix": "correctHint",
+		"body": [
+			"<Hint when={['correct']}>",
+      		"  $1",
+    		"</Hint>"
+		],
+	},
+	"Add Hint when incorrect": {
+		"scope": "mdx",
+		"prefix": "incorrectHint",
+		"body": [
+			"<Hint when={['incorrect', 'partially_correct']}>",
+      		"  $1",
+    		"</Hint>"
+		],
+		"description": "Add Hint when incorrect or partially correct",
+	},
 }

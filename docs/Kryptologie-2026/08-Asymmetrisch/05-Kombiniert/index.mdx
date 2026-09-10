@@ -7,6 +7,8 @@ sidebar_custom_props:
 page_id: 0ccad24b-8b2a-41a3-8948-a2f3d2a4f98f
 ---
 
+import { points, multipleChoicePoints } from '@tdev-components/documents/Assessable/helpers/scoring';
+
 # Kombinierte Verfahren
 
 ## Vergleich symmetrischer und asymmetrischer Verschlüsselung
@@ -59,3 +61,59 @@ Stellen Sie dar, wie die Umkehrung – also die **Ent**schlüsselung – funktio
 ![](img/entschluesselung-kombiniert.png)
 </Solution>
 :::
+
+## Quiz
+<Quiz randomizeQuestions randomizeOptions scoring={points(1)} keepExpanded={'correct'} resetMode='incorrect' id='d22d6235-27b3-4ff1-a1ac-88864c0e6b8b'>
+    <TrueFalseAnswer correct={false}>
+      Symmetrische Verfahren weniger sicher als asymmetrische Verfahren.
+
+      <Hint when="correct">
+        Genau, das stimmt nicht. Symmetrische Verfahren haben zwar den Nachteil, dass man zuerst einen geheimen Schlüssel austauschen muss. Kryptographisch gesehen ist ein gutes symmetrisches Verfahren aber (mindestens) genauso schwer zu knacken, wie ein gutes asymmetrisches.
+      </Hint>
+    </TrueFalseAnswer>
+    <ChoiceAnswer correct={[3]}>
+      Wie kann man das kombinierte Verfahren (symmetrisch + asymmetrisch) am besten beschreiben?
+
+      1. Der Klartext wird zuerst symmetrisch und dann nochmal asymmetrisch verschlüsselt.
+      2. Der Klartext wird zuerst asymmetrisch und dann nochmal symmetrisch verschlüsselt.
+      3. Der Klartext wird symmetrisch verschlüsselt. Der dazugehörige geheime Schlüssel wird asymmetrisch verschlüsselt (mit dem öffentlichen Schlüssel des Empfängers).
+      4. Der Klartext wird mit dem öffentlichen Schlüssel des Empfängers symmetrisch verschlüsselt.
+
+      <Hint when="correct">
+        Richtig. Der geheime Schlüssel ist (im Vergleich zum Klartext) meistens relativ kurz und lässt sich problemlos asymmetrisch verschlüsseln. Für den Klartext können wir derweil ein effizienteres, symmetrisches Verfahren verwenden. Einen Schlüsselaustausch brauchen wir trotzdem nicht, weil wir den geheimen Schlüssel (für die symmetrische Verschlüsselung) mit dem öffentlichen Schlüssel der Empfängerin asymmetrisch verschlüsseln.
+      </Hint>
+      <Hint when={["incorrect", "partially_correct"]}>
+        Bei kombinierten Verfahren möchte man die Vorteile der symmetrischen und asymmetrischen Verschlüsselung kombinieren und die jeweiligen Nachteile so gut wie möglich umgehen.
+      </Hint>
+    </ChoiceAnswer>
+    <ChoiceAnswer correct={[1]}>
+      Wie bezeichnet man bei der asymmetrischen Verschlüsselung denjenigen Schlüssel, den man niemandem weitergibt?
+
+      1. privater Schlüssel
+      2. öffentlicher Schlüssel
+      3. geheimer Schlüssel
+      4. kryptischer Schlüssel
+
+      <Hint when={['correct']}>
+        Super!
+
+        symmetrisch
+        : **geheimer** Schlüssel
+        asymmetrisch
+        : **privater** und **öffentlicher** Schlüssel
+      </Hint>
+    </ChoiceAnswer>
+    <ChoiceAnswer multiple correct={[1, 3, 4]} scoring={multipleChoicePoints(2, 1, false)}>
+      Welche Aussagen über die asymmetrische Verschlüsselung sind korrekt?
+
+      1. Sie ist deutlich langsamer als die symmetrische (ca. 1000x).
+      2. Sie ist moderner und deshalb besser.
+      3. Der öffentliche Schlüssel darf beliebig verteilt werden – z.B. darf ich meinen öffentlichen Schlüssel problemlos in meine Instagram-Bio schreiben.
+      4. Wenn ich eine Nachricht asymmetrisch verschlüsselt an 5 verschiedene Personen senden will, dann muss ich sie 5x separat verschlüsseln.
+      5. Asymmetrische Verfahren können nur für Text verwendet werden. Für andere Daten wie Bilder, Videos, etc. funktionieren sie nicht.
+
+      <Hint when={['correct']}>
+        Sehr gut! Asymmetrische Verfahren sind deutlich langsamer und Nachrichten müssen mehrfach separat verschlüsselt werden, wenn sie an mehrere Empfänger:innen gesendet werden sollen. Asymmetrische Verfahren können aber grundsätzlich trotzdem für alle Arten von Daten verwendet werden. Den öffentlichen Schlüssel darf man beliebig verteilen – er ist kein Geheimnis. Dennoch sind asymmetrische Verfahren nicht einfach strikt besser als symmetrische. Sie haben Vor- und Nachteile.
+      </Hint>
+    </ChoiceAnswer>
+</Quiz>

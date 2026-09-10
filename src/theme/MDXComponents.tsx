@@ -20,6 +20,7 @@ import Steps from '@tdev-components/Steps';
 import Quiz from '@tdev-components/documents/Assessable/Quiz';
 import TrueFalseAnswer from '@tdev-components/documents/Assessable/TrueFalseAnswer';
 import ChoiceAnswer from '@tdev-components/documents/Assessable/ChoiceAnswer';
+import Hint from '@tdev-components/documents/Assessable/Feedback/Hint';
 
 export default {
     // Re-use the default mapping
@@ -43,5 +44,6 @@ export default {
     Steps: Steps,
     Quiz: Quiz,
     TrueFalseAnswer: TrueFalseAnswer,
-    ChoiceAnswer: ChoiceAnswer
+    ChoiceAnswer: ChoiceAnswer,
+    Hint: Hint
 };
