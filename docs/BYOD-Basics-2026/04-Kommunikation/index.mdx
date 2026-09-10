@@ -124,12 +124,37 @@ Für diese Übung brauchen Sie drei Kolleg:innen. Sie müssen sich vorher nicht 
         8. > Guten Tag Herr Heyen<br/>
            > Könnten wir uns morgen Mittag für eine kurze MA-Besprechung treffen?<br/>
            > Liebe Grüsse, Gion (24Gv)
+
+        <Hint when={['incorrect', 'partially_correct']}>
+          Prüfen Sie überall nochmal die wichtigsten Punkte:
+          - Gibt es eine Anrede?
+          - Gibt es eine Grussformel?
+          - Ist in der Grussformel die Klassenbezeichnung enthalten?
+          - Stehen Anrede und Grussformel jeweils auf einer eigenen Zeile?
+          - Ist die Nachricht sprachlich sorgfältig verfasst?
+        </Hint>
+        <Hint when={['correct']}>
+          Sehr gut! Die wichtigsten Kontrollfragen zur Wiederholung:
+          - Gibt es eine Anrede?
+          - Gibt es eine Grussformel?
+          - Ist in der Grussformel die Klassenbezeichnung enthalten?
+          - Stehen Anrede und Grussformel jeweils auf einer eigenen Zeile?
+          - Ist die Nachricht sprachlich sorgfältig verfasst?
+        </Hint>
     </ChoiceAnswer>
     <TrueFalseAnswer correct={false}>
         Bei einer E-Mail kann freiwillig ein Betreff gesetzt werden. Es verstösst aber nicht gegen die Netiquette, wenn man ihn weglässt.
+
+        <Hint when={['correct', 'incorrect', 'partially_correct']}>
+          E-Mails ohne Betreff gelten als unvollständig, je nach dem sogar unhöflich: Als Empfänger möchte ich in meinem E-Mail-Postfach immer eine grobe Idee davon haben, um was es in der jeweiligen Nachricht geht. Wenn der Betreff fehlt, ist das unangenehm.
+        </Hint>
     </TrueFalseAnswer>
     <TrueFalseAnswer correct={true}>
         Wenn ich bei einer E-Mail jemanden ins `Bcc` setze, dann sehen die anderen Empfänger:innen nicht, dass ich die E-Mail auch an diese Person gesendet habe.
+
+        <Hint when={['correct']}>
+          Das ist besonders nützlich, wenn Sie eine Nachricht an mehrere Personen senden möchten, ohne dabei die E-Mail-Adressen der anderen Personen preiszugeben.
+        </Hint>
     </TrueFalseAnswer>
     <ChoiceAnswer correct={[3]}>
         Angenommen, Sie möchten eine Mail an 120 Personen senden, die sich gegenseitig nicht kennen (z.B. für eine Umfrage für Ihre Maturaarbeit). Aus Datenschutzgründen müssen Sie sicherstellen, dass Sie die E-Mail-Adressen dieser Personen nicht veröffentlichen: Die Empfänger:innen sollen also keine der anderen E-Mail-Adressen sehen können.
@@ -149,5 +174,14 @@ Für diese Übung brauchen Sie drei Kolleg:innen. Sie müssen sich vorher nicht 
         2. Wenn eine Person nicht sehen können soll, dass man die Nachricht auch noch an andere Personen gesendet hat.
         3. Das `Cc`-Feld war früher nützlich, hat heute aber keine Funktion mehr.
         4. Wenn man auf eine Nachricht Antworten will.
+
+        <Hint when={['correct']}>
+          Mit der Entscheidung, ob ich eine Person ins `An`- oder ins `Cc`-Feld setze, treffe ich eine wichtige Aussagen:
+
+          `An:`
+          : Die E-Mail ist explizit an Sie gerichtet.
+          `Cc:`
+          : Die E-Mail ist grundsätzlich nicht an Sie gerichtet, Sie sollen aber trotzdem über die Konversation informiert werden.
+        </Hint>
     </ChoiceAnswer>
 </Quiz>
