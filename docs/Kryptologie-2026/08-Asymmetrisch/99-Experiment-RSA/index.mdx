@@ -1,0 +1,66 @@
+---
+page_id: 4d57e782-01eb-4df3-a008-12de479ffc99
+draft: true
+---
+
+import Restricted from "@tdev-components/documents/Restricted";
+
+# 🔬 Experiment RSA
+In diesem Experiment werden Sie in der Klasse geheime Nachrichten austauschen – und zwar über einen «öffentlichen» Kanal.
+
+:::insight[Wie funktioniert RSA?]
+[Hier](https://www.cryptool.org/de/cto/rsa-step-by-step/) können Sie sich die Funktionsweise des RSA-Verfahrens Schritt für Schritt ansehen.
+:::
+
+Wenn Sie in den nachfolgenden Aufträgen Notizen machen sollen, tun Sie dies im folgenden Textfeld:
+<QuillV2 id="26b1bc66-9995-42e8-aad4-85ee3d10c42f" />
+
+
+:::danger[TODO]
+Consider in-place RSA implementation, maybe Balz has something?
+:::
+
+<Restricted id="2f7647eb-b784-44ab-bfaa-a06fce9bc588">
+:::danger[TODO]
+Link zu kollaborativem Dokument einfügen.
+:::
+Zudem brauchen Sie dieses [kollaborative Word-Dokument](#). Was Sie dort tun sollen, erfahren Sie in den entsprechenden Aufträgen.
+</Restricted>
+
+<br/>
+
+<Restricted id="d3ff6f8f-7b7f-4c5d-92ed-2371d47aa794">
+## Phase 1
+1. Öffnen Sie dieses [RSA Tool](https://anycript.com/crypto/rsa) – wir werden es im Verlauf dieses Experiments noch öfter verwenden.
+2. Stellen Sie sicher, dass unter __Encryption Mode__ der Wert __512 Bits__ ausgwählt ist.
+3. Klicken Sie auf __Create public / Private key__.
+4. Kopieren Sie die beiden generierten Werte (also den Public und den Private Key) ins Notizen-Textfeld oben. **Sie brauchen diese beiden Keys für den Rest dieses Experiments und können Sie nicht ändern oder wiederherstellen.**
+5. Kopieren Sie Ihren **Public** Key in die erste Tabelle im Word-Dokument (Abschnitt «Public Keys») und schreiben Sie Ihren Namen dazu.
+</Restricted>
+
+<Restricted id="76f86ce3-7f96-4b6b-8fe3-fa005a0c2caa">
+## Phase 2
+In dieser Phase versenden Sie zwei verschlüsselte Nachrichten über den «öffentlichen» Kanal.
+
+1. Schauen Sie sich im Word-Dokument nochmal die Tabelle mit den Public Keys an. Notieren Sie sich die Namen der **beiden Personen, die direkt ober und unter Ihnen** stehen. Falls Sie zuoberst oder zuunterst stehen, fangen Sie ganz unten resp. oben wieder an. Diese beiden Personen sind **Ihre Empfänger:innen**.  
+2. Wählen Sie eine der beiden Personen aus und verfassen Sie für diese Person eine kurze Nachricht (1-3 Sätze, z.B. oben im Notizen-Textfeld). Sie werden diese Nachricht in den nächsten Schritten verschlüsseln.
+3. Öffnen Sie wieder das [RSA Tool](https://anycript.com/crypto/rsa) und gehen Sie zum Bereich __RSA Encryption__.
+4. Kopieren Sie Ihre Nachricht in das Feld __Encryption Text__.
+5. Suchen Sie im Word-Dokument den Public Key des/der Empfänger:in und kopieren Sie diesen in das Feld __Public Key__ im RSA Tool.
+6. Stellen Sie sicher, dass der __Cipher Type__ auf __RSA__ gesetzt ist und klicken Sie auf __Encrypt__.
+7. Kopieren Sie die verschlüsselte Nachricht aus dem Feld __Encrypted Text__ ins Word-Dokument (Tabelle im Abschnitt «Nachrichtenaustausch»). Schreiben Sie Ihren Namen und den Namen des Empfängers / der Empfängerin in die entsprechenden Spalten.
+8. Wiederholen Sie die Anweisungen ab Schritt 2 mit Ihrem zweiten Empfänger / ihrer zweiten Empfängerin. Falls Sie damit auch bereits fertig sind, wählen Sie noch beliebige weitere Personen aus.
+</Restricted>
+
+<Restricted id="0cd3db42-6b72-401b-9a59-6465eadf0988">
+## Phase 3
+Sie sollten im Word-Dokument mindestens zwei verschlüsselte Nachrichten für Sie gepostet worden sein. 
+
+1. Öffnen Sie wieder das [RSA Tool](https://anycript.com/crypto/rsa) und gehen Sie zum Bereich __RSA Decryption__.
+2. Kopieren Sie Ihren **Private** Key ins Feld __Private Key__.
+3. Stellen Sie sicher, dass __Cipher Type__ auf __RSA__ eingestellt ist.
+4. Suchen Sie im Word-Dokument nach einer Nachricht, bei der Sie als **Empfänger:in** angegeben sind. Kopieren Sie die Nachricht ins Feld __Encrypted Text__.
+5. Klicken Sie auf __Decrypt__. Notieren Sie sich die entschlüsselte Nachricht (inkl. Absender:in) oben im Notizen-Textfeld.
+6. Wiederholen Sie die Anweisungen ab Schritt 4 für alle weiteren Nachrichten, bei denen Sie als Empfänger:in angegeben sind.
+7. Wiederholen Sie die Schritte 4 und 5 auch mal für eine Nachricht, bei der Sie **nicht** als Empfänger:in angegeben sind (z.B. bei einer Nachricht, die Sie selbst versendet haben). Können Sie sie entschlüsseln?
+</Restricted>
