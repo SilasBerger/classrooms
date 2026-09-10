@@ -232,6 +232,10 @@ Im Gegensatz zum Installieren einer App oder eines Programms aus einem Store ver
         2. Geben Sie am besten `classrooms.app` bei __2__ ein.
         3. Geben Sie am besten `classrooms.app` bei __1__ ein.
         4. Geben Sie am besten `classrooms app` bei __2__ ein.
+
+        <Hint when={['correct', 'incorrect', 'partially_correct']}>
+          Wenn wir die genaue URL kennen, sollten wir den Umweg über eine Suchmaschine vermeiden.
+        </Hint>
     </ChoiceAnswer>
     <ChoiceAnswer multiple correct={[2, 3]} scoring={multipleChoicePoints(2, 1, false)}>
         ![](img/edge_search.png)
@@ -248,6 +252,10 @@ Im Gegensatz zum Installieren einer App oder eines Programms aus einem Store ver
 
         1. …wir es im Google Chrome Browser eingeben.
         2. …wir es in der Google Suche eingeben.
+
+        <Hint when={['correct', 'incorrect', 'partially_correct']}>
+          Diese Begriffe müssen wir sauber trennen. Google Chrome ist ein Web Browser, der beliebige Webseiten (darunter auch Suchmaschinen) öffnen kann. Das geht aber auch mit jedem anderen Browser, z.B. Edge, Firefox oder Opera. «Google» im Sinne der «Google Suche» ist hingegen eine konkrete Suchmaschine.
+        </Hint>
     </ChoiceAnswer>
     <ChoiceAnswer multiple correct={[1, 2, 3, 4, 5]} scoring={multipleChoicePoints(2, 1, false)}>
         Welche Risiken gehen wir ein, wenn wir eine Webseite über eine Suchmaschine (Adresszeile, Suchzeile) zu öffnen versuchen, statt sie direkt aufzurufen?
@@ -260,6 +268,10 @@ Im Gegensatz zum Installieren einer App oder eines Programms aus einem Store ver
         6. Die aufgerufene Webseite lädt danach langsamer.
         7. Wenn wir zuvor ein Lesezeichen für die gesuchte Webseite hatten, wird dieses entfernt, weil der Browser denkt, dass wir es nicht mehr brauchen (oder dass es nicht mehr aktuell ist).
         8. Wir verlieren wertvolle Such-Credits, die uns später vielleicht für eine wichtige Recherche fehlen.
+
+        <Hint when={['correct', 'incorrect', 'partially_correct']}>
+          Der Umweg über die Suchmaschine birgt gewisse Verfahren. Wir erhalten einfach mal alles, was die Suchmaschine zu unserer Anfrage gefunden und als relevant eingestuft hat – darunter möglicherweise auch Werbung, ähnlich klingende Ergebnisse und manchmal sogar betrügerische Ergebnisse. Zudem erhält die Suchmaschine mit jeder Anfrage wichtige, wertvolle Informationen über uns.
+        </Hint>
     </ChoiceAnswer>
     <ChoiceAnswer multiple correct={[1, 3]} scoring={multipleChoicePoints(2, 1, false)}>
         In welchen Fällen ist eine Suchmaschine das richtige Werkzeug?
@@ -268,9 +280,17 @@ Im Gegensatz zum Installieren einer App oder eines Programms aus einem Store ver
         2. Wenn Sie die genaue URL einer Webseite kennen, und somit sehr genau suchen können
         3. Wenn Sie den Namen einer Webseite kennen, jedoch nicht deren URL («Ist es `.ch` oder `.com`, oder `.app`…?»)
         4. Wenn die Suchleiste näher bei meinem Mauszeiger ist, als die Adressleiste – denn so spare ich Zeit
+
+        <Hint when={['correct', 'incorrect', 'partially_correct']}>
+          Suchen müssen wir immer dann, wenn wir noch nicht genau wissen, wo wir hinwollen.
+        </Hint>
     </ChoiceAnswer>
     <TrueFalseAnswer correct={false}>
         In modernen Browsern haben Webseiten praktisch immer vollen Zugriff auf das Dateisystem meines Computers.
+
+        <Hint when={['correct', 'incorrect', 'partially_correct']}>
+          Das wäre gefährlich. Der Browser erlaubt einer Webseite (deren Hersteller vielleicht nicht immer vertrauenswürdig ist) zum Glück keinen oder nur sehr limitierten Zugang zu den Dateien auf unserem Computer.
+        </Hint>
     </TrueFalseAnswer>
     <ChoiceAnswer multiple correct={[2, 3, 5, 6]} scoring={multipleChoicePoints(2, 1, false)}>
         Welche Aussagen zur Installation und Deinstallation von Programmen sind korrekt?
@@ -281,6 +301,10 @@ Im Gegensatz zum Installieren einer App oder eines Programms aus einem Store ver
         4. Nach abgeschlossener Installation verändert die Installationsdatei ihr verhalten: Wenn man sie ausführt (Doppelklick), startet sie nicht mehr das Installationsprogramm, sondern das installierte Programm selbst.
         5. Um ein Programm zu deinstallieren, geht man bei Windows auf `Einstellungen` → `Apps` → `Installierte Apps`. Bei macOS sucht man das entsprechende Programm im `Programme`-Ordner und zieht es in den Papierkorb.
         6. Beim Herunterladen einer Installationsdatei müssen wir darauf achten, dass wir uns wirklich auf der Webseite des Programm-Herstellers befinden, weil wir uns sonst ggf. einen Virus herunterladen und installieren.
+
+        <Hint when={['correct', 'incorrect', 'partially_correct']}>
+          App Stores sind vor allem in der Welt der Mobilgeräte relevant. Auf dem Laptop arbeiten wir mit Installationsdateien: das sind Hilfs-Programme, die wir aus dem Internet herunterladen, und deren einzige Aufgabe es ist, das eigentliche Programm zu installieren.
+        </Hint>
     </ChoiceAnswer>
 </Quiz>
 
