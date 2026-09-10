@@ -200,6 +200,13 @@ Ab und zu braucht es zusätzlich zum Klick noch eine Taste – nämlich beim Öf
 <Quiz id="fd6b7583-ca93-4b5c-9fe6-3e569b7ac87c" randomizeQuestions randomizeOptions keepExpanded={"correct"} scoring={points(1)} resetMode='incorrect'>
   <TrueFalseAnswer correct={false}>
     Tablets, Smartphones und Laptops gehören zur Kategorie der Mobilgeräte.
+
+    <Hint when={['correct']}>
+      Laptops gehören nicht dazu.
+    </Hint>
+    <Hint when={['incorrect', 'partially_correct']}>
+      Gehören Laptops wirklich zu den Mobilgeräten?
+    </Hint>
   </TrueFalseAnswer>
   <TrueFalseAnswer correct={true}>
     Software wird auf mobilen Geräten grundsätzlich als «Apps» und auf vollwertigen Betriebssystemen eher als «Programme» bezeichnet.
@@ -214,6 +221,10 @@ Ab und zu braucht es zusätzlich zum Klick noch eine Taste – nämlich beim Öf
     5. Auf vollwertigen Betriebssystemen stehen die Daten im Zentrum: Verschiedene Programme können auf einen gemeinsamen Speicherbereich zugreifen und Daten lesen / bearbeiten.
     6. Wenn jede App einen isolierten Speicherbereich hat, erhöht das die Sicherheit.
     7. Wenn jede App einen isolierten Speicherbereich hat, wird das System flexibler und es sind komplexere Datenverarbeitungsprozesse möglich.
+
+    <Hint when={['incorrect', 'partially_correct']}>
+      Lesen Sie oben nochmal genau nach, wie sich Laptops von mobilen Geräten unterscheiden. Insbesondere gibt es einen zentralen Unterschied im Umgang mit dem Datenspeicher.
+    </Hint>
   </ChoiceAnswer>
   <ChoiceAnswer multiple correct={[1, 2, 3]} scoring={multipleChoicePoints(1, 1, false)}>
     Welches sind **vollwertige Betriebssysteme***?
@@ -224,6 +235,10 @@ Ab und zu braucht es zusätzlich zum Klick noch eine Taste – nämlich beim Öf
     4. Android
     5. iPadOS
     6. iOS
+
+    <Hint when={['correct']}>
+      Richtig. iOS, iPadOS und Android sind keinesfalls «schlechter», aber sie zählen nicht zu dem **vollwertigen** Betriebssystemen.
+    </Hint>
   </ChoiceAnswer>
   <ChoiceAnswer multiple correct={[1, 2, 3]} scoring={multipleChoicePoints(1, 1, false)}>
     Welche Geräte gehören zur Kategorie der **Zeigegeräte**?
@@ -232,6 +247,10 @@ Ab und zu braucht es zusätzlich zum Klick noch eine Taste – nämlich beim Öf
     2. Touchpad
     3. Touchscreen
     4. Tastatur
+
+    <Hint when={['correct']}>
+      Das ist besonders bei den praktischen Szenarien wichtig zu wissen: Wenn wir sagen «ohne Maus», dann meinen wir auch ohne Touchpad und ohne Touchscreen.
+    </Hint>
   </ChoiceAnswer>
   <ChoiceAnswer multiple correct={[1, 3, 6]} scoring={multipleChoicePoints(1, 1, false)}>
     Welche Aussagen über Klicks sind korrekt?
@@ -242,6 +261,10 @@ Ab und zu braucht es zusätzlich zum Klick noch eine Taste – nämlich beim Öf
     4. Ein Rechtsklick und ein Doppelklick sind dasselbe.
     5. Einen Rechtsklick führt man immer aus, indem man auf dem Touchpad ganz auf der rechten Seite drückt.
     6. Der Rechtsklick wird meistens gebraucht, um zusätzliche Optionen anzuzeigen (z.B. über das Kontextmenü)
+
+    <Hint when={['incorrect', 'partially_correct']}>
+      Schauen Sie sich oben nochmal die Arten von Klicks an. Dort steht jeweils auch, wie der entsprechende Klick ausgeführt wird.
+    </Hint>
   </ChoiceAnswer>
 </Quiz>
 
