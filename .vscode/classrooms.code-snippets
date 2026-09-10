@@ -26,9 +26,19 @@
 	// 	"description": "Insert test block"
 	// }
 	"Add quiz scoring imports": {
-		"scope": "typescript",
+		"scope": "mdx",
 		"prefix": "quizScoringImports",
 		"body": "import { points, multipleChoicePoints } from '@tdev-components/documents/Assessable/helpers/scoring';",
 		"description": "Add imports for quiz scoring"
+	},
+	"Add quiz frame": {
+		"scope": "mdx",
+		"prefix": "quiz",
+		"body": [
+			"<Quiz randomizeQuestions randomizeOptions scoring={points(1)} keepExpanded={'correct'} resetMode='incorrect' id='$1'>",
+			"    $2",
+			"</Quiz>"
+		],
+		"description": "Add an empty quiz",
 	}
 }
