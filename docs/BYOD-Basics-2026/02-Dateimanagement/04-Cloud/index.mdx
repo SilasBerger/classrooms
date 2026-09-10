@@ -325,12 +325,29 @@ Es ist also empfehlenswert, nebst der Nutzung von OneDrive auch noch andere Back
 <Quiz randomizeQuestions randomizeOptions scoring={points(1)} keepExpanded={"correct"} resetMode='incorrect' id="6f18777e-425f-4d41-9ced-42c3151b8fed">
     <TrueFalseAnswer correct={false}>
         Wenn man seine Dateien auf OneDrive ablegt, speichern alle Programme automatisch.
+
+        <Hint when={['correct']}>
+          Jedes Programm muss selbst entscheiden, ob es eine automatische Speicherfunktion einbauen will. Die Office-Programme (Word, PowerPoint, etc.) haben eine solche Funktion, die aber nur dann aktiv ist, wenn eine Datei auf OneDrive gespeichert ist. Andere Programme speichern auch ausserhalb von OneDrive automatisch. Wieder andere Programme haben gar keine solche Funktion.
+          
+          Es gilt: Ausprobieren.
+        </Hint>
     </TrueFalseAnswer>
     <TrueFalseAnswer correct={true}>
         Seine Dateien «in der Cloud» abzuspeichern bedeutet, dass die Dateien auf einem anderen Computer (einem sog. _Server_) gespeichert werden. Je nach Einstellung sind sie auf dem eigenen Computer aber auch noch verfügbar.
+
+        <Hint when={['incorrect', 'partially_correct']}>
+          Wie würden Sie jemandem erklären, was «die Cloud» ist?
+        </Hint>
+        <Hint when={['correct']}>
+          Genau. Die «Cloud» ist einfach nur ein Server, und ein Server ist einfach nur ein (leistungsstarker) Computer.
+        </Hint>
     </TrueFalseAnswer>
     <TrueFalseAnswer correct={false}>
         Die Dateien, die ich in OneDrive Web sehe, sind auch auf meinem Computer verfügbar.
+
+        <Hint when={['correct']}>
+          Wenn Ihnen z.B. jemand über OneDrive einen Ordner oder eine Datei freigibt, werden Sie diese in OneDrive Web sehen. Damit die Elemente aber auch mit Ihrem Computer synchronisiert werden und dort zur Verfügung stehen, muss man sie zuerst den «Eigenen Dateien» hinzufügen.
+        </Hint>
     </TrueFalseAnswer>
     <ChoiceAnswer correct={[1]}>
         **Szenario:** Sie haben von einer Kollegin einen OneDrive-Ordner-Freigabelink erhalten und wollen nun dafür sorgen, dass die der Ordner auf Ihrem Computer verfügbar ist.
@@ -338,6 +355,10 @@ Es ist also empfehlenswert, nebst der Nutzung von OneDrive auch noch andere Back
         1. Dazu brauche ich OneDrive Web.
         2. Das geht nur direkt im Dateiexplorer.
         3. Das kann ich entweder in OneDrive Web oder im Dateiexplorer machen.
+
+        <Hint when={['correct', 'incorrect', 'partially_correct']}>
+          Leider steht diese Funktion bisher nur in OneDrive Web zur Verfügung.
+        </Hint>
     </ChoiceAnswer>
     <ChoiceAnswer correct={[3]}>
         Wenn mir jemand einen OneDrive-Ordner freigegeben hat, und ich diesen mit meinem Computer synchronisiert habe…
@@ -352,14 +373,35 @@ Es ist also empfehlenswert, nebst der Nutzung von OneDrive auch noch andere Back
         1. Es reicht, wenn ich die Datei in OneDrive Web sehe.
         2. Ich muss sicherstellen, dass die Datei auf meinem Computer synchronisiert und in der OneDrive im Dateiexplorer ersichtlich ist.
         3. Es ist am besten, wenn die Datei nicht in der OneDrive im Dateiexplorer verfügbar ist, um Sicherheitsrisiken zu vermeiden.
+
+        <Hint when={['correct', 'incorrect', 'partially_correct']}>
+          Es gilt: Die Programme auf Ihrem Computer können nur auf Dateien zugreifen, die sich auch auf Ihrem Computer befinden.
+        </Hint>
     </ChoiceAnswer>
     <TrueFalseAnswer correct={false}>
         Der einfachste Weg, einen mir freigegebenen Ordner mit meinem Computer zu synchronisieren, ist es, diesen Ordner über OneDrive Web herunterzuladen.
+
+        <Hint when={['correct', 'incorrect', 'partially_correct']}>
+          Wenn Sie den Ordner aus OneDrive Web herunterladen, stehen die Daten danach zwar auf Ihrem Computer zur Verfügung, werden aber **nicht synchronisiert**. Eine Zusammenarbeit ist damit nicht möglich.
+        </Hint>
     </TrueFalseAnswer>
     <TrueFalseAnswer correct={false}>
         OneDrive-Freigabelinks werden immer per E-Mail versendet.
+
+        <Hint when={['correct', 'incorrect', 'partially_correct']}>
+          In vielen Fällen soll ein Freigabelink z.B. per Teams versendet oder in Classrooms eingefügt werden. Eine E-Mail ist in solchen Fällen **explizit nicht erwünscht**.
+        </Hint>
     </TrueFalseAnswer>
     <TrueFalseAnswer correct={true}>
         OneDrive ist keine vollwertige Backup-Lösung, denn Dateien können auch dort gelöscht oder überschrieben werden.
+
+        <Hint when={['incorrect', 'partially_correct']}>
+          Was passiert, wenn Sie eine Datei versehentlich aus Ihrem OneDrive-Ordner löschen?
+        </Hint>
+        <Hint when={['correct']}>
+          Viren oder Unachtsamkeit können dazu führen, dass wir eim Datei-Explorer versehentlich eine Datei aus OneDrive löschen oder sie verändern oder überschreiben. Wenn wir es früh genug merken, können wir sie vielleicht noch retten. Nach spätestens 30 Tagen ist sie dann aber definitiv verloren.
+
+          Besonders schlimm: Was, wenn es nicht nur eine Datei betrifft, sonder z.B. ihre gesamte Maturaarbeit, oder sogar Ihr gesamtes Schulmaterial?
+        </Hint>
     </TrueFalseAnswer>
 </Quiz>

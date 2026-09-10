@@ -159,6 +159,13 @@ Sie müssen sich also bewusst überlegen, wo genau Sie eine Datei abspeichern wo
         6. `informatik_aufgabe.pdf`
         7. `2027-01-07_Abschlusspräsentation_Bio_Praktikum_Projekt_Januar_2027.pptx`
         8. `turtle_bewegen_aufgabe_2.py`
+
+        <Hint when={['correct']}>
+          Richtig. Einige Namen sind zwar etwas lang (z.B. `2027-01-07_Abschlusspräsentation_Bio_Praktikum_Projekt_Januar_2027.pptx`), aber immerhin spezifisch. Namen wie `unbenannt.txt` und `Neu.pdf` sagen nichts aus. `Bildschirmaufnahme 2026-08-10.mp4` ist auch nicht ideal, denn wir wissen damit noch nicht, was wir damals für eine Bildschirmaufnahme gemacht haben.
+        </Hint>
+        <Hint when={['incorrect', 'partially_correct']}>
+          Faustregel: Der Name muss spezifisch sein. Lieber zu spezifisch als zu wenig.
+        </Hint>
     </ChoiceAnswer>
     <ChoiceAnswer multiple correct={[1, 2, 5, 6]} scoring={multipleChoicePoints(1, 1, false)}>
         Welche der folgenden Datei-**Speicherorte** sind (mindestens einigermassen) sinnvoll? \
@@ -174,8 +181,22 @@ Sie müssen sich also bewusst überlegen, wo genau Sie eine Datei abspeichern wo
         4. `OneDrive` → `Gymer` → `Sachen` → `Vortrag prokaryotische Zelle.pptx`
         5. `OneDrive` → `Geo` → `Arbeitsblatt_Gesteinsarten.pdf`
         6. `OneDrive` → `SO` → `Delegiertenversammlungen` → `2026-27` → `Protokoll SO DV September 2026.docx`
+
+        <Hint when={['correct']}>
+          Es gibt nicht die eine «korrekte» Ordnerstruktur. Wichtig ist einfach, dass es einigermassen aufgeräumt ist, und dass die Ordner sinnvoll benannt sind.
+        </Hint>
+        <Hint when={['incorrect', 'partially_correct']}>
+          Es gibt nicht die eine «korrekte» Ordnerstruktur. Achten Sie aber insbesondere auf nicht sinnvoll benannte Ordner. Zudem sollte man Daten auch nicht einfach direkt in OneDrive ablegen, weil es dort sonst schnell chaotisch wird.
+        </Hint>
     </ChoiceAnswer>
     <TrueFalseAnswer correct={true}>
         Die Übersicht der zuletzt verwendeten Dateien, die z.B. bei Word (aber auch bei PowerPoint, Excel, etc.) angezeigt wird, ist zwar oft eine praktische Abkürzung, aber sie ersetzt nicht das sinnvolle Benennen und bewusste abspeichern von Dateien.
+
+        <Hint when={['correct']}>
+          Genau. Irgendwann wird eine Datei nicht mehr in dieser Ansicht auftauchen. Spätestens dann müssen wir sicher sein, dass wir sie anhand des Ordner-Pfades und des Dateinamens wiederfinden.
+        </Hint>
+        <Hint when={['incorrect', 'partially_correct']}>
+          Wird die Datei auch in 5 Monaten noch in dieser Ansicht erscheinen?
+        </Hint>
     </TrueFalseAnswer>
 </Quiz>

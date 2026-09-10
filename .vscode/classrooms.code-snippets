@@ -90,4 +90,13 @@
 		],
 		"description": "Add Hint when incorrect or partially correct",
 	},
+	"Add Hint for all cases": {
+		"scope": "mdx",
+		"prefix": "generalHint",
+		"body": [
+			"<Hint when={['correct', 'incorrect', 'partially_correct']}>",
+      		"  $1",
+    		"</Hint>"
+		],
+	},
 }
