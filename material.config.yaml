@@ -47,6 +47,8 @@ demo-probe:
       - index-fms.mdx
   - material: BYOD-Basics-2026/index-fms.mdx
     as: 03-BYOD-Basics/index.mdx
+  - material: IN-Biber/2026
+    as: 04-IN-Biber
 29Fc:
   - material: Onboarding-2026
     as: 01-Onboarding
@@ -58,6 +60,8 @@ demo-probe:
       - index-fms.mdx
   - material: BYOD-Basics-2026/index-fms.mdx
     as: 03-BYOD-Basics/index.mdx
+  - material: IN-Biber/2026
+    as: 04-IN-Biber
 30Gg:
   - material: Onboarding-2026
     as: 01-Onboarding
@@ -69,6 +73,8 @@ demo-probe:
     as: 03-BYOD-Basics
     ignore: 
       - index-fms.mdx
+  - material: IN-Biber/2026
+    as: 04-IN-Biber
 30Gh:
   - material: Onboarding-2026
     as: 01-Onboarding
@@ -80,6 +86,8 @@ demo-probe:
     as: 03-BYOD-Basics
     ignore: 
       - index-fms.mdx
+  - material: IN-Biber/2026
+    as: 04-IN-Biber
 30Gm:
   - material: Onboarding-2026
     as: 01-Onboarding
@@ -91,6 +99,8 @@ demo-probe:
     as: 03-BYOD-Basics
     ignore: 
       - index-fms.mdx
+  - material: IN-Biber/2026
+    as: 04-IN-Biber
 30Gw:
   - material: Onboarding-2026
     as: 01-Onboarding
@@ -102,6 +112,8 @@ demo-probe:
     as: 03-BYOD-Basics
     ignore: 
       - index-fms.mdx
+  - material: IN-Biber/2026
+    as: 04-IN-Biber
 30mT:
   - material: Onboarding-2026
     as: 01-Onboarding
@@ -113,3 +125,5 @@ demo-probe:
     as: 03-BYOD-Basics
     ignore: 
       - index-fms.mdx
+  - material: IN-Biber/2026
+    as: 04-IN-Biber
