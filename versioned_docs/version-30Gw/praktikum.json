@@ -158,10 +158,11 @@
   {
     "cells": [
       "24.12.2026",
-      "B",
-      "Programmieren",
-      "While"
-    ]
+      "",
+      "Winterferien ❄️🏂🎄",
+      ""
+    ],
+    "type": "holiday"
   },
   {
     "cells": [
@@ -184,15 +185,15 @@
   {
     "cells": [
       "14.01.2027",
-      "A",
+      "B",
       "Programmieren",
-      "Rückgabewerte"
+      "While"
     ]
   },
   {
     "cells": [
       "21.01.2027",
-      "B",
+      "A",
       "Programmieren",
       "Rückgabewerte"
     ]
@@ -200,9 +201,9 @@
   {
     "cells": [
       "28.01.2027",
-      "A",
+      "B",
       "Programmieren",
-      "Reserve"
+      "Rückgabewerte"
     ]
   }
 ]
