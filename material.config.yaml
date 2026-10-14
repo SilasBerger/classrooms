@@ -31,6 +31,8 @@ draft:
     as: 100-Probe-Data-Management-NP1
   - material: confidential/HackLab
     as: 101-HackLab
+  - material: confidential/BYOD-Exam-Env
+    as: 99-BYOD-Pruefungsumgebung
 demo-probe:
   - material: confidential/ExamNet-Demo-Probe/index.mdx
     as: /index.mdx
