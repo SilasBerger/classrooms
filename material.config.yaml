@@ -75,6 +75,8 @@ demo-probe:
       - index-fms.mdx
   - material: IN-Biber/2026
     as: 04-IN-Biber
+  - material: confidential/BYOD-Exam-Env
+    as: 99-BYOD-Pruefungsumgebung
 30Gh:
   - material: Onboarding-2026
     as: 01-Onboarding
@@ -88,6 +90,8 @@ demo-probe:
       - index-fms.mdx
   - material: IN-Biber/2026
     as: 04-IN-Biber
+  - material: confidential/BYOD-Exam-Env
+    as: 99-BYOD-Pruefungsumgebung
 30Gm:
   - material: Onboarding-2026
     as: 01-Onboarding
@@ -101,6 +105,8 @@ demo-probe:
       - index-fms.mdx
   - material: IN-Biber/2026
     as: 04-IN-Biber
+  - material: confidential/BYOD-Exam-Env
+    as: 99-BYOD-Pruefungsumgebung
 30Gw:
   - material: Onboarding-2026
     as: 01-Onboarding
@@ -114,6 +120,8 @@ demo-probe:
       - index-fms.mdx
   - material: IN-Biber/2026
     as: 04-IN-Biber
+  - material: confidential/BYOD-Exam-Env
+    as: 99-BYOD-Pruefungsumgebung
 30mT:
   - material: Onboarding-2026
     as: 01-Onboarding
@@ -127,3 +135,5 @@ demo-probe:
       - index-fms.mdx
   - material: IN-Biber/2026
     as: 04-IN-Biber
+  - material: confidential/BYOD-Exam-Env
+    as: 99-BYOD-Pruefungsumgebung
