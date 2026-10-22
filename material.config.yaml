@@ -49,6 +49,8 @@ demo-probe:
     as: 03-BYOD-Basics/index.mdx
   - material: IN-Biber/2026
     as: 04-IN-Biber
+  - material: confidential/BYOD-Exam-Env-FMS26
+    as: 99-BYOD-Pruefungsumgebung
 29Fc:
   - material: Onboarding-2026
     as: 01-Onboarding
@@ -62,6 +64,8 @@ demo-probe:
     as: 03-BYOD-Basics/index.mdx
   - material: IN-Biber/2026
     as: 04-IN-Biber
+  - material: confidential/BYOD-Exam-Env-FMS26
+    as: 99-BYOD-Pruefungsumgebung
 30Gg:
   - material: Onboarding-2026
     as: 01-Onboarding
