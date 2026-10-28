@@ -62,6 +62,30 @@ export function InfoIcon(): React.JSX.Element {
     );
 }
 
+// mdi:gavel
+export function RuleIcon(): React.JSX.Element {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+                fill="currentColor"
+                d="m2.3 20.28l9.6-9.6l-1.4-1.42l-.72.71a.996.996 0 0 1-1.41 0l-.71-.71a.996.996 0 0 1 0-1.41l5.66-5.66a.996.996 0 0 1 1.41 0l.71.71c.39.39.39 1.02 0 1.41l-.71.69l1.42 1.43a.996.996 0 0 1 1.41 0c.39.39.39 1.03 0 1.42l1.41 1.41l.71-.71c.39-.39 1.03-.39 1.42 0l.7.71c.39.39.39 1.03 0 1.42l-5.65 5.65c-.39.39-1.03.39-1.42 0l-.7-.7a.99.99 0 0 1 0-1.42l.7-.71l-1.41-1.41l-9.61 9.61a.996.996 0 0 1-1.41 0c-.39-.39-.39-1.03 0-1.42M20 19a2 2 0 0 1 2 2v1H12v-1a2 2 0 0 1 2-2z"
+            />
+        </svg>
+    );
+}
+
+// mdi:handshake
+export function ConventionIcon(): React.JSX.Element {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+                fill="currentColor"
+                d="M11 6h3l3.29-3.3a1 1 0 0 1 1.42 0l2.58 2.59a1 1 0 0 1 0 1.41L19 9h-8v2a1 1 0 0 1-1 1a1 1 0 0 1-1-1V8a2 2 0 0 1 2-2m-6 5v4l-2.29 2.29a1 1 0 0 0 0 1.41l2.58 2.59a1 1 0 0 0 1.42 0L11 17h4a1 1 0 0 0 1-1v-1h1a1 1 0 0 0 1-1v-1h1a1 1 0 0 0 1-1v-1h-7v1a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9Z"
+            />
+        </svg>
+    );
+}
+
 function AufgabeAmonition(props: any) {
     return (
         <AdmonitionLayout
@@ -127,6 +151,32 @@ function InfoAmonition(props: any) {
     );
 }
 
+function RuleAdmonition(props: any) {
+    return (
+        <AdmonitionLayout
+            icon={<RuleIcon />}
+            title="Rule"
+            {...props}
+            className={clsx('alert', 'alert--info', props.className)}
+        >
+            {props.children}
+        </AdmonitionLayout>
+    );
+}
+
+function ConventionAdmonition(props: any) {
+    return (
+        <AdmonitionLayout
+            icon={<ConventionIcon />}
+            title="Convention"
+            {...props}
+            className={clsx('alert', 'alert--info', props.className)}
+        >
+            {props.children}
+        </AdmonitionLayout>
+    );
+}
+
 const AdmonitionTypes = {
     ...DefaultAdmonitionTypes,
 
@@ -137,7 +187,10 @@ const AdmonitionTypes = {
 
     info: InfoAmonition,
     tip: InfoAmonition,
-    note: InfoAmonition
+    note: InfoAmonition,
+
+    rule: RuleAdmonition,
+    convention: ConventionAdmonition
 };
 
 export default AdmonitionTypes;

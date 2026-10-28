@@ -21,7 +21,7 @@ const GIT_COMMIT_SHA = process.env.GITHUB_SHA || Math.random().toString(36).subs
 
 const ADMONITION_CONFIG = {
     admonitions: {
-        keywords: ['aufgabe', 'insight', 'key', 'definition', 'tip', 'info', 'note'],
+        keywords: ['aufgabe', 'insight', 'key', 'definition', 'tip', 'info', 'note', 'rule', 'convention'],
         extendDefaults: true
     }
 };

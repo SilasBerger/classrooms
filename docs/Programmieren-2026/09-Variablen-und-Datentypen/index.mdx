@@ -25,44 +25,46 @@ Variablennamen können mehr oder weniger frei gewählt werden. Es gibt aber eini
 
 ### Harte Regeln
 _Wenn wir diese Regeln nicht befolgen, können wir das Programm nicht ausführen._
-:::danger[Nur alphanumerische Zeichen und Underscore]
+:::rule[Nur alphanumerische Zeichen und Underscore]
 Erlaubt sind nur **alphanumerische Zeichen** (also Gross- und Kleinbuchstaben, sowie Zahlen), sowie der **Underscore** (`_`). **Umlaute** (ä, ö, ü) und **Leerschläge** sind **nicht erlaubt**.
 - ✅ `groesse_person_1`
 - ❌ `grösse_person_1`
 - ❌ `groesse person 1`
+
+_**Hinweis:** Einige Python-Umgebungen (z.B. Classrooms) können inzwischen mit Umlauten umgehen. Trotzdem gilt es weiterhin als harte Regel, diese nicht zu verwenden, da sie in anderen Python-Umgebungen zu Problemen führen können._
 :::
 
-:::danger[Muss mit Buchstabe oder Underscore beginnen]
+:::rule[Muss mit Buchstabe oder Underscore beginnen]
 Ein Variablenname muss mit einem Buchstaben (oder mit einem Underscore (`_`)) beginnen (also nicht mit einer Zahl).
 - ✅ `groesse_person_1`
 - (✅ `_groesse_person_1` ← nur in ganz spezifischen Fällen[^1])
 - ❌ `1_groesse_person`
 :::
 
-:::danger[Gross- und Kleinschreibung]
+:::rule[Gross- und Kleinschreibung]
 Die Gross- und Kleinschreibung wird berücksichtigt. `hallo` und `HaLLo` sind also zwei **unterschiedliche** Variablennamen.
 :::
 
-:::danger[Keine Python-Keywords]
+:::rule[Keine Python-Keywords]
 Python-_Keywords_[^2] wie `for` und `import` dürfen **nicht** als Variablennamen verwendet werden.
 :::
 
 ### Konventionen
 _(Un)verbindliche Abmachungen, die uns dabei helfen, möglichst einheitlichen Python-Code schreiben. Es gehört zum guten Stil, dass wir uns daran halten._
-:::warning[Keine Grossbuchstaben]
+:::convention[Keine Grossbuchstaben]
 Wir verwenden nur Kleinbuchstaben, Zahlnen und Underscores. Keine Grossbuchstaben.
 - ✅ `seite`
 - ✅ `quadrat_2`
 - ❌ `Quadrat`
 :::
 
-:::warning[Wörter trennen]
+:::convention[Wörter trennen]
 Wenn Variablen aus mehreren Wörtern bestehen, trennen wir die Wörter mit einem Underscore (`_`), damit sie lesbar bleiben.
 - ✅ `anzahl_ecken`
 - ❌ `anzahlecken`
 :::
 
-:::warning[Sinnvoll benennen]
+:::convention[Sinnvoll benennen]
 Wir verwenden **sinnvolle, sprechende Namen** für Variablen. Der Name sollte möglichst genau beschreiben, was die Variable enthält. So können wir den Code später besser verstehen.
 
 Anders als in der Mathematik verwenden wir beim Programmieren eher nicht Variablennamen wie `a` und `x`, da sie wenig über ihre Bedeutung aussagen. Wenn möglich, verwenden wir lieber _sprechende_ Variablennamen wie `seitenlaenge` oder `anzahl_seiten`.
@@ -116,7 +118,7 @@ Anders als in der Mathematik verwenden wir beim Programmieren eher nicht Variabl
       6. `farbebaumstamm`
       7. `for`
     </ChoiceAnswer>
-    <ChoiceAnswer multiple correct={[2, 3, 4, 6]} scoring={multipleChoicePoints(2, 1, false)}>
+    <ChoiceAnswer multiple correct={[4, 6]} scoring={multipleChoicePoints(2, 1, false)}>
       Welche der folgenden Variablennamen halten sich zwar an die **harten Regeln** aber **nicht** an die **Konventionen**?
 
       1. `seitenlänge`
