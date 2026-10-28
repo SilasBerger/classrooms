@@ -1,0 +1,103 @@
+---
+page_id: 44f891a2-6af5-4527-840e-218616eefbcf
+draft: true
+---
+
+# Arithmetik
+In Python können Sie arithmetische Ausdrücke verwenden. Die wichtigsten Operatoren sind:
+
+| Operation | Symbol | Beispiel | Ergebnis des Beispiels |
+| --------- | ------ | -------- | ---------------------- |
+| Addition | `+` | `14 + 5` | `19` |
+| Subtraktion | `-` | `14 - 5` | `9` |
+| Multiplikation | `*` | `14 * 5` | `70` |
+| Division | `+` | `14 / 5` | `2.8` |
+| Division mit Rest | `//` | `14 // 5` | `2` |
+| Modulo (Rest der Division) | `%` | `14 % 5` | `5` |
+| Potenzieren ($a^b$) | `**` | `14 ** 5` | `537824` |
+
+## Theorieaufgaben
+:::aufgabe[Warum nicht vorher ausrechnen?]
+<TaskState id="e6ee2065-0abf-45c2-af8c-e8a907e2db9c" />
+Warum sollten Sie in Ihrem Code arithmetische Ausdrücke verwenden, statt `14 + 5` einfach vorher auszurechnen und in Ihrem Code anschliessend direkt das Ergebnis `19` zu verwenden? Halten Sie Ihre Überlegungen im Textfeld fest.
+
+<QuillV2 id="63e00f6f-d9fe-4dfa-a1c7-3d567abc0163" />
+
+<Solution id="166b97c4-11e1-4cc5-9078-739893eb016a">
+Arithmetische Ausdrücke sind besonders dann nützlich, wenn einer oder mehrere der Operanden durch Variablen bestimmt sind. 
+
+Ein Beispiel:
+```py live_py readonly slim
+from turtle import *
+
+seite = 50
+
+# Erstes Quadrat
+for i in range(4):
+    forward(seite)
+    left(90)
+    
+# Verschieben
+penup()
+forward(70)
+pendown()
+
+# Zweites Quadrat, doppelt so gross
+for i in range(4):
+    forward(seite * 2)  # <-- Hier macht ein arithmetischer Ausdruck Sinn.
+    left(90)
+```
+
+In diesem Fall ist der Parameter des `forward()`-Befehls auf Zeile `15` abhängig von einer Variable. Wir können seinen Wert also nicht direkt ausrechnen, ohne dass wir den Nutzen der Variable verlieren.
+
+Abgesehen davon kann das Verwenden arithmetischer Ausdrücke auch dann sinnvoll sein, wenn unser Code dadurch besser verständlich wird. Beispielsweise kann man in diesem Programm leicht nachvollziehen, wie der Drehwinkel berechnet wird, was nicht so klar wäre, wenn wir stattdessen einfach `left(72)` verwenden würden:
+
+```py live_py readonly slim
+from turtle import *
+
+for i in range(5):
+    forward(50)
+    left(360 / 5)  # Die Turtle macht einen Kreis (360°) und "biegt" dabei 5x ab.
+```
+</Solution>
+:::
+
+TODO: Rechenaufgaben
+
+
+## Programmieraufgaben
+::::aufgabe[Anpassbarer Kreis]
+<TaskState id='fdaa612b-b6d7-4b3b-9862-7063219637fe' />
+
+Vervollständigen Sie dieses angefangene Turtle-Programm so, dass die Turtle einen Kreis mit dem festgelegten `umfang` zeichnet. Als Annäherung für die Zahl $\pi$ können Sie den Wert `3.14` verwenden.
+
+:::tip[Umfang, Durchmesser, Radius]
+- Für einen Kreis mit Umfang $U$ und einen Durchmesser $d$ gilt $U = d \cdot \pi$.
+- Der Befehl `circle(r)` zeichnet einen Kreis mit **Radius** `r`.
+:::
+
+```py live_py id=88d264d2-b100-4aa3-b1ad-5727e0acfc8b
+from turtle import *
+
+shape('turtle')
+
+umfang = 290
+```
+
+<Solution id='c7bef16f-ac77-4898-b8cd-aced858d790f'>
+  ```py live_py readonly slim
+  from turtle import *
+
+  shape('turtle')
+
+  umfang = 290
+
+  durchmesser = umfang / 3.14
+  radius = durchmesser / 2
+
+  circle(radius)
+  ```
+</Solution>
+::::
+
+TODO: 1-2 weitere Aufgaben.

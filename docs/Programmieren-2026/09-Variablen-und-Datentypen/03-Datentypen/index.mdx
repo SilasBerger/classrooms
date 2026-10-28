@@ -1,0 +1,158 @@
+---
+page_id: 2407f817-d85c-4e2c-bab3-d6425bb9df54
+draft: true
+---
+
+import { points, multipleChoicePoints } from '@tdev-components/documents/Assessable/helpers/scoring';
+
+# Datentypen
+Jede Variable hat einen bestimmten Datentyp. Dieser ist abhängig vom letzten Wert, den wir der Variable zuweisen.
+
+Für den Moment sind für uns folgende Datentypen relevant:
+
+| Datentyp | Langbezeichnung       | Bedeutung                    | Beispiel                      |
+|----------|-----------------------|------------------------------|-------------------------------|
+| `int`    | Integer               | Ganzzahl                     | `x = 20`                      |
+| `float`  | Floating Point Number | Dezimalzahl (Gleitkommazahl) | `x = 2.0`                     |
+| `str`    | String                | Text                         | `x = '20'` <br/> `x = 'Hallo'` |
+
+## Theoriefragen
+:::aufgabe[Frage 2]
+<TaskState id='4d9d8d50-ba9d-42fc-b73a-2304c4be9451' />
+
+Welchen Datentyp haben die drei Variablen `a`, `b` und `c` im folgenden Programm?
+```py
+a = 'Hallo!'
+b = 82.143
+c = 17
+```
+
+<String label='a:' placeholder='int, float, str' solution='str' id='d4ce672b-3166-4ea8-a4c7-0619de13a5e9' />
+<String label='b:' placeholder='int, float, str' solution='float' id='5075575d-2e81-4bbb-bbcc-cd66add788bc' />
+<String label='c:' placeholder='int, float, str' solution='int' id='725cdc2d-bc68-486c-bbe9-ada0b2362188' />
+:::
+
+<ChoiceAnswer randomizeOptions correct={[3]} id="18d65384-e2a6-4fb5-829c-b5ae11d31046">
+    Welchen Datentyp hat die Variable `foo` ganz am Ende des folgenden Programms?
+
+    ```py showLineNumbers
+    foo = 73.1
+    bar = -1
+    bar = 0
+    foo = 14
+    bar = 'Grüessäch!'
+    foo = bar
+    ```
+
+    1. `int`
+    2. `float`
+    3. `str`
+
+    <Hint when={['correct']}>
+        Richtig. Am Schluss wird der Wert von `bar` in die Variable `foo` gespeichert. `bar` hat zuletzt den Wert `Grüessäch!` (Zeile `5`) und ist somit ein `str`. Damit wird `foo` auf Zeile `6` auch zu einem `str`.
+    </Hint>
+    <Hint when={['incorrect']}>
+        Der Datentyp einer Variable ist abhängig von **letzten** Wert, den wir der Variable zuweisen. **Tipp:** Gehen Sie das Programm mal von unten nach oben durch.
+    </Hint>
+</ChoiceAnswer>
+
+## Programmieraufgaben
+:::aufgabe[Baum]
+<TaskState id='f196ee26-f363-402b-ab92-b8644988d16a' />
+
+Das unten stehende Turtle-Programm zeichnet einen Baum mit drei Ästen, mit folgenden Eigenschaften:
+- Der Stamm ist 90 Pixel hoch und hat die Farbe `brown`.
+- Die Äste sind je 75 Pixel lang und haben die Farbe `brown`.
+- Die "Blätter" (grüne Punkte) haben je einen Durchmesser von 80 Pixel und die Farbe `green`.
+
+Das Programm funktioniert zwar, aber es gibt ein Problem: Wenn wir z.B. die länge der Äste, die Farbe der Äste oder den Durchmesser der Blätter ändern wollen, dann müssen wir den entsprechenden Wert überall ändern, wo er vorkommt. Das ist aufwändig und fehleranfällig.
+
+Ihre Aufgabe: Nutzen Sie **Variablen** (ausnahmsweise mal keine Schleife) und schreiben Sie das Programm so um, dass man je nur noch eine einzige Zeile anpassen muss, um folgende Eigenschaften des Baums zu verändern (also eine Zeile pro Eigenschaft):
+- Länge der Äste
+- Farbe der Blätter
+- Durchmesser der Blätter
+
+```py live_py id=475c163d-a005-44d8-a584-afe9beccfb78
+from turtle import *
+
+left(90)
+
+# Zeichne den Stamm
+pensize(40)
+pencolor('brown')
+forward(90)
+
+# Zeichne den ersten Ast (links)
+pensize(20)
+left(45)
+forward(75)
+pencolor('green')
+dot(80)
+
+# Zeichne den zweiten Ast (Mitte)
+penup()
+back(75)
+right(45)
+pendown()
+pencolor('brown')
+forward(75)
+pencolor('green')
+dot(80)
+
+# Zeichne den dritten Ast (rechts)
+penup()
+back(75)
+right(45)
+pendown()
+pencolor('brown')
+forward(75)
+pencolor('green')
+dot(80)
+```
+
+<Solution id='b2041a9c-82bb-49ff-891e-76bf40d73cea'>
+  ```py live_py readonly slim
+  from turtle import *
+
+  laenge_aeste = 75
+  farbe_blaetter = 'green'
+  durchmesser_blaetter = 80
+
+  left(90)
+
+  # Zeichne den Stamm
+  pensize(40)
+  pencolor('brown')
+  forward(90)
+
+  # Zeichne den ersten Ast (links)
+  pensize(20)
+  left(45)
+  forward(laenge_aeste)
+  pencolor(farbe_blaetter)
+  dot(durchmesser_blaetter)
+
+  # Zeichne den zweiten Ast (Mitte)
+  penup()
+  back(laenge_aeste)
+  right(45)
+  pendown()
+  pencolor('brown')
+  forward(laenge_aeste)
+  pencolor(farbe_blaetter)
+  dot(durchmesser_blaetter)
+
+  # Zeichne den dritten Ast (rechts)
+  penup()
+  back(laenge_aeste)
+  right(45)
+  pendown()
+  pencolor('brown')
+  forward(laenge_aeste)
+  pencolor(farbe_blaetter)
+  dot(durchmesser_blaetter)
+  ```
+</Solution>
+:::
+
+TODO: 1-2 weitere Aufgaben.

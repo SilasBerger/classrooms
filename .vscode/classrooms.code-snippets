@@ -25,6 +25,7 @@
 	// 	"exclude": ["**/temp/*.ts"],
 	// 	"description": "Insert test block"
 	// }
+	
 	"Add quiz scoring imports": {
 		"scope": "mdx",
 		"prefix": "quizScoringImports",

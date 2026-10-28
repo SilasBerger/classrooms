@@ -1,0 +1,56 @@
+<!--?xml version="1.0" standalone="no"?-->
+<svg id="code_python_dummy__r_cu__svg" width="149.2705078125" height="61.165252685546875" xmlns="http://www.w3.org/2000/svg" viewBox="135.7294921875,198.83474731445312,149.2705078125,61.165252685546875">
+<g transform="translate(250 250)">
+<line x1="0" y1="0" x2="0" y2="0" style="stroke: black; stroke-width: 1;"></line>
+<line x1="0" y1="0" x2="-100" y2="0" opacity="0" style="stroke: black; stroke-width: 1;"></line>
+<line x1="-100" y1="0" x2="-70" y2="0" style="stroke: red; stroke-width: 1;"></line>
+<line x1="-70" y1="0" x2="-60.729490168751575" y2="-28.531695488854606" style="stroke: red; stroke-width: 1;"></line>
+<line x1="-60.729490168751575" y1="-28.531695488854606" x2="-85" y2="-46.1652530576288" style="stroke: red; stroke-width: 1;"></line>
+<line x1="-85" y1="-46.1652530576288" x2="-109.27050983124843" y2="-28.531695488854613" style="stroke: red; stroke-width: 1;"></line>
+<line x1="-109.27050983124843" y1="-28.531695488854613" x2="-100.00000000000001" y2="-3.552713678800501e-15" style="stroke: red; stroke-width: 1;"></line>
+<line x1="-100.00000000000001" y1="-3.552713678800501e-15" x2="-50.000000000000014" y2="-3.552713678800501e-15" opacity="0" style="stroke: red; stroke-width: 1;"></line>
+<line x1="-50.000000000000014" y1="8.693754312673031e-15" x2="-15.000000000000014" y2="1.7266281906704506e-14" style="stroke: blue; stroke-width: 1;"></line>
+<line x1="-15.000000000000014" y1="1.7266281906704506e-14" x2="-15.000000000000004" y2="-34.999999999999986" style="stroke: blue; stroke-width: 1;"></line>
+<line x1="-15.000000000000004" y1="-34.999999999999986" x2="-50" y2="-35" style="stroke: blue; stroke-width: 1;"></line>
+<line x1="-50" y1="-35" x2="-50.000000000000014" y2="0" style="stroke: blue; stroke-width: 1;"></line>
+<line x1="-50.000000000000014" y1="0" x2="-1.4210854715202004e-14" y2="0" opacity="0" style="stroke: blue; stroke-width: 1;"></line>
+<line x1="-1.4210854715202004e-14" y1="2.4492935982947064e-14" x2="19.999999999999986" y2="3.429011037612589e-14" style="stroke: brown; stroke-width: 1;"></line>
+<line x1="19.999999999999986" y1="3.429011037612589e-14" x2="29.999999999999986" y2="-17.32050807568874" style="stroke: brown; stroke-width: 1;"></line>
+<line x1="29.999999999999986" y1="-17.32050807568874" x2="19.999999999999975" y2="-34.64101615137751" style="stroke: brown; stroke-width: 1;"></line>
+<line x1="19.999999999999975" y1="-34.64101615137751" x2="-2.4868995751603507e-14" y2="-34.64101615137752" style="stroke: brown; stroke-width: 1;"></line>
+<line x1="-2.4868995751603507e-14" y1="-34.64101615137752" x2="-10.000000000000057" y2="-17.320508075688767" style="stroke: brown; stroke-width: 1;"></line>
+<line x1="-10.000000000000057" y1="-17.320508075688767" x2="-4.796163466380676e-14" y2="0" style="stroke: brown; stroke-width: 1;"></line>
+</g>
+<g transform="translate(250 250)">
+<polygon points="0,0 ,-5,-9 ,0,-7 ,5,-9 " stroke="brown" fill="black" stroke-width="1" opacity="1" transform="translate(-4.796163466380676e-14,-0.0) rotate(-1170.0,0,0)"></polygon>
+</g>
+<metadata><raw>from turtle import *
+
+penup()
+back(100)
+pendown()
+
+abstand = 50  # Diese Zeile hat gefehlt, die Variable abstand war nicht definiert.
+
+pencolor('red')
+for i in range(5):
+    forward(30)
+    left(72)
+
+penup()
+forward(abstand)
+pendown()
+
+pencolor('blue')
+for i in range(4):
+    forward(35)
+    left(90)
+
+penup()
+forward(abstand)
+pendown()
+
+pencolor('brown')
+for i in range(6):
+    forward(20)
+    left(60)</raw></metadata></svg>

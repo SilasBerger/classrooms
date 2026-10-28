@@ -1,0 +1,64 @@
+---
+page_id: 696627e6-863b-44ae-ab24-8bba5668617d
+---
+
+# Schleifenzähler
+In einer [früheren Aufgabe](../../08-Wiederholung/01-Genauer-untersuchen.mdx) haben Sie folgendes Programm analysiert:
+
+```py live_py readonly slim
+from turtle import *
+
+shape('turtle')
+
+for i in range(100):
+    forward(i)
+    right(90)
+
+done()
+```
+
+Mit dem Wissen über Variablen können wir nun besser verstehen, was hier vor sich geht: `i` ist eine Variable. Genauer gesagt, ist `i` der sogenannten **Schleifenzähler** (auch **Laufvariable**) genannt.
+
+Der Befehl `range(100)` erzeugt eine Liste[^1] mit 100 Zahlen, beginnend bei 0: `[0, 1, 2, 3, ..., 98, 99]` (Achtung: nur bis `99`, denn sonst hätte man 101 Zahlen). Die `for`-Schleife _iteriert_ dann über diese Liste: sie arbeitet die Liste also ab. Beim ersten Durchlauf der Schleife erhält `i` den Wert `0`, beim zweiten Durchlauf den Wert `1`, und so weiter, bis `i` beim letzten Durchlauf dieser Schleife den Wert `99` erhält. Diese Zuweisung (also das Schreiben der Werte `0` - `99` in die Variable `i`) passiert automatisch durch die `for`-Schleife, also ohne explizites Verwenden eines `=`-Zeichens.
+
+::video[./img/schleifenzaehler.mp4]{autoplay loop}
+
+Welche Zahlen in der Variable `i` verwendet werden ist abhängig vom `range()`-Befehl. Verwenden wir z.B. `range(5)`, dann sind es die Zahlen `0`, `1`, `2`, `3` und  `4`.
+
+Abgesehen davon ist der Schleifenzähler eine ganz normale Variable. Wir müssen ihn also nicht `i` nennen, sondern können einen beliebigen anderen Variablennamen verwenden, solange dieser den Regeln entspricht:
+
+```py live_py readonly slim
+from turtle import *
+
+shape('turtle')
+
+for mein_cooler_schleinfezaehler in range(100):
+    forward(mein_cooler_schleinfezaehler)
+    right(90)
+
+done()
+```
+
+oder hinsichtlich der Verwendung etwas sinnvoller benannt:
+
+```py live_py readonly slim
+from turtle import *
+
+shape('turtle')
+
+for strichlaenge in range(100):
+    forward(strichlaenge)
+    right(90)
+
+done()
+```
+
+:::aufgabe[Umbenennen]
+<TaskState id="0b285b26-8a6b-40d7-8f39-1f4c657afe71" />
+
+Gehen Sie zurück zu dem Aufgaben [in diesem Kapitel](../../08-Wiederholung/01-Genauer-untersuchen.mdx). Benennen Sie `i` bei all Ihren Lösungen so um, dass der Variablenname besser beschreibt, wozu der Schleifenzähler im jeweiligen Programm wirklich verwendet wird (vgl. letztes Beispiel oben). Die gewählten Variablennamen sollen allen Regeln und Konventionen entsprechen.
+
+Markieren Sie diese Aufgabe anschliessend als erledigt.
+:::
+
+[^1]: Listen sind ein weiterer wichtiger Datentyp in Python, der hier aber vorerst nicht behandelt wird.
