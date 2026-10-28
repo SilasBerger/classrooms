@@ -1,0 +1,116 @@
+---
+page_id: 8e293499-b032-4867-a8c2-d17774c77a71
+draft: true
+---
+
+# Funktionen
+
+Idee: Live-Beispiel aus dem EF nehmen, denn dort können wir zuerst eine Funktion einführen, dann Parameter, und zum Schluss auch gleich noch Rückgabewerte.
+
+## Parameter
+::::aufgabe[Duplikation vermeiden dank Funktion mit Parametern]
+<TaskState id="21c8118d-37ee-4c00-9606-1d92dd31d522" />
+
+Als wir zum ersten Mal über Variablen gesprochen haben, haben wir im Plenum dieses Beispiel behandelt:
+```py live_py readonly slim filename=01_quadrate.py
+
+from turtle import *
+
+# Erstes Quadrat
+for i in range(4):
+    forward(50)
+    left(90)
+    
+# Verschieben
+penup()
+forward(70)
+pendown()
+
+# Zweites Quadrat, doppelt so gross
+for i in range(4):
+    forward(100)
+    left(90)
+```
+
+Dabei hat uns gestört, dass wir das zweite Quadrat auch immer anpassen müssen (Zeile `15`), wenn wir die Grösse des ersten Quadrats verändern (Zeile `5`), damit das zweite immer doppelt so gross bleibt, wie das erste. Wir haben das Problem gelöst, indem wir eine Variable `seite` eingeführt haben:
+
+```py live_py readonly slim filename=02_quadrate_mit_variable.py
+from turtle import *
+
+seite = 50
+
+# Erstes Quadrat
+for i in range(4):
+    forward(seite)
+    left(90)
+    
+# Verschieben
+penup()
+forward(70)
+pendown()
+
+# Zweites Quadrat, doppelt so gross
+for i in range(4):
+    forward(seite * 2)
+    left(90)
+```
+
+Jetzt haben wir aber immer noch eine Duplikation: Das Teilproblem «ein Quadrat zeichnen» lösen wir immer noch zweimal (einmal auf den Zeilen `4`-`6` und dann nochmal auf den Zeilen `16`-`18`). Das **DRY**-Prinzip (_**D**on't **R**epeat **Y**ourself_) hält uns dazu an, dass wir das noch verbessern.
+
+**Aufgabe:** Schrieben Sie eine Funktion `quadrat(seitenlanenge)`, welche ein Quadrat zeichnet, dessen Seitenlänge durch den Parameter `seitenlanenge` definiert ist, und ersetzen Sie die beiden separaten Quadrat-Definitionen (Zeilen `4`-`6` und `16`-`18`) je mit einem Aufruf dieser neuen Funktion.
+
+:::warning[Shadowing]
+Achten Sie darauf, dass der Parameter der Funktion `quadrat` nicht gleich heisst, wie die Variable auf Zeile `3`. Verwenden Sie für die Variable z.B. `seite` und für den Parameter `seitenlaenge`. Andernfalls kann dies zu einem Effekt namens _Shadowing_ führen, welcher in der Regel nicht erwünscht ist.
+:::
+
+```py live_py id=5d678ab5-1be4-4dd7-af16-10774d6b961e
+from turtle import *
+
+seite = 50
+
+# Erstes Quadrat
+for i in range(4):
+    forward(seite)
+    left(90)
+    
+# Verschieben
+penup()
+forward(70)
+pendown()
+
+# Zweites Quadrat, doppelt so gross
+for i in range(4):
+    forward(seite * 2)
+    left(90)
+```
+
+<Solution id="120ec9ce-fb75-4df6-b506-395e05ae47e6" title="Code">
+```py live_py readonly slim
+from turtle import *
+
+def quadrat(seitenlaenge):
+    for i in range(4):
+        forward(seitenlaenge)
+        left(90)
+
+seite = 50
+
+# Erstes Quadrat
+quadrat(seite)
+
+# Verschieben
+penup()
+forward(70)
+pendown()
+
+# Erstes Quadrat
+quadrat(seite * 2)
+```
+</Solution>
+<Solution id="fc2547e7-dccd-4314-a808-6ae3bd22b1d3" title="Zu beachten">
+- Der Parameter der Funktion (z.B. `seitenlaenge`) sollte nicht gleich heissen wie die Variable (z.B. `seite`).
+- Die Funktion muss definiert werden, bevor wir sie zum ersten Mal aufrufen.
+- Beim Funktionsaufruf müssen wir darauf achten, dass wir die «doppelt so gross»-Regel weiterhin respektieren: einmal `quadrat(seite)` und einmal `quadrat(seite * 2)`.
+  - Theoretisch könnten wir die neue Funktion auch mit `quadrat(50)` und `quadrat(100)` aufrufen, aber dann hätten wir wieder das Problem, dass wir zwei Zeilen anpassen müssen, wenn sich die Grösse des ersten Quadrats ändern soll.
+</Solution>
+::::
