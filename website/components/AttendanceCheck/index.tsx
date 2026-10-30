@@ -306,7 +306,7 @@ const AttendanceCheck = observer(({ termine, terminePraktikum }: Props) => {
             )}
             {(scheduleInfo.type === ScheduleType.Praktikum || scheduleInfo.type === ScheduleType.Both) && (
                 <AttendanceList
-                    title="Anwesenheitskontrolle Praktikum"
+                    title={`Anwesenheitskontrolle Praktikum (${scheduleInfo.praktikumGroup})`}
                     onlineStudents={onlinePraktikumStudents}
                     offlineStudents={offlinePraktikumStudents}
                     klass={klass}
