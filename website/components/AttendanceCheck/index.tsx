@@ -1,12 +1,11 @@
 import Icon from '@mdi/react';
 import styles from './styles.module.scss';
 import {
-    mdiAccountCheck,
+    mdiAirplaneCheck,
+    mdiAirplaneClock,
     mdiCalendarRemove,
-    mdiCheckAll,
     mdiFileDownloadOutline,
     mdiTimerPlayOutline,
-    mdiTimerStop,
     mdiTimerStopOutline,
     mdiTrashCanOutline
 } from '@mdi/js';
@@ -124,7 +123,7 @@ const downloadReport = (students: User[], klass: string, attendanceCheckStore: A
 };
 
 const StudentBadge = observer(
-    ({ user, seen, comeOnlineTime }: { user: User; seen: boolean; comeOnlineTime: number | undefined }) => {
+    ({ user, comeOnlineTime }: { user: User; comeOnlineTime: number | undefined }) => {
         return (
             <div
                 className={clsx(styles.studentBadge, {
@@ -134,15 +133,6 @@ const StudentBadge = observer(
                 key={user.id}
             >
                 <LiveStatusIndicator userId={user.id} size={0.3} className={styles.liveIndicator} />
-
-                {seen && (
-                    <Icon
-                        path={mdiAccountCheck}
-                        size={0.4}
-                        className={styles.seenIndicator}
-                        color={IfmColors.primary}
-                    />
-                )}
 
                 <span>
                     {user.firstName} {user.lastName}
@@ -161,7 +151,7 @@ const AttendanceList = observer(
         title,
         onlineStudents,
         offlineStudents,
-        klass: klass
+        klass
     }: {
         title: string;
         onlineStudents: User[];
@@ -169,27 +159,44 @@ const AttendanceList = observer(
         klass: string;
     }) => {
         const attendanceCheckStore = useStore('siteStore').attendanceCheckStore;
+        const students = [...onlineStudents, ...offlineStudents].sort((a, b) =>
+            a.firstName.localeCompare(b.firstName)
+        );
+        const presentStudents = students.filter((user) => attendanceCheckStore.wasSeen(user.id));
+        const absentStudents = students.filter((user) => !attendanceCheckStore.wasSeen(user.id));
 
         return (
             <div>
                 <h2 className={styles.title}>{title}</h2>
-                <div className={styles.studentList}>
-                    {(onlineStudents || []).map((user) => (
-                        <StudentBadge
-                            key={user.id}
-                            user={user}
-                            seen={attendanceCheckStore.wasSeen(user.id)}
-                            comeOnlineTime={attendanceCheckStore.getComeOnlineTime(user.id)}
-                        />
-                    ))}
-                    {(offlineStudents || []).map((user) => (
-                        <StudentBadge
-                            key={user.id}
-                            user={user}
-                            seen={attendanceCheckStore.wasSeen(user.id)}
-                            comeOnlineTime={attendanceCheckStore.getComeOnlineTime(user.id)}
-                        />
-                    ))}
+                <div className={styles.attendanceSection}>
+                    <div className={styles.sectionHeading}>
+                        <Icon path={mdiAirplaneCheck} size={0.8} />
+                        <strong>Eingecheckt</strong>
+                    </div>
+                    <div className={styles.studentList}>
+                        {presentStudents.map((user) => (
+                            <StudentBadge
+                                key={user.id}
+                                user={user}
+                                comeOnlineTime={attendanceCheckStore.getComeOnlineTime(user.id)}
+                            />
+                        ))}
+                    </div>
+                </div>
+                <div className={clsx(styles.attendanceSection, styles.absentSection)}>
+                    <div className={styles.sectionHeading}>
+                        <Icon path={mdiAirplaneClock} size={0.8} />
+                        <strong>Nicht eingecheckt</strong>
+                    </div>
+                    <div className={styles.studentList}>
+                        {absentStudents.map((user) => (
+                            <StudentBadge
+                                key={user.id}
+                                user={user}
+                                comeOnlineTime={attendanceCheckStore.getComeOnlineTime(user.id)}
+                            />
+                        ))}
+                    </div>
                 </div>
                 <div className={styles.tools}>
                     <Button
@@ -306,7 +313,7 @@ const AttendanceCheck = observer(({ termine, terminePraktikum }: Props) => {
             )}
             {(scheduleInfo.type === ScheduleType.Praktikum || scheduleInfo.type === ScheduleType.Both) && (
                 <AttendanceList
-                    title={`Anwesenheitskontrolle Praktikum (${scheduleInfo.praktikumGroup})`}
+                    title={`Anwesenheitskontrolle Praktikum (Gruppe ${scheduleInfo.praktikumGroup})`}
                     onlineStudents={onlinePraktikumStudents}
                     offlineStudents={offlinePraktikumStudents}
                     klass={klass}
