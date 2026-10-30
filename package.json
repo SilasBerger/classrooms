@@ -20,7 +20,7 @@
         "typecheck": "tsc",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
-        "test": "vitest --coverage",
+        "test": "vitest --coverage --configLoader runner",
         "updateTdev": "tsx updateSync/updateTdev.ts",
         "sync": "yarn workspace @tdev/material-sync sync",
         "remove": "yarn workspace @tdev/material-sync run remove",
