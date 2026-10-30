@@ -39,8 +39,6 @@ trackedElements:
     dst: src/theme/AnnouncementBar/
   - src: AGENTS.md
     dst: AGENTS.md
-  - src: LICENSE
-    dst: LICENSE
   - src: ARCHITECTURE.md
     dst: ARCHITECTURE.md
   - src: CHANGELOG.md
