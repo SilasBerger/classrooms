@@ -1,0 +1,81 @@
+---
+page_id: f80075f9-8b93-40ba-8945-5b3aeb549740
+---
+import DefinitionList from "@tdev-components/DefinitionList";
+
+#  Aufgabenstellung
+🎯 Ziel
+  : Sie verstehen die Problematik hinter dem Fallbeispiel von Anja.
+  : Sie entwickeln ein Lösungskonzept für dieses Problemschema.
+🛠️ Material
+  : Laptop
+  : bei Bedarf: Flipchart oder A3-Papier + Stifte (siehe [Vorbereitung](#vorbereitung))
+
+Die Problematik im Fallbeispiel von Anja lässt sich wie folgt beschreiben: Die Nachricht an sich ist nicht geheim; sie muss also nicht verschlüsselt werden. Die Empfänger möchten aber die **Authentizität** der Absenderin überprüfen können (_"Kommt die Nachricht wirklich von Anja?"_), weil Drittpersonen (Elvira) einen Anreiz haben, solche Nach-richten im Namen einer vertrauenswürdigen Person (Anja) zu fälschen.
+
+In den untenstehenden Aufgaben befassen Sie sich näher mit dieser Problematik und erarbeiten einen Lösungsvorschlag für Anja. Sollten Sie dabei mal nicht weiterkommen, dürfen Sie die **Tipp-Boxen** der Reihe nach als **Hilfe** heranziehen. Versuchen Sie aber auf jeden Fall, die Aufgabe **zuerst selbstständig und ohne diese Tipps** zu lösen!
+
+## Vorbereitung
+Entscheiden Sie sich jetzt zuerst in der Gruppe für die Art des Dokuments, mit dem Sie Ihre Ergebnisse schriftlich festhalten wollen. Dazu hier ein paar Ideen:
+- Arbeiten Sie mit einem Word-Dokument, das sie an geeigneter Stelle abspeichern (zum Beispiel auf dem OneDrive der Schule).
+- Erstellen Sie ein Flipchart-Plakat.
+- Erstellen Sie ein Plakat auf einem A3- oder A4-Blatt.
+
+## Aufgabe 1: Eigenes Fallbeispiel
+Vergewissern Sie sich, dass Sie die [Beschreibung des Fallbeispiels](./) sorgfältig gelesen haben.
+
+Suchen Sie nun in der Gruppe nach einer **anderen Situation**, in der die **gleiche Problematik** auftreten könnte. Entwickeln Sie also ein eigenes Fallbeispiel, bei dem Sie das gleiche Problemschema beobachten können, wie bei Anja. Beschreiben Sie ihr Fallbeispiel in **2-3 Sätzen**. Halten Sie die Beschreibung in Ihrem [Dokument](#vorbereitung) unter der Überschrift _Eigenes Fallbeispiel_ fest.
+
+<details>
+  <summary>Tipp</summary>
+  <div>
+    ### Ein paar Ideen
+    - Party-Einladung(Adresse, Zeit, Kostüm?)
+    - Nachrichten von der Schule(z.B., dass eine Lektion ausfällt)
+    - Einverständniserklärung der Eltern
+    - Einladung auf den Minecraft-Server eines Freundes (Server-IP)
+  </div>
+</details>
+
+## Aufgabe 2: Lösungskonzept
+Entwickeln Sie nun ein **Lösungskonzept** für Anja. Wenn sie in Zukunft wieder einmal eine ähnliche Sammel-SMS verschickt, dann will sie einen solchen Identitätsbetrug auf jeden Fall verhindern. Mit Ihrem Konzept sollen die Empfängerinnen und Empfänger einer solchen SMS also **überprüfen** können, ob die **Nachricht tatsächlich von Anja** stammt. Treffen Sie dabei folgende Annahmen:
+
+:::info Annahmen
+1. Anja wird die Nachricht weiterhin als SMS versenden wollen. Durch Ihren Lösungsvorschlag sollte sich also nur am SMS-Text etwas ändern.
+2. Die Empfängerinnen und Empfänger der SMS-Nachricht müssen sie ihrerseits ebenfalls etwas tun, um die Authentizität des Absenders (sprich, Anja) zu überprüfen.
+3. In der Praxis würde man vermutlich ein Computerprogramm erstellen, um die Arbeitsschritte von Anja und den Empfängern zu automatisieren.
+4. Kryptographische Verfahren spielen eine zentrale Rolle bei der Erarbeitung dieses Lösungskonzepts.
+:::
+
+Halten Sie Ihr Lösungskonzept anschliessend in Ihrem [Dokument](#vorbereitung) unter der Überschrift _Lösungskonzept_ fest. Beschreiben Sie darin in wenigen Sätzen jeweils folgende Punkte:
+1. Was muss Anja tun?
+2. Was müssen die Empfängerinnen tun?
+3. Wie genau sorgt Ihr Lösungskonzept dafür, dass die Empfänger überprüfen können, ob eine Nachricht wirklich von Anja kommt?
+
+<details>
+  <summary>Tipps</summary>
+
+  <details>
+    <summary>Tipp 1</summary>
+    <span>Konzentrieren Sie sich auf asymmetrische Verschlüsselung.</span>
+  </details>
+
+  <details>
+    <summary>Tipp 2</summary>
+    <span>
+    Gehen Sie davon aus, dass die Empfänger Anjas Public Key kennen, respektive, diesen bei einer vertrauenswürdigen Quelle (z.B. dem Schul-Intranet) nachschauen können.
+  </span>
+  </details>
+
+  <details>
+    <summary>Tipp 3</summary>
+    <span>Wenden Sie das Konzept der asymmetrischen Verschlüsselung verkehrt herum an.</span>
+  </details>
+
+  <details>
+    <summary>Tipp 4</summary>
+    <span>
+    Was mit einem Public Key verschlüsselt wurde, kann nur mit dem dazugehörigen Private Key wieder entschlüsselt werden. Aber eben auch umgekehrt: Wenn etwas mit einem Private Key verschlüsselt wurde, kann es nur mit dem dazugehörigen Public Key wieder entschlüsselt werden.
+  </span>
+  </details>
+</details>
