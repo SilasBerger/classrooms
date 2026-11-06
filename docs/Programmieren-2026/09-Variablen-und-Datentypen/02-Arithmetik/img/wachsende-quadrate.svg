@@ -1,0 +1,40 @@
+<!--?xml version="1.0" standalone="no"?-->
+<svg id="code_Python_5cc08840_2939_43c4_adb7_63abdfe84695_svg" width="219" height="95" xmlns="http://www.w3.org/2000/svg" viewBox="236,165,219,95">
+<g transform="translate(250 250)">
+<line x1="0" y1="0" x2="0" y2="0" style="stroke: black; stroke-width: 1;"></line>
+<line x1="0" y1="0" x2="0" y2="0" style="stroke: black; stroke-width: 1;"></line>
+<line x1="0" y1="0" x2="20" y2="0" style="stroke: black; stroke-width: 1;"></line>
+<line x1="20" y1="0" x2="20" y2="-20" style="stroke: black; stroke-width: 1;"></line>
+<line x1="20" y1="-20" x2="0" y2="-20.000000000000004" style="stroke: black; stroke-width: 1;"></line>
+<line x1="0" y1="-20.000000000000004" x2="-3.673940397442059e-15" y2="-3.552713678800501e-15" style="stroke: black; stroke-width: 1;"></line>
+<line x1="-3.673940397442059e-15" y1="-3.552713678800501e-15" x2="19.999999999999996" y2="1.345873517788912e-15" style="stroke: black; stroke-width: 1;"></line>
+<line x1="19.999999999999996" y1="1.345873517788912e-15" x2="60" y2="1.1143047910967739e-14" style="stroke: black; stroke-width: 1;"></line>
+<line x1="60" y1="1.1143047910967739e-14" x2="60.000000000000014" y2="-39.999999999999986" style="stroke: black; stroke-width: 1;"></line>
+<line x1="60.000000000000014" y1="-39.999999999999986" x2="20.000000000000014" y2="-40" style="stroke: black; stroke-width: 1;"></line>
+<line x1="20.000000000000014" y1="-40" x2="19.999999999999996" y2="0" style="stroke: black; stroke-width: 1;"></line>
+<line x1="19.999999999999996" y1="0" x2="60" y2="1.9594348786357652e-14" style="stroke: black; stroke-width: 1;"></line>
+<line x1="60" y1="1.9594348786357652e-14" x2="120" y2="4.8985871965894135e-14" style="stroke: black; stroke-width: 1;"></line>
+<line x1="120" y1="4.8985871965894135e-14" x2="120.00000000000003" y2="-59.99999999999995" style="stroke: black; stroke-width: 1;"></line>
+<line x1="120.00000000000003" y1="-59.99999999999995" x2="60.00000000000003" y2="-59.999999999999986" style="stroke: black; stroke-width: 1;"></line>
+<line x1="60.00000000000003" y1="-59.999999999999986" x2="60.00000000000009" y2="1.4210854715202004e-14" style="stroke: black; stroke-width: 1;"></line>
+<line x1="60.00000000000009" y1="1.4210854715202004e-14" x2="120.00000000000009" y2="5.829813948450671e-14" style="stroke: black; stroke-width: 1;"></line>
+<line x1="120.00000000000009" y1="5.829813948450671e-14" x2="200.00000000000009" y2="1.1708118584357965e-13" style="stroke: black; stroke-width: 1;"></line>
+<line x1="200.00000000000009" y1="1.1708118584357965e-13" x2="200" y2="-79.99999999999989" style="stroke: black; stroke-width: 1;"></line>
+<line x1="200" y1="-79.99999999999989" x2="120" y2="-79.99999999999996" style="stroke: black; stroke-width: 1;"></line>
+<line x1="120" y1="-79.99999999999996" x2="120.00000000000007" y2="4.263256414560601e-14" style="stroke: black; stroke-width: 1;"></line>
+<line x1="120.00000000000007" y1="4.263256414560601e-14" x2="200.00000000000006" y2="1.210099592910366e-13" style="stroke: black; stroke-width: 1;"></line>
+</g>
+<g transform="translate(250 250)">
+<polygon points="0,0 ,-5,-9 ,0,-7 ,5,-9 " stroke="black" fill="black" stroke-width="1" opacity="0" transform="translate(0.0,-0.0) rotate(-90.0,0,0)"></polygon>
+</g>
+<metadata><raw>from turtle import *
+
+seite = 20
+
+hideturtle()
+for i in range(4):
+    for j in range(4):
+        forward(seite * (i + 1))
+        left(90)
+    forward(seite * (i + 1))
+</raw></metadata></svg>

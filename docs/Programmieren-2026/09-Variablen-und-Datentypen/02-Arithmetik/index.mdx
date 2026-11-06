@@ -1,6 +1,5 @@
 ---
 page_id: 44f891a2-6af5-4527-840e-218616eefbcf
-draft: true
 ---
 
 # Arithmetik
@@ -16,10 +15,20 @@ In Python können Sie arithmetische Ausdrücke verwenden. Die wichtigsten Operat
 | Modulo (Rest der Division) | `%` | `14 % 5` | `5` |
 | Potenzieren ($a^b$) | `**` | `14 ** 5` | `537824` |
 
+:::info[Punkt vor Strich]
+Aus der Mathematik wissen Sie:
+
+$$3 + 5 \cdot 2 = 13$$
+
+denn es gilt die Regel «Punkt vor Strich»: Zuerst wird die Multiplikation $5 \cdot 2 = 10$ berechnet und erst danach mit $3$ addiert.
+
+Herkömmliche Taschenrechner (und viele Programmiersprachen) setzen diese Regel normalerweise nicht selbst um. Wir müssen sie mit Klammern erzwingen. Python hält sich allerdings an diese Regel. **Der Lesbarkeit halber kann es aber dennoch sinnvoll sein, explizit Klammern zu verwenden.**
+:::
+
 ## Theorieaufgaben
 :::aufgabe[Warum nicht vorher ausrechnen?]
 <TaskState id="e6ee2065-0abf-45c2-af8c-e8a907e2db9c" />
-Warum sollten Sie in Ihrem Code arithmetische Ausdrücke verwenden, statt `14 + 5` einfach vorher auszurechnen und in Ihrem Code anschliessend direkt das Ergebnis `19` zu verwenden? Halten Sie Ihre Überlegungen im Textfeld fest.
+Warum kann es nützlich sein, im Code arithmetische Ausdrücke zu verwenden, statt `14 + 5` einfach «von Hand» auszurechnen und im Code direkt das Ergebnis `19` zu verwenden? Halten Sie Ihre Überlegungen im Textfeld fest.
 
 <QuillV2 id="63e00f6f-d9fe-4dfa-a1c7-3d567abc0163" />
 
@@ -62,8 +71,21 @@ for i in range(5):
 </Solution>
 :::
 
-TODO: Rechenaufgaben
+:::aufgabe[Rechnen]
+<TaskState id="3ea3f282-eaac-4ea0-803c-07af7ae2d0b2" />
+Berechnen Sie diese Aufgaben von Hand. Geben Sie das Ergebnis als Zahl ins Textfeld ein und prüfen Sie Ihre Antwort.
 
+| Aufgabe | Resultat |
+| ------- | -------- |
+| `4 + 3 * 9` | <String solution="31" id="f700084a-a3fd-44ea-b0ae-a1381fcbc940" /> |
+| `(4 + 3) * 9` | <String solution="63" id="3444fa88-ab46-437b-9bd6-5eda0d9ef612" /> |
+| `21 / 7` | <String solution="3" id="c337262b-30d1-4259-bbff-362a66016019" /> |
+| `5 / 2` | <String solution="2.5" id="c46cc074-087b-4f49-980d-cb128cb0b28a" /> |
+| `5 // 2` | <String solution="2" id="e4c5975a-dffb-40d3-920f-f2049d40574c" /> |
+| `5 % 2` | <String solution="1" id="2a9a7683-bacf-4814-bf4f-c13f858290d9" /> |
+| `2 ** 5` | <String solution="32" id="6bde7c18-5820-4b06-b5d2-c29003c268ff" /> |
+| `(3 * ((((5 ** 2) - 1) / 6) - 1)) ** ((14 - 6) / 4)` | <String solution="81" id="fca67493-f49d-4205-af6b-fe9c7c94372a" /> |
+:::
 
 ## Programmieraufgaben
 ::::aufgabe[Anpassbarer Kreis]
@@ -100,4 +122,50 @@ umfang = 290
 </Solution>
 ::::
 
-TODO: 1-2 weitere Aufgaben.
+::::aufgabe[Wachsende Quadrate]
+<TaskState id="ca426965-9fcb-4537-adc8-4fa34f4521c0" />
+
+Schreiben Sie ein Programm, dass diese vier wachsenden Quadrate zeichnet:
+
+![--width=300px](img/wachsende-quadrate.svg)
+
+Die Seitenlänge des zweiten Quadrats ist doppelt so lang wie die des ersten Quadrats, die des dritten Quadrats dreimal so lang und die des vierten Quadrats viermal so lang. 
+
+Unten ist ein angefangenes Programm mit einer verschachtelten `for`-Schleifen, das Sie vervollständigen können. Die Schleifenstruktur (verschachtelte `for`-Schleife) dürfe Sie nicht verändern – Sie dürfen aber natürlich den Inhalt der Schleifen anpassen.
+
+Wenn Sie den Wert der Variablen `seite` z.B. auf `10` setzen, dann sollten sich die Seitenlängen der Quadrate verändern, die **Verhältnisse der Seitenlängen** zueinander aber **gleich bleiben**.
+
+```py live_py id=c00a81d3-0453-4f5d-a315-1cd256900fc9
+from turtle import *
+
+seite = 20
+
+hideturtle()
+for i in range(4):
+    for j in range(4):
+        # Ihr Code ab hier...
+```
+
+:::tip[Tipp 1]
+Für diese Aufgabe benötigen Sie einen der beiden Schleifenzähler (`i`, `j`).
+:::
+
+:::tip[Tipp 2]
+Es ist auch möglich, dass Sie etwas **ausserhalb** der **inneren Schleife** machen müssen.
+:::
+
+<Solution id="514eaa86-926e-491b-90d0-0d1452f9fd9c">
+```py live_py readonly slim
+from turtle import *
+
+seite = 20
+
+hideturtle()
+for i in range(4):
+    for j in range(4):
+        forward(seite * (i + 1))
+        left(90)
+    forward(seite * (i + 1))
+```
+</Solution>
+::::
