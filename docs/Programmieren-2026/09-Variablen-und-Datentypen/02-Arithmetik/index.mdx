@@ -10,9 +10,9 @@ In Python können Sie arithmetische Ausdrücke verwenden. Die wichtigsten Operat
 | Addition | `+` | `14 + 5` | `19` |
 | Subtraktion | `-` | `14 - 5` | `9` |
 | Multiplikation | `*` | `14 * 5` | `70` |
-| Division | `+` | `14 / 5` | `2.8` |
-| Division mit Rest | `//` | `14 // 5` | `2` |
-| Modulo (Rest der Division) | `%` | `14 % 5` | `5` |
+| Division | `/` | `14 / 5` | `2.8` |
+| Ganzzahldivision (Division mit Rest) | `//` | `14 // 5` | `2` |
+| Modulo (Rest der Division) | `%` | `14 % 5` | `4` |
 | Potenzieren ($a^b$) | `**` | `14 ** 5` | `537824` |
 
 :::info[Punkt vor Strich]
@@ -57,7 +57,7 @@ for i in range(4):
     left(90)
 ```
 
-In diesem Fall ist der Parameter des `forward()`-Befehls auf Zeile `15` abhängig von einer Variable. Wir können seinen Wert also nicht direkt ausrechnen, ohne dass wir den Nutzen der Variable verlieren.
+In diesem Fall ist der Parameter des `forward()`-Befehls auf Zeile `17` abhängig von einer Variable. Wir können seinen Wert also nicht direkt ausrechnen, ohne dass wir den Nutzen der Variable verlieren.
 
 Abgesehen davon kann das Verwenden arithmetischer Ausdrücke auch dann sinnvoll sein, wenn unser Code dadurch besser verständlich wird. Beispielsweise kann man in diesem Programm leicht nachvollziehen, wie der Drehwinkel berechnet wird, was nicht so klar wäre, wenn wir stattdessen einfach `left(72)` verwenden würden:
 
@@ -125,13 +125,13 @@ umfang = 290
 ::::aufgabe[Wachsende Quadrate]
 <TaskState id="ca426965-9fcb-4537-adc8-4fa34f4521c0" />
 
-Schreiben Sie ein Programm, dass diese vier wachsenden Quadrate zeichnet:
+Schreiben Sie ein Programm, das diese vier wachsenden Quadrate zeichnet:
 
 ![--width=300px](img/wachsende-quadrate.svg)
 
 Die Seitenlänge des zweiten Quadrats ist doppelt so lang wie die des ersten Quadrats, die des dritten Quadrats dreimal so lang und die des vierten Quadrats viermal so lang. 
 
-Unten ist ein angefangenes Programm mit einer verschachtelten `for`-Schleifen, das Sie vervollständigen können. Die Schleifenstruktur (verschachtelte `for`-Schleife) dürfe Sie nicht verändern – Sie dürfen aber natürlich den Inhalt der Schleifen anpassen.
+Unten ist ein angefangenes Programm mit einer verschachtelten `for`-Schleife, das Sie vervollständigen können. Die Schleifenstruktur (verschachtelte `for`-Schleife) dürfen Sie nicht verändern – Sie dürfen aber natürlich den Inhalt der Schleifen anpassen.
 
 Wenn Sie den Wert der Variablen `seite` z.B. auf `10` setzen, dann sollten sich die Seitenlängen der Quadrate verändern, die **Verhältnisse der Seitenlängen** zueinander aber **gleich bleiben**.
 
