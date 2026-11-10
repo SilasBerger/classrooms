@@ -12,8 +12,6 @@ pages: []
       - 99-Interviews-Repetition.mdx
   - material: Programmieren-2025
     as: 04-Programmieren
-    ignore:
-      - 04-Advent-of-Code
   - material: IN-Biber/2025
     as: 05-IN-Biber-2025
   - material: SOL-Text-Adventure-29Ge
