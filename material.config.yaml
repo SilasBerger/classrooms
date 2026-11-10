@@ -25,6 +25,8 @@ pages: []
   - material: Kryptologie-2026
     as: 09-Kryptologie
 draft:
+  - material: Programmieren-2-2026
+    as: 01-Programmieren-2
   - material: confidential/Probe-Data-Management-GYM28
     as: 99-Probe-Data-Management
   - material: confidential/Probe-Data-Management-GYM28-NP1

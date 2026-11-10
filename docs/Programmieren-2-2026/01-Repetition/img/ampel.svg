@@ -1,0 +1,32 @@
+<!--?xml version="1.0" standalone="no"?-->
+<svg id="code_python_dummy__r_rc__svg" width="70" height="210" xmlns="http://www.w3.org/2000/svg" viewBox="215,215,70,210">
+<g transform="translate(250 250)">
+<line x1="0" y1="0" x2="0" y2="0" style="stroke: black; stroke-width: 1;"></line>
+<circle cx="0" cy="0" r="30" fill="red" style=""></circle>
+<line x1="0" y1="0" x2="4.2862637970157365e-15" y2="0" opacity="0" style="stroke: red; stroke-width: 1;"></line>
+<circle cx="4.2862637970157365e-15" cy="70" r="30" fill="orange" style=""></circle>
+<line x1="4.2862637970157365e-15" y1="70" x2="8.572527594031473e-15" y2="70" opacity="0" style="stroke: orange; stroke-width: 1;"></line>
+<circle cx="8.572527594031473e-15" cy="140" r="30" fill="green" style=""></circle>
+<line x1="8.572527594031473e-15" y1="140" x2="8.572527594031473e-15" y2="140" opacity="0" style="stroke: green; stroke-width: 1;"></line>
+</g>
+<g transform="translate(250 250)">
+<polygon points="0,0 ,-5,-9 ,0,-7 ,5,-9 " stroke="green" fill="black" stroke-width="1" opacity="0" transform="translate(8.572527594031473e-15,140.0) rotate(0.0,0,0)"></polygon>
+</g>
+<metadata><raw>from turtle import *
+
+penup()
+right(90)
+
+pencolor('red')
+dot(60)
+forward(70)
+
+pencolor('orange')
+dot(60)
+forward(70)
+
+pencolor('green')
+dot(60)
+
+hideturtle()
+done()</raw></metadata></svg>
