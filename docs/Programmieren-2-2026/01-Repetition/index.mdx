@@ -23,6 +23,10 @@ Jedes Turtle-Programm beginnt mit `from turtle import *`. Die wichtigsten Befehl
 | `shape('turtle')`, `hideturtle()` | Turtle als Schildkröte anzeigen bzw. verstecken |
 :::
 
+:::tip[Turtle schneller machen]
+Wenn Sie am Anfang Ihres Programms (aber nach dem Turtle-Import) den Befehl `speed(100)` einfügen, zeichnet die Turtle praktisch ohne Verzögerung.
+:::
+
 ::::aufgabe[Rechteck]
 <TaskState id="e0fb6f57-ab83-4999-b542-c35951d5a5c8" />
 Wir starten ganz einfach: Zeichnen Sie mit der Turtle ein **blaues** Rechteck, das `200` Pixel breit und `100` Pixel hoch ist.
@@ -114,10 +118,8 @@ for i in range(4):
 Das `i` ist der **Schleifenzähler**: Beim ersten Durchlauf hat er den Wert `0`, beim zweiten den Wert `1`, …, beim letzten (hier: vierten) Durchlauf den Wert `3`.
 :::
 
-Führen Sie die folgenden Programme **von Hand** (z.B. auf einem Blatt Papier) aus und wählen Sie die korrekte Ausgabe.
-
-<ChoiceAnswer correct={[3]} id="65da3173-4eaa-43cc-aff4-ce6cbe4da726">
-    **Programm A:** Was gibt dieses Programm aus?
+<ChoiceAnswer correct={[3]} title="Schleife #1" id="65da3173-4eaa-43cc-aff4-ce6cbe4da726">
+    Führen Sie das folgende Programm **von Hand** (z.B. auf einem Blatt Papier) aus und wählen Sie die korrekte Ausgabe. Was gibt dieses Programm aus?
 
     ```py showLineNumbers
     for i in range(3):
@@ -158,8 +160,8 @@ Führen Sie die folgenden Programme **von Hand** (z.B. auf einem Blatt Papier) a
     </Hint>
 </ChoiceAnswer>
 
-<ChoiceAnswer correct={[2]} id="ff5a7960-fbc9-4c31-ad1d-64de617526e4">
-    **Programm B:** Was gibt dieses Programm aus?
+<ChoiceAnswer title="Schleife #2" correct={[2]} id="ff5a7960-fbc9-4c31-ad1d-64de617526e4">
+    Führen Sie das folgende Programm **von Hand** (z.B. auf einem Blatt Papier) aus und wählen Sie die korrekte Ausgabe. Was gibt dieses Programm aus?
 
     ```py showLineNumbers
     summe = 0
@@ -196,6 +198,9 @@ Führen Sie die folgenden Programme **von Hand** (z.B. auf einem Blatt Papier) a
     </Hint>
 </ChoiceAnswer>
 
+:::insight[Arithmetik]
+In den folgenden Aufgaben brauchen Sie oft arithmetische Grundoperationen. Sie können jetzt auch gleich das Unterkapitel [Arithmetik](01-Arithmetik/index.mdx) durcharbeiten, um die Rechenoperationen in Python zu wiederholen und zu vertiefen.
+:::
 
 ::::aufgabe[Treppe]
 <TaskState id="7dde6cca-bc9a-4913-8820-36af31e95c02" />
@@ -276,8 +281,16 @@ n = 4
 # Ihr Code ab hier...
 ```
 
+:::tip[Ausgeben]
+Zur Wiederholung: Erstellen Sie **vor** der Schleife eine Variable `summe` mit dem Wert `0`. In jedem Schleifendurchlauf zählen Sie dann die aktuelle Zahl dazu. Ein ähnliches Programm haben Sie in der Aufgabe «Schleifenzähler von Hand» (Programm B) bereits von Hand ausgeführt.
+:::
+
 :::tip[Summe mitführen]
-Erstellen Sie **vor** der Schleife eine Variable `summe` mit dem Wert `0`. In jedem Schleifendurchlauf zählen Sie dann die aktuelle Zahl dazu. Ein ähnliches Programm haben Sie in der Aufgabe «Schleifenzähler von Hand» (Programm B) bereits von Hand ausgeführt.
+Zur Wiederholung: Um etwas in der Konsole auszugeben, verwenden Sie `print()`. Wenn Sie z.B. `print(summe)` schreiben, wird der aktuelle Wert der Variable `summe` ausgegeben. Mehr dazu weiter unten.
+:::
+
+:::tip[Kein Turtle-Programm]
+Die Turtle brauchen Sie hier nicht. Dementsprechend brauchen Sie auch kein `from turtle import *` am Anfang.
 :::
 
 Wenn Ihr Programm funktioniert: Welche Summe erhalten Sie für `n = 100`?
@@ -295,7 +308,7 @@ Wenn Ihr Programm funktioniert: Welche Summe erhalten Sie für `n = 100`?
   print(summe)
   ```
 
-  Weil `i` bei `0` beginnt und bei `n - 1` aufhört, addieren wir jeweils `i + 1`.
+  Weil `i` bei `0` beginnt und bei `n - 1` aufhört (für `n=4` ist `i` gleich `0`, `1`, `2` und `3`), addieren wir jeweils `i + 1`.
 
 </Solution>
 ::::
@@ -339,7 +352,7 @@ Schreiben Sie ein Turtle-Programm, das `30` Konfetti-Punkte an zufälligen Posit
 
 ## `while`-Schleife
 :::insight[Zur Erinnerung: `while`-Schleife]
-Eine **`while`-Schleife** wiederholt die eingerückten Anweisungen, **solange** die Bedingung zutrifft. Sie ist dann nützlich, wenn wir **im Voraus nicht wissen**, wie oft etwas wiederholt werden muss.
+Eine **`while`-Schleife** wiederholt die eingerückten Anweisungen, **solange** die Bedingung zutrifft.
 
 ```py
 x = 1
@@ -349,6 +362,8 @@ print(x)
 ```
 
 Die Bedingung wird jeweils **zu Beginn** jedes Durchlaufs geprüft. Trifft sie nicht (mehr) zu, geht es nach der Schleife weiter.
+
+**Hinweis:** Im obigen Beispiel wird die `while`-Schleife im Prinzip genau wie eine (etwas kompliziertere) `for`-Schleife verwendet. Die `while`-Schleife ist aber vor allem dann  nützlich, wenn wir **im Voraus nicht wissen**, wie oft etwas wiederholt werden muss.
 :::
 
 :::aufgabe[`while`-Schleife von Hand]
@@ -468,7 +483,7 @@ done()
 | `input(s)` | Verlangt eine Eingabe von der Benutzerin und zeigt dabei die Eingabeaufforderung `s` an. Das Ergebnis ist **immer** ein `str`. |
 | `int(s)`, `float(s)`, `str(x)` | Wandelt einen Wert in den entsprechenden Datentyp um, z.B. `int(input('Zahl: '))`. |
 | `print(s)` | Gibt `s` aus. |
-| `f'...'` | **f-String**: Werte in geschweiften Klammern werden eingesetzt, z.B. `print(f'Hallo, {name}!')`. |
+| `f'...'` | **f-String**: Werte in geschweiften Klammern werden eingesetzt, z.B. `print(f'Hallo, {name}!')`. |
 :::
 
 :::aufgabe[Datentypen bestimmen]
@@ -534,9 +549,11 @@ Schreiben Sie ein Programm, das die Benutzerin nach einer Zahl fragt und dann di
 </Solution>
 ::::
 
-::::aufgabe[Balkendiagramm]
+::::aufgabe[⭐️ Balkendiagramm]
 <TaskState id="07bd5020-e609-4482-a18a-9df360cd55b3" />
-Ein Verein verkauft an drei Tagen Kuchen. Schreiben Sie ein Turtle-Programm, das nacheinander die **Anzahl verkaufter Kuchen** für jeden der drei Tage als Eingabe verlangt. Anschliessend soll es ein Balkendiagramm mit drei ausgefüllten Balken zeichnen:
+Ein Verein verkauft an drei Tagen Kuchen. Das angefangene Turtle-Programm fragt nacheinander die **Anzahl verkaufter Kuchen** für jeden der drei Tage als Eingabe ab. 
+
+Erweitern Sie das Programm so, dass es anschliessend ein Balkendiagramm mit drei ausgefüllten Balken zeichnet:
 - Jeder Balken ist `40` Pixel breit und zwischen den Balken hat es `20` Pixel Abstand.
 - Ein Kuchen entspricht `10` Pixel Höhe. Wurden also `12` Kuchen verkauft, dann ist der Balken `120` Pixel hoch.
 - Der erste Balken ist rot (`red`), der zweite grün (`green`), der dritte blau (`blue`).
@@ -650,27 +667,15 @@ Bestimmen Sie von Hand den Wahrheitswert (`True` oder `False`) der folgenden boo
 
 | Ausdruck                                     | Wahrheitswert                                  |
 |----------------------------------------------|------------------------------------------------|
+| `True and False`                             | <String id="adde8c16-a739-4160-9f05-16884574e48b" solution="False" /> |
+| `True or False`                              | <String id="b662afa3-2682-43a5-aac4-15e0e86749c8" solution="True" />  |
+| `True and (False or True)`                   | <String id="175c3037-fb14-490b-847b-369215a35692" solution="True" />  |
+| `not False`                                  | <String id="8f9d5d3c-88bc-4f3f-aaf9-918450b23950" solution="True" />  |
 | `x < y`                                      | <String id="b3cc8dbe-735f-41c9-acf2-7f5a493189a3" solution="True" />  |
+| `not regen`                                  | <String id="1c17f7a9-75af-43ab-bda4-c8309e90172d" solution="False" /> |
 | `x > 5 and y > 20`                           | <String id="a8e7e18c-4964-4f86-96e7-838b9dd11d43" solution="False" /> |
 | `x > 5 or y > 20`                            | <String id="9c090bee-dbbc-4dd7-a324-b828b5af95c3" solution="True" />  |
-| `not x == 7`                                 | <String id="8b2f8da3-fc59-4ffa-939c-3c2c2960a400" solution="False" /> |
-| `x + 5 == y`                                 | <String id="e9836aef-b6cc-436b-9e05-b5c17e3e52dc" solution="True" />  |
 | `x != y and not regen`                       | <String id="e9a713fe-df20-4b95-8deb-8227dee1db71" solution="False" /> |
-| `True and (False or True)`                   | <String id="c664b2c2-87a5-410f-b2f0-bbedc42fd5c8" solution="True" />  |
-| `(x > 10 or y > 10) and (regen or x == 0)`   | <String id="17564f77-d8b5-4afa-9e39-dd737e58306f" solution="True" />  |
-
-<Solution id="6220b03e-271f-4735-8b16-8c6e099fa070">
-| Ausdruck                                   | Zwischenschritte                                         | Ergebnis |
-|--------------------------------------------|----------------------------------------------------------|----------|
-| `x < y`                                    | `7 < 12`                                                 | `True`   |
-| `x > 5 and y > 20`                         | `True and False`                                         | `False`  |
-| `x > 5 or y > 20`                          | `True or False`                                          | `True`   |
-| `not x == 7`                               | `not True`                                               | `False`  |
-| `x + 5 == y`                               | `12 == 12`                                               | `True`   |
-| `x != y and not regen`                     | `True and not True` → `True and False`                   | `False`  |
-| `True and (False or True)`                 | `True and True`                                          | `True`   |
-| `(x > 10 or y > 10) and (regen or x == 0)` | `(False or True) and (True or False)` → `True and True`  | `True`   |
-</Solution>
 :::
 
 Führen Sie das folgende Programm **von Hand** aus und wählen Sie die korrekte Ausgabe.
@@ -775,7 +780,7 @@ Ein Kino hat folgende Preise:
 | Alter          | Preis   |
 |----------------|---------|
 | unter 16       | 12 CHF  |
-| 16 bis 25      | 15 CHF  |
+| 16 bis und mit 25      | 15 CHF  |
 | ab 65          | 13 CHF  |
 | alle anderen   | 18 CHF  |
 
@@ -811,16 +816,17 @@ alter = int(input('Alter: '))
 </Solution>
 ::::
 
-::::aufgabe[Zahlenraten]
+## ⭐️ Zusatzaufgaben
+::::aufgabe[⭐️ Zahlenraten]
 <TaskState id="495243a3-c217-40a2-9ffc-122a43c56c34" />
 Zum Abschluss kombinieren wir fast alles, was Sie bisher repetiert haben. Programmieren Sie ein Zahlenraten-Spiel:
 1. Der Computer «denkt» sich eine zufällige Zahl zwischen 1 und 100 aus.
-2. Die Benutzerin gibt einen Tipp ein.
+2. Die Benutzerin gibt einen Tipp ein (versucht, die Zahl zu erraten).
 3. Das Programm gibt aus, ob der Tipp `Zu klein!` oder `Zu gross!` war.
-4. Das wiederholt sich so lange, bis die Zahl erraten wurde.
+4. Das wiederholt sich ab Schritt 2, so lange, bis die Zahl erraten wurde.
 5. Am Schluss gibt das Programm aus, wie viele Versuche gebraucht wurden, z.B. `Richtig! Sie haben 6 Versuche gebraucht.`
 
-```py live_py id=ef5d2932-5d71-43d6-92e5-52ad8ef870e0
+```py live_pyo id=d72daea8-fac9-4684-a11f-8640de3a965a
 ```
 
 :::tip[Welche Schleife?]
@@ -828,7 +834,7 @@ Sie wissen im Voraus nicht, wie viele Versuche die Benutzerin braucht. Eine `for
 :::
 
 <Solution id="56a77ac1-cf81-4574-b087-9af6f21c36f5">
-  ```py live_py readonly slim
+  ```py live_pyo readonly slim
   from random import *
 
   geheimzahl = randint(1, 100)
@@ -850,7 +856,6 @@ Sie wissen im Voraus nicht, wie viele Versuche die Benutzerin braucht. Eine `for
 </Solution>
 ::::
 
-## ⭐️ Zusatzaufgaben
 ::::aufgabe[⭐️ Schaltjahr]
 <TaskState id="97601356-3d89-4423-aca5-03073b5e0ef6" />
 :::warning[Arithmetik]
