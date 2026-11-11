@@ -22,6 +22,8 @@ pages: []
     as: 08-Textverarbeitung-und-Style
   - material: Kryptologie-2026
     as: 09-Kryptologie
+  - material: Programmieren-2-2026
+    as: 10-Programmieren-2
 draft:
   - material: Programmieren-2-2026
     as: 01-Programmieren-2
