@@ -3,9 +3,1123 @@ page_id: 876f6c70-31b9-4e6d-9193-c28cddcc865d
 draft: true
 ---
 
+import { points } from '@tdev-components/documents/Assessable/helpers/scoring';
+
 # Listen
+Bisher haben wir in einer Variable immer genau **einen** Wert gespeichert, z.B. `note = 5`. Was aber, wenn wir alle Noten einer Prüfung oder die Temperaturen eines ganzen Monats speichern wollen? Für jeden Wert eine eigene Variable (`note_1`, `note_2`, `note_3`, …) wäre sehr mühsam. Vielleicht erinnern Sie sich an die Aufgabe «Balkendiagramm» in der Repetition: Dort brauchte es für jeden Tag eine eigene Variable und fast denselben Code mehrmals.
 
-## CLAUDE
-TBD.
+Dafür gibt es in Python **Listen**: Eine Liste speichert **mehrere Werte** unter einem **einzigen Namen**.
 
-Die Lernziele sind unter ../index.mdx#Lernziele definiert (Absatz: Listen).
+## Listen erstellen
+:::insight[Liste erstellen]
+Eine Liste schreiben wir mit eckigen Klammern `[` und `]`. Die einzelnen Werte (die **Elemente** der Liste) trennen wir mit Kommas:
+
+```py live_py slim
+noten = [5, 4.5, 6, 4, 5.5]
+print(noten)
+```
+
+Eine Liste kann auch Strings enthalten. Oder sie kann (vorerst) ganz leer sein:
+
+```py live_py slim
+namen = ['Anna', 'Ben', 'Chiara']
+einkaufsliste = []
+
+print(namen)
+print(einkaufsliste)
+```
+:::
+
+## Auf Elemente zugreifen
+::::insight[Index]
+Die Elemente einer Liste sind durchnummeriert. Die Nummer eines Elements heisst **Index**. Mit `liste[index]` greifen wir auf ein einzelnes Element zu.
+
+**Achtung:** Das erste Element hat den Index `0`, nicht `1`!
+
+| Index   | `0` | `1`   | `2` | `3` | `4`   |
+|---------|-----|-------|-----|-----|-------|
+| Element | `5` | `4.5` | `6` | `4` | `5.5` |
+
+```py live_py slim
+noten = [5, 4.5, 6, 4, 5.5]
+print(noten[0])
+print(noten[3])
+```
+
+Mit einem **negativen Index** zählen wir von hinten: `noten[-1]` ist das letzte Element, `noten[-2]` das zweitletzte usw.
+
+```py live_py slim
+noten = [5, 4.5, 6, 4, 5.5]
+print(noten[-1])
+```
+
+Der Index kann auch in einer Variable stehen:
+
+```py live_py slim
+noten = [5, 4.5, 6, 4, 5.5]
+x = 2
+print(noten[x])
+```
+
+Gibt es zu einem Index kein Element, bricht das Programm mit einem `IndexError` ab:
+
+```py live_py slim
+noten = [5, 4.5, 6, 4, 5.5]
+print(noten[5])
+```
+
+:::aufgabe[Wieso IndexError?]
+<TaskState id="d1aa4232-9641-4d5f-bab8-cbfd4d1df7f4" />
+
+Wieso gibt es im obigen Beispiel einen `IndexError`? Die Liste hat doch 5 Elemente – also müsste es doch einen Index `5` geben? Halten Sie Ihre Überlegungen im Textfeld fest.
+
+<QuillV2 id="0d220213-c788-4c20-87e0-671870398482" />
+:::
+::::
+
+## Quiz: Listen und Index
+Lösen Sie das Quiz vollständig **von Hand**, ohne die Programme auszuführen. Am Schluss klicken Sie auf **Quiz beenden** und sehen, welche Antworten stimmen.
+
+<Quiz scoring={points(1)} keepExpanded={"correct"} resetMode='incorrect' id="8d9bf068-6805-4313-bef3-08554d7dca44">
+    <ChoiceAnswer correct={[1]}>
+        Mit welcher Zeile wird eine Liste mit den drei Zahlen `1`, `2` und `3` erstellt?
+
+        1. `zahlen = [1, 2, 3]`
+        2. `zahlen = [1 2 3]`
+        3. `zahlen = [123]`
+        4. `zahlen = '1, 2, 3'`
+
+        <Hint when={['correct']}>
+            Genau: Eine Liste steht in eckigen Klammern, die Elemente sind durch Kommas getrennt.
+        </Hint>
+
+        <Hint when={['incorrect']}>
+            Achten Sie auf die Klammern und darauf, wie die Elemente voneinander getrennt sind.
+        </Hint>
+    </ChoiceAnswer>
+
+    <ChoiceAnswer correct={[3]}>
+        Was gibt dieses Programm aus?
+
+        ```py
+        noten = [5, 4.5, 6, 4, 5.5]
+        print(noten[2])
+        ```
+
+        1. `4.5`
+        2. `4`
+        3. `6`
+        4. `2`
+
+        <Hint when={['correct']}>
+            Genau: Der Index beginnt bei `0`. `noten[0]` ist `5`, `noten[1]` ist `4.5` und `noten[2]` ist `6`.
+        </Hint>
+
+        <Hint when={['incorrect']}>
+            Achtung: Das erste Element hat den Index `0`.
+        </Hint>
+    </ChoiceAnswer>
+
+    <ChoiceAnswer correct={[4]}>
+        Was gibt dieses Programm aus?
+
+        ```py
+        noten = [5, 4.5, 6, 4, 5.5]
+        print(noten[-1])
+        ```
+
+        1. `5`
+        2. `4`
+        3. Einen `IndexError`
+        4. `5.5`
+
+        <Hint when={['correct']}>
+            Genau: Mit einem negativen Index zählen wir von hinten. `noten[-1]` ist das letzte Element.
+        </Hint>
+
+        <Hint when={['incorrect']}>
+            Negative Indizes sind in Python erlaubt. Sie zählen von hinten.
+        </Hint>
+    </ChoiceAnswer>
+
+    <ChoiceAnswer correct={[1]}>
+        Was gibt dieses Programm aus?
+
+        ```py
+        noten = [5, 4.5, 6, 4, 5.5]
+        x = 3
+        print(noten[x])
+        ```
+
+        1. `4`
+        2. `6`
+        3. `3`
+        4. `x`
+
+        <Hint when={['correct']}>
+            Genau: `x` hat den Wert `3`, also wird `noten[3]` ausgegeben, und das ist `4`.
+        </Hint>
+
+        <Hint when={['incorrect']}>
+            Ersetzen Sie zuerst `x` durch seinen Wert. Welches Element hat dann diesen Index?
+        </Hint>
+    </ChoiceAnswer>
+
+    <ChoiceAnswer correct={[2]}>
+        Was passiert bei diesem Programm?
+
+        ```py
+        namen = ['Anna', 'Ben', 'Chiara']
+        print(namen[3])
+        ```
+
+        1. Es wird `Chiara` ausgegeben.
+        2. Es gibt einen `IndexError`.
+        3. Es wird `Anna` ausgegeben.
+        4. Es wird nichts ausgegeben, aber es gibt auch keinen Fehler.
+
+        <Hint when={['correct']}>
+            Genau: Die Liste hat drei Elemente mit den Indizes `0`, `1` und `2`. Ein Element mit dem Index `3` gibt es nicht.
+        </Hint>
+
+        <Hint when={['incorrect']}>
+            Welche Indizes gibt es bei einer Liste mit drei Elementen?
+        </Hint>
+    </ChoiceAnswer>
+</Quiz>
+
+## Länge einer Liste
+:::insight[`len()`]
+Mit `len(liste)` erhalten wir die **Länge** einer Liste, also die Anzahl Elemente:
+
+```py live_py slim
+noten = [5, 4.5, 6, 4, 5.5]
+anzahl = len(noten)
+print(f'Es gibt {anzahl} Noten.')
+```
+
+Weil der Index bei `0` beginnt, hat das letzte Element immer den Index `len(liste) - 1`. Bei unseren 5 Noten ist das der Index `4`.
+:::
+
+## Elemente ändern und hinzufügen
+:::insight[Element ändern]
+Wie bei einer Variable können wir einem Element einer Liste einen neuen Wert zuweisen:
+
+```py live_py slim
+noten = [5, 4.5, 6, 4, 5.5]
+noten[1] = 5
+print(noten)
+```
+:::
+
+:::insight[Element hinzufügen: `append()`]
+Mit `liste.append(wert)` hängen wir ein neues Element **am Ende** der Liste an. Die Liste wird dadurch um ein Element länger:
+
+```py live_py slim
+noten = [5, 4.5, 6, 4, 5.5]
+noten.append(6)
+print(noten)
+print(len(noten))
+```
+:::
+
+## Quiz: Länge, ändern und hinzufügen
+Lösen Sie auch dieses Quiz vollständig **von Hand** und klicken Sie am Schluss auf **Quiz beenden**.
+
+<Quiz scoring={points(1)} keepExpanded={"correct"} resetMode='incorrect' id="1c79307c-6c58-4430-a166-08afad08e79a">
+    <ChoiceAnswer correct={[2]}>
+        Was gibt dieses Programm aus?
+
+        ```py
+        namen = ['Anna', 'Ben', 'Chiara', 'David']
+        print(len(namen))
+        ```
+
+        1. `3`
+        2. `4`
+        3. `5`
+        4. `David`
+
+        <Hint when={['correct']}>
+            Genau: Die Liste hat vier Elemente. Der grösste Index ist `3`, die Länge aber `4`.
+        </Hint>
+
+        <Hint when={['incorrect']}>
+            `len()` zählt die Elemente. Es gibt nicht den grössten Index zurück.
+        </Hint>
+    </ChoiceAnswer>
+
+    <ChoiceAnswer correct={[3]}>
+        Was gibt dieses Programm aus?
+
+        ```py
+        noten = [5, 4.5, 6, 4, 5.5]
+        noten[0] = 6
+        print(noten)
+        ```
+
+        1. `[6, 5, 4.5, 6, 4, 5.5]`
+        2. `[5, 6, 6, 4, 5.5]`
+        3. `[6, 4.5, 6, 4, 5.5]`
+        4. `[5, 4.5, 6, 4, 5.5, 6]`
+
+        <Hint when={['correct']}>
+            Genau: Das Element mit dem Index `0` wird durch `6` ersetzt. Die Liste bleibt gleich lang.
+        </Hint>
+
+        <Hint when={['incorrect']}>
+            Bei `noten[0] = 6` wird nichts eingefügt oder angehängt, sondern ein bestehendes Element ersetzt. Welches?
+        </Hint>
+    </ChoiceAnswer>
+
+    <ChoiceAnswer correct={[3]}>
+        Was gibt dieses Programm aus?
+
+        ```py
+        zahlen = [3, 8, 1]
+        zahlen[1] = zahlen[0] + zahlen[2]
+        print(zahlen)
+        ```
+
+        1. `[4, 8, 1]`
+        2. `[3, 8, 1, 4]`
+        3. `[3, 4, 1]`
+        4. `[3, 8, 4]`
+
+        <Hint when={['correct']}>
+            Genau: `zahlen[0] + zahlen[2]` ist `3 + 1 = 4`. Dieser Wert ersetzt das Element mit dem Index `1`, also die `8`.
+        </Hint>
+
+        <Hint when={['incorrect']}>
+            Berechnen Sie zuerst die rechte Seite: Welche Elemente haben die Indizes `0` und `2`? Welches Element wird danach ersetzt?
+        </Hint>
+    </ChoiceAnswer>
+
+    <ChoiceAnswer correct={[4]}>
+        Was gibt dieses Programm aus?
+
+        ```py
+        zahlen = [3, 8, 1]
+        zahlen.append(5)
+        zahlen.append(2)
+        print(len(zahlen))
+        ```
+
+        1. `3`
+        2. `2`
+        3. `[3, 8, 1, 5, 2]`
+        4. `5`
+
+        <Hint when={['correct']}>
+            Genau: Mit jedem `append()` wird die Liste um ein Element länger: `[3, 8, 1, 5, 2]` hat fünf Elemente.
+        </Hint>
+
+        <Hint when={['incorrect']}>
+            Was steht nach den beiden `append()` in der Liste? Und was gibt `len()` davon zurück?
+        </Hint>
+    </ChoiceAnswer>
+
+    <ChoiceAnswer correct={[1]}>
+        Was gibt dieses Programm aus?
+
+        ```py
+        einkauf = []
+        einkauf.append('Brot')
+        einkauf.append('Milch')
+        print(einkauf[0])
+        ```
+
+        1. `Brot`
+        2. `Milch`
+        3. `[]`
+        4. Einen `IndexError`
+
+        <Hint when={['correct']}>
+            Genau: Die Liste ist zuerst leer. `append()` hängt jedes neue Element **hinten** an, also ist `'Brot'` das erste Element.
+        </Hint>
+
+        <Hint when={['incorrect']}>
+            Was steht nach jeder Zeile in der Liste? Wo hängt `append()` das neue Element an?
+        </Hint>
+    </ChoiceAnswer>
+
+    <ChoiceAnswer correct={[2]}>
+        Die Liste `noten` kann beliebig lang sein. Mit welchem Code wird **immer** ihr letztes Element ausgegeben?
+
+        1. `print(noten[len(noten)])`
+        2. `print(noten[len(noten) - 1])`
+        3. `print(noten[4])`
+        4. `print(noten[0])`
+
+        <Hint when={['correct']}>
+            Genau: Weil der Index bei `0` beginnt, hat das letzte Element den Index `len(noten) - 1`. Noch kürzer geht es mit `noten[-1]`.
+        </Hint>
+
+        <Hint when={['incorrect']}>
+            Nehmen Sie als Beispiel eine Liste mit `5` Elementen. Welchen Index hat das letzte Element? Und welcher Code funktioniert auch bei einer Liste mit `3` oder `100` Elementen?
+        </Hint>
+    </ChoiceAnswer>
+</Quiz>
+
+## Übungen: Listenoperationen
+::::aufgabe[Wochentage]
+<TaskState id="bd563691-3bdf-4a67-b4e2-6da8620a0777" />
+Erstellen Sie eine Liste `wochentage` mit den sieben Wochentagen (`'Montag'`, `'Dienstag'`, …). Geben Sie anschliessend aus:
+
+1. den ersten Wochentag,
+2. den letzten Wochentag,
+3. die Anzahl Wochentage (mit `len()`).
+
+Die Ausgabe soll so aussehen:
+
+```
+Montag
+Sonntag
+7
+```
+
+```py live_py id=e6954fe9-cd4b-4528-8ca3-430aa441c80b
+```
+
+<Solution id="299244e9-109b-4028-9964-12daef1f5cd8">
+  ```py live_py readonly slim
+  wochentage = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag']
+
+  print(wochentage[0])
+  print(wochentage[-1])
+  print(len(wochentage))
+  ```
+
+  Statt `wochentage[-1]` funktioniert auch `wochentage[6]` oder `wochentage[len(wochentage) - 1]`.
+</Solution>
+::::
+
+::::aufgabe[Einkaufsliste]
+<TaskState id="98c1034c-4d36-489a-933b-82cfbbc500be" />
+Im Code-Editor ist bereits eine Einkaufsliste vorgegeben. Ergänzen Sie das Programm so, dass:
+
+1. `'Käse'` und `'Äpfel'` am Ende der Liste hinzugefügt werden,
+2. `'Milch'` durch `'Hafermilch'` ersetzt wird,
+3. am Schluss die ganze Liste ausgegeben wird.
+
+:::danger[Liste im laufenden Programm verändern]
+Bei dieser Aufgabe geht es darum, die Liste im laufenden Programm zu verändern.
+
+Die Zeile `1` dürfen Sie deshalb **nicht** verändern. Sie dürfen die Variable `einkaufsliste` auch nicht einfach überschreiben (`einkaufsliste = [...]`), sondern müssen die Liste **verändern**.
+:::
+
+Am Schluss soll folgendes ausgegeben werden: `['Brot', 'Hafermilch', 'Eier', 'Käse', 'Äpfel']`
+
+:::tip[Welcher Index?]
+Um `'Milch'` zu ersetzen, brauchen Sie ihren Index. Zählen Sie ab `0`!
+:::
+
+```py live_py id=f47b92a7-d758-4c84-9486-1f37fdb11a85
+einkaufsliste = ['Brot', 'Milch', 'Eier']
+
+# Ihr Code ab hier...
+```
+
+<Solution id="33c5b6f7-7db1-4602-a4c7-33e33d07ce6d">
+  ```py live_py readonly slim
+  einkaufsliste = ['Brot', 'Milch', 'Eier']
+
+  einkaufsliste.append('Käse')
+  einkaufsliste.append('Äpfel')
+  einkaufsliste[1] = 'Hafermilch'
+
+  print(einkaufsliste)
+  ```
+</Solution>
+::::
+
+## Listen durchlaufen
+:::insight[`for`-Schleife über eine Liste]
+Mit einer `for`-Schleife können wir alle Elemente einer Liste der Reihe nach durchlaufen. Die Schleifenvariable (hier `note`) enthält bei jedem Durchlauf das nächste Element:
+
+```py live_py slim
+noten = [5, 4.5, 6, 4, 5.5]
+
+for note in noten:
+    print(note)
+```
+
+Das funktioniert genau wie `for i in range(5)`. Nur nimmt die Schleifenvariable hier nicht die Werte `0`, `1`, `2`, … an, sondern nacheinander die Elemente der Liste.
+
+Zusammen mit einer Variable, die vor der Schleife bei `0` startet, können wir so z.B. die Summe aller Elemente berechnen:
+
+```py live_py slim
+noten = [5, 4.5, 6, 4, 5.5]
+
+summe = 0
+for note in noten:
+    summe = summe + note
+
+print(f'Summe: {summe}')
+```
+:::
+
+::::aufgabe[Notenschnitt]
+<TaskState id="6c30b37f-5a29-4099-9d63-ac34b4f15748" />
+Schreiben Sie ein Programm, das den **Durchschnitt** der Noten in der Liste `noten` berechnet und ausgibt.
+
+Ihr Programm soll für jede beliebige Liste funktionieren. Wenn Sie z.B. eine weitere Note in die Liste schreiben, soll das Programm ohne weitere Anpassungen den neuen Durchschnitt berechnen.
+
+:::tip[Durchschnitt]
+Der Durchschnitt ist die Summe aller Noten geteilt durch die Anzahl Noten. Für die Anzahl Noten verwenden Sie `len()`.
+:::
+
+```py live_py id=ea495572-66c5-4bbd-8629-384ff4e905c3
+noten = [4, 5.5, 5, 4.5]
+
+# Ihr Code ab hier...
+```
+
+Welchen Durchschnitt erhalten Sie für die vorgegebenen Noten?
+
+<String id="36264156-0575-42ba-91ce-bc8bddc232e0" solution="4.75" />
+
+<Solution id="c94bcbae-aa42-4fdd-a8e8-0252d0540036">
+  ```py live_py readonly slim
+  noten = [4, 5.5, 5, 4.5]
+
+  summe = 0
+  for note in noten:
+      summe = summe + note
+
+  durchschnitt = summe / len(noten)
+  print(f'Durchschnitt: {durchschnitt}')
+  ```
+</Solution>
+::::
+
+::::aufgabe[Farbiges Sechseck]
+<TaskState id="b239ceaa-b14d-4a60-b13e-10ef7e1c6b2d" />
+Zeichnen Sie mit der Turtle ein Sechseck mit der Seitenlänge `100`. Jede Seite soll in einer anderen Farbe gezeichnet werden. Die Farben sind in der Liste `farben` vorgegeben.
+
+Verwenden Sie dafür eine `for`-Schleife, die die Liste `farben` durchläuft.
+
+:::tip[Winkel]
+Bei einem Sechseck dreht sich die Turtle insgesamt um `360` Grad, also bei jeder Ecke um `360 / 6 = 60` Grad.
+:::
+
+```py live_py id=4b50aa48-b648-419d-9ee7-abf1e5652219
+from turtle import *
+
+shape('turtle')
+farben = ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
+
+# Ihr Code ab hier...
+```
+
+<Solution id="9cd76abe-ef67-4625-ba09-399bbe8aea8b">
+  ```py live_py readonly slim
+  from turtle import *
+
+  shape('turtle')
+  farben = ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
+
+  for farbe in farben:
+      pencolor(farbe)
+      forward(100)
+      left(60)
+
+  done()
+  ```
+</Solution>
+::::
+
+::::aufgabe[Sommerwetter]
+<TaskState id="ac4eeaa4-90d3-4435-8678-c3d8a0936787" />
+In der Liste `temperaturen` sind die Höchsttemperaturen (in °C) von zwei Wochen im Sommer gespeichert.
+
+**Teil a)** Wie viele Tage waren **heisser als 25 °C**? Schreiben Sie ein Programm, das diese Tage zählt und die Anzahl ausgibt.
+
+:::tip[Tipps zu Teil a)]
+- Sie brauchen eine Zähl-Variable, in der Sie sich die Anzahl gefundener Temperaturen über 25 °C merken.
+- Sie brauchen ein `if`, um zu prüfen, ob die aktuelle Temperatur grösser als 25 ist.
+:::
+
+```py live_py id=df6c133b-3b88-4a75-8d0f-9b2a40e73686
+temperaturen = [18, 21, 24, 26, 23, 27, 29, 25, 22, 26, 28, 31, 24, 20]
+
+# Ihr Code ab hier...
+```
+
+Anzahl Tage über 25 °C:
+
+<String id="bec408d9-04c1-41ae-a8d0-d1f30a7f6816" solution="6" />
+
+**Teil b)** Kopieren Sie Ihren Code aus Teil a) in den Editor unten und erweitern Sie ihn so, dass er zusätzlich die **höchste Temperatur** der Liste bestimmt und ausgibt.
+
+:::tip[Tipp zu Teil b)]
+Merken Sie sich in einer Variable `hoechste` die höchste Temperatur, die Sie bisher gesehen haben. Am Anfang ist das einfach die erste Temperatur der Liste. In der Schleife prüfen Sie für jede Temperatur, ob sie höher ist als `hoechste`. Wenn ja, ersetzen Sie `hoechste` durch die aktuelle Temperatur.
+:::
+
+```py live_py id=0e97a706-4230-4a63-9bce-49603cdba02a
+```
+
+Höchste Temperatur:
+
+<String id="31c00526-b4d0-446a-9d80-5ac507cb7a5d" solution="31" />
+
+<Solution id="ca999b45-8fcd-4ffe-b0fa-b27f7161e3c8" title="Lösung Teil a)">
+  ```py live_py readonly slim
+  temperaturen = [18, 21, 24, 26, 23, 27, 29, 25, 22, 26, 28, 31, 24, 20]
+
+  anzahl = 0
+  for temperatur in temperaturen:
+      if temperatur > 25:
+          anzahl = anzahl + 1
+
+  print(f'Tage über 25 °C: {anzahl}')
+  ```
+
+  Achtung: Der Tag mit genau `25` °C zählt nicht, denn er ist nicht **heisser als** 25 °C.
+</Solution>
+
+<Solution id="6502bf84-f06e-46a6-a91f-fb47aba95e3e" title="Lösung Teil b)">
+  ```py live_py readonly slim
+  temperaturen = [18, 21, 24, 26, 23, 27, 29, 25, 22, 26, 28, 31, 24, 20]
+
+  anzahl = 0
+  hoechste = temperaturen[0]
+  for temperatur in temperaturen:
+      if temperatur > 25:
+          anzahl = anzahl + 1
+      if temperatur > hoechste:
+          hoechste = temperatur
+
+  print(f'Tage über 25 °C: {anzahl}')
+  print(f'Höchste Temperatur: {hoechste} °C')
+  ```
+</Solution>
+::::
+
+## Listen über die Indizes durchlaufen
+:::insight[`for i in range(len(liste))`]
+Manchmal brauchen wir in der Schleife nicht nur das Element, sondern auch seinen **Index**. Dann lassen wir die Schleife mit `range(len(liste))` über alle Indizes laufen und greifen mit `liste[i]` auf das Element zu:
+
+```py live_py slim
+namen = ['Anna', 'Ben', 'Chiara']
+
+for i in range(len(namen)):
+    print(f'Index {i}: {namen[i]}')
+```
+
+Bei drei Namen ist `len(namen)` gleich `3`. Die Schleife läuft also wie `for i in range(3)` über die Indizes `0`, `1` und `2`.
+
+Über den Index können wir die Elemente in der Schleife auch **ändern**:
+
+```py live_py slim
+preise = [4, 10, 7]
+
+for i in range(len(preise)):
+    preise[i] = preise[i] * 2
+
+print(preise)
+```
+:::
+
+:::insight[Benachbarte Elemente]
+Mit dem Index können wir auch auf **benachbarte** Elemente zugreifen: `liste[i - 1]` ist das Element **vor** `liste[i]`.
+
+Beim ersten Element (Index `0`) gibt es aber kein Element davor. Wir lassen die Schleife deshalb erst beim Index `1` beginnen. Dafür geben wir `range()` zwei Werte: `range(1, len(liste))` beginnt bei `1` und hört (wie immer) **vor** `len(liste)` auf.
+
+```py live_py slim
+punkte = [10, 14, 12, 19]
+
+for i in range(1, len(punkte)):
+    differenz = punkte[i] - punkte[i - 1]
+    print(f'Von Index {i - 1} zu Index {i}: {differenz}')
+```
+:::
+
+::::aufgabe[Rangliste]
+<TaskState id="ac7ddeda-adbd-4c81-ab4d-721a2a7b2d76" />
+In der Liste `rangliste` sind die Namen der Teilnehmenden eines Rennens in der Reihenfolge ihrer Platzierung gespeichert. Schreiben Sie ein Programm, das die Rangliste so ausgibt:
+
+```
+1. Platz: Mia
+2. Platz: Luca
+3. Platz: Noah
+4. Platz: Elena
+5. Platz: Lara
+```
+
+:::tip[Platz und Index]
+Der Index beginnt bei `0`, der Platz aber bei `1`.
+:::
+
+```py live_py id=d07065c5-1962-4cb6-930b-2ae5f55ab119
+rangliste = ['Mia', 'Luca', 'Noah', 'Elena', 'Lara']
+
+# Ihr Code ab hier...
+```
+
+<Solution id="05385305-e53e-46fc-805b-6cdaae9f8b3d">
+  ```py live_py readonly slim
+  rangliste = ['Mia', 'Luca', 'Noah', 'Elena', 'Lara']
+
+  for i in range(len(rangliste)):
+      print(f'{i + 1}. Platz: {rangliste[i]}')
+  ```
+</Solution>
+::::
+
+::::aufgabe[Bonuspunkte]
+<TaskState id="a1588ad5-e5fa-4939-9d26-3e0fc79a52bf" />
+In der Liste `punkte` sind die Punktzahlen einer Prüfung gespeichert. Weil eine Aufgabe unklar formuliert war, erhalten alle `2` Bonuspunkte.
+
+Schreiben Sie ein Programm, das in der Liste `punkte` zu jeder Punktzahl `2` dazuzählt und danach die ganze Liste ausgibt. Erwartete Ausgabe:
+
+```
+[14, 19, 11, 22, 17]
+```
+
+:::danger[Liste im laufenden Programm verändern]
+Die Liste auf Zeile `1` dürfen Sie weder dort direkt verändern, noch die Variable `punkte` überschreiben (`punkte = [...]`). Sie müssen die Liste **im laufenden Programm** verändern.
+:::
+
+:::tip[Element ändern]
+Mit `for p in punkte:` können Sie die Liste nicht verändern. Durchlaufen Sie deshalb die Indizes und ändern Sie jeweils `punkte[i]`.
+:::
+
+```py live_py id=b468dbc0-81c1-4c66-9e24-68b2efe25b0f
+punkte = [12, 17, 9, 20, 15]
+
+# Ihr Code ab hier...
+```
+
+<Solution id="429eab16-662f-41bf-b43b-d66d7bac1282">
+  ```py live_py readonly slim
+  punkte = [12, 17, 9, 20, 15]
+
+  for i in range(len(punkte)):
+      punkte[i] = punkte[i] + 2
+
+  print(punkte)
+  ```
+</Solution>
+::::
+
+::::aufgabe[Balkendiagramm mit Listen]
+<TaskState id="43ce8f15-753f-4adf-823a-1c3301374f4a" />
+Ein Verein verkauft an fünf Tagen Kuchen. Die Anzahl verkaufter Kuchen pro Tag steht in der Liste `kuchen`, die Farbe für jeden Tag in der Liste `farben`.
+
+Zeichnen Sie ein Balkendiagramm mit einem ausgefüllten Balken pro Tag:
+- Jeder Balken ist `30` Pixel breit und `10` Pixel hoch pro verkauftem Kuchen.
+- Zwischen zwei Balken ist eine Lücke von `10` Pixeln.
+- Der Balken für den Tag mit dem Index `i` hat die Farbe `farben[i]`.
+
+Ihr Programm soll auch funktionieren, wenn Sie in **beiden** Listen einen weiteren Tag ergänzen.
+
+:::tip[Zwei Listen, ein Index]
+Die beiden Listen gehören zusammen: `kuchen[0]` und `farben[0]` beschreiben den ersten Tag, `kuchen[1]` und `farben[1]` den zweiten usw. Durchlaufen Sie deshalb die Indizes. So können Sie mit demselben `i` auf beide Listen zugreifen.
+:::
+
+```py live_py id=1c4770d1-63ff-4883-8c50-9c625d2f86f7
+from turtle import *
+
+kuchen = [3, 8, 5, 12, 6]
+farben = ['red', 'orange', 'green', 'blue', 'purple']
+
+penup()
+back(130)
+pendown()
+
+# Ihr Code ab hier...
+```
+
+<Solution id="7b16a0a0-85df-4279-b645-a352ff38962b">
+  ```py live_py readonly slim
+  from turtle import *
+
+  kuchen = [3, 8, 5, 12, 6]
+  farben = ['red', 'orange', 'green', 'blue', 'purple']
+
+  penup()
+  back(130)
+  pendown()
+
+  for i in range(len(kuchen)):
+      fillcolor(farben[i])
+      begin_fill()
+      for j in range(2):
+          forward(30)
+          left(90)
+          forward(kuchen[i] * 10)
+          left(90)
+      end_fill()
+      penup()
+      forward(40)
+      pendown()
+
+  hideturtle()
+  done()
+  ```
+
+  Vergleichen Sie diese Lösung mit der Lösung zur Aufgabe «Balkendiagramm» in der Repetition: Statt dreimal fast denselben Code braucht es nur noch eine Schleife. Und es funktioniert für beliebig viele Tage.
+</Solution>
+::::
+
+::::aufgabe[Wanderung]
+<TaskState id="3c7752f4-8223-4da0-b2dd-af6967815826" />
+Eine Wanderuhr misst während einer Wanderung regelmässig die Höhe über Meer. Die Messwerte (in Metern) sind in der Liste `hoehen` gespeichert.
+
+**Teil a)** Wie oft war ein Messwert **höher** als der Messwert davor? Schreiben Sie ein Programm, das das zählt und ausgibt.
+
+Testen Sie Ihr Programm zuerst mit dem kleinen Beispiel `hoehen = [100, 104, 102, 110, 115, 113]`. Dort ist der Messwert dreimal höher als der vorherige (`100 → 104`, `102 → 110`, `110 → 115`). Ihr Programm muss also `3` ausgeben.
+
+:::tip[Tipp zu Teil a)]
+Sie müssen jeden Messwert mit dem Messwert **davor** vergleichen. Schauen Sie sich dazu nochmals das Beispiel im Abschnitt «Benachbarte Elemente» an.
+:::
+
+```py live_py id=9161a275-659c-4885-ad8d-1fa059800e2d
+hoehen = [412, 418, 425, 421, 430, 442, 442, 438, 451, 467, 460, 473, 489, 485, 496, 512, 509, 520]
+
+# Ihr Code ab hier...
+```
+
+Anzahl Anstiege für die vorgegebene Liste:
+
+<String id="8db4a3cf-ae2e-479a-966d-94b002bc3153" solution="11" />
+
+**Teil b)** Kopieren Sie Ihren Code aus Teil a) in den Editor unten und erweitern Sie ihn: Wie viele Höhenmeter ist die Wanderin insgesamt **aufwärts** gegangen? Zählen Sie dazu bei jedem Anstieg die Differenz zum vorherigen Messwert zusammen. Beim kleinen Beispiel sind das `4 + 8 + 5 = 17` Höhenmeter.
+
+```py live_py id=8b697987-5763-4ff0-a5dc-72f1ab81a813
+```
+
+Höhenmeter aufwärts für die vorgegebene Liste:
+
+<String id="207c9f51-c158-4447-b77f-65779b97c740" solution="130" />
+
+<Solution id="4d17f7fa-a52a-49b8-8069-ac0af1f777ba" title="Lösung Teil a)">
+  ```py live_py readonly slim
+  hoehen = [412, 418, 425, 421, 430, 442, 442, 438, 451, 467, 460, 473, 489, 485, 496, 512, 509, 520]
+
+  anstiege = 0
+  for i in range(1, len(hoehen)):
+      if hoehen[i] > hoehen[i - 1]:
+          anstiege = anstiege + 1
+
+  print(f'Anstiege: {anstiege}')
+  ```
+
+  Achtung: Von `442` zu `442` ist kein Anstieg, denn der Wert ist nicht **höher**.
+</Solution>
+
+<Solution id="254e574f-2333-4ddf-995e-6c7b57136dc4" title="Lösung Teil b)">
+  ```py live_py readonly slim
+  hoehen = [412, 418, 425, 421, 430, 442, 442, 438, 451, 467, 460, 473, 489, 485, 496, 512, 509, 520]
+
+  anstiege = 0
+  hoehenmeter = 0
+  for i in range(1, len(hoehen)):
+      if hoehen[i] > hoehen[i - 1]:
+          anstiege = anstiege + 1
+          hoehenmeter = hoehenmeter + (hoehen[i] - hoehen[i - 1])
+
+  print(f'Anstiege: {anstiege}')
+  print(f'Höhenmeter aufwärts: {hoehenmeter}')
+  ```
+</Solution>
+::::
+
+## Listen aufbauen
+:::insight[Liste mit `append()` füllen]
+Oft wissen wir am Anfang noch nicht, welche Elemente in eine Liste gehören. Dann starten wir mit einer **leeren Liste** und hängen in einer Schleife ein Element nach dem anderen an:
+
+```py live_py slim
+quadratzahlen = []
+
+for i in range(1, 6):
+    quadratzahlen.append(i * i)
+
+print(quadratzahlen)
+```
+:::
+
+::::aufgabe[Würfelserie]
+<TaskState id="749cd3df-6dc4-4602-8f85-eac7d7f02ce3" />
+**Teil a)** Schreiben Sie ein Programm, das `20` Mal würfelt (Zahlen von `1` bis `6`) und jeden Wurf in einer Liste `wuerfe` speichert. Geben Sie am Schluss die ganze Liste aus.
+
+:::tip[Tipp zu Teil a)]
+Erstellen Sie vor der Schleife eine leere Liste `wuerfe = []`. In der Schleife würfeln Sie mit `randint(1, 6)` und hängen den Wurf mit `append()` an.
+:::
+
+```py live_py id=55acb8dd-7fe1-4d7e-b998-980986f4b41a
+from random import *
+
+# Ihr Code ab hier...
+```
+
+**Teil b)** Kopieren Sie Ihren Code aus Teil a) in den Editor unten und erweitern Sie ihn: Nachdem die Liste vollständig ist, soll das Programm sie durchlaufen und zählen, wie viele Sechsen gewürfelt wurden. Beispiel für eine Ausgabe:
+
+```
+[3, 6, 1, 1, 5, 6, 2, 4, 4, 6, 3, 2, 5, 1, 6, 2, 3, 3, 5, 4]
+Anzahl Sechsen: 4
+```
+
+```py live_py id=93357b04-862a-46f9-a29f-348da5230669
+```
+
+<Solution id="398421c8-dbf0-4d81-bcfc-c1491b379727" title="Lösung Teil a)">
+  ```py live_py readonly slim
+  from random import *
+
+  wuerfe = []
+  for i in range(20):
+      wurf = randint(1, 6)
+      wuerfe.append(wurf)
+
+  print(wuerfe)
+  ```
+</Solution>
+
+<Solution id="12f20e94-0fc5-4435-ab9b-112b65be5677" title="Lösung Teil b)">
+  ```py live_py readonly slim
+  from random import *
+
+  wuerfe = []
+  for i in range(20):
+      wurf = randint(1, 6)
+      wuerfe.append(wurf)
+
+  print(wuerfe)
+
+  anzahl_sechsen = 0
+  for wurf in wuerfe:
+      if wurf == 6:
+          anzahl_sechsen = anzahl_sechsen + 1
+
+  print(f'Anzahl Sechsen: {anzahl_sechsen}')
+  ```
+
+  Hier hätten wir die Sechsen natürlich auch direkt beim Würfeln zählen können. Oft sind die Daten aber schon in einer Liste gespeichert, und wir müssen sie nachträglich auswerten.
+</Solution>
+::::
+
+## ⭐️ Verschlüsselung implementieren
+Im Kapitel Kryptologie haben Sie die Caesar-Chiffre von Hand angewendet. In diesen Zusatzaufgaben bringen Sie das Ver- und Entschlüsseln Schritt für Schritt dem Computer bei. Zum Aufwärmen gibt es zuerst eine einfachere Geheimbotschaft.
+
+::::aufgabe[⭐️ Geheimbotschaft]
+<TaskState id="4883e301-a520-4aec-8527-4b94f15e7a9f" />
+Die Liste `alphabet` enthält ein Leerzeichen und die Buchstaben von `A` bis `Z`. In der Liste `botschaft` ist eine geheime Nachricht versteckt: Jede Zahl ist der **Index** eines Buchstabens in `alphabet`. Die Zahl `1` steht z.B. für `'A'`, die Zahl `0` für ein Leerzeichen.
+
+Schreiben Sie ein Programm, das die Botschaft entschlüsselt und ausgibt.
+
+:::tip[Texte zusammensetzen]
+Strings können Sie mit `+` zusammensetzen: `'AB' + 'C'` ergibt `'ABC'`. Starten Sie mit einem leeren Text `text = ''` und hängen Sie in der Schleife jeweils den nächsten Buchstaben an.
+:::
+
+```py live_py id=f429f132-b17a-4b36-92db-3bfb9c32edca
+alphabet = [' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+botschaft = [6, 18, 15, 8, 5, 0, 6, 5, 19, 20, 20, 1, 7, 5]
+
+# Ihr Code ab hier...
+```
+
+Die entschlüsselte Botschaft:
+
+<String id="599a5818-fe48-4eae-b106-e556794423e8" solution="FROHE FESTTAGE" />
+
+<Solution id="dc03e479-2338-499c-a7f5-b8809002a1d6">
+  ```py live_py readonly slim
+  alphabet = [' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+  botschaft = [6, 18, 15, 8, 5, 0, 6, 5, 19, 20, 20, 1, 7, 5]
+
+  text = ''
+  for zahl in botschaft:
+      text = text + alphabet[zahl]
+
+  print(text)
+  ```
+</Solution>
+::::
+
+:::insight[Über einen String iterieren]
+Ein String ist eine Folge von Zeichen. Mit einer `for`-Schleife können wir ihn deshalb wie eine Liste durchlaufen, Zeichen für Zeichen:
+
+```py live_py slim
+wort = 'HALLO'
+for buchstabe in wort:
+    print(buchstabe)
+```
+
+Das funktioniert auch mit einem Text, den wir mit `input()` erfragen. Auch ein Leerzeichen ist ein Zeichen und wird mit `' '` geschrieben.
+:::
+
+:::insight[Index eines Elements finden: `index()`]
+Mit `liste.index(wert)` finden wir heraus, an welchem **Index** ein Wert in der Liste steht:
+
+```py live_py slim
+farben = ['rot', 'gelb', 'blau', 'gruen']
+i = farben.index('blau')
+print(i)
+```
+
+Kommt der Wert in der Liste nicht vor, bricht das Programm mit einem `ValueError` ab.
+:::
+
+::::aufgabe[⭐️ Caesar verschlüsseln]
+<TaskState id="6b809b0e-746f-471c-8a7d-7252f0c49fa3" />
+Im Editor sind das Klartextalphabet und das Geheimtextalphabet für die Caesar-Chiffre mit dem Schlüssel `D` als Listen vorgegeben. Schreiben Sie ein Programm, das
+
+1. eine Botschaft mit `input()` erfragt,
+2. die Botschaft Buchstabe für Buchstabe durchläuft,
+3. für jeden Buchstaben den Index im Klartextalphabet sucht und den Buchstaben mit demselben Index im Geheimtextalphabet an eine Ergebnis-Liste anhängt,
+4. am Schluss die Ergebnis-Liste ausgibt.
+
+Wie bei der Caesar-Chiffre im Kapitel Kryptologie werden **Leerzeichen nicht verschlüsselt**: Ein Leerzeichen wird unverändert an die Ergebnis-Liste angehängt. Das Klartext- und das Geheimtextalphabet enthalten nur Grossbuchstaben. Achten Sie deshalb beim Testen darauf, **nur Grossbuchstaben** und Leerzeichen einzugeben.
+
+:::tip[Ergebnis-Liste]
+Starten Sie vor der Schleife mit einer leeren Liste `ergebnis = []`. In der Schleife prüfen Sie mit `if`, ob der aktuelle Buchstabe ein Leerzeichen ist.
+:::
+
+:::tip[Eleganter: Kleinbuchstaben umwandeln]
+Mit `.upper()` wandeln Sie einen Text in Grossbuchstaben um: `'Hallo'.upper()` ergibt `'HALLO'`. Mit `botschaft = input('Botschaft: ').upper()` funktioniert Ihr Programm deshalb auch, wenn jemand Kleinbuchstaben eingibt.
+:::
+
+:::tip[Liste als Text ausgeben]
+`print(ergebnis)` gibt die Liste mit Klammern und Anführungszeichen aus. Mit `print(''.join(ergebnis))` werden die Elemente direkt hintereinander als Text ausgegeben.
+:::
+
+```py live_py id=515f85d8-75bc-4c65-a431-01989d770e1a
+klartext = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+geheimtext = ['D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C']
+
+# Ihr Code ab hier...
+```
+
+Verschlüsseln Sie die Botschaft `LISTEN SIND PRAKTISCH`. Geheimtext:
+
+<String id="a60d5d8a-4898-4f30-8432-ba47e3cb4b4e" solution="OLVWHQ VLQG SUDNWLVFK" />
+
+<Solution id="52678c3e-6f3f-4467-a735-a2953beb5cf9">
+  ```py live_py readonly slim
+  klartext = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+  geheimtext = ['D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C']
+
+  botschaft = input('Botschaft: ')
+  ergebnis = []
+
+  for buchstabe in botschaft:
+      if buchstabe == ' ':
+          ergebnis.append(' ')
+      else:
+          i = klartext.index(buchstabe)
+          ergebnis.append(geheimtext[i])
+
+  print(ergebnis)
+  print(''.join(ergebnis))
+  ```
+</Solution>
+::::
+
+::::aufgabe[⭐️ Ver- oder entschlüsseln]
+<TaskState id="b9685930-3802-4131-bec6-b36d0aca0048" />
+Erweitern Sie Ihr Programm aus «⭐️ Caesar verschlüsseln»: Zusätzlich zur Botschaft wird mit `input()` erfragt, ob verschlüsselt oder entschlüsselt werden soll (z.B. `v` oder `e`).
+
+- **Verschlüsseln:** Buchstabe im Klartextalphabet suchen, Buchstabe aus dem Geheimtextalphabet anhängen (wie bisher).
+- **Entschlüsseln:** umgekehrt, also Buchstabe im Geheimtextalphabet suchen, Buchstabe aus dem Klartextalphabet anhängen.
+
+Kopieren Sie dazu Ihren Code aus der vorherigen Aufgabe in den Editor.
+
+:::tip[Welches Alphabet wohin?]
+Sie können vor der Schleife mit `if` zwei Variablen festlegen: `von` (das Alphabet, in dem Sie suchen) und `nach` (das Alphabet, aus dem Sie den Buchstaben nehmen). Eine Variable kann auch eine ganze Liste enthalten, z.B. `von = klartext`.
+:::
+
+```py live_py id=677047ed-3c7b-401e-a2f6-e04eee783b25
+# Kopieren Sie Ihren Code aus «⭐️ Caesar verschlüsseln» hierher...
+```
+
+Entschlüsseln Sie die Botschaft `ZHLWHU VR`. Klartext:
+
+<String id="170ffb3f-a474-4d75-87f9-aec78a7888fa" solution="WEITER SO" />
+
+<Solution id="eede9c7d-d8c9-4eca-80ff-123f958cdfab">
+  ```py live_py readonly slim
+  klartext = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+  geheimtext = ['D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C']
+
+  botschaft = input('Botschaft: ')
+  modus = input('Verschlüsseln (v) oder entschlüsseln (e)? ')
+
+  if modus == 'v':
+      von = klartext
+      nach = geheimtext
+  else:
+      von = geheimtext
+      nach = klartext
+
+  ergebnis = []
+  for buchstabe in botschaft:
+      if buchstabe == ' ':
+          ergebnis.append(' ')
+      else:
+          i = von.index(buchstabe)
+          ergebnis.append(nach[i])
+
+  print(''.join(ergebnis))
+  ```
+</Solution>
+::::
+
+::::aufgabe[⭐️ Beliebiger Schlüssel]
+<TaskState id="1075f197-1ae4-4590-8e2b-6100bba8cc66" />
+Bisher funktioniert Ihr Programm nur mit dem Schlüssel `D`. Das ändern wir jetzt:
+
+1. Kopieren Sie Ihren Code aus «⭐️ Ver- oder entschlüsseln» in den Editor.
+2. Löschen Sie die Liste `geheimtext`.
+3. Erfragen Sie stattdessen mit `input()` einen Schlüssel (ein Grossbuchstabe, z.B. `K`).
+4. Bauen Sie daraus das Geheimtextalphabet als Liste auf: Es beginnt mit dem Schlüssel, danach folgen die weiteren Buchstaben des Alphabets. Nach `Z` geht es wieder bei `A` weiter.
+
+Der Rest des Programms bleibt gleich.
+
+:::tip[Geheimtextalphabet aufbauen]
+Mit `klartext.index(schluessel)` erhalten Sie, um wie viele Stellen das Alphabet verschoben ist (beim Schlüssel `D` sind es `3`). Durchlaufen Sie dann mit `for i in range(len(klartext))` alle Indizes und hängen Sie jeweils den Buchstaben an, der um diese Anzahl Stellen weiter hinten steht. Damit es nach `Z` wieder bei `A` weitergeht, hilft Ihnen der Modulo-Operator `%`.
+:::
+
+```py live_py id=e1141471-c120-418a-a483-d3436414330e
+# Kopieren Sie Ihren Code aus «⭐️ Ver- oder entschlüsseln» hierher...
+```
+
+Entschlüsseln Sie die Botschaft `ZIDRYX WKMRD CZKCC` mit dem Schlüssel `K`. Klartext:
+
+<String id="ea773571-2ec5-4554-9e00-e4f8f544bc72" solution="PYTHON MACHT SPASS" />
+
+<Solution id="60c3a89a-04d0-4dec-b65a-f7afb1334f5a">
+  ```py live_py readonly slim
+  klartext = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+  botschaft = input('Botschaft: ')
+  modus = input('Verschlüsseln (v) oder entschlüsseln (e)? ')
+  schluessel = input('Schlüssel: ')
+
+  verschiebung = klartext.index(schluessel)
+  geheimtext = []
+  for i in range(len(klartext)):
+      geheimtext.append(klartext[(i + verschiebung) % 26])
+
+  if modus == 'v':
+      von = klartext
+      nach = geheimtext
+  else:
+      von = geheimtext
+      nach = klartext
+
+  ergebnis = []
+  for buchstabe in botschaft:
+      if buchstabe == ' ':
+          ergebnis.append(' ')
+      else:
+          i = von.index(buchstabe)
+          ergebnis.append(nach[i])
+
+  print(''.join(ergebnis))
+  ```
+
+  `(i + verschiebung) % 26` sorgt dafür, dass der Index nie grösser als `25` wird: Beim Schlüssel `D` ist für `i = 23` der Index `26 % 26 = 0`, also wieder `A`.
+</Solution>
+::::
