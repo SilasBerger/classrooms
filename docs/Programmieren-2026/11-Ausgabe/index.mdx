@@ -1,0 +1,586 @@
+---
+page_id: 811a5b6b-6aaf-4092-b9c3-bdda0a67882f
+---
+
+import { points } from '@tdev-components/documents/Assessable/helpers/scoring';
+
+# Ausgabe
+Bisher haben unsere Python-Programme nur eine Form der «Ausgabe» gekannt: Turtle-Zeichnungen. Jedes Programm hat eine Turtle-Zeichnung produziert. In «realen» Programmen arbeiten wir aber nicht mit der Turtle. Stattdessen werden Ergebnisse (z.B. von Berechnungen)  oft einfach als Text in der sogenannten **Kommandozeile** ausgegeben.
+
+## Ausgabe mit `print()`
+Mit dem Befehl `print()` geben wir etwas in der Kommandozeile aus. Was wir in die Klammern schreiben, wird ausgegeben:
+
+```py live_py slim
+print('Hallo, Welt!')
+print('Ich lerne Python.')
+```
+
+Jeder `print()`-Befehl erzeugt eine **eigene Zeile** in der Ausgabe. Der Text in den Anführungszeichen ist ein String (Datentyp `str`), den Sie bereits aus dem Kapitel zu den [Datentypen](../09-Variablen-und-Datentypen/03-Datentypen/index.mdx) kennen.
+
+:::info[Die Kommandozeile in Classrooms]
+In vielen Programmierumgebungen gibt es ein separates Fenster für die Ausgabe, die sogenannte **Kommandozeile** (auch _Terminal_ oder _Konsole_ genannt). In Classrooms gibt es kein solches Fenster: Die Ausgabe erscheint direkt **unter dem Code-Editor**, sobald Sie das Programm ausführen.
+:::
+
+Wir können nicht nur fixen Text ausgeben, sondern auch die Werte von Variablen und die Ergebnisse von Berechnungen:
+
+```py live_py slim
+seite = 50
+print(seite)
+print('seite')
+print(seite * 4)
+```
+
+Achten Sie auf den Unterschied zwischen Zeile 2 und Zeile 3:
+- `print(seite)` **ohne** Anführungszeichen: Python liest den Wert der Variable `seite` und gibt `50` aus.
+- `print('seite')` **mit** Anführungszeichen: Das ist ein String. Python gibt ihn genau so aus, wie er dasteht, also `seite`.
+
+:::info[Programme ohne Turtle]
+In diesem Kapitel arbeiten Sie oft nicht mit der Turtle. Wenn Sie keine Turtle-Befehle (z.B. `forward()`, `left()`, etc.) verwenden, dann müssen Sie auch kein `from turtle import *` (und kein `done()`) schreiben.
+:::
+
+### Quiz
+Lösen Sie das Quiz vollständig **von Hand**, ohne die Programme auszuführen. Was geben die Programme aus?
+
+<Quiz randomizeQuestions randomizeOptions scoring={points(1)} keepExpanded={'correct'} resetMode='incorrect' id='a3dda46a-f561-4d6f-a397-9487312d09a7'>
+    <ChoiceAnswer correct={[2]}>
+        ```py
+        x = 5
+        print('x')
+        ```
+
+        1. `5`
+        2. `x`
+        3. `'x'`
+        4. Es gibt einen Fehler.
+    </ChoiceAnswer>
+    <ChoiceAnswer correct={[1]}>
+        ```py
+        a = 3
+        b = 4
+        print(a + b)
+        ```
+
+        1. `7`
+        2. `a + b`
+        3. `3 + 4`
+        4. `34`
+    </ChoiceAnswer>
+    <ChoiceAnswer correct={[3]}>
+        ```py
+        print('3 + 4')
+        ```
+
+        1. `7`
+        2. `'3 + 4'`
+        3. `3 + 4`
+        4. Es gibt einen Fehler.
+    </ChoiceAnswer>
+    <ChoiceAnswer correct={[1]}>
+        ```py
+        zahl = 10
+        print(zahl)
+        zahl = zahl + 5
+        print(zahl)
+        ```
+
+        1. ```
+           10
+           15
+           ```
+        2. ```
+           15
+           15
+           ```
+        3. ```
+           10
+           10
+           ```
+        4. ```
+           15
+           ```
+    </ChoiceAnswer>
+    <ChoiceAnswer correct={[2]}>
+        ```py
+        for i in range(3):
+            print(i)
+        ```
+
+        1. ```
+           1
+           2
+           3
+           ```
+        2. ```
+           0
+           1
+           2
+           ```
+        3. ```
+           0
+           1
+           2
+           3
+           ```
+        4. ```
+           i
+           i
+           i
+           ```
+    </ChoiceAnswer>
+</Quiz>
+
+### Aufgaben
+::::aufgabe[Schild]
+<TaskState id="f0d634bc-e86e-4965-b059-e59fbeb1ddeb" />
+
+Schreiben Sie ein Programm, das genau dieses «Schild» ausgibt:
+
+```
++--------------+
+| Python kann  |
+| auch Text!   |
++--------------+
+```
+
+:::tip[Zeile für Zeile denken]
+In Python wird Text Zeile für Zeile ausgegeben: Jedes `print()` macht eine Zeile. Überlegen Sie sich also zuerst, wie viele `print()`-Befehle Sie brauchen und was in jedem einzelnen stehen muss.
+:::
+
+```py live_py id=820fc139-73fc-49a6-a37e-ec5331a49e30
+```
+
+<Solution id="ea3ad695-6ff2-41d6-9e7f-a8fab2ad731c">
+  ```py live_py readonly slim
+  print('+--------------+')
+  print('| Python kann  |')
+  print('| auch Text!   |')
+  print('+--------------+')
+  ```
+</Solution>
+::::
+::::aufgabe[Kreisrechner]
+<TaskState id="81de3618-176a-45c5-a0a8-2c14324acace" />
+
+Im Editor unten ist der Radius eines Kreises in der Variable `radius` gespeichert. Ergänzen Sie das Programm so, dass es zuerst den **Umfang** und dann die **Fläche** dieses Kreises ausgibt (je auf einer eigenen Zeile). Als Annäherung für die Zahl $\pi$ können Sie den Wert `3.14` verwenden.
+
+Wenn Sie den Wert von `radius` ändern, sollen sich auch die Ergebnisse entsprechend ändern.
+
+:::tip[Formeln]
+- Umfang: $U = 2 \cdot r \cdot \pi$
+- Fläche: $A = r^2 \cdot \pi$ (also $r \cdot r \cdot \pi$)
+:::
+
+```py live_py id=65ff4aa0-4733-4e40-92b4-62d34fe90f3a
+radius = 7
+```
+
+<Solution id="b3803fe8-1d90-4500-9afc-091ff47955a7">
+  ```py live_py readonly slim
+  radius = 7
+
+  print(2 * radius * 3.14)
+  print(radius * radius * 3.14)
+  ```
+</Solution>
+::::
+
+::::aufgabe[Countdown]
+<TaskState id="eb89a171-bc7f-41db-8096-f6c35cf2b6f5" />
+
+Schreiben Sie ein Programm, das einen Countdown von `10` bis `1` ausgibt und danach `Start!`:
+
+```
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+Start!
+```
+
+Verwenden Sie dazu eine `for`-Schleife (und nicht elf einzelne `print()`-Befehle).
+
+:::tip[Tipp]
+In der Schleife `for i in range(10)` hat `i` nacheinander die Werte `0`, `1`, `2`, ..., `9`. Welche Berechnung mit `i` ergibt nacheinander die Werte `10`, `9`, `8`, ..., `1`?
+:::
+
+:::tip[Kein Warten]
+Der Countdown muss nicht «langsam» runterzählen. Es ist okay, wenn alle Zeilen auf einmal erscheinen.
+:::
+
+```py live_py id=9ccc6cee-088c-40a3-93cb-ad8642bbe55a
+```
+
+<Solution id="d48dfc4b-de46-4608-a66e-452c785f4fbc">
+  ```py live_py readonly slim
+  for i in range(10):
+      print(10 - i)
+
+  print('Start!')
+  ```
+</Solution>
+::::
+
+## Mehrere Werte ausgeben
+Oft möchten wir nicht einfach eine Zahl ausgeben, sondern auch dazuschreiben, was sie bedeutet. Dazu können wir `print()` **mehrere Werte** übergeben, getrennt durch **Kommas**:
+
+```py live_py slim
+note_1 = 5
+note_2 = 4.5
+note_3 = 5.5
+schnitt = (note_1 + note_2 + note_3) / 3
+
+print('Notenschnitt:', schnitt)
+```
+
+Python gibt die Werte nacheinander auf derselben Zeile aus und setzt dabei **automatisch einen Leerschlag** zwischen zwei Werte. Dabei dürfen wir Strings und Zahlen beliebig mischen.
+
+<ChoiceAnswer randomizeOptions correct={[1]} title="Mehrere Werte" id="a5702458-0523-43de-879e-574decf01737">
+    Führen Sie das folgende Programm **von Hand** aus. Was gibt es aus?
+
+    ```py
+    breite = 4
+    hoehe = 3
+    print('Fläche:', breite * hoehe, 'm2')
+    ```
+
+    1. `Fläche: 12 m2`
+    2. `Fläche:12m2`
+    3. `Fläche: breite * hoehe m2`
+    4. `'Fläche:' 12 'm2'`
+
+    <Hint when={['correct']}>
+        Genau! Python berechnet zuerst `breite * hoehe`, also `12`, und gibt dann die drei Werte `Fläche:`, `12` und `m2` aus, jeweils mit einem Leerschlag dazwischen. Die Anführungszeichen selbst werden nicht ausgegeben.
+    </Hint>
+    <Hint when={['incorrect']}>
+        Überlegen Sie für jeden der drei Werte zwischen den Kommas einzeln, was ausgegeben wird. Was macht Python zwischen zwei Werten?
+    </Hint>
+</ChoiceAnswer>
+
+::::aufgabe[Einmaleins]
+<TaskState id="524c2a46-0632-4007-99ba-a6a1bfd9ea7a" />
+
+Schreiben Sie ein Programm, das die Einmaleins-Reihe der Zahl in der Variable `zahl` ausgibt. Für `zahl = 7` sieht die Ausgabe so aus:
+
+```
+1 x 7 = 7
+2 x 7 = 14
+3 x 7 = 21
+4 x 7 = 28
+5 x 7 = 35
+6 x 7 = 42
+7 x 7 = 49
+8 x 7 = 56
+9 x 7 = 63
+10 x 7 = 70
+```
+
+Verwenden Sie eine `for`-Schleife. Wenn Sie den Wert von `zahl` z.B. auf `3` ändern, soll Ihr Programm die Dreier-Reihe ausgeben.
+
+:::tip[Tipp]
+Die Reihe beginnt bei `1`, der Schleifenzähler `i` aber bei `0`.
+:::
+
+```py live_py id=adc81ad2-556d-4f01-851b-4e0bae63f0f6
+zahl = 7
+```
+
+<Solution id="0978196d-3f04-445d-aa62-9b531b22e211">
+  ```py live_py readonly slim
+  zahl = 7
+
+  for i in range(10):
+      print(i + 1, 'x', zahl, '=', (i + 1) * zahl)
+  ```
+</Solution>
+::::
+
+## f-Strings
+Mit Kommas kommen wir schon recht weit. Manchmal stört aber der automatische Leerschlag:
+
+```py live_py slim
+name = 'Snoopy'
+print('Hallo,', name, '!')
+```
+
+Die Ausgabe ist `Hallo, Snoopy !`, mit einem unschönen Leerschlag vor dem Ausrufezeichen. Diesen Leerschlag bringen wir mit Kommas nicht weg: Python setzt ihn **immer** zwischen zwei Werte.
+
+Die Lösung sind sogenannte **f-Strings** (für _**f**ormatted_). Ein f-String ist ein String mit einem **`f` vor dem ersten Anführungszeichen**. Innerhalb des f-Strings können wir mit **geschweiften Klammern** `{...}` Variablen einfügen:
+
+```py live_py slim
+name = 'Snoopy'
+alter = 7
+print(f'Hallo, {name}! Du bist {alter} Jahre alt.')
+```
+
+Beim Ausführen ersetzt Python jede geschweifte Klammer durch den Wert, der darin steht. Den Rest des Strings gibt es genau so aus, wie er dasteht, inklusive aller Leerschläge (und eben nur dieser). Ob die Werte Strings oder Zahlen sind, spielt keine Rolle.
+
+In den geschweiften Klammern dürfen auch Berechnungen stehen:
+
+```py live_py slim
+alter = 7
+print(f'In drei Jahren bist du {alter + 3} Jahre alt.')
+```
+
+:::warning[Das `f` nicht vergessen]
+Ohne das `f` vor dem String ist es ein ganz normaler String, und die geschweiften Klammern werden einfach mit ausgegeben. Es gibt dabei **keine Fehlermeldung**:
+
+```py live_py slim
+name = 'Snoopy'
+print('Hallo, {name}!')
+```
+:::
+
+### Quiz
+Lösen Sie auch dieses Quiz vollständig **von Hand**. Was geben die Programme aus?
+
+<Quiz randomizeQuestions randomizeOptions scoring={points(1)} keepExpanded={'correct'} resetMode='incorrect' id='4ff88a3a-7399-4f30-9611-a21f33f83f83'>
+    <ChoiceAnswer correct={[3]}>
+        ```py
+        name = 'Lea'
+        print('Hallo {name}')
+        ```
+
+        1. `Hallo Lea`
+        2. `Hallo, Lea`
+        3. `Hallo {name}`
+        4. Es gibt einen Fehler.
+    </ChoiceAnswer>
+    <ChoiceAnswer correct={[1]}>
+        ```py
+        x = 3
+        print(f'{x} + {x} = {x + x}')
+        ```
+
+        1. `3 + 3 = 6`
+        2. `x + x = x + x`
+        3. `3 + 3 = 3 + 3`
+        4. `{3} + {3} = {6}`
+    </ChoiceAnswer>
+    <ChoiceAnswer correct={[2]}>
+        ```py
+        essen = 'Pizza'
+        print(f'Ich mag{essen}!')
+        ```
+
+        1. `Ich mag Pizza!`
+        2. `Ich magPizza!`
+        3. `Ich mag Pizza !`
+        4. `Ich mag{essen}!`
+    </ChoiceAnswer>
+</Quiz>
+
+### Aufgaben
+::::aufgabe[Steckbrief]
+<TaskState id="59d2fba3-7f66-449e-a676-e7dfed374961" />
+
+Das Programm im im Code-Editor unten funktioniert zwar, aber seine Ausgabe sieht wegen der automatischen Leerschläge nicht schön aus. Führen Sie es zuerst einmal aus.
+
+Schreiben Sie dann die beiden `print()`-Befehle mit **f-Strings** um, sodass die Ausgabe genau so aussieht:
+
+```
+Hallo, Snoopy!
+Snoopy ist ein Hund (7 Jahre alt).
+```
+
+```py live_py id=95a14130-57df-4cd2-b148-8fdc578ca0ce
+name = 'Snoopy'
+tier = 'Hund'
+alter = 7
+
+print('Hallo,', name, '!')
+print(name, 'ist ein', tier, '(', alter, 'Jahre alt ).')
+```
+
+<Solution id="d919b9b2-1a2d-42b2-b2f4-11833c8ddc23">
+  ```py live_py readonly slim
+  name = 'Snoopy'
+  tier = 'Hund'
+  alter = 7
+
+  print(f'Hallo, {name}!')
+  print(f'{name} ist ein {tier} ({alter} Jahre alt).')
+  ```
+</Solution>
+::::
+
+::::aufgabe[Kreisrechner 2.0]
+<TaskState id="ebcc039f-50e7-46b5-ab6f-91f6bbcb9745" />
+
+Kopieren Sie Ihre Lösung zur Aufgabe «Kreisrechner» (weiter oben) in den Editor unten. Passen Sie das Programm so an, dass es die Ergebnisse in einem vollständigen Satz ausgibt. Für `radius = 7` also:
+
+```
+Ein Kreis mit Radius 7 hat einen Umfang von 43.96 und eine Fläche von 153.86.
+```
+
+```py live_py id=1e24d5eb-7e5b-44d5-9ff9-c85c0b9b82d5
+```
+
+<Solution id="edcfce8a-fb71-4185-af3c-80eaa44a43b4">
+  ```py live_py readonly slim
+  radius = 7
+
+  umfang = 2 * radius * 3.14
+  flaeche = radius * radius * 3.14
+
+  print(f'Ein Kreis mit Radius {radius} hat einen Umfang von {umfang} und eine Fläche von {flaeche}.')
+  ```
+</Solution>
+::::
+
+::::aufgabe[Würfeln]
+<TaskState id="007aaff2-c9b6-459c-8fbd-cd19e6e22a66" />
+
+Schreiben Sie ein Programm, das **fünfmal** mit einem gewöhnlichen Würfel (Zahlen 1 bis 6) würfelt und jeden Wurf ausgibt. Am Schluss soll es zudem die **Summe** aller Würfe ausgeben. Die Ausgabe könnte also z.B. so aussehen:
+
+```
+Wurf 1: 4
+Wurf 2: 6
+Wurf 3: 1
+Wurf 4: 4
+Wurf 5: 2
+Summe: 17
+```
+
+:::tip[Tipps]
+- Eine zufällige Ganzzahl erhalten Sie mit `randint(min, max)` (siehe Kapitel [Zufall](../10-Zufall/index.mdx)). Vergessen Sie `from random import *` nicht.
+- Für die Summe: Legen Sie **vor** der Schleife eine Variable `summe` mit dem Wert `0` an. Zählen Sie dann in jedem Schleifendurchlauf den aktuellen Wurf dazu.
+:::
+
+```py live_py id=e7420cc9-cdfd-4716-bbe1-313db7608d66
+```
+
+<Solution id="c0879fff-29b5-4edf-a7f9-514299e309a2">
+  ```py live_py readonly slim
+  from random import *
+
+  summe = 0
+
+  for i in range(5):
+      wurf = randint(1, 6)
+      print(f'Wurf {i + 1}: {wurf}')
+      summe = summe + wurf
+
+  print(f'Summe: {summe}')
+  ```
+</Solution>
+::::
+
+::::aufgabe[Zufälliges n-Eck vermessen]
+<TaskState id="59c0e8ea-271b-4b24-bd09-8745d20359fa" />
+
+In einer früheren Aufgabe haben Sie mit der Turtle ein n-Eck mit einer zufälligen Anzahl Ecken gezeichnet. Jetzt soll Ihr Programm zusätzlich ausgeben, was es gezeichnet hat.
+
+Schreiben Sie ein Turtle-Programm, das:
+- ein n-Eck mit einer zufälligen Anzahl Ecken (mindestens 3, höchstens 12) und einer zufälligen Seitenlänge (mindestens 30, höchstens 80 Pixel) zeichnet,
+- danach ausgibt, was gezeichnet wurde, und wie gross der Umfang ist.
+
+Wenn z.B. ein Fünfeck mit Seitenlänge 42 gezeichnet wurde, soll die Ausgabe so aussehen:
+
+```
+Gezeichnet: 5-Eck mit Seitenlänge 42 Pixel
+Umfang: 210 Pixel
+```
+
+:::tip[Tipps]
+- Als Startpunkt können Sie entweder das unten angefangene Programm verwenden oder Sie können Ihre Lösung zur Aufgabe 2 im Kapitel [Zufall](../10-Zufall/index.mdx#aufgaben) wiederverwenden. Bei dieser Aufgabe kommt nur noch die Ausgabe dazu, sonst ändert sich nichts.
+- Der Umfang eines `n`-Ecks berechnet sich aus der Anzahl Ecken (=Anzahl Seiten) mal der Seitenlänge.
+:::
+
+```py live_py id=3bccf564-b7b2-4a71-9641-ac194748af21
+from turtle import *
+from random import *
+
+shape('turtle')
+```
+
+<Solution id="72ac7193-745b-42b9-a6de-d3fcb51aaa74">
+  ```py live_py readonly slim
+  from turtle import *
+  from random import *
+
+  shape('turtle')
+
+  anzahl_ecken = randint(3, 12)
+  seite = randint(30, 80)
+
+  for i in range(anzahl_ecken):
+      forward(seite)
+      left(360 / anzahl_ecken)
+
+  print(f'Gezeichnet: {anzahl_ecken}-Eck mit Seitenlänge {seite} Pixel')
+  print(f'Umfang: {anzahl_ecken * seite} Pixel')
+
+  done()
+  ```
+</Solution>
+::::
+
+## ⭐️ Zusatzaufgaben
+::::aufgabe[⭐️ Das ganze Einmaleins]
+<TaskState id="5ec0029e-1ff7-4b92-8753-83e60d30ffae" />
+
+Erweitern Sie Ihre Lösung zur Aufgabe «Einmaleins» (weiter oben): Ihr Programm soll nun **alle** Einmaleins-Reihen von `1` bis `10` untereinander ausgeben (also `1 x 1 = 1` bis `10 x 10 = 100`, insgesamt 100 Zeilen). Verwenden Sie dazu einen f-String.
+
+:::tip[Tipp]
+Sie brauchen eine verschachtelte `for`-Schleife.
+:::
+
+```py live_py id=2dfe3ff2-7cd7-43cb-850f-90d3a5c008f0
+```
+
+<Solution id="cc5cc248-2308-43bc-9863-0aa3e2024882">
+  ```py live_py readonly slim
+  for i in range(10):
+      for j in range(10):
+          print(f'{j + 1} x {i + 1} = {(j + 1) * (i + 1)}')
+  ```
+</Solution>
+::::
+
+::::aufgabe[⭐️ Reiskörner auf dem Schachbrett]
+<TaskState id="00512942-12c7-430b-b313-8f6a652ecfb6" />
+
+Einer Legende nach durfte sich der Erfinder des Schachspiels von seinem König eine Belohnung wünschen. Er wünschte sich Reiskörner: Auf das erste Feld des Schachbretts sollte ein Korn gelegt werden, auf das zweite Feld zwei Körner, auf das dritte vier Körner, und so weiter. Auf jedes Feld also doppelt so viele Körner wie auf das vorherige. Ein Schachbrett hat 64 Felder.
+
+Schreiben Sie ein Programm, das für jedes Feld ausgibt, wie viele Körner darauf liegen, und am Schluss die Gesamtzahl aller Körner:
+
+```
+Feld 1: 1 Körner
+Feld 2: 2 Körner
+Feld 3: 4 Körner
+Feld 4: 8 Körner
+...
+Feld 64: 9223372036854775808 Körner
+Total: 18446744073709551615 Körner
+```
+
+:::tip[Tipps]
+- Verwenden Sie eine Variable `koerner` für die Anzahl Körner auf dem aktuellen Feld und eine Variable `total`, zu der Sie in jedem Schleifendurchlauf die Körner des aktuellen Felds dazuzählen.
+- Oder sie gehen es mathematisch an: Das Feld $i$ enthält $2^{i-1}$ Körner, für $i=1...64$.
+:::
+
+```py live_py id=3686bec5-0f11-4ebb-baa4-683d567c2dfe
+```
+
+<Solution id="32ebea29-1585-42fa-8d7e-54687d88a6e1">
+  ```py live_py readonly slim
+  koerner = 1
+  total = 0
+
+  for i in range(64):
+      print(f'Feld {i + 1}: {koerner} Körner')
+      total = total + koerner
+      koerner = koerner * 2
+
+  print(f'Total: {total} Körner')
+  ```
+
+  Zum Vergleich: Ein Reiskorn wiegt etwa 0.02 Gramm. Alle Körner zusammen würden also über 360 Milliarden Tonnen wiegen, ein Vielfaches der weltweiten Reisernte eines Jahres.
+</Solution>
+::::
