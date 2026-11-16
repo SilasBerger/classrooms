@@ -162,7 +162,7 @@ const getSiteConfig: SiteConfigProvider = () => {
                 DIRECTUS_URL
             })
         },
-        plugins: [brythonCodePluginConfig],
+        plugins: [brythonCodePluginConfig, require.resolve('@tdev/pyodide-code/plugin')],
         docs: {
             ...ADMONITION_CONFIG,
             versions: VERSIONS,
