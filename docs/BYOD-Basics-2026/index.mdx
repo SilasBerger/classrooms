@@ -5,6 +5,8 @@ page_id: bc5b11bf-09f7-4c2f-9108-4d43e2a81513
 ---
 
 import TypedText from '@tdev-components/visualization-tools/TypedText'
+import WithCmsText from '@tdev-components/documents/CmsText/WithCmsText';
+import CmsText from '@tdev-components/documents/CmsText';
 
 <TypedText type="h1" strings={[
     '<span style="color: lime">B</span><span style="color: springgreen">Y</span><span style="color: aquamarine">O</span><span style="color: turquoise">D</span>',
@@ -63,6 +65,29 @@ Szenarien
 : 10 zufällige Szenarien aus den Prüfungsfragen (die werden noch bekannt gegeben)
 : Sie müssen die Szenarien in 5 Minuten vorzeigen können.
 :::
+
+<WithCmsText entries={{
+    punkteTheorie: "def344e0-040e-44cc-86cd-7142c103ae1b",
+    noteTheorie: "4f1038d7-679c-40eb-8928-d30d7dfecda6",
+    punktePraxis: "5bef4068-c218-4361-b173-c55639f38bd5",
+    notePraxis: "70878e7f-ea5a-4024-8cf9-c59156dc4686",
+    gesamtnote: "f0e1c7d2-3a5b-4e6f-8c9b-1d2e3f4a5b6c"}}>
+
+:::cards
+#### Ergebnis
+
+Punkte Theorie
+: <CmsText name="punkteTheorie" /> / 15
+Note Theorie ($\frac{1}{3}$)
+: <CmsText name="noteTheorie" />
+Punkte Praxis
+: <CmsText name="punktePraxis" /> / 10
+Note Praxis  ($\frac{2}{3}$)
+: <CmsText name="notePraxis" />
+Gesamtnote
+: __<CmsText name="gesamtnote" />__ (zählt 50%)
+:::
+</WithCmsText>
 ::::
 
 Seit dem Sommer 2020 bringen alle Schüler:innen ihre eigenen Laptops mit in den Unterricht (*BYOD – Bring Your Own Device*). Den grössten Nutzen bringt das persönliche Gerät, wenn es im Unterricht **effizient als Mittel zum Zweck** eingesetzt werden kann. Dazu müssen Sie die grundlegenden Funktionen des Geräts (z.B. Dokumente erstellen, speichern, teilen, wiederfinden, …) beherrschen und wissen, wie gewisse Abläufe effizient gestaltet werden können.
