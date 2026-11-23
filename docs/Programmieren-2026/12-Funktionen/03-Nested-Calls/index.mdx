@@ -1,0 +1,19 @@
+---
+page_id: 4f863017-9a04-4597-96ec-1f9621742348
+draft: true
+---
+
+# 🔬 Verschachtelte Funktionsaufrufe
+## [Konzept]
+Die SuS sollen an einem sinnvollen aber isolierten, an sich einfachen Beispiel verstehen, wie verschachtelte Funktionsaufrufe funktionieren. Damit wollen wir dem Problem vorbeugen, dass sie später immer `input(int('...'))` statt `int(input(...))` schreiben, oder halt einfach die Reihenfolge auswendig lernen, statt das Prinzip dahinter zu verstehen.
+
+Was diese Seite liefern soll, das das Kapitel zur Eingabe bisher nicht gut kann:
+- Verschachtelte Funktionsaufrufe isoliert anschauen, ohne sich dabei über Inputs, Datentypen, etc. Gedanken machen zu müssen.
+- Das Verständnis dafür schärfen, was hier vor sich geht.
+
+Vorschlag:
+- Etwas Theorie, vielleicht auch etwas mehr als sonst z.B. bei den Funktionen
+- Ein Quiz dazu
+- 1-2 recht kurze Programmieraufgaben, bei denen es nur genau um das geht 
+
+Ergänzung (16.11.2026): Entspricht der Misconception «OutsideInFunctionNesting» (https://progmiscon.org/misconceptions/Python/OutsideInFunctionNesting/): verschachtelte Aufrufe werden von innen nach aussen ausgewertet, nicht von aussen nach innen. Da `print()` jetzt bekannt ist, eignen sich z.B. `print(randint(1, 6))` oder `print()` um eine eigene Funktion mit Rückgabewert als isolierte Beispiele.

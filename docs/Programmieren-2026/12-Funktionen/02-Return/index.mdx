@@ -1,0 +1,29 @@
+---
+page_id: bc36d9eb-1252-472d-9590-e0cebdc7fcc3
+draft: true
+---
+
+# Rückgabewerte
+
+## [Konzept]
+Im Oberkapitel dieses Unterkapitels haben die SuS den Umgang mit Funktionsdefinitionen und -aufrufen geübt. In diesem Unterkapitel geht es um Rückgabewerte.
+
+Die Kernpunkte:
+- Eine Funktion gibt nur dann etwas zurück, wenn sie irgendwo das `return`-Keyword verwendet.
+- Bezug zum Memory-Modell: Wenn eine Funktion etwas zurückgibt, wird es in einem "anonymen Steckplatz" abgespeichert, auf den man nicht mit einem Namen zugreifen kann. Beim Schreiben einer Variable oder übergeben eines Parameters geht Python also in zwei verschiedenen Fällen in den Arbeitsspeicher schauen:
+  - Bei Variablen: Python sucht sich den Speicherplatz mit dem entsprechenden Namen.
+  - Bei Funktionsaufrufen: Sobald die aufgerufene Funktion fertig ist, geht Python zum speziellen "Return-Speicher-Slot" und schaut nach, ob die Funktion dort einen Wert hinterlegt hat.
+- Wenn man den Rückgabewert einer Funktion weiterverwenden will, dann muss man ihn also in einer Variable abspeichern (macht eigentlich immer Sinn) oder man kann ihn – falls das Sinn macht – gleich als Parameter an eine nächste Funktion weitergeben. Der Funktionsaufruf an sich ist aber der einzige Weg, wie wir Python instruieren können, in diesem "Spezial-Speicherslot" nachschauen zu gehen. Wir können ihn nicht zu einem späteren Zeitpunkt nochmal mit Namen ansprechen, und zudem wäre er dann vermutlich auch bereits überschrieben.
+- Nicht jede Funktion gibt etwas zurück. Beispielsweise tun das die Turtle-Befehle nicht. Sie sind Anweisungen an die Schildkröte, und keine "Wert-Produzenten". Dementsprechend würde etwas wie `x = forward(50)` keinen Sinn machen. Es gibt zwar keinen Fehler, aber `x` enthält dann den Wert `None`, welcher soviel bedeutet wie `Nichts`, mit dem wir entsprechend auch nichts anfangen können.
+
+Dazu braucht es sicher 1-2 Beispiele, und evtl. auch ein Negativ-Beispiel, wie es eben nicht funktioniert. Rückgabewerte machen den SuS oft recht viel Mühe. Recherchiere deshalb bitte bei https://progmiscon.org/, ob du dazu eine Misconception findest, die du gleich abfangen kannst.
+
+Das PowerPoint-Beispiel zu Return-Werten (im Memory-Modell haben wir jetzt den speziellen Rückgabe-Speicherslot mit pinkem Steckplatz) habe ich dir hier wieder als Slidecast, zum Einbinden: TODO.
+
+Als Anknüpfpunkt: Die SuS haben tatsächlich noch nicht viele Funktionen gesehen, die etwas zurückgeben. Meiner Meinung nach war das bisher lediglich die `randint()`-Funktion, die eine Zufallszahl produziert. Daran lässt sich das Prinzip aber (mindestens von der Konsumenten-Seite her) gut illustrieren: Wir können die Zufallszahl nicht auf Zeile 3 generieren und dann irgendwann später auf Zeile 10 mal brauchen, ausser wenn wir sie eben in einer Variable abspeichern.
+
+Ergänzungen (16.11.2026):
+- Die SuS kennen jetzt `print()` und f-Strings (Kapitel 11 Ausgabe kommt neu vor den Funktionen). Damit lassen sich Rückgabewerte direkt sichtbar machen, und auch `None` (z.B. bei `x = forward(50)`) kann man zeigen statt nur behaupten.
+- Warn-Box zu «ReturnCall» (https://progmiscon.org/misconceptions/Python/ReturnCall/): `return` ist kein Funktionsaufruf, sondern ein Keyword; man schreibt `return x`, nicht `return(x)`.
+- Scopes NICHT behandeln (kommt erst im EF).
+- Ebenfalls noch nicht behandeln: mehrere Rückgabewerte («MultipleValuesReturn») und dass `return` die Funktion sofort beendet («DeferredReturn»; wird erst mit der bedingten Ausführung relevant).
