@@ -1,0 +1,221 @@
+---
+sidebar_label: Algorithmus
+sidebar_custom_props:
+  source:
+    name: mit Material von inf.gbsl.website
+    ref: https://inf.gbsl.website/28Gb/Programmieren-1/Algorithmen/Algorithmus
+page_id: 68c2d6a4-c436-411f-a9ca-15404e9899b9
+---
+
+# Algorithmus
+
+## Definition
+> «Ein Algorithmus beschreibt die Methode, mit der eine Aufgabe gelöst wird. Ein Algorithmus besteht aus einer Folge von Schritten, deren korrekte Abarbeitung die gestellte Aufgabe löst. Die Abarbeitung oder den Vorgang selbst bezeichnet man als Prozeß.»
+> 
+> Les Goldschlager/Andrew Lister: _Informatik_, 1984
+
+Damit wir von einem Algorithmus sprechen, müssen also **zwei** Bedingungen erfüllt sein:
+1. Es muss eine **Schritt-für-Schritt-Anleitung** vorliegen.
+2. Diese Schritt-für-Schritt-Anleitung muss eine **Aufgabe oder ein Problem lösen**.
+
+Die folgende Tabelle zeigt ein paar Beispiele von Prozessen mit zugehörigem Algorithmus:
+
+| Prozess             | Algorithmus   | Typischer Schritt                 |
+| :------------------ | :------------ | :-------------------------------- |
+| Kranich falten      | Faltanleitung | Papier entlang einer Linie falten |
+| Möbel zusammenbauen | Bauanleitung | Schraube anziehen |
+| Musikstück spielen  | Notenblatt | Ein `c'` spielen |
+
+## Anforderungen
+Wir können Algorithmen auf verschiedenen Anforderungen hin prüfen:
+
+![Anforderungen an Algorithmen --width=350px](img/anforderungen.png)
+
+| Anforderung | Beschreibung | Erklärung / Beispiel |
+|-|-|-|
+| **Allgemeinheit** | Es soll nicht nur ein einzelnes Problem gelöst werden. | Ein Addier-Algorithmus soll nicht nur 7 + 4 addieren können, sondern zwei beliebige natürliche Zahlen. |
+| **Eindeutigkeit** | Die Abfolge der einzelnen Schritte soll genau festgelegt sein. Es soll zu jedem Zeitpunkt klar sein, welcher Schritt als nächstes ausgeführt werden muss. | Ein Algorithmus sollte keine Angaben machen wie «jetzt könnte man beispielsweise…» |
+| **Ausführbarkeit** | Man (respektive, ein Prozessor) muss jeden Einzelschritt des Algorithmus auch wirklich ausführen können. | Ein Algorithmus sollte keine Schritte enthalten, die nicht ausführbar sind, wie z.B. «den Himmel berühren». |
+| **Endlichkeit** | Ein Algorithmus soll immer nach einer endlichen Anzahl Schritte zu einer Lösung kommen und auch nur endlich viel Platz auf dem Computer beanspruchen. | Benötigt er unendlich lange, erhält man nie ein Ergebnis. Benötigt er unendlich viel Platz, kann ihn kein Computer der Welt speichern und ausführen. |
+| **Korrektheit** | Ein Algorithmus soll für alle möglichen (erlaubten) Eingaben zu einer korrekten Lösung kommen. | Ein Sortier-Algorithmus sollte immer die Elemente in der richtigen Reihenfolge sortieren. |
+| **Determiniertheit** | Ein Algorithmus soll mit den gleichen Eingabewerten immer zur gleichen Ausgabe kommen. Es sollte keinen Zufallsfaktor geben. | Die Quadratwurzel aus 49 muss immer 7 geben. |
+
+:::insight[Welche Anforderungen sind wichtig?]
+Diese Anforderungen entscheiden **nicht**, ob es sich um einen Algorithmus handelt oder nicht. Wir nutzen sie, um **Algorithmen zu beschreiben**.
+
+In der Praxis erfüllen Algorithmen nicht zwingend alle Anforderungen:
+- **Eindeutigkeit**, **Ausführbarkeit**, **Endlichkeit** und **Korrektheit** sollten immer erfüllt sein, damit wir einen _brauchbaren_ Algorithmus haben.
+- **Determiniertheit** ist generell wünschenswert, allerdings **nicht immer** zwingend notwendig, und manchmal sogar unerwünscht.
+- **Allgemeinheit** ist eine wünschenswerte Eigenschaft, aber grundsätzlich nicht zwingend notwendig.
+:::
+
+## Übungen
+Gehen Sie bei jeder der folgenden Aufgaben wie folgt vor:
+
+<Steps>
+1. Überlegen Sie sich, ob es sich hier um einen Algorithmus handelt, oder nicht. Notieren und **begründen** Sie Ihre Antwort im ersten der beiden Textfelder.
+2. Basierend auf Ihrer Entscheidung…
+   1. Wenn es sich um einen **Algorithmus** handelt, analysieren Sie nun, welche der sechs Kriterien hier erfüllt sind und welche nicht. Begründen Sie jeweils kurz. Halten Sie Ihre Antwort im zweiten Textfeld fest.
+   2. Wenn es **kein Algorithmus** ist, dann können Sie den zweiten Teil der Aufgabe überspringen. Die sechs Kriterien lassen sich nur auf Algorithmen anwenden.
+</Steps>
+
+:::info[Annahmen]
+Manchmal müssen Sie gewisse Annahmen treffen, um eine Antwort geben zu können. Halten Sie diese Annahmen jeweils in Ihrer Antwort fest!
+:::
+
+### Aufgabe 1
+:::aufgabe[Lego-Anleitung]
+<TaskState id="d7cc7e49-411e-453e-8521-9e863f267450" />
+
+![Eine Lego-Anleitung --width=600px](img/exercise/lego-anleitung.png)
+
+Handelt es sich hier um einen Algorithmus? Wieso (nicht)?
+<QuillV2 id="ec7effd7-3113-473c-818b-35fc04300859" />
+
+Sofern es sich um einen Algorithmus handelt: Welche der sechs Anforderungen sind erfüllt? Begründen Sie.
+<QuillV2 id="ac3b93d3-4c1d-48e4-8e2b-bb5084aa580b" />
+:::
+
+### Aufgabe 2
+:::aufgabe[Zeitungsartikel]
+<TaskState id="eb3c132b-e691-4c9b-a18f-1b5c8285b6f2" />
+
+![Ein Zeitungsartikel --width=600px](img/exercise/zeitungsartikel.png)
+
+Handelt es sich hier um einen Algorithmus? Wieso (nicht)?
+<QuillV2 id="79591d18-a64a-4ad0-a04f-889116a07718" />
+
+Sofern es sich um einen Algorithmus handelt: Welche der sechs Anforderungen sind erfüllt? Begründen Sie.
+<QuillV2 id="b75a534d-9e5a-4d76-b6de-41e1b968dcd6" />
+:::
+
+### Aufgabe 3
+:::aufgabe[Stundenplan]
+<TaskState id="c3072eb9-5ab6-4876-97ca-b520d819bb20" />
+
+![Ein Stundenplan --width=600px](img/exercise/stundenplan.png)
+
+Handelt es sich hier um einen Algorithmus? Wieso (nicht)?
+<QuillV2 id="adf334fb-7050-4af5-9032-1d287dd9b3af" />
+
+Sofern es sich um einen Algorithmus handelt: Welche der sechs Anforderungen sind erfüllt? Begründen Sie.
+<QuillV2 id="2160a70f-d05b-4f50-828c-e5ca4bfd737a" />
+:::
+
+### Aufgabe 4
+:::aufgabe[Organigramm]
+<TaskState id="35b197d4-71fa-47e1-8f69-f7aa53278dbc" />
+
+![Ein Organigramm --width=600px](img/exercise/organigramm.png)
+
+Handelt es sich hier um einen Algorithmus? Wieso (nicht)?
+<QuillV2 id="f62d5780-0ac4-419d-95ff-6b9605319ee2" />
+
+Sofern es sich um einen Algorithmus handelt: Welche der sechs Anforderungen sind erfüllt? Begründen Sie.
+<QuillV2 id="9a8aad9c-2391-4c16-a9da-c0a8c49fa147" />
+:::
+
+### Aufgabe 5
+:::aufgabe[Knotensammlung]
+<TaskState id="0f07660a-9a9a-423c-b383-0ca143f84b4e" />
+
+![Eine Knotensammlung (z.B. als Poster) --width=600px](img/exercise/knotensammlung.png)
+
+Handelt es sich hier um einen Algorithmus? Wieso (nicht)?
+<QuillV2 id="caf0e23a-90df-440e-bee8-ba862d453a3e" />
+
+Sofern es sich um einen Algorithmus handelt: Welche der sechs Anforderungen sind erfüllt? Begründen Sie.
+<QuillV2 id="81c223ec-7766-48c1-b960-78d1f0e4f3ee" />
+:::
+
+### Aufgabe 6
+:::aufgabe[Hände richtig waschen]
+<TaskState id="2c5c64eb-6c71-44e3-b7c2-3b7582a33864" />
+
+![Info-Plakat: Hände richtig waschen --width=300px](img/exercise/haende-waschen.png)
+
+Handelt es sich hier um einen Algorithmus? Wieso (nicht)?
+<QuillV2 id="cda1574b-fe7f-4fd1-8174-7a730b10e9ed" />
+
+Sofern es sich um einen Algorithmus handelt: Welche der sechs Anforderungen sind erfüllt? Begründen Sie.
+<QuillV2 id="ae13ee8a-0e9d-47fa-a048-e749ee50a1ba" />
+:::
+
+### Aufgabe 7
+:::aufgabe[Wegbeschreibung]
+<TaskState id="60d3d6ea-18d7-4602-9e43-7bad58b1796c" />
+
+Eine Wegbeschreibung:
+> Start: Ländtestrasse 12, Biel, Gebäude D, Ausgang Strasse \
+> schräg rechts zur Ampel \
+> Zebrastreifen überqueren, dem Weg für 130m folgen \
+> Rechts abbiegen auf Dammweg / Aarbergstrasse \
+> Dem Weg bis zum Parkplatz folgen \
+> Treppe heruntergehen \
+> Zebrastreifen überqueren \
+> Parkplatz überqueren \
+> Ziel: Bahnhof Biel \
+
+Handelt es sich hier um einen Algorithmus? Wieso (nicht)?
+<QuillV2 id="70fc2f68-9b70-4a9f-b764-648ba57ed903" />
+
+Sofern es sich um einen Algorithmus handelt: Welche der sechs Anforderungen sind erfüllt? Begründen Sie.
+<QuillV2 id="26baaa23-acd5-4664-9b8f-ef6a9440a707" />
+:::
+
+### Aufgabe 8
+:::aufgabe[Braille-Alphabet]
+<TaskState id="49eef584-e5fe-429d-aa2c-4b2c48ee319e" />
+
+![Deutsches Braille-Alphabet --width=600px](img/exercise/braille.png)
+
+Handelt es sich hier um einen Algorithmus? Wieso (nicht)?
+<QuillV2 id="21f9d18b-d94c-498d-a2fc-2db8131da296" />
+
+Sofern es sich um einen Algorithmus handelt: Welche der sechs Anforderungen sind erfüllt? Begründen Sie.
+<QuillV2 id="e210e323-5bd3-4736-bb36-770f1120f340" />
+:::
+
+### Abschlussquiz
+:::aufgabe[Abschlussquiz]
+<Quiz keepExpanded={"correct"} randomizeOptions resetMode='incorrect' id="2b0a36f4-a405-44e6-b99e-bfd8c89d97ba">
+  <TrueFalseAnswer correct={true}>
+    Ein Algorithmus ist eine Schritt-für-Schritt Anleitung, die ein Problem oder eine Aufgabe löst.
+  </TrueFalseAnswer>
+  <ChoiceAnswer multiple correct={[2, 3, 4]}>
+    Kreuzen Sie alle korrekten Aussagen an.
+
+    1. Wenn etwas nicht endlich oder nicht eindeutig ist, dann ist es kein Algorithmus.
+    2. Dass ein Algorithmus das Kriterium der _Allgemeinheit_ erfüllt, ist zwar wünschenswert, aber nicht zwingend.
+    3. Ein Algorithmus, der nicht endlich ist, ist meistens nicht sinnvoll.
+    4. _Determiniertheit_ bedeutet, dass ein Algorithmus für eine gleiche Eingabe immer die gleiche Ausgabe (das gleiche Ergebnis) produziert.
+  </ChoiceAnswer>
+  <ChoiceAnswer correct={[4]}>
+    Über welches Kriterium wird in diesem Zitat gesprochen?
+
+    > Nach Schritt 3 ist nicht ganz klar, ob man danach zuerst die Rückwand oder die Seitenwände anschrauben muss.
+
+    1. Ausführbarkeit
+    2. Determiniertheit
+    3. Korrektheit
+    4. Eindeutigkeit 
+    5. Endlichkeit
+    6. Allgemeinheit
+  </ChoiceAnswer>
+  <TrueFalseAnswer correct={false}>
+    Wenn ein Algorithmus das Kriterium der _Korrektheit_ erfüllt, dann führt er für jede erdenkliche Eingabe zu einem korrekten Ergebnis.
+  </TrueFalseAnswer>
+</Quiz>
+:::
+
+## ⭐️ Al-Chwarizmi
+Abu Dschaʿfar Muhammad ibn Musa al-Chwārizmī war ein Mathematiker und Universalgelehrter. Er stammte zwar aus dem iranischen Choresmien, verbrachte jedoch den grössten Teil seines Lebens in Bagdad und war dort im «Haus der Weisheit», einer Art Akademie, tätig.
+
+Al-Chwarizmi gilt als einer der bedeutendsten Mathematiker, da er sich mit Algebra als elementarer Untersuchungsform beschäftigte.[^1]
+
+In der lateinischen Übersetzung eines Werkes von Al-Chwarizmi wurde sein Name als «algorismus» geschrieben. Davon leitet sich der heutige Begriff «Algorithmus» ab.[^2]
+
+![Abbildung von Al-Chwarizmi auf einer sowjetischen Briefmarke --width=250px](img/al-chwarizmi.png)
+
+[^1]: Quelle: [Wikipedia: al-Chwarizmi](https://de.wikipedia.org/wiki/Al-Chwarizmi)
+[^2]: Quelle: [Wiktionary: Algorithmus](https://de.wiktionary.org/wiki/Algorithmus)
