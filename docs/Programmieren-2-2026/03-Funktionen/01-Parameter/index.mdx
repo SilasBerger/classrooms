@@ -1,0 +1,446 @@
+---
+page_id: 2349fc2a-8f1c-4680-98bc-98c7d970a239
+---
+
+import { points } from '@tdev-components/documents/Assessable/helpers/scoring';
+
+# Funktionen mit Parametern
+Eine Funktion `quadrat()`, die immer ein Quadrat mit Seitenlänge 60 zeichnet, hilft uns nicht weiter, wenn wir ein grösseres Quadrat brauchen. Mit einem **Parameter** können wir einer Funktion beim Aufruf einen Wert mitgeben:
+
+```py live_py slim
+from turtle import *
+
+def quadrat(seite):
+    for i in range(4):
+        forward(seite)
+        left(90)
+
+quadrat(50)
+quadrat(100)
+```
+
+- **Parameter:** In der Definition schreiben wir einen Namen in die Klammern, hier `seite`. Innerhalb der Funktion verwenden wir `seite` wie eine Variable.
+- **Argument:** Beim Aufruf schreiben wir den Wert in die Klammern, den der Parameter erhalten soll, hier zuerst `50` und dann `100`.
+
+Als Argument können wir auch eine Variable oder eine Berechnung verwenden, z.B. `quadrat(groesse * 2)`. Python berechnet dann **zuerst den Wert** und übergibt erst diesen an den Parameter.
+
+## Funktionen im Arbeitsspeicher
+Das folgende Video zeigt, was bei Funktionsaufrufen im Arbeitsspeicher passiert.
+
+::video[./img/Funktionen-und-Parameter.mp4]
+
+Achten Sie besonders auf diese Punkte:
+- Beim Aufruf wird für den Parameter `seite` ein **neuer Slot** beschriftet, und der Wert des Arguments wird hineingeschrieben. Übergeben wird nur der **Wert**: `seite_klein` bleibt unverändert.
+- Wenn die Funktion fertig ist, werden die Slots von `seite` und `i` **abgeräumt**, denn sie gehören zur Funktion. Danach springt Python zurück zum Aufruf.
+
+## Mehrere Parameter
+Eine Funktion kann auch **mehrere Parameter** haben. Wir trennen sie mit Kommas, in der Definition genauso wie beim Aufruf. Das kennen Sie bereits von `goto(x, y)`.
+
+```py live_py slim
+from turtle import *
+
+def rechteck(breite, hoehe):
+    for i in range(2):
+        forward(breite)
+        left(90)
+        forward(hoehe)
+        left(90)
+
+rechteck(120, 40)
+```
+
+Beim Aufruf `rechteck(120, 40)` erhält der erste Parameter (`breite`) den ersten Wert (`120`) und der zweite Parameter (`hoehe`) den zweiten Wert (`40`).
+
+:::warning[Die Reihenfolge entscheidet, nicht der Name]
+Python ordnet die Argumente den Parametern **nach ihrer Reihenfolge** zu. Wie die Variablen heissen, die wir beim Aufruf verwenden, spielt **keine Rolle**:
+
+```py live_py slim
+from turtle import *
+
+def rechteck(breite, hoehe):
+    for i in range(2):
+        forward(breite)
+        left(90)
+        forward(hoehe)
+        left(90)
+
+breite = 120
+hoehe = 40
+rechteck(hoehe, breite)
+```
+
+Hier wird das Rechteck 40 Pixel breit und 120 Pixel hoch: Das erste Argument ist `hoehe`, also `40`, und dieser Wert landet im ersten Parameter `breite`.
+:::
+
+## Quiz
+Lösen Sie das Quiz vollständig **von Hand**, ohne die Programme auszuführen.
+
+<Quiz randomizeQuestions randomizeOptions scoring={points(1)} keepExpanded={'correct'} resetMode='incorrect' id='5d489ff8-fdf7-4dfb-8473-8b557fc33744'>
+    <ChoiceAnswer correct={[2]}>
+        ```py
+        def rechteck(breite, hoehe):
+            for i in range(2):
+                forward(breite)
+                left(90)
+                forward(hoehe)
+                left(90)
+
+        a = 30
+        b = 80
+        rechteck(b, a)
+        ```
+
+        Wie **breit** ist das gezeichnete Rechteck?
+
+        1. 30 Pixel
+        2. 80 Pixel
+        3. 110 Pixel
+        4. Es gibt einen Fehler, weil die Variablen nicht `breite` und `hoehe` heissen.
+    </ChoiceAnswer>
+    <ChoiceAnswer correct={[1]}>
+        ```py
+        def quadrat(seite):
+            for i in range(4):
+                forward(seite)
+                left(90)
+
+        seite_klein = 50
+        quadrat(seite_klein + 10)
+        ```
+
+        Welcher Wert steht während des Aufrufs im Speicher-Slot des Parameters `seite`?
+
+        1. `60`
+        2. `50`
+        3. `seite_klein + 10`
+        4. `10`
+    </ChoiceAnswer>
+    <ChoiceAnswer correct={[3]}>
+        ```py
+        def punkt(groesse, farbe):
+            pencolor(farbe)
+            dot(groesse)
+
+        punkt('red', 50)
+        ```
+
+        Was passiert, wenn man dieses Programm ausführt?
+
+        1. Es wird ein roter Punkt mit Durchmesser 50 gezeichnet.
+        2. Es wird ein schwarzer Punkt mit Durchmesser 50 gezeichnet.
+        3. Es gibt einen Fehler.
+        4. Es passiert nichts.
+    </ChoiceAnswer>
+    <ChoiceAnswer correct={[2]}>
+        ```py
+        def quadrat(seite):
+            for i in range(4):
+                forward(seite)
+                left(90)
+
+        quadrat(30)
+        quadrat(60)
+        ```
+
+        Wie viele Quadrate werden gezeichnet?
+
+        1. 1
+        2. 2
+        3. 3
+        4. 0
+    </ChoiceAnswer>
+</Quiz>
+
+## Aufgaben
+::::aufgabe[Vielecke]
+<TaskState id="678469ac-71e9-4efc-85f4-521aca9ed7cf" />
+
+Definieren Sie eine Funktion `vieleck(n)`, die ein regelmässiges n-Eck mit Seitenlänge 60 zeichnet. `vieleck(5)` zeichnet also ein Fünfeck.
+
+Zeichnen Sie damit dann alle Vielecke vom Dreieck bis zum Achteck, alle vom gleichen Startpunkt aus:
+
+![--width=300px](img/vielecke.svg)
+
+Verwenden Sie für die sechs Aufrufe eine `for`-Schleife.
+
+:::tip[Tipps]
+- Bei einem n-Eck muss sich die Turtle an jeder Ecke um `360 / n` Grad drehen.
+- Der Schleifenzähler `i` beginnt bei `0`, das erste Vieleck hat aber `3` Ecken.
+:::
+
+```py live_py id=2dd2a85d-d244-4826-b745-b26eaad32b19
+from turtle import *
+```
+
+<Solution id="107742b3-79d2-46e1-bc29-ae13fc4f9c49">
+  ```py live_py readonly slim
+  from turtle import *
+
+  def vieleck(n):
+      for i in range(n):
+          forward(60)
+          left(360 / n)
+
+  for i in range(6):
+      vieleck(i + 3)
+  ```
+</Solution>
+::::
+
+::::aufgabe[Bunte Blumenwiese]
+<TaskState id="0b1e2142-a2a8-4ab2-ac03-8a4f4eea9839" />
+
+Kopieren Sie Ihre Lösung zur Aufgabe «Blumenwiese» (Seite [Funktionen](../index.mdx)) in den Editor unten. Erweitern Sie die Funktion `blume()` um einen Parameter `farbe`, mit dem man die Farbe der Blüte festlegen kann.
+
+Die fünf Blumen sollen dann von links nach rechts diese Blütenfarben haben: `red`, `blue`, `orange`, `purple`, `pink`.
+
+![--width=400px](img/blumenwiese-bunt.svg)
+
+```py live_py id=31885bb9-1da8-4611-8af5-2560e93a0e03
+```
+
+<Solution id="9394f4e5-5c97-47bc-a1f7-24b03062b6b0">
+  ```py live_py readonly slim
+  from turtle import *
+
+  def blume(farbe):
+      pencolor('green')
+      left(90)
+      forward(80)
+      pencolor(farbe)
+      dot(30)
+      pencolor('yellow')
+      dot(10)
+      right(90)
+
+  penup()
+  goto(-180, -60)
+  pendown()
+  blume('red')
+
+  penup()
+  goto(-90, -100)
+  pendown()
+  blume('blue')
+
+  penup()
+  goto(0, -40)
+  pendown()
+  blume('orange')
+
+  penup()
+  goto(100, -90)
+  pendown()
+  blume('purple')
+
+  penup()
+  goto(180, -50)
+  pendown()
+  blume('pink')
+  ```
+</Solution>
+::::
+
+::::aufgabe[Balkendiagramm]
+<TaskState id="0f5302f1-a0d9-4970-b8fc-c0880b99cf55" />
+
+Zeichnen Sie dieses Balkendiagramm:
+
+![--width=300px](img/balkendiagramm.svg)
+
+- Alle Balken sind 40 Pixel breit und mit der Farbe `steelblue` gefüllt.
+- Die Balken sind (von links nach rechts) 60, 120, 90, 150 und 40 Pixel hoch.
+- Zwischen zwei Balken sind jeweils 10 Pixel Abstand.
+
+Definieren Sie dazu eine Funktion `rechteck(breite, hoehe)`, die ein gefülltes Rechteck zeichnet.
+
+:::tip[Tipp]
+Füllen können Sie mit `fillcolor(farbe)`, `begin_fill()` und `end_fill()` (siehe [Repetition](../../01-Repetition/index.mdx#turtle)).
+:::
+
+```py live_py id=6ae47a3c-be1c-47dc-b62f-b8e1e8c4df52
+from turtle import *
+
+penup()
+goto(-120, -100)
+pendown()
+```
+
+<Solution id="7316fb2a-ccf2-4053-97fb-fb899a465694">
+  ```py live_py readonly slim
+  from turtle import *
+
+  def rechteck(breite, hoehe):
+      fillcolor('steelblue')
+      begin_fill()
+      for i in range(2):
+          forward(breite)
+          left(90)
+          forward(hoehe)
+          left(90)
+      end_fill()
+
+  def verschieben():
+      penup()
+      forward(50)
+      pendown()
+
+  penup()
+  goto(-120, -100)
+  pendown()
+
+  rechteck(40, 60)
+  verschieben()
+  rechteck(40, 120)
+  verschieben()
+  rechteck(40, 90)
+  verschieben()
+  rechteck(40, 150)
+  verschieben()
+  rechteck(40, 40)
+  ```
+</Solution>
+::::
+
+::::aufgabe[Dorf mit verschiedenen Häusern]
+<TaskState id="8ce0beb2-4f75-4ace-a95f-9fec880c67e8" />
+
+Definieren Sie eine Funktion `haus(x, y, groesse)`, die ein Haus zeichnet, dessen linke untere Ecke an der Position `(x, y)` liegt. Das Quadrat und das Dach haben beide die Seitenlänge `groesse`.
+
+Zeichnen Sie damit diese vier Häuser:
+
+| Haus | `x` | `y` | `groesse` |
+| ---- | --- | --- | --------- |
+| 1 | -200 | -100 | 60 |
+| 2 | -110 | -100 | 100 |
+| 3 | 20 | -100 | 40 |
+| 4 | 90 | -100 | 120 |
+
+![--width=400px](img/dorf-2.svg)
+
+:::tip[Tipp]
+Bewegen Sie die Turtle am Anfang der Funktion mit `goto(x, y)` an die richtige Position. Achten Sie darauf, dass sie dabei keine Linie zeichnet.
+:::
+
+```py live_py id=1e53e4f7-95d0-46bd-857f-c4b72acb8628
+from turtle import *
+```
+
+<Solution id="ac0f7417-4b8d-4ff4-b195-4bf743fcefda">
+  ```py live_py readonly slim
+  from turtle import *
+
+  def haus(x, y, groesse):
+      penup()
+      goto(x, y)
+      pendown()
+      # Quadrat
+      for i in range(4):
+          forward(groesse)
+          left(90)
+      # nach oben zum Dach
+      left(90)
+      forward(groesse)
+      right(90)
+      # Dach
+      for i in range(3):
+          forward(groesse)
+          left(120)
+      # zurück zum Startpunkt
+      right(90)
+      forward(groesse)
+      left(90)
+
+  haus(-200, -100, 60)
+  haus(-110, -100, 100)
+  haus(20, -100, 40)
+  haus(90, -100, 120)
+  ```
+</Solution>
+::::
+
+::::aufgabe[Schneegestöber mit Flocken in allen Grössen]
+<TaskState id="5cea5724-5f4a-4f38-92d1-14202f854a57" />
+
+Kopieren Sie Ihre Lösung zur Aufgabe «Schneegestöber» (Seite [Funktionen](../index.mdx)) in den Editor unten. Passen Sie sie so an, dass die Schneeflocken verschieden gross sind:
+
+- Ändern Sie die Funktion zu `schneeflocke(x, y, groesse)`. Sie soll die Schneeflocke an der Position `(x, y)` zeichnen (die Funktion bewegt die Turtle also selbst dorthin).
+- `groesse` ist die Länge eines Arms bis zur Verzweigung (bisher `20`). Die kleinen Zacken und das Stück nach der Verzweigung sind halb so lang.
+- Zeichnen Sie 30 Schneeflocken mit zufälliger Position (x und y jeweils zwischen -220 und 220) und zufälliger Grösse (zwischen 5 und 30).
+
+```py live_py id=a9ab3890-fbb3-4df5-a1b1-b2b0761b0cea
+```
+
+<Solution id="a947e526-5774-4fe4-b94f-98e4de28c05a">
+  ```py live_py readonly slim
+  from turtle import *
+  from random import *
+
+  def schneeflocke(x, y, groesse):
+      penup()
+      goto(x, y)
+      pendown()
+      for i in range(6):
+          forward(groesse)
+          left(45)
+          forward(groesse / 2)
+          back(groesse / 2)
+          right(90)
+          forward(groesse / 2)
+          back(groesse / 2)
+          left(45)
+          forward(groesse / 2)
+          back(groesse * 1.5)
+          right(60)
+
+  speed(0)
+  hideturtle()
+  bgcolor('midnightblue')
+  pencolor('white')
+
+  for i in range(30):
+      schneeflocke(randint(-220, 220), randint(-220, 220), randint(5, 30))
+  ```
+</Solution>
+::::
+
+## ⭐️ Zusatzaufgaben
+::::aufgabe[⭐️ Mandala]
+<TaskState id="94f6c54b-237b-4a69-b261-ef782fa42471" />
+
+Definieren Sie eine Funktion `vieleck(n, seite)`, die ein regelmässiges n-Eck zeichnet. Gestalten Sie damit ein eigenes Mandala: Zeichnen Sie Vielecke in einer Schleife und drehen Sie die Turtle nach jedem Vieleck ein Stück weiter. Kombinieren Sie gerne mehrere Schleifen mit verschiedenen Vielecken, Grössen und Farben.
+
+Zum Beispiel so:
+
+![--width=300px](img/mandala.svg)
+
+```py live_py id=76a781e6-e299-49be-9486-bc7035336e1d
+from turtle import *
+```
+
+<Solution id="392f3545-d6b1-4f84-bef1-ead7f1db6a69">
+  Eine mögliche Lösung (die zum Bild oben passt):
+
+  ```py live_py readonly slim
+  from turtle import *
+
+  def vieleck(n, seite):
+      for i in range(n):
+          forward(seite)
+          left(360 / n)
+
+  speed(0)
+  hideturtle()
+
+  pencolor('teal')
+  for i in range(12):
+      vieleck(6, 60)
+      left(30)
+
+  pencolor('orange')
+  for i in range(18):
+      vieleck(4, 30)
+      left(20)
+  ```
+</Solution>
+::::

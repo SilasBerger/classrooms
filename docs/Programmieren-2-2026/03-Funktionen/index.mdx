@@ -1,12 +1,511 @@
 ---
-page_id: db6a98a3-0deb-4a8b-a09a-1cea7ba3f95c
-draft: true
+page_id: 7723ff1f-4f81-4548-aa9d-171f21208e46
 ---
 
 # Funktionen
-## CLAUDE
-Dieses Kapitel wird über ein Live-Beispiel erschlossen, bei dem wir das Problem haben, dass wir denselben Code-Block immer wieder schreiben müssen. In einem ersten Schritt lagern wir den Block in eine Funktion aus. In einem zweiten Schritt erweitern wir die Funktion, sodass sie Parameter entgegennehmen kann. In einem dritten Schritt erweitern wir die Funktion (oder schreiben eine zusätzliche Funktion), sodass sie einen Wert zurückgeben kann. Das Beispiel wird nicht hier entwickelt, wird aber am Schluss vermutlich hier eingefügt, analog zu /Users/silas/repos/ef-2028/docs/EF-Programmieren/04-Funktionen/index.mdx.
+Mit einer **Funktion** geben wir einem Stück Code einen Namen. Danach können wir den Code über diesen Namen beliebig oft ausführen.
 
-Allgemein soll diese Siete an /Users/silas/repos/ef-2028/docs/EF-Programmieren/04-Funktionen/index.mdx angelehnt sein, jedoch deutlich einfacher, denn die Lernenden sind 1 Jahr jünger und deutlich heterogener. Einerseits sollen die Beispiele nahbarer sein, andererseits sollen auch die Aufgaben einfacher sein.
+```py live_py slim
+from turtle import *
 
-Die Lernziele sind unter ../index.mdx#Lernziele definiert (Absatz: Funktionen).
+def dreieck():
+    for i in range(3):
+        forward(80)
+        left(120)
+
+dreieck()
+right(180)
+dreieck()
+```
+
+**Definition** (Zeilen 3 bis 6): Hier legen wir fest, _was_ die Funktion `dreieck` tun soll. Achten Sie auf:
+
+:mdi[numeric-1-circle]
+: das Schlüsselwort **`def`** (für _define_), gefolgt vom **Namen** der Funktion (es gelten die gleichen Regeln wie für Variablennamen)
+:mdi[numeric-2-circle]
+: die runden **Klammern** `()` nach dem Namen
+:mdi[numeric-3-circle]
+: der **Doppelpunkt** `:` am Ende der Zeile
+:mdi[numeric-4-circle]
+: die **Einrückung**: Alles, was eingerückt unter der `def`-Zeile steht, gehört zur Funktion (genau wie bei einer `for`-Schleife)
+
+![--width=500px](img/funktionsdefinition.png)
+
+:::warning[Aufruf]
+Die Definition allein tut noch **nichts**. Erst wenn wir die Funktion mit `dreieck()` (z.B. Zeile 8) **aufrufen**, wird ihr Code ausgeführt, und zwar so oft, wie wir sie aufrufen.
+:::
+
+:::insight[Existierende Befehle]
+Auf den Zeilen 8 und 10 führen wir mit `dreieck()` die Funktion `dreieck` aus. Genau gleich führen wir auf Zeile 9 mit `right(180)` die Funktion `right` aus. Der einzige Unterschied ist, dass wir `dreieck` selber definiert haben, während `right` aus dem Turtle-Modul stammt und mit `from turtle import *` zur Verfügung gestellt wird.
+:::
+
+## Programmablauf mit Funktionen
+Das folgende Video zeigt, in welcher Reihenfolge Python ein Programm mit Funktionen ausführt.
+
+::video[./img/Programmablauf-mit-Funktionen.mp4]
+
+Achten Sie besonders auf diese Punkte:
+- Bei den `def`-Zeilen merkt sich Python die Funktionen nur (oben rechts: «Verfügbare (neue) Funktionen»). Der eingerückte Code wird dabei **übersprungen**.
+- Bei einem Aufruf springt Python zur Definition und führt den Code der Funktion aus. Danach geht es **zurück zum Aufruf** und mit der nächsten Zeile weiter.
+- `witz_3` wird **nie aufgerufen** und deshalb auch nie ausgeführt. Die Reihenfolge der Ausgabe bestimmen die Aufrufe, nicht die Definitionen.
+
+<ChoiceAnswer correct={[3]} title="Reihenfolge der Aufrufe" id="0f74ddb6-70b7-4535-923f-588542435517">
+Was würde passieren, wenn wir im Code-Beispiel aus dem Video zuerst `witz_2()` und **danach** `witz_1()` aufrufen würden?
+
+```py showLineNumbers=15 {3,4}
+# ...
+print('Hallo!')
+witz_2()
+witz_1()
+print('Ich hoffe, die Witze haben dir gefallen.')
+verabschieden()
+```
+
+1. Das macht keinen Unterschied, die Ausgabe bleibt gleich.
+2. Es gibt einen Fehler, weil `witz_1` vor `witz_2` definiert wurde.
+3. Es wird zuerst der Witz von `witz_2` ausgegeben, danach der von `witz_1`.
+4. Es gibt keine Ausgabe.
+</ChoiceAnswer>
+
+:::key[Zuerst definieren, dann aufrufen]
+Das kennen Sie bereits von Variablen: Eine Variable können wir erst verwenden, nachdem wir ihr einen Wert zugewiesen haben. Vorher gibt es im Arbeitsspeicher keinen Slot mit ihrem Namen. Bei Funktionen ist es genauso: Erst mit der Definition wird die Funktion bei Python «registriert». Steht der Aufruf vor der Definition, gibt es einen Fehler:
+
+```py live_py slim
+gruss()
+
+def gruss():
+    print('Hallo!')
+```
+
+Funktionsdefinitionen stehen deshalb **zuoberst** im Programm, direkt nach den `import`-Zeilen.
+:::
+
+:::key[Klammern auch ohne Parameter]
+Beim Aufruf braucht es **immer** die Klammern, auch wenn sie leer sind: `dreieck()`, nicht `dreieck`. Das kennen Sie bereits von Befehlen wie `penup()`.
+
+Der Name `dreieck` allein bezeichnet nur die Funktion selbst. Erst die Klammern sagen Python: «**Führe diese Funktion jetzt aus!**» Steht nur `dreieck` ohne Klammern im Programm, passiert deshalb nichts, und zwar **ohne Fehlermeldung**.
+:::
+
+::::aufgabe[Fehlersuche]
+<TaskState id="b011643e-63ec-4514-a1da-645d2f1a5411" />
+
+Das Programm im Editor unten soll ein Quadrat, ein Dreieck und ein weiteres Quadrat nebeneinander zeichnen:
+
+![--width=400px](img/fehlersuche-soll.svg)
+
+Führen Sie das Programm aus. Es gibt keine Fehlermeldung, die Zeichnung stimmt aber trotzdem nicht. Finden und beheben Sie die **zwei Fehler**.
+
+:::tip[Tipp]
+Vergleichen Sie, welche Funktionen **definiert** und welche (korrekt) **aufgerufen** werden. Wie viele Quadrate sehen Sie, und wo?
+:::
+
+```py live_py id=d5f72313-fe98-4a10-88f9-894172bf5caa
+from turtle import *
+
+def quadrat():
+    for i in range(4):
+        forward(60)
+        left(90)
+
+def dreieck():
+    for i in range(3):
+        forward(60)
+        left(120)
+
+def verschieben():
+    penup()
+    forward(80)
+    pendown()
+
+quadrat()
+verschieben
+quadrat()
+```
+
+<Solution id="42cad7ad-5119-484a-8c2a-b92591118357">
+  ```py live_py readonly slim
+  from turtle import *
+
+  def quadrat():
+      for i in range(4):
+          forward(60)
+          left(90)
+
+  def dreieck():
+      for i in range(3):
+          forward(60)
+          left(120)
+
+  def verschieben():
+      penup()
+      forward(80)
+      pendown()
+
+  quadrat()
+  verschieben()
+  dreieck()
+  verschieben()
+  quadrat()
+  ```
+
+  Die zwei Fehler:
+  1. **`verschieben` ohne Klammern** (Zeile 19): Die Funktion wird nicht ausgeführt. Deshalb wird das zweite Quadrat genau auf das erste gezeichnet.
+  2. **`dreieck()` wird nie aufgerufen**: Eine Definition allein zeichnet nichts. Es fehlen die Aufrufe `dreieck()` und ein weiteres `verschieben()`.
+</Solution>
+::::
+
+## Aufgaben
+::::aufgabe[Blumenwiese]
+<TaskState id="edd9a959-2394-44e5-b349-26e771b60b40" />
+
+Zeichnen Sie diese Blumenwiese mit fünf Blumen:
+
+![--width=400px](img/blumenwiese.svg)
+
+Jede Blume besteht aus:
+- einem grünen Stiel, der 80 Pixel nach oben geht,
+- einer roten Blüte (`dot(30)`) mit einem gelben Punkt in der Mitte (`dot(10)`).
+
+Im Editor ist bereits Code vorgegeben, der die Turtle an die fünf Positionen bewegt. Definieren Sie eine Funktion `blume()`, die eine Blume zeichnet, und rufen Sie sie an den markierten Stellen auf.
+
+:::tip[Blickrichtung]
+Damit alle Blumen nach oben wachsen, sollte die Turtle am Ende der Funktion wieder in die gleiche Richtung schauen wie am Anfang (nach rechts).
+:::
+
+```py live_py id=19c26a4f-af30-463b-bd28-499d7c5c3e75
+from turtle import *
+
+# Definieren Sie hier die Funktion blume()...
+
+
+penup()
+goto(-180, -60)
+pendown()
+# Funktion hier aufrufen
+
+penup()
+goto(-90, -100)
+pendown()
+# Funktion hier aufrufen
+
+penup()
+goto(0, -40)
+pendown()
+# Funktion hier aufrufen
+
+penup()
+goto(100, -90)
+pendown()
+# Funktion hier aufrufen
+
+penup()
+goto(180, -50)
+pendown()
+# Funktion hier aufrufen
+```
+
+<Solution id="1be64220-764d-439c-8644-55a2adb62e31">
+  ```py live_py readonly slim
+  from turtle import *
+
+  def blume():
+      pencolor('green')
+      left(90)
+      forward(80)
+      pencolor('red')
+      dot(30)
+      pencolor('yellow')
+      dot(10)
+      right(90)
+
+  penup()
+  goto(-180, -60)
+  pendown()
+  blume()
+
+  penup()
+  goto(-90, -100)
+  pendown()
+  blume()
+
+  penup()
+  goto(0, -40)
+  pendown()
+  blume()
+
+  penup()
+  goto(100, -90)
+  pendown()
+  blume()
+
+  penup()
+  goto(180, -50)
+  pendown()
+  blume()
+  ```
+</Solution>
+::::
+
+::::aufgabe[Dorf]
+<TaskState id="98c399ec-4b19-4e12-b4c2-dec028cffd49" />
+
+Zeichnen Sie dieses Dorf:
+
+![--width=500px](img/dorf.svg)
+
+- Ein **Haus** besteht aus einem Quadrat mit Seitenlänge 60 und einem gleichseitigen Dreieck mit Seitenlänge 60 als Dach.
+- Ein **Baum** besteht aus einem braunen Stamm (Länge 40, Stiftbreite 6) und einer grünen Krone (`dot(50)`).
+- Von links nach rechts: Haus, Baum, Baum, Haus, Haus, Baum.
+- Zwischen zwei Elementen bewegt sich die Turtle jeweils 90 Pixel nach rechts, ohne zu zeichnen.
+
+Definieren Sie die Funktionen `haus()`, `baum()` und `verschieben()` und zeichnen Sie das Dorf damit.
+
+:::tip[Tipps]
+- Sorgen Sie dafür, dass die Turtle am Ende von `haus()` und `baum()` wieder **am Startpunkt** steht und **nach rechts** schaut. Dann funktioniert `verschieben()` nach jedem Element gleich.
+- Vergessen Sie im Baum nicht, Stiftbreite und Farbe am Schluss wieder zurückzusetzen (`pensize(1)`, `pencolor('black')`).
+:::
+
+```py live_py id=a8c7128d-6b96-43b2-9807-7d7d4ec48f80
+from turtle import *
+
+# Hier die Funktionen definieren...
+
+
+penup()
+goto(-230, -50)
+pendown()
+
+# Hier die Funktionen aufrufen, um das Dorf zu zeichnen...
+```
+
+<Solution id="825b2c79-b8de-4196-a9cb-f23814a5ec12">
+  ```py live_py readonly slim
+  from turtle import *
+
+  def haus():
+      # Quadrat
+      for i in range(4):
+          forward(60)
+          left(90)
+      # nach oben zum Dach
+      left(90)
+      forward(60)
+      right(90)
+      # Dach
+      for i in range(3):
+          forward(60)
+          left(120)
+      # zurück zum Startpunkt
+      right(90)
+      forward(60)
+      left(90)
+
+  def baum():
+      pencolor('brown')
+      pensize(6)
+      left(90)
+      forward(40)
+      pencolor('green')
+      dot(50)
+      penup()
+      back(40)
+      pendown()
+      right(90)
+      pensize(1)
+      pencolor('black')
+
+  def verschieben():
+      penup()
+      forward(90)
+      pendown()
+
+  penup()
+  goto(-230, -50)
+  pendown()
+
+  haus()
+  verschieben()
+  baum()
+  verschieben()
+  baum()
+  verschieben()
+  haus()
+  verschieben()
+  haus()
+  verschieben()
+  baum()
+  ```
+
+  Ohne Funktionen bräuchten Sie den Code für ein Haus dreimal, den für einen Baum ebenfalls.
+</Solution>
+::::
+
+::::aufgabe[Schneegestöber]
+<TaskState id="d0d62de3-db86-4c77-8018-d971ad0cabe3" />
+
+Der Code im Editor zeichnet eine Schneeflocke. Machen Sie daraus eine Funktion `schneeflocke()` und zeichnen Sie damit ein Schneegestöber, z.B. so:
+
+![--width=400px](img/schneegestoeber.svg)
+
+- dunkelblauer Hintergrund (`bgcolor('midnightblue')`), weisse Schneeflocken
+- 20 Schneeflocken an zufälligen Positionen (x und y jeweils zwischen -220 und 220)
+
+:::tip[Tipps]
+- Für die Zufallszahlen brauchen Sie `randint(min, max)` und `from random import *` (siehe [Repetition](../01-Repetition/index.mdx#zufall)).
+- Mit `speed(0)` und `hideturtle()` geht das Zeichnen schneller.
+:::
+
+```py live_py id=d95c20ba-24be-47f0-b95d-7de968a97e37
+from turtle import *
+
+for i in range(6):
+    forward(20)
+    left(45)
+    forward(10)
+    back(10)
+    right(90)
+    forward(10)
+    back(10)
+    left(45)
+    forward(10)
+    back(30)
+    right(60)
+```
+
+<Solution id="5c54e92e-713d-4ef9-b9cf-0f430524a608">
+  ```py live_py readonly slim
+  from turtle import *
+  from random import *
+
+  def schneeflocke():
+      for i in range(6):
+          forward(20)
+          left(45)
+          forward(10)
+          back(10)
+          right(90)
+          forward(10)
+          back(10)
+          left(45)
+          forward(10)
+          back(30)
+          right(60)
+
+  speed(0)
+  hideturtle()
+  bgcolor('midnightblue')
+  pencolor('white')
+
+  for i in range(20):
+      penup()
+      goto(randint(-220, 220), randint(-220, 220))
+      pendown()
+      schneeflocke()
+  ```
+</Solution>
+::::
+
+::::aufgabe[⭐️ Winterdorf]
+<TaskState id="c2215e1a-965b-4cf0-b1de-3ab144d7fc96" />
+
+Kombinieren Sie Ihren Code aus den Aufgaben «Dorf» und «Schneegestöber», um ein Winterdorf zu zeichnen:
+
+![--width=400px](img/winterdorf.svg)
+
+:::tip[Tipps]
+- Machen Sie die Schneeflocken etwas kleiner, damit sie in das Dorf passen.
+- Am besten definieren Sie am Anfang des Programms eine Variable `groesse_schneeflocke` und machen alle `forward()`-Befehle in der Funktion `schneeflocke()` davon abhängig. Dann können Sie die Grösse der Schneeflocken einfach ändern.
+- Definieren Sie bei der Variable `groesse_schneeflocke` auch eine Variable `anzahl_schneeflocken` (in der Funktion `schneeflocke()` verwenden), damit Sie die Anzahl der Schneeflocken einfach ändern können.
+:::
+
+```py live_py id=6c28ce74-2b74-4ef9-94c4-5422f17a3cfe
+```
+
+<Solution id="8a093091-165f-43ff-8275-656c6df71c3c">
+```py live_py readonly slim
+from turtle import *
+from random import *
+
+groesse_schneeflocke = 6
+anzahl_schneeflocken = 30
+
+def haus():
+    # Quadrat
+    for i in range(4):
+        forward(60)
+        left(90)
+    # nach oben zum Dach
+    left(90)
+    forward(60)
+    right(90)
+    # Dach
+    for i in range(3):
+        forward(60)
+        left(120)
+    # zurück zum Startpunkt
+    right(90)
+    forward(60)
+    left(90)
+
+def baum():
+    pencolor('brown')
+    pensize(6)
+    left(90)
+    forward(40)
+    pencolor('green')
+    dot(50)
+    penup()
+    back(40)
+    pendown()
+    right(90)
+    pensize(1)
+    pencolor('black')
+
+def verschieben():
+    penup()
+    forward(90)
+    pendown()
+
+def schneeflocke():
+    for i in range(6):
+        forward(groesse_schneeflocke)
+        left(45)
+        forward(groesse_schneeflocke / 2)
+        back(groesse_schneeflocke / 2)
+        right(90)
+        forward(groesse_schneeflocke / 2)
+        back(groesse_schneeflocke / 2)
+        left(45)
+        forward(groesse_schneeflocke / 2)
+        back(groesse_schneeflocke * 1.5)
+        right(60)
+
+# Vorbereitung fürs Zeichnen
+hideturtle()
+speed(0)
+penup()
+goto(-230, -50)
+pendown()
+
+# Dorf zeichnen
+haus()
+verschieben()
+baum()
+verschieben()
+baum()
+verschieben()
+haus()
+verschieben()
+haus()
+verschieben()
+baum()
+
+# Schneeflocken zeichnen
+for i in range(anzahl_schneeflocken):
+    penup()
+    goto(randint(-220, 220), randint(-220, 220))
+    pendown()
+    schneeflocke()
+```
+</Solution>
+::::
