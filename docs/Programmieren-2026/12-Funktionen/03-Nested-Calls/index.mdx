@@ -11,6 +11,33 @@ Was diese Seite liefern soll, das das Kapitel zur Eingabe bisher nicht gut kann:
 - Verschachtelte Funktionsaufrufe isoliert anschauen, ohne sich dabei über Inputs, Datentypen, etc. Gedanken machen zu müssen.
 - Das Verständnis dafür schärfen, was hier vor sich geht.
 
+**Vorwissen von der Return-Seite** (hier voraussetzen, höchstens kurz in Erinnerung rufen):
+- Der Rückgabewert landet im Rückgabe-Slot (pinker Steckplatz, ohne Namen).
+- Variablenname → Python schaut beim Slot mit diesem Namen nach. Funktionsaufruf → Python führt die Funktion aus und schaut danach im Rückgabe-Slot nach.
+- Funktionsaufruf mit Variablen-Zuweisung: `dauer = in_minuten(2, 15)`. Der Wert wandert aus dem Rückgabe-Slot in den Slot der Variable. Ohne Zuweisung wird er am Ende der Zeile abgeräumt und ist weg.
+- Ein erneuter Aufruf führt die Funktion auch erneut aus.
+- Bisher wurde der Rückgabewert immer zuerst in einer Variable gespeichert.
+
+**Einstieg:** Wir verwenden das Beispiel (dasselbe wie im Video) der Return-Seite weiter und setzen den Funktionsaufruf anstelle der Variable ein:
+
+```py
+# bisher: mit Variable
+dauer = in_minuten(2, 15)
+print(dauer)
+
+# neu: direkt eingesetzt
+print(in_minuten(2, 15))
+```
+
+Das Neue ist nur: Bei `print(dauer)` liest Python den Wert aus dem Slot `dauer`. Bei `print(in_minuten(2, 15))` führt Python **zuerst** `in_minuten(2, 15)` aus, liest den Wert `135` aus dem Rückgabe-Slot und übergibt ihn als Argument an `print()`. Wichtig ist auch, wann welche Variante Sinn macht: Wird der Wert später nochmals gebraucht, gehört er in eine Variable (sonst müsste man die Funktion erneut aufrufen). Wird er nur einmal gebraucht, kann man den Aufruf direkt einsetzen.
+
+**Grafische Übersicht:** Die Excalidraw-Zeichnung der Return-Seite (Funktionsaufruf ohne / mit Variablen-Zuweisung) hier um einen Fall ergänzen: «Funktionsaufruf mit Weitergabe als Argument», z.B. `print(in_minuten(2, 15))`.
+
+**Bezug zu früheren Kapiteln:** Verschachtelte Aufrufe sind bereits vorgekommen, ohne dass sie erklärt wurden. Das darf hier referenziert werden:
+- Zufall: `dot(randint(5, 15))`
+- Funktionen: `goto(randint(-220, 220), randint(-220, 220))`
+- Parameter: `schneeflocke(randint(-220, 220), randint(-220, 220), randint(5, 30))`
+
 Vorschlag:
 - Etwas Theorie, vielleicht auch etwas mehr als sonst z.B. bei den Funktionen
 - Ein Quiz dazu
